@@ -17,6 +17,7 @@ import AdvancedFeatures from "@/pages/advanced-features";
 import Subscribe from "@/pages/subscribe";
 import Login from "@/pages/login";
 import Landing from "@/pages/landing";
+import MarketingLanding from "@/pages/landing-marketing";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,31 +25,37 @@ function Router() {
 
   return (
     <Switch>
-      {isLoading || !isAuthenticated ? (
-        <>
-          <Route path="/login" component={Login} />
-          <Route path="/" component={Landing} />
-        </>
-      ) : (
-        <>
+      {/* Marketing Landing Page - Always show for root path */}
+      <Route path="/" component={MarketingLanding} />
+      
+      {/* Web Application Routes - Under /app path */}
+      <Route path="/app/login" component={Login} />
+      <Route path="/app*">
+        {isLoading || !isAuthenticated ? (
+          <Route path="*" component={Landing} />
+        ) : (
           <div className="min-h-screen bg-gray-50">
             <Navigation />
             <Switch>
-              <Route path="/" component={Dashboard} />
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/kpi" component={KPIDashboard} />
-              <Route path="/advanced-features" component={AdvancedFeatures} />
-              <Route path="/ai-model" component={AIModel} />
-              <Route path="/esg-scoring" component={ESGScoring} />
-              <Route path="/irr-calculator" component={IRRCalculator} />
-              <Route path="/projects" component={ProjectManagement} />
-              <Route path="/market-insights" component={MarketInsights} />
-              <Route path="/subscribe" component={Subscribe} />
+              <Route path="/app" component={Dashboard} />
+              <Route path="/app/dashboard" component={Dashboard} />
+              <Route path="/app/kpi" component={KPIDashboard} />
+              <Route path="/app/advanced-features" component={AdvancedFeatures} />
+              <Route path="/app/ai-model" component={AIModel} />
+              <Route path="/app/esg-scoring" component={ESGScoring} />
+              <Route path="/app/irr-calculator" component={IRRCalculator} />
+              <Route path="/app/projects" component={ProjectManagement} />
+              <Route path="/app/market-insights" component={MarketInsights} />
+              <Route path="/app/subscribe" component={Subscribe} />
               <Route component={NotFound} />
             </Switch>
           </div>
-        </>
-      )}
+        )}
+      </Route>
+
+      
+      {/* Fallback for unknown routes */}
+      <Route component={NotFound} />
     </Switch>
   );
 }
