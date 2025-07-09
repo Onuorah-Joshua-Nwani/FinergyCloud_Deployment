@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Area, AreaChart } from "recharts";
 import { TrendingUp, DollarSign, BarChart3, Target, AlertCircle } from "lucide-react";
+import { useCurrencyFormat } from "@/hooks/use-currency-format";
 
 const performanceData = [
   { 
@@ -55,20 +56,20 @@ const performanceData = [
   }
 ];
 
-const CustomTooltip = ({ active, payload, label }: any) => {
+const CustomTooltip = ({ active, payload, label, convertAndFormat }: any) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
-      <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg min-w-[240px]">
+      <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg min-w-[240px] mobile-tooltip">
         <h3 className="font-medium text-gray-900 mb-3">{label}</h3>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
             <span className="text-gray-600">Investment:</span>
-            <span className="font-medium">₦{data.investment}M</span>
+            <span className="font-medium">{convertAndFormat(data.investment * 1000000)}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Returns:</span>
-            <span className="font-medium text-green-600">₦{data.returns}M</span>
+            <span className="font-medium text-green-600">{convertAndFormat(data.returns * 1000000)}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">IRR:</span>
@@ -90,6 +91,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export default function InvestmentPerformanceChart() {
+  const { convertAndFormat } = useCurrencyFormat();
   const latestData = performanceData[performanceData.length - 1];
   const previousData = performanceData[performanceData.length - 2];
   const growthRate = ((latestData.returns - previousData.returns) / previousData.returns * 100).toFixed(1);
@@ -115,7 +117,7 @@ export default function InvestmentPerformanceChart() {
           <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
             <div className="flex items-center justify-center gap-1 mb-1">
               <DollarSign className="w-4 h-4 text-blue-600" />
-              <span className="mobile-text-xl font-bold text-blue-600">₦{totalInvestment}</span>
+              <span className="mobile-text-xl font-bold text-blue-600">{convertAndFormat(totalInvestment * 1000000)}</span>
             </div>
             <p className="text-sm text-blue-800 font-medium">Total Investment</p>
             <p className="text-xs text-blue-600">Millions deployed</p>
@@ -123,7 +125,7 @@ export default function InvestmentPerformanceChart() {
           <div className="text-center mobile-p-2 bg-green-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
               <TrendingUp className="w-4 h-4 text-green-600" />
-              <span className="text-xl font-bold text-green-600">₦{totalReturns}</span>
+              <span className="text-xl font-bold text-green-600">{convertAndFormat(totalReturns * 1000000)}</span>
             </div>
             <p className="text-sm text-green-800 font-medium">Total Returns</p>
             <p className="text-xs text-green-600">Millions generated</p>
@@ -169,7 +171,7 @@ export default function InvestmentPerformanceChart() {
                   yAxisId="left"
                   tick={{ fontSize: 12 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'Amount (₦M)', angle: -90, position: 'insideLeft' }}
+                  label={{ value: `Amount`, angle: -90, position: 'insideLeft' }}
                 />
                 <YAxis 
                   yAxisId="right"
@@ -178,7 +180,7 @@ export default function InvestmentPerformanceChart() {
                   tickLine={{ stroke: '#d1d5db' }}
                   label={{ value: 'IRR (%)', angle: 90, position: 'insideRight' }}
                 />
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip content={(props) => <CustomTooltip {...props} convertAndFormat={convertAndFormat} />} />
                 <Legend />
                 <Bar 
                   yAxisId="left"

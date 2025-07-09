@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useCurrencyFormat } from "@/hooks/use-currency-format";
 import type { Project } from "@shared/schema";
 
 interface ProjectCardProps {
@@ -7,6 +8,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const { convertAndFormat } = useCurrencyFormat();
   const getStatusColor = (status: string) => {
     switch (status) {
       case "active":

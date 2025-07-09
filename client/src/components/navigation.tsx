@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Leaf, Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import CurrencySelector from "./currency-selector";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -47,6 +48,9 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center space-x-3">
+            {/* Currency Selector */}
+            <CurrencySelector />
+            
             {/* Mobile Navigation */}
             <Sheet>
               <SheetTrigger asChild>

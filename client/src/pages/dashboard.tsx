@@ -6,6 +6,7 @@ import ProjectCard from "@/components/project-card";
 import PortfolioPerformanceChart from "@/components/charts/portfolio-performance-chart";
 import ProjectDistributionChart from "@/components/charts/project-distribution-chart";
 import InvestmentPerformanceChart from "@/components/charts/investment-performance-chart";
+import { useCurrencyFormat } from "@/hooks/use-currency-format";
 import { 
   TrendingUp, 
   Leaf, 
@@ -20,6 +21,7 @@ import { Link } from "wouter";
 import type { Project, MarketInsight } from "@shared/schema";
 
 export default function Dashboard() {
+  const { convertAndFormat } = useCurrencyFormat();
   const { data: dashboardMetrics, isLoading: isLoadingMetrics } = useQuery({
     queryKey: ["/api/dashboard/metrics"],
   });
@@ -81,7 +83,7 @@ export default function Dashboard() {
           />
           <KPICard
             title="Analyzed Value"
-            value={dashboardMetrics?.analyzedValue || "₦0M"}
+            value={dashboardMetrics?.analyzedValue ? convertAndFormat(parseFloat(dashboardMetrics.analyzedValue.replace(/[₦M]/g, '')) * 1000000) : convertAndFormat(0)}
             description="Analyzed Value"
             icon={DollarSign}
             badge="Value"

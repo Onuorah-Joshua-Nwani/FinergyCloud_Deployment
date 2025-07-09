@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import { PieChart as PieChartIcon, TrendingUp, DollarSign, Zap } from "lucide-react";
+import { useCurrencyFormat } from "@/hooks/use-currency-format";
 
 const portfolioData = [
   { 
@@ -72,7 +73,7 @@ const CustomTooltip = ({ active, payload }: any) => {
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Investment:</span>
-            <span className="font-medium">₦{data.investment}M</span>
+            <span className="font-medium">{convertAndFormat ? convertAndFormat(data.investment * 1000000) : `₦${data.investment}M`}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Avg IRR:</span>
@@ -109,6 +110,7 @@ const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent
 };
 
 export default function ProjectDistributionChart() {
+  const { convertAndFormat } = useCurrencyFormat();
   const totalProjects = portfolioData.reduce((sum, item) => sum + item.projects, 0);
   const totalCapacity = portfolioData.reduce((sum, item) => sum + item.capacity, 0);
   const totalInvestment = portfolioData.reduce((sum, item) => sum + item.investment, 0);
@@ -147,7 +149,7 @@ export default function ProjectDistributionChart() {
           <div className="text-center p-3 bg-purple-50 rounded-lg border border-purple-200">
             <div className="flex items-center justify-center gap-1 mb-1">
               <DollarSign className="w-4 h-4 text-purple-600" />
-              <span className="text-2xl font-bold text-purple-600">₦{totalInvestment.toFixed(0)}M</span>
+              <span className="text-2xl font-bold text-purple-600">{convertAndFormat(totalInvestment * 1000000)}</span>
             </div>
             <p className="text-sm text-purple-800 font-medium">Total Investment</p>
             <p className="text-xs text-purple-600">Capital deployed</p>
