@@ -24,14 +24,14 @@ export default function Dashboard() {
 
   if (isLoadingProjects) {
     return (
-      <div className="py-6 md:py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-4 md:py-6 lg:py-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="animate-pulse">
-            <div className="h-8 bg-gray-200 rounded w-48 mb-2"></div>
-            <div className="h-4 bg-gray-200 rounded w-64 mb-8"></div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="h-32 bg-gray-200 rounded-xl"></div>
+            <div className="h-6 md:h-8 bg-gray-200 rounded w-32 md:w-48 mb-2"></div>
+            <div className="h-3 md:h-4 bg-gray-200 rounded w-48 md:w-64 mb-6 md:mb-8"></div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="h-64 md:h-80 bg-gray-200 rounded-xl"></div>
               ))}
             </div>
           </div>
@@ -46,96 +46,94 @@ export default function Dashboard() {
     <section className="py-4 md:py-6 lg:py-8">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-6 md:mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
-          <p className="text-sm md:text-base text-gray-600">Welcome to FinergyCloud Mobile</p>
+        <div className="mb-4 md:mb-6">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1 md:mb-2">Dashboard</h1>
+          <p className="text-xs md:text-sm lg:text-base text-gray-600">Welcome to FinergyCloud Mobile</p>
         </div>
 
-
-
-        <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
           {/* Quick Actions */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
+          <Card className="order-1">
+            <CardHeader className="pb-3 md:pb-6">
+              <CardTitle className="text-lg md:text-xl">Quick Actions</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-3">
+            <CardContent className="pt-0">
+              <div className="grid grid-cols-2 gap-2 md:gap-3 lg:grid-cols-3">
                 <Link href="/kpi">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
                   >
-                    <div className="p-1.5 md:p-2 bg-purple-100 rounded-lg w-fit mb-2 md:mb-3">
+                    <div className="p-1 md:p-1.5 lg:p-2 bg-purple-100 rounded-lg w-fit mb-1 md:mb-2">
                       <BarChart3 className="w-3 h-3 md:w-4 md:h-4 text-purple-600" />
                     </div>
-                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">KPI Dashboard</h3>
-                    <p className="text-xs text-gray-600 hidden md:block">View all metrics</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">KPI Dashboard</h3>
+                    <p className="text-xs text-gray-600 hidden lg:block">View all metrics</p>
                   </Button>
                 </Link>
 
                 <Link href="/irr-calculator">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
                   >
-                    <div className="p-1.5 md:p-2 bg-primary/10 rounded-lg w-fit mb-2 md:mb-3">
+                    <div className="p-1 md:p-1.5 lg:p-2 bg-primary/10 rounded-lg w-fit mb-1 md:mb-2">
                       <Calculator className="w-3 h-3 md:w-4 md:h-4 text-primary" />
                     </div>
-                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">IRR Calculator</h3>
-                    <p className="text-xs text-gray-600 hidden md:block">Run financial simulations</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">IRR Calculator</h3>
+                    <p className="text-xs text-gray-600 hidden lg:block">Financial simulations</p>
                   </Button>
                 </Link>
 
                 <Link href="/projects">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
                   >
-                    <div className="p-1.5 md:p-2 bg-secondary/10 rounded-lg w-fit mb-2 md:mb-3">
+                    <div className="p-1 md:p-1.5 lg:p-2 bg-secondary/10 rounded-lg w-fit mb-1 md:mb-2">
                       <Folder className="w-3 h-3 md:w-4 md:h-4 text-secondary" />
                     </div>
-                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">Manage Projects</h3>
-                    <p className="text-xs text-gray-600 hidden md:block">Create and manage projects</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">Projects</h3>
+                    <p className="text-xs text-gray-600 hidden lg:block">Manage portfolio</p>
                   </Button>
                 </Link>
 
                 <Link href="/market-insights">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
                   >
-                    <div className="p-1.5 md:p-2 bg-blue-100 rounded-lg w-fit mb-2 md:mb-3">
+                    <div className="p-1 md:p-1.5 lg:p-2 bg-blue-100 rounded-lg w-fit mb-1 md:mb-2">
                       <Globe className="w-3 h-3 md:w-4 md:h-4 text-blue-600" />
                     </div>
-                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">Market Insights</h3>
-                    <p className="text-xs text-gray-600 hidden md:block">Trends and analysis</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">Market Insights</h3>
+                    <p className="text-xs text-gray-600 hidden lg:block">Trends & analysis</p>
                   </Button>
                 </Link>
 
                 <Link href="/esg-scoring">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
                   >
-                    <div className="p-1.5 md:p-2 bg-success/10 rounded-lg w-fit mb-2 md:mb-3">
+                    <div className="p-1 md:p-1.5 lg:p-2 bg-success/10 rounded-lg w-fit mb-1 md:mb-2">
                       <Leaf className="w-3 h-3 md:w-4 md:h-4 text-success" />
                     </div>
-                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">ESG Scoring</h3>
-                    <p className="text-xs text-gray-600 hidden md:block">Assess sustainability</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">ESG Scoring</h3>
+                    <p className="text-xs text-gray-600 hidden lg:block">Sustainability</p>
                   </Button>
                 </Link>
 
                 <Link href="/ai-model">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
                   >
-                    <div className="p-1.5 md:p-2 bg-accent/10 rounded-lg w-fit mb-2 md:mb-3">
+                    <div className="p-1 md:p-1.5 lg:p-2 bg-accent/10 rounded-lg w-fit mb-1 md:mb-2">
                       <Brain className="w-3 h-3 md:w-4 md:h-4 text-accent" />
                     </div>
-                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">AI Prediction</h3>
-                    <p className="text-xs text-gray-600 hidden md:block">XGBoost model insights</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">AI Prediction</h3>
+                    <p className="text-xs text-gray-600 hidden lg:block">XGBoost insights</p>
                   </Button>
                 </Link>
               </div>
@@ -143,25 +141,25 @@ export default function Dashboard() {
           </Card>
 
           {/* Recent Projects */}
-          <Card>
-            <CardHeader>
+          <Card className="order-2">
+            <CardHeader className="pb-3 md:pb-6">
               <div className="flex items-center justify-between">
-                <CardTitle>Recent Projects</CardTitle>
+                <CardTitle className="text-lg md:text-xl">Recent Projects</CardTitle>
                 <Link href="/projects">
-                  <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
-                    View All <ArrowRight className="w-4 h-4 ml-1" />
+                  <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 text-xs md:text-sm">
+                    View All <ArrowRight className="w-3 h-3 md:w-4 md:h-4 ml-1" />
                   </Button>
                 </Link>
               </div>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-3 md:space-y-4">
+            <CardContent className="pt-0">
+              <div className="space-y-2 md:space-y-3">
                 {recentProjects.length > 0 ? (
                   recentProjects.map((project) => (
                     <ProjectCard key={project.id} project={project} />
                   ))
                 ) : (
-                  <p className="text-gray-500 text-center py-8">No recent projects available</p>
+                  <p className="text-gray-500 text-center py-6 md:py-8 text-sm">No recent projects available</p>
                 )}
               </div>
             </CardContent>
@@ -169,13 +167,13 @@ export default function Dashboard() {
         </div>
 
         {/* Portfolio Analytics */}
-        <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6">
           <PortfolioPerformanceChart />
           <ProjectDistributionChart />
         </div>
 
         {/* Investment Performance */}
-        <div className="mt-6 md:mt-8">
+        <div className="mt-4 md:mt-6">
           <InvestmentPerformanceChart />
         </div>
 
