@@ -9,7 +9,8 @@ import {
   ArrowRight,
   Globe,
   BarChart3,
-  Leaf
+  Leaf,
+  Trophy
 } from "lucide-react";
 import { Link } from "wouter";
 import type { Project } from "@shared/schema";
@@ -118,6 +119,19 @@ export default function Dashboard() {
                     </div>
                     <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">ESG Scoring</h3>
                     <p className="text-xs text-gray-600 hidden lg:block">Sustainability</p>
+                  </Button>
+                </Link>
+
+                <Link href="/rewards">
+                  <Button 
+                    variant="outline" 
+                    className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
+                  >
+                    <div className="p-1 md:p-1.5 lg:p-2 bg-yellow-100 rounded-lg w-fit mb-1 md:mb-2">
+                      <Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-600" />
+                    </div>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">Rewards</h3>
+                    <p className="text-xs text-gray-600 hidden lg:block">Sustainability points</p>
                   </Button>
                 </Link>
 

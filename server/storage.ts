@@ -5,6 +5,11 @@ import {
   marketInsights,
   projectTypeEsgTemplates,
   users,
+  achievements,
+  userAchievements,
+  rewardActivities,
+  rewardChallenges,
+  userChallengeProgress,
   type Project, 
   type InsertProject,
   type Prediction,
@@ -16,7 +21,17 @@ import {
   type ProjectTypeEsgTemplate,
   type InsertProjectTypeEsgTemplate,
   type User,
-  type UpsertUser
+  type UpsertUser,
+  type Achievement,
+  type InsertAchievement,
+  type UserAchievement,
+  type InsertUserAchievement,
+  type RewardActivity,
+  type InsertRewardActivity,
+  type RewardChallenge,
+  type InsertRewardChallenge,
+  type UserChallengeProgress,
+  type InsertUserChallengeProgress,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
@@ -58,6 +73,34 @@ export interface IStorage {
   getProjectTypeEsgTemplates(): Promise<ProjectTypeEsgTemplate[]>;
   getProjectTypeEsgTemplate(projectType: string): Promise<ProjectTypeEsgTemplate | undefined>;
   createProjectTypeEsgTemplate(template: InsertProjectTypeEsgTemplate): Promise<ProjectTypeEsgTemplate>;
+  
+  // Micro-Reward System
+  getUserRewardStats(userId: string): Promise<{
+    sustainabilityPoints: number;
+    level: number;
+    xp: number;
+    streak: number;
+    totalCo2Saved: number;
+    totalEnergyGenerated: number;
+  }>;
+  getUserAchievements(userId: string): Promise<UserAchievement[]>;
+  getAchievements(): Promise<Achievement[]>;
+  getUserRewardActivities(userId: string): Promise<RewardActivity[]>;
+  getActiveChallenges(): Promise<RewardChallenge[]>;
+  getUserChallengeProgress(userId: string): Promise<UserChallengeProgress[]>;
+  
+  // Reward actions
+  addRewardActivity(activity: InsertRewardActivity): Promise<RewardActivity>;
+  updateUserRewardStats(userId: string, stats: {
+    sustainabilityPoints?: number;
+    level?: number;
+    xp?: number;
+    streak?: number;
+    totalCo2Saved?: number;
+    totalEnergyGenerated?: number;
+  }): Promise<User>;
+  checkAndUnlockAchievements(userId: string): Promise<Achievement[]>;
+  updateChallengeProgress(userId: string, challengeId: number, progress: number): Promise<UserChallengeProgress>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -190,6 +233,115 @@ export class DatabaseStorage implements IStorage {
           excerpt: "How AI is revolutionizing ESG scoring and making environmental impact quantifiable.",
           content: null,
           author: "FinergyCloud Research Team",
+        },
+      ]);
+      
+    // Seed reward data
+    await this.seedRewardData();
+  }
+
+  async seedRewardData() {
+    // Check if achievements already exist
+    const existingAchievements = await db.select().from(achievements).limit(1);
+    if (existingAchievements.length > 0) {
+      return; // Reward data already seeded
+    }
+
+    // Seed achievements
+    await db
+      .insert(achievements)
+      .values([
+        {
+          title: "First Investment",
+          description: "Make your first renewable energy investment",
+          icon: "trophy",
+          category: "investment",
+          difficulty: "easy",
+          points: 100,
+          requirement: { type: "sustainability_points", value: 50 },
+          isActive: true,
+        },
+        {
+          title: "Green Champion",
+          description: "Save 1000 tons of CO2 through investments",
+          icon: "leaf",
+          category: "environmental",
+          difficulty: "medium",
+          points: 250,
+          requirement: { type: "co2_saved", value: 1000 },
+          isActive: true,
+        },
+        {
+          title: "Energy Pioneer",
+          description: "Generate 10 MWh of clean energy",
+          icon: "zap",
+          category: "environmental",
+          difficulty: "medium",
+          points: 200,
+          requirement: { type: "energy_generated", value: 10 },
+          isActive: true,
+        },
+        {
+          title: "Sustainability Streak",
+          description: "Maintain a 30-day activity streak",
+          icon: "calendar",
+          category: "engagement",
+          difficulty: "hard",
+          points: 500,
+          requirement: { type: "streak", value: 30 },
+          isActive: true,
+        },
+        {
+          title: "Level Master",
+          description: "Reach level 10 in the platform",
+          icon: "star",
+          category: "engagement",
+          difficulty: "hard",
+          points: 1000,
+          requirement: { type: "level", value: 10 },
+          isActive: true,
+        },
+      ]);
+
+    // Seed challenges
+    await db
+      .insert(rewardChallenges)
+      .values([
+        {
+          title: "Weekly Green Investor",
+          description: "Make 3 sustainable investments this week",
+          category: "investment",
+          difficulty: "medium",
+          points: 150,
+          xpReward: 300,
+          requirement: { type: "investments", value: 3 },
+          isActive: true,
+          startDate: new Date(),
+          endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
+        },
+        {
+          title: "ESG Analysis Expert",
+          description: "Complete ESG analysis for 5 projects",
+          category: "analysis",
+          difficulty: "medium",
+          points: 100,
+          xpReward: 200,
+          requirement: { type: "esg_analyses", value: 5 },
+          isActive: true,
+          startDate: new Date(),
+          endDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000), // 14 days from now
+        },
+        {
+          title: "Daily Engagement",
+          description: "Use the platform for 7 consecutive days",
+          category: "engagement",
+          difficulty: "easy",
+          points: 75,
+          xpReward: 150,
+          requirement: { type: "daily_logins", value: 7 },
+          isActive: true,
+          startDate: new Date(),
+          endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
         },
       ]);
   }
@@ -338,6 +490,177 @@ export class DatabaseStorage implements IStorage {
       .returning();
     return template;
   }
+
+  // Micro-Reward System implementation
+  async getUserRewardStats(userId: string): Promise<{
+    sustainabilityPoints: number;
+    level: number;
+    xp: number;
+    streak: number;
+    totalCo2Saved: number;
+    totalEnergyGenerated: number;
+  }> {
+    const [user] = await db.select().from(users).where(eq(users.id, userId));
+    if (!user) {
+      throw new Error("User not found");
+    }
+    
+    return {
+      sustainabilityPoints: user.sustainabilityPoints || 0,
+      level: user.level || 1,
+      xp: user.xp || 0,
+      streak: user.streak || 0,
+      totalCo2Saved: user.totalCo2Saved || 0,
+      totalEnergyGenerated: user.totalEnergyGenerated || 0,
+    };
+  }
+
+  async getUserAchievements(userId: string): Promise<UserAchievement[]> {
+    const userAchievs = await db
+      .select()
+      .from(userAchievements)
+      .where(eq(userAchievements.userId, userId));
+    return userAchievs;
+  }
+
+  async getAchievements(): Promise<Achievement[]> {
+    const achievs = await db
+      .select()
+      .from(achievements)
+      .where(eq(achievements.isActive, true));
+    return achievs;
+  }
+
+  async getUserRewardActivities(userId: string): Promise<RewardActivity[]> {
+    const activities = await db
+      .select()
+      .from(rewardActivities)
+      .where(eq(rewardActivities.userId, userId))
+      .orderBy(rewardActivities.createdAt);
+    return activities;
+  }
+
+  async getActiveChallenges(): Promise<RewardChallenge[]> {
+    const challenges = await db
+      .select()
+      .from(rewardChallenges)
+      .where(eq(rewardChallenges.isActive, true));
+    return challenges;
+  }
+
+  async getUserChallengeProgress(userId: string): Promise<UserChallengeProgress[]> {
+    const progress = await db
+      .select()
+      .from(userChallengeProgress)
+      .where(eq(userChallengeProgress.userId, userId));
+    return progress;
+  }
+
+  async addRewardActivity(activity: InsertRewardActivity): Promise<RewardActivity> {
+    const [newActivity] = await db
+      .insert(rewardActivities)
+      .values(activity)
+      .returning();
+    return newActivity;
+  }
+
+  async updateUserRewardStats(userId: string, stats: {
+    sustainabilityPoints?: number;
+    level?: number;
+    xp?: number;
+    streak?: number;
+    totalCo2Saved?: number;
+    totalEnergyGenerated?: number;
+  }): Promise<User> {
+    const [updatedUser] = await db
+      .update(users)
+      .set({
+        ...stats,
+        lastActivityDate: new Date(),
+        updatedAt: new Date(),
+      })
+      .where(eq(users.id, userId))
+      .returning();
+    return updatedUser;
+  }
+
+  async checkAndUnlockAchievements(userId: string): Promise<Achievement[]> {
+    const userStats = await this.getUserRewardStats(userId);
+    const allAchievements = await this.getAchievements();
+    const userAchievements = await this.getUserAchievements(userId);
+    
+    const unlockedAchievements: Achievement[] = [];
+    const userAchievementIds = new Set(userAchievements.map(ua => ua.achievementId));
+    
+    for (const achievement of allAchievements) {
+      if (userAchievementIds.has(achievement.id)) continue;
+      
+      const requirement = achievement.requirement as { type: string; value: number };
+      let isUnlocked = false;
+      
+      switch (requirement.type) {
+        case 'sustainability_points':
+          isUnlocked = userStats.sustainabilityPoints >= requirement.value;
+          break;
+        case 'co2_saved':
+          isUnlocked = userStats.totalCo2Saved >= requirement.value;
+          break;
+        case 'energy_generated':
+          isUnlocked = userStats.totalEnergyGenerated >= requirement.value;
+          break;
+        case 'level':
+          isUnlocked = userStats.level >= requirement.value;
+          break;
+        case 'streak':
+          isUnlocked = userStats.streak >= requirement.value;
+          break;
+      }
+      
+      if (isUnlocked) {
+        await db.insert(userAchievements).values({
+          userId,
+          achievementId: achievement.id,
+          progress: 1.0,
+        });
+        unlockedAchievements.push(achievement);
+      }
+    }
+    
+    return unlockedAchievements;
+  }
+
+  async updateChallengeProgress(userId: string, challengeId: number, progress: number): Promise<UserChallengeProgress> {
+    const [existingProgress] = await db
+      .select()
+      .from(userChallengeProgress)
+      .where(eq(userChallengeProgress.userId, userId))
+      .where(eq(userChallengeProgress.challengeId, challengeId));
+    
+    if (existingProgress) {
+      const [updated] = await db
+        .update(userChallengeProgress)
+        .set({
+          progress,
+          completed: progress >= 1.0,
+          completedAt: progress >= 1.0 ? new Date() : null,
+        })
+        .where(eq(userChallengeProgress.id, existingProgress.id))
+        .returning();
+      return updated;
+    } else {
+      const [newProgress] = await db
+        .insert(userChallengeProgress)
+        .values({
+          userId,
+          challengeId,
+          progress,
+          completed: progress >= 1.0,
+          completedAt: progress >= 1.0 ? new Date() : null,
+        })
+        .returning();
+      return newProgress;
+    }
+  }
 }
 
 export class MemStorage implements IStorage {
@@ -417,6 +740,92 @@ export class MemStorage implements IStorage {
       updatedAt: new Date(),
     };
   }
+
+  // Mock implementations for reward system in memory storage
+  async getUserRewardStats(userId: string): Promise<{
+    sustainabilityPoints: number;
+    level: number;
+    xp: number;
+    streak: number;
+    totalCo2Saved: number;
+    totalEnergyGenerated: number;
+  }> {
+    return {
+      sustainabilityPoints: 1250,
+      level: 3,
+      xp: 750,
+      streak: 7,
+      totalCo2Saved: 2450,
+      totalEnergyGenerated: 12.5,
+    };
+  }
+
+  async getUserAchievements(userId: string): Promise<UserAchievement[]> {
+    return [];
+  }
+
+  async getAchievements(): Promise<Achievement[]> {
+    return [];
+  }
+
+  async getUserRewardActivities(userId: string): Promise<RewardActivity[]> {
+    return [];
+  }
+
+  async getActiveChallenges(): Promise<RewardChallenge[]> {
+    return [];
+  }
+
+  async getUserChallengeProgress(userId: string): Promise<UserChallengeProgress[]> {
+    return [];
+  }
+
+  async addRewardActivity(activity: InsertRewardActivity): Promise<RewardActivity> {
+    return { id: 1, ...activity, createdAt: new Date() };
+  }
+
+  async updateUserRewardStats(userId: string, stats: any): Promise<User> {
+    return {
+      id: userId,
+      email: null,
+      firstName: null,
+      lastName: null,
+      profileImageUrl: null,
+      stripeCustomerId: null,
+      stripeSubscriptionId: null,
+      subscriptionStatus: "inactive",
+      subscriptionPlan: "free",
+      subscriptionStartDate: null,
+      subscriptionEndDate: null,
+      sustainabilityPoints: stats.sustainabilityPoints || 0,
+      level: stats.level || 1,
+      xp: stats.xp || 0,
+      streak: stats.streak || 0,
+      totalCo2Saved: stats.totalCo2Saved || 0,
+      totalEnergyGenerated: stats.totalEnergyGenerated || 0,
+      lastActivityDate: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+  }
+
+  async checkAndUnlockAchievements(userId: string): Promise<Achievement[]> {
+    return [];
+  }
+
+  async updateChallengeProgress(userId: string, challengeId: number, progress: number): Promise<UserChallengeProgress> {
+    return {
+      id: 1,
+      userId,
+      challengeId,
+      progress,
+      completed: progress >= 1.0,
+      completedAt: progress >= 1.0 ? new Date() : null,
+      rewardClaimed: false,
+      createdAt: new Date(),
+    };
+  }
+
   private projects: Map<number, Project>;
   private predictions: Map<number, Prediction>;
   private esgMetrics: Map<number, EsgMetrics>;

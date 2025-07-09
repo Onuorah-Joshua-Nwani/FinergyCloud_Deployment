@@ -10,6 +10,7 @@ export default function Navigation() {
   const navItems = [
     { path: "/dashboard", label: "Dashboard" },
     { path: "/kpi", label: "KPI Dashboard" },
+    { path: "/rewards", label: "Rewards" },
     { path: "/advanced-features", label: "Advanced Features" },
     { path: "/projects", label: "Projects" },
     { path: "/market-insights", label: "Market Insights" },

@@ -275,6 +275,122 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Micro-Reward System endpoints
+  app.get("/api/rewards/stats", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.id;
+      const stats = await storage.getUserRewardStats(userId);
+      res.json(stats);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch reward stats" });
+    }
+  });
+
+  app.get("/api/rewards/achievements", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.id;
+      const achievements = await storage.getUserAchievements(userId);
+      res.json(achievements);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch achievements" });
+    }
+  });
+
+  app.get("/api/rewards/activities", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.id;
+      const activities = await storage.getUserRewardActivities(userId);
+      res.json(activities);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch reward activities" });
+    }
+  });
+
+  app.get("/api/rewards/challenges", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.id;
+      const [challenges, progress] = await Promise.all([
+        storage.getActiveChallenges(),
+        storage.getUserChallengeProgress(userId)
+      ]);
+      
+      const challengesWithProgress = challenges.map(challenge => {
+        const userProgress = progress.find(p => p.challengeId === challenge.id);
+        return {
+          ...challenge,
+          userProgress: userProgress || {
+            progress: 0,
+            completed: false,
+            rewardClaimed: false
+          }
+        };
+      });
+      
+      res.json(challengesWithProgress);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch challenges" });
+    }
+  });
+
+  app.post("/api/rewards/activity", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.id;
+      const { activityType, description, points, xpGained, metadata } = req.body;
+      
+      const activity = await storage.addRewardActivity({
+        userId,
+        activityType,
+        description,
+        points,
+        xpGained,
+        metadata
+      });
+      
+      // Update user stats
+      const currentStats = await storage.getUserRewardStats(userId);
+      const newPoints = currentStats.sustainabilityPoints + points;
+      const newXp = currentStats.xp + xpGained;
+      const newLevel = Math.floor(newXp / 1000) + 1;
+      
+      await storage.updateUserRewardStats(userId, {
+        sustainabilityPoints: newPoints,
+        xp: newXp,
+        level: newLevel
+      });
+      
+      // Check for new achievements
+      const newAchievements = await storage.checkAndUnlockAchievements(userId);
+      
+      res.json({
+        activity,
+        newAchievements,
+        updatedStats: {
+          sustainabilityPoints: newPoints,
+          xp: newXp,
+          level: newLevel
+        }
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to add reward activity" });
+    }
+  });
+
+  app.post("/api/rewards/claim-challenge", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.id;
+      const { challengeId } = req.body;
+      
+      const progress = await storage.updateChallengeProgress(userId, challengeId, 1.0);
+      
+      res.json({
+        success: true,
+        progress
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to claim challenge reward" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
