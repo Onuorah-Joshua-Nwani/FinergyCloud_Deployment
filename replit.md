@@ -290,6 +290,13 @@ The architecture emphasizes type safety, developer experience, and maintainabili
   - Web platform branch contains complete full-stack application ready for deployment
   - Maintained clean separation between mobile and web platform codebases
 
+### Domain Configuration (July 9, 2025)
+- **Custom Domain**: https://www.finergycloud.com/ already configured and active
+- **Current Site**: Static website served from main branch
+- **Web Platform**: Ready for deployment to replace or complement existing site
+- **Deployment Options**: Vercel, Railway, or Render with custom domain support
+- **DNS Configuration**: CNAME file present for GitHub Pages integration
+
 ### Current Status
 - **Authentication**: Demo authentication system ready for GitHub deployment
 - **Database**: Fully operational PostgreSQL with persistent data storage and user management
