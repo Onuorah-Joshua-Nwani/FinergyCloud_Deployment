@@ -197,6 +197,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Contact form submission
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const { name, email, company, inquiryType, subject, message, investmentRange, preferredContact } = req.body;
+      
+      // Log the contact form submission (in production, you would send emails, store in DB, etc.)
+      console.log("Contact form submission:", {
+        name,
+        email,
+        company,
+        inquiryType,
+        subject,
+        message,
+        investmentRange,
+        preferredContact,
+        timestamp: new Date().toISOString()
+      });
+      
+      // Simulate successful submission
+      res.json({ 
+        success: true, 
+        message: "Thank you for your inquiry. We'll get back to you within 24 hours." 
+      });
+    } catch (error) {
+      console.error("Contact form error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Sorry, there was an error sending your message. Please try again." 
+      });
+    }
+  });
+
   // Project type ESG template routes
   app.get("/api/project-type-esg-templates", async (req, res) => {
     try {

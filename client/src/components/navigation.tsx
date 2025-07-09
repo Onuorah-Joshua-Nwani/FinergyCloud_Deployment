@@ -16,6 +16,7 @@ export default function Navigation() {
     { path: "/ai-model", label: "AI Model" },
     { path: "/irr-calculator", label: "IRR Calculator" },
     { path: "/esg-scoring", label: "ESG Scoring" },
+    { path: "/contact", label: "Contact" },
     { path: "/subscribe", label: "Subscribe" },
   ];
 

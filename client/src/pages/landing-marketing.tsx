@@ -359,7 +359,7 @@ export default function MarketingLanding() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100" asChild>
-              <a href="/contact.html">Book Demo</a>
+              <a href="/contact">Book Demo</a>
             </Button>
             <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-green-600" asChild>
               <a href="/app">Try Platform Free</a>
