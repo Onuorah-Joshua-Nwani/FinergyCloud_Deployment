@@ -3,17 +3,98 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, Plus, Minus, TrendingUp, DollarSign, AlertTriangle, CheckCircle } from "lucide-react";
+import { Calculator, Plus, Minus, TrendingUp, DollarSign, AlertTriangle, CheckCircle, Sun, Wind, Droplets, Leaf, Mountain } from "lucide-react";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
+import { useCurrency } from "@/lib/currency-context";
+import type { Currency } from "@shared/currency";
 import { z } from "zod";
 
 const irrCalculatorSchema = z.object({
+  projectType: z.string().min(1, "Project type is required"),
+  projectLocation: z.string().min(1, "Project location is required"),
   initialInvestment: z.number().positive("Initial investment must be positive"),
   projectYears: z.number().min(1).max(30, "Project duration must be between 1-30 years"),
 });
+
+// Project type configurations with regional currency mapping
+const projectTypeConfigs = {
+  solar: {
+    name: "Solar",
+    icon: Sun,
+    color: "text-yellow-600",
+    bgColor: "bg-yellow-50",
+    borderColor: "border-yellow-200",
+    baseIRR: 16.2,
+    regions: {
+      nigeria: { currency: "NGN" as Currency, multiplier: 1.0 },
+      uk: { currency: "GBP" as Currency, multiplier: 0.8 },
+      europe: { currency: "EUR" as Currency, multiplier: 0.9 }
+    }
+  },
+  wind: {
+    name: "Wind",
+    icon: Wind,
+    color: "text-blue-600",
+    bgColor: "bg-blue-50",
+    borderColor: "border-blue-200",
+    baseIRR: 14.8,
+    regions: {
+      nigeria: { currency: "NGN" as Currency, multiplier: 1.0 },
+      uk: { currency: "GBP" as Currency, multiplier: 1.2 },
+      europe: { currency: "EUR" as Currency, multiplier: 1.1 }
+    }
+  },
+  hydro: {
+    name: "Hydro",
+    icon: Droplets,
+    color: "text-cyan-600",
+    bgColor: "bg-cyan-50",
+    borderColor: "border-cyan-200",
+    baseIRR: 18.1,
+    regions: {
+      nigeria: { currency: "NGN" as Currency, multiplier: 1.0 },
+      uk: { currency: "GBP" as Currency, multiplier: 0.9 },
+      europe: { currency: "EUR" as Currency, multiplier: 1.0 }
+    }
+  },
+  biomass: {
+    name: "Biomass",
+    icon: Leaf,
+    color: "text-green-600",
+    bgColor: "bg-green-50",
+    borderColor: "border-green-200",
+    baseIRR: 13.4,
+    regions: {
+      nigeria: { currency: "NGN" as Currency, multiplier: 1.0 },
+      uk: { currency: "GBP" as Currency, multiplier: 1.1 },
+      europe: { currency: "EUR" as Currency, multiplier: 1.2 }
+    }
+  },
+  geothermal: {
+    name: "Geothermal",
+    icon: Mountain,
+    color: "text-red-600",
+    bgColor: "bg-red-50",
+    borderColor: "border-red-200",
+    baseIRR: 15.7,
+    regions: {
+      nigeria: { currency: "NGN" as Currency, multiplier: 1.0 },
+      uk: { currency: "GBP" as Currency, multiplier: 0.7 },
+      europe: { currency: "EUR" as Currency, multiplier: 1.3 }
+    }
+  }
+};
+
+// Regional mappings
+const regionMappings = {
+  nigeria: ["Lagos", "Abuja", "Kano", "Port Harcourt", "Ibadan", "Enugu", "Kaduna"],
+  uk: ["London", "Manchester", "Birmingham", "Glasgow", "Edinburgh", "Cardiff", "Belfast"],
+  europe: ["Berlin", "Paris", "Rome", "Madrid", "Amsterdam", "Brussels", "Vienna"]
+};
 
 interface CashFlow {
   year: number;
@@ -22,6 +103,9 @@ interface CashFlow {
 
 export default function IRRCalculator() {
   const { convertAndFormat, convert } = useCurrencyFormat();
+  const { selectedCurrency, setSelectedCurrency } = useCurrency();
+  const [selectedProjectType, setSelectedProjectType] = useState<string>("");
+  const [selectedRegion, setSelectedRegion] = useState<string>("");
   const [cashFlows, setCashFlows] = useState<CashFlow[]>([
     { year: 1, amount: 0 },
     { year: 2, amount: 0 },
@@ -34,15 +118,37 @@ export default function IRRCalculator() {
     npv: number;
     paybackPeriod: number;
     roi: number;
+    projectedIRR: number;
   } | null>(null);
 
   const form = useForm({
     resolver: zodResolver(irrCalculatorSchema),
     defaultValues: {
+      projectType: "",
+      projectLocation: "",
       initialInvestment: 0,
       projectYears: 5,
     },
   });
+
+  // Helper function to detect region from location
+  const getRegionFromLocation = (location: string): string => {
+    for (const [region, cities] of Object.entries(regionMappings)) {
+      if (cities.includes(location)) {
+        return region;
+      }
+    }
+    return "nigeria"; // Default to Nigeria
+  };
+
+  // Helper function to get project type adjusted IRR
+  const getProjectTypeIRR = (projectType: string, region: string): number => {
+    const config = projectTypeConfigs[projectType as keyof typeof projectTypeConfigs];
+    if (!config) return 15.0;
+    
+    const regionData = config.regions[region as keyof typeof config.regions];
+    return config.baseIRR * (regionData?.multiplier || 1.0);
+  };
 
   const addCashFlow = () => {
     const nextYear = Math.max(...cashFlows.map(cf => cf.year)) + 1;
@@ -116,13 +222,16 @@ export default function IRRCalculator() {
   };
 
   const onSubmit = (data: any) => {
-    const { initialInvestment, projectYears } = data;
+    const { projectType, projectLocation, initialInvestment, projectYears } = data;
     const validCashFlows = cashFlows.filter(cf => cf.amount > 0).slice(0, projectYears);
 
     if (validCashFlows.length === 0) {
       return;
     }
 
+    const region = getRegionFromLocation(projectLocation);
+    const projectedIRR = getProjectTypeIRR(projectType, region);
+    
     const irr = calculateIRR(initialInvestment, validCashFlows);
     const npv = calculateNPV(initialInvestment, validCashFlows);
     const paybackPeriod = calculatePaybackPeriod(initialInvestment, validCashFlows);
@@ -133,6 +242,7 @@ export default function IRRCalculator() {
       npv,
       paybackPeriod,
       roi,
+      projectedIRR,
     });
   };
 
@@ -168,56 +278,176 @@ export default function IRRCalculator() {
             <CardContent>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="initialInvestment"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Initial Investment (NGN)</FormLabel>
-                        <FormControl>
-                          <Input 
-                            type="number" 
-                            step="1000" 
-                            min="0" 
-                            placeholder="Enter initial investment amount"
-                            {...field}
-                            onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="projectType"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Project Type</FormLabel>
+                          <Select 
+                            onValueChange={(value) => {
+                              field.onChange(value);
+                              setSelectedProjectType(value);
+                            }} 
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select project type..." />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {Object.entries(projectTypeConfigs).map(([key, config]) => {
+                                const IconComponent = config.icon;
+                                return (
+                                  <SelectItem key={key} value={key}>
+                                    <div className="flex items-center gap-2">
+                                      <IconComponent className={`w-4 h-4 ${config.color}`} />
+                                      <span>{config.name}</span>
+                                    </div>
+                                  </SelectItem>
+                                );
+                              })}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="projectYears"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Project Duration (Years)</FormLabel>
-                        <FormControl>
-                          <Input 
-                            type="number" 
-                            min="1" 
-                            max="30"
-                            placeholder="Enter project duration"
-                            {...field}
-                            onChange={(e) => {
-                              const years = parseInt(e.target.value) || 5;
-                              field.onChange(years);
-                              // Adjust cash flows to match project years
-                              const newCashFlows = Array.from({ length: years }, (_, i) => ({
-                                year: i + 1,
-                                amount: cashFlows[i]?.amount || 0
-                              }));
-                              setCashFlows(newCashFlows);
-                            }}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="projectLocation"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Project Location</FormLabel>
+                          <Select 
+                            onValueChange={(value) => {
+                              field.onChange(value);
+                              const region = getRegionFromLocation(value);
+                              setSelectedRegion(region);
+                              
+                              // Auto-set currency based on region
+                              const projectType = form.getValues('projectType');
+                              if (projectType) {
+                                const config = projectTypeConfigs[projectType as keyof typeof projectTypeConfigs];
+                                const regionData = config?.regions[region as keyof typeof config.regions];
+                                if (regionData) {
+                                  setSelectedCurrency(regionData.currency);
+                                }
+                              }
+                            }} 
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select location..." />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <div className="space-y-2">
+                                <div className="px-2 py-1 text-sm font-medium text-gray-500">Nigeria</div>
+                                {regionMappings.nigeria.map((city) => (
+                                  <SelectItem key={city} value={city}>{city}</SelectItem>
+                                ))}
+                                <div className="px-2 py-1 text-sm font-medium text-gray-500">United Kingdom</div>
+                                {regionMappings.uk.map((city) => (
+                                  <SelectItem key={city} value={city}>{city}</SelectItem>
+                                ))}
+                                <div className="px-2 py-1 text-sm font-medium text-gray-500">Europe</div>
+                                {regionMappings.europe.map((city) => (
+                                  <SelectItem key={city} value={city}>{city}</SelectItem>
+                                ))}
+                              </div>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="initialInvestment"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Initial Investment ({selectedCurrency})</FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="number" 
+                              step="1000" 
+                              min="0" 
+                              placeholder="Enter initial investment amount"
+                              {...field}
+                              onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="projectYears"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Project Duration (Years)</FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="number" 
+                              min="1" 
+                              max="30"
+                              placeholder="Enter project duration"
+                              {...field}
+                              onChange={(e) => {
+                                const years = parseInt(e.target.value) || 5;
+                                field.onChange(years);
+                                // Adjust cash flows to match project years
+                                const newCashFlows = Array.from({ length: years }, (_, i) => ({
+                                  year: i + 1,
+                                  amount: cashFlows[i]?.amount || 0
+                                }));
+                                setCashFlows(newCashFlows);
+                              }}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  {/* Project Type Info Display */}
+                  {selectedProjectType && (
+                    <div className={`p-4 rounded-lg border ${projectTypeConfigs[selectedProjectType as keyof typeof projectTypeConfigs]?.bgColor} ${projectTypeConfigs[selectedProjectType as keyof typeof projectTypeConfigs]?.borderColor}`}>
+                      <div className="flex items-center gap-2 mb-2">
+                        {(() => {
+                          const config = projectTypeConfigs[selectedProjectType as keyof typeof projectTypeConfigs];
+                          const IconComponent = config?.icon;
+                          return IconComponent ? <IconComponent className={`w-5 h-5 ${config.color}`} /> : null;
+                        })()}
+                        <h3 className="font-medium text-gray-900">
+                          {projectTypeConfigs[selectedProjectType as keyof typeof projectTypeConfigs]?.name} Project Analysis
+                        </h3>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <span className="text-gray-600">Expected IRR Range:</span>
+                          <span className="font-medium ml-2">
+                            {selectedRegion ? `${getProjectTypeIRR(selectedProjectType, selectedRegion).toFixed(1)}%` : 'Select location'}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-gray-600">Currency:</span>
+                          <span className="font-medium ml-2">{selectedCurrency}</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Cash Flow Inputs */}
                   <div className="space-y-4">
@@ -243,7 +473,7 @@ export default function IRRCalculator() {
                             type="number"
                             step="1000"
                             min="0"
-                            placeholder="Cash flow amount"
+                            placeholder={`Cash flow amount (${selectedCurrency})`}
                             value={cf.amount || ''}
                             onChange={(e) => updateCashFlow(cf.year, parseFloat(e.target.value) || 0)}
                             className="flex-1"
@@ -290,7 +520,7 @@ export default function IRRCalculator() {
                         const IconComponent = rating.icon;
                         return <IconComponent className="w-6 h-6 text-blue-600" />;
                       })()}
-                      <h3 className="text-lg font-medium text-gray-900">Internal Rate of Return</h3>
+                      <h3 className="text-lg font-medium text-gray-900">Calculated IRR</h3>
                     </div>
                     <div className="text-4xl font-bold text-blue-600 mb-2">
                       {calculationResult.irr.toFixed(2)}%
@@ -298,6 +528,11 @@ export default function IRRCalculator() {
                     <Badge className={getIRRRating(calculationResult.irr).color}>
                       {getIRRRating(calculationResult.irr).label}
                     </Badge>
+                    {calculationResult.projectedIRR && (
+                      <div className="mt-3 text-sm text-gray-600">
+                        Expected for project type: {calculationResult.projectedIRR.toFixed(1)}%
+                      </div>
+                    )}
                   </div>
 
                   {/* Other Metrics */}
@@ -338,6 +573,18 @@ export default function IRRCalculator() {
                   <div className="p-4 bg-gray-50 rounded-lg border">
                     <h4 className="font-medium text-gray-900 mb-3">Investment Summary</h4>
                     <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Project Type:</span>
+                        <span className="font-medium">{form.getValues('projectType') ? projectTypeConfigs[form.getValues('projectType') as keyof typeof projectTypeConfigs]?.name : 'Not selected'}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Location:</span>
+                        <span className="font-medium">{form.getValues('projectLocation') || 'Not selected'}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Currency:</span>
+                        <span className="font-medium">{selectedCurrency}</span>
+                      </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Initial Investment:</span>
                         <span className="font-medium">{convertAndFormat(form.getValues('initialInvestment'))}</span>
