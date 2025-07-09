@@ -121,16 +121,16 @@ export default function Dashboard() {
                   </Button>
                 </Link>
 
-                <Link href="/ai-model">
+                <Link href="/advanced-features">
                   <Button 
                     variant="outline" 
                     className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
                   >
-                    <div className="p-1 md:p-1.5 lg:p-2 bg-accent/10 rounded-lg w-fit mb-1 md:mb-2">
-                      <Brain className="w-3 h-3 md:w-4 md:h-4 text-accent" />
+                    <div className="p-1 md:p-1.5 lg:p-2 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg w-fit mb-1 md:mb-2">
+                      <Brain className="w-3 h-3 md:w-4 md:h-4 text-purple-600" />
                     </div>
-                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">AI Prediction</h3>
-                    <p className="text-xs text-gray-600 hidden lg:block">XGBoost insights</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 line-clamp-1">Advanced AI</h3>
+                    <p className="text-xs text-gray-600 hidden lg:block">Next-gen features</p>
                   </Button>
                 </Link>
               </div>
