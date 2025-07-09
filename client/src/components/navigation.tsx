@@ -9,6 +9,7 @@ export default function Navigation() {
 
   const navItems = [
     { path: "/dashboard", label: "Dashboard" },
+    { path: "/kpi", label: "KPI Dashboard" },
     { path: "/projects", label: "Projects" },
     { path: "/market-insights", label: "Market Insights" },
     { path: "/ai-model", label: "AI Model" },

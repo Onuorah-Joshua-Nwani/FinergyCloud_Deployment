@@ -12,6 +12,7 @@ import ESGScoring from "@/pages/esg-scoring";
 import IRRCalculator from "@/pages/irr-calculator";
 import ProjectManagement from "@/pages/project-management";
 import MarketInsights from "@/pages/market-insights";
+import KPIDashboard from "@/pages/kpi";
 import Landing from "@/pages/landing";
 import NotFound from "@/pages/not-found";
 
@@ -29,6 +30,7 @@ function Router() {
             <Switch>
               <Route path="/" component={Dashboard} />
               <Route path="/dashboard" component={Dashboard} />
+              <Route path="/kpi" component={KPIDashboard} />
               <Route path="/ai-model" component={AIModel} />
               <Route path="/esg-scoring" component={ESGScoring} />
               <Route path="/irr-calculator" component={IRRCalculator} />
