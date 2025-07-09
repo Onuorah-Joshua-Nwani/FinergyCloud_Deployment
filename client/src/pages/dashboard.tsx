@@ -20,7 +20,7 @@ import {
   BarChart3
 } from "lucide-react";
 import { Link } from "wouter";
-import type { Project, MarketInsight } from "@shared/schema";
+import type { Project } from "@shared/schema";
 
 export default function Dashboard() {
   const { convertAndFormat } = useCurrencyFormat();
@@ -32,11 +32,7 @@ export default function Dashboard() {
     queryKey: ["/api/projects"],
   });
 
-  const { data: marketInsights, isLoading: isLoadingInsights } = useQuery<MarketInsight[]>({
-    queryKey: ["/api/market-insights"],
-  });
-
-  if (isLoadingMetrics || isLoadingProjects || isLoadingInsights) {
+  if (isLoadingMetrics || isLoadingProjects) {
     return (
       <div className="py-6 md:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,16 +53,16 @@ export default function Dashboard() {
   const recentProjects = projects?.slice(0, 2) || [];
 
   return (
-    <section className="py-6 md:py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-4 md:py-6 lg:py-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
-          <p className="text-gray-600">Welcome to FinergyCloud Mobile</p>
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
+          <p className="text-sm md:text-base text-gray-600">Welcome to FinergyCloud Mobile</p>
         </div>
 
         {/* KPI Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
           <KPICard
             title="Average IRR"
             value={dashboardMetrics?.averageIRR ? `${dashboardMetrics.averageIRR}%` : "0%"}
@@ -101,76 +97,76 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
           {/* Quick Actions */}
           <Card>
             <CardHeader>
               <CardTitle>Quick Actions</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-3">
                 <Link href="/irr-calculator">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
                   >
-                    <div className="p-2 bg-primary/10 rounded-lg w-fit mb-3">
-                      <Calculator className="w-4 h-4 text-primary" />
+                    <div className="p-1.5 md:p-2 bg-primary/10 rounded-lg w-fit mb-2 md:mb-3">
+                      <Calculator className="w-3 h-3 md:w-4 md:h-4 text-primary" />
                     </div>
-                    <h3 className="font-medium text-gray-900 mb-1">IRR Calculator</h3>
-                    <p className="text-sm text-gray-600">Run financial simulations</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">IRR Calculator</h3>
+                    <p className="text-xs text-gray-600 hidden md:block">Run financial simulations</p>
                   </Button>
                 </Link>
 
                 <Link href="/projects">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
                   >
-                    <div className="p-2 bg-secondary/10 rounded-lg w-fit mb-3">
-                      <Folder className="w-4 h-4 text-secondary" />
+                    <div className="p-1.5 md:p-2 bg-secondary/10 rounded-lg w-fit mb-2 md:mb-3">
+                      <Folder className="w-3 h-3 md:w-4 md:h-4 text-secondary" />
                     </div>
-                    <h3 className="font-medium text-gray-900 mb-1">Manage Projects</h3>
-                    <p className="text-sm text-gray-600">Create and manage projects</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">Manage Projects</h3>
+                    <p className="text-xs text-gray-600 hidden md:block">Create and manage projects</p>
                   </Button>
                 </Link>
 
                 <Link href="/market-insights">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
                   >
-                    <div className="p-2 bg-blue-100 rounded-lg w-fit mb-3">
-                      <Globe className="w-4 h-4 text-blue-600" />
+                    <div className="p-1.5 md:p-2 bg-blue-100 rounded-lg w-fit mb-2 md:mb-3">
+                      <Globe className="w-3 h-3 md:w-4 md:h-4 text-blue-600" />
                     </div>
-                    <h3 className="font-medium text-gray-900 mb-1">Market Insights</h3>
-                    <p className="text-sm text-gray-600">Trends and analysis</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">Market Insights</h3>
+                    <p className="text-xs text-gray-600 hidden md:block">Trends and analysis</p>
                   </Button>
                 </Link>
 
                 <Link href="/esg-scoring">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
                   >
-                    <div className="p-2 bg-success/10 rounded-lg w-fit mb-3">
-                      <Leaf className="w-4 h-4 text-success" />
+                    <div className="p-1.5 md:p-2 bg-success/10 rounded-lg w-fit mb-2 md:mb-3">
+                      <Leaf className="w-3 h-3 md:w-4 md:h-4 text-success" />
                     </div>
-                    <h3 className="font-medium text-gray-900 mb-1">ESG Scoring</h3>
-                    <p className="text-sm text-gray-600">Assess sustainability</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">ESG Scoring</h3>
+                    <p className="text-xs text-gray-600 hidden md:block">Assess sustainability</p>
                   </Button>
                 </Link>
 
                 <Link href="/ai-model">
                   <Button 
                     variant="outline" 
-                    className="h-auto p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                    className="h-auto p-3 md:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
                   >
-                    <div className="p-2 bg-accent/10 rounded-lg w-fit mb-3">
-                      <Brain className="w-4 h-4 text-accent" />
+                    <div className="p-1.5 md:p-2 bg-accent/10 rounded-lg w-fit mb-2 md:mb-3">
+                      <Brain className="w-3 h-3 md:w-4 md:h-4 text-accent" />
                     </div>
-                    <h3 className="font-medium text-gray-900 mb-1">AI Prediction</h3>
-                    <p className="text-sm text-gray-600">XGBoost model insights</p>
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 mb-1">AI Prediction</h3>
+                    <p className="text-xs text-gray-600 hidden md:block">XGBoost model insights</p>
                   </Button>
                 </Link>
               </div>
@@ -190,7 +186,7 @@ export default function Dashboard() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {recentProjects.length > 0 ? (
                   recentProjects.map((project) => (
                     <ProjectCard key={project.id} project={project} />
@@ -204,54 +200,17 @@ export default function Dashboard() {
         </div>
 
         {/* Portfolio Analytics */}
-        <div className="grid lg:grid-cols-2 gap-8 mt-8">
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-8">
           <PortfolioPerformanceChart />
           <ProjectDistributionChart />
         </div>
 
         {/* Investment Performance */}
-        <div className="mt-8">
+        <div className="mt-6 md:mt-8">
           <InvestmentPerformanceChart />
         </div>
 
-        {/* Market Insights */}
-        <Card className="mt-8">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle>Market Insights</CardTitle>
-              <Link href="/market-insights">
-                <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
-                  View All <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-              </Link>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              {marketInsights && marketInsights.length > 0 ? (
-                marketInsights.map((insight) => (
-                  <article key={insight.id} className="border-b border-gray-200 pb-6 last:border-b-0 last:pb-0">
-                    <h3 className="text-lg font-medium text-gray-900 mb-2 hover:text-primary cursor-pointer">
-                      {insight.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 mb-3">
-                      {new Date(insight.date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}
-                    </p>
-                    <p className="text-gray-600 leading-relaxed">
-                      {insight.excerpt}
-                    </p>
-                  </article>
-                ))
-              ) : (
-                <p className="text-gray-500 text-center py-8">No market insights available</p>
-              )}
-            </div>
-          </CardContent>
-        </Card>
+
       </div>
     </section>
   );
