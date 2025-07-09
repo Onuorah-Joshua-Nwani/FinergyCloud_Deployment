@@ -20,6 +20,105 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to fetch user" });
     }
   });
+
+  // Subscription routes
+  app.get('/api/subscription/status', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const user = await storage.getUser(userId);
+      
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      res.json({
+        plan: user.subscriptionPlan || 'free',
+        status: user.subscriptionStatus || 'inactive',
+        startDate: user.subscriptionStartDate,
+        endDate: user.subscriptionEndDate,
+        stripeCustomerId: user.stripeCustomerId,
+        stripeSubscriptionId: user.stripeSubscriptionId,
+      });
+    } catch (error) {
+      console.error("Error fetching subscription status:", error);
+      res.status(500).json({ message: "Failed to fetch subscription status" });
+    }
+  });
+
+  app.post('/api/subscription/create', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const { planId, successUrl, cancelUrl } = req.body;
+
+      // Validate plan ID
+      const validPlans = ['free', 'basic', 'premium'];
+      if (!validPlans.includes(planId)) {
+        return res.status(400).json({ message: "Invalid plan ID" });
+      }
+
+      // For free plan, just update the user's subscription
+      if (planId === 'free') {
+        await storage.updateUserSubscription(userId, {
+          subscriptionPlan: 'free',
+          subscriptionStatus: 'active',
+          subscriptionStartDate: new Date(),
+        });
+
+        return res.json({ 
+          success: true,
+          message: "Successfully switched to free plan"
+        });
+      }
+
+      // For paid plans, simulate Stripe checkout
+      // In a real implementation, you would:
+      // 1. Create or retrieve Stripe customer
+      // 2. Create Stripe checkout session
+      // 3. Return checkout URL
+
+      // Dummy implementation - simulate successful subscription
+      const mockStripeCustomerId = `cus_mock_${userId}_${Date.now()}`;
+      const mockStripeSubscriptionId = `sub_mock_${userId}_${Date.now()}`;
+      
+      await storage.updateUserSubscription(userId, {
+        stripeCustomerId: mockStripeCustomerId,
+        stripeSubscriptionId: mockStripeSubscriptionId,
+        subscriptionPlan: planId,
+        subscriptionStatus: 'active',
+        subscriptionStartDate: new Date(),
+        subscriptionEndDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
+      });
+
+      // Simulate checkout URL (in real implementation, this would be from Stripe)
+      const mockCheckoutUrl = `${successUrl}?session_id=mock_session_${Date.now()}`;
+
+      res.json({
+        checkoutUrl: mockCheckoutUrl,
+        sessionId: `mock_session_${Date.now()}`,
+      });
+
+    } catch (error) {
+      console.error("Error creating subscription:", error);
+      res.status(500).json({ message: "Failed to create subscription" });
+    }
+  });
+
+  app.post('/api/subscription/cancel', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+
+      await storage.updateUserSubscription(userId, {
+        subscriptionStatus: 'canceled',
+        subscriptionPlan: 'free',
+        subscriptionEndDate: new Date(),
+      });
+
+      res.json({ success: true, message: "Subscription canceled successfully" });
+    } catch (error) {
+      console.error("Error canceling subscription:", error);
+      res.status(500).json({ message: "Failed to cancel subscription" });
+    }
+  });
   
   // Projects routes
   app.get("/api/projects", async (req, res) => {

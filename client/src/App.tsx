@@ -14,6 +14,7 @@ import ProjectManagement from "@/pages/project-management";
 import MarketInsights from "@/pages/market-insights";
 import KPIDashboard from "@/pages/kpi";
 import AdvancedFeatures from "@/pages/advanced-features";
+import Subscribe from "@/pages/subscribe";
 import Landing from "@/pages/landing";
 import NotFound from "@/pages/not-found";
 
@@ -38,6 +39,7 @@ function Router() {
               <Route path="/irr-calculator" component={IRRCalculator} />
               <Route path="/projects" component={ProjectManagement} />
               <Route path="/market-insights" component={MarketInsights} />
+              <Route path="/subscribe" component={Subscribe} />
               <Route component={NotFound} />
             </Switch>
           </div>

@@ -25,6 +25,14 @@ export interface IStorage {
   // User operations (required for Replit Auth)
   getUser(id: string): Promise<User | undefined>;
   upsertUser(user: UpsertUser): Promise<User>;
+  updateUserSubscription(userId: string, subscriptionData: {
+    stripeCustomerId?: string;
+    stripeSubscriptionId?: string;
+    subscriptionStatus?: string;
+    subscriptionPlan?: string;
+    subscriptionStartDate?: Date;
+    subscriptionEndDate?: Date;
+  }): Promise<User>;
   
   // Projects
   getProjects(): Promise<Project[]>;
@@ -68,6 +76,25 @@ export class DatabaseStorage implements IStorage {
           updatedAt: new Date(),
         },
       })
+      .returning();
+    return user;
+  }
+
+  async updateUserSubscription(userId: string, subscriptionData: {
+    stripeCustomerId?: string;
+    stripeSubscriptionId?: string;
+    subscriptionStatus?: string;
+    subscriptionPlan?: string;
+    subscriptionStartDate?: Date;
+    subscriptionEndDate?: Date;
+  }): Promise<User> {
+    const [user] = await db
+      .update(users)
+      .set({
+        ...subscriptionData,
+        updatedAt: new Date(),
+      })
+      .where(eq(users.id, userId))
       .returning();
     return user;
   }
@@ -306,6 +333,38 @@ export class MemStorage implements IStorage {
       firstName: userData.firstName || null,
       lastName: userData.lastName || null,
       profileImageUrl: userData.profileImageUrl || null,
+      stripeCustomerId: null,
+      stripeSubscriptionId: null,
+      subscriptionStatus: "inactive",
+      subscriptionPlan: "free",
+      subscriptionStartDate: null,
+      subscriptionEndDate: null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+  }
+
+  async updateUserSubscription(userId: string, subscriptionData: {
+    stripeCustomerId?: string;
+    stripeSubscriptionId?: string;
+    subscriptionStatus?: string;
+    subscriptionPlan?: string;
+    subscriptionStartDate?: Date;
+    subscriptionEndDate?: Date;
+  }): Promise<User> {
+    // Mock implementation for memory storage
+    return {
+      id: userId,
+      email: null,
+      firstName: null,
+      lastName: null,
+      profileImageUrl: null,
+      stripeCustomerId: subscriptionData.stripeCustomerId || null,
+      stripeSubscriptionId: subscriptionData.stripeSubscriptionId || null,
+      subscriptionStatus: subscriptionData.subscriptionStatus || "inactive",
+      subscriptionPlan: subscriptionData.subscriptionPlan || "free",
+      subscriptionStartDate: subscriptionData.subscriptionStartDate || null,
+      subscriptionEndDate: subscriptionData.subscriptionEndDate || null,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
