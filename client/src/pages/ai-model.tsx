@@ -1,19 +1,36 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PredictionForm from "@/components/prediction-form";
 import ModelPerformanceChart from "@/components/charts/model-performance-chart";
 import RiskAssessmentChart from "@/components/charts/risk-assessment-chart";
+import { Brain, Zap } from "lucide-react";
 
 export default function AIModel() {
+  const [selectedProjectType, setSelectedProjectType] = useState<string>("solar");
+
   return (
     <section className="py-8 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">XGBoost AI Model</h1>
-          <p className="text-gray-600">Predict project success with machine learning</p>
-          <div className="mt-4 flex items-center space-x-2">
-            <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-            <Badge className="bg-success/10 text-success">Model Loaded</Badge>
+          <div className="flex items-center gap-3 mb-4">
+            <Brain className="w-8 h-8 text-blue-600" />
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">XGBoost AI Model</h1>
+              <p className="text-gray-600">Advanced machine learning for renewable energy investment predictions</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+              <Badge className="bg-green-100 text-green-800">Model Active</Badge>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Zap className="w-4 h-4 text-blue-600" />
+              <Badge variant="outline" className="text-blue-600 border-blue-600">
+                Specialized for {selectedProjectType.charAt(0).toUpperCase() + selectedProjectType.slice(1)} Projects
+              </Badge>
+            </div>
           </div>
         </div>
 
@@ -81,15 +98,15 @@ export default function AIModel() {
           </Card>
 
           {/* Model Performance Chart */}
-          <ModelPerformanceChart />
+          <ModelPerformanceChart projectType={selectedProjectType} />
         </div>
 
         {/* Prediction Form */}
-        <PredictionForm />
+        <PredictionForm onProjectTypeChange={setSelectedProjectType} />
 
         {/* Risk Analysis */}
         <div className="mt-8">
-          <RiskAssessmentChart />
+          <RiskAssessmentChart projectType={selectedProjectType} />
         </div>
 
         {/* Case Studies */}

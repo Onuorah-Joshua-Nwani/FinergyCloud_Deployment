@@ -13,7 +13,11 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import type { Prediction, ProjectTypeEsgTemplate } from "@shared/schema";
 
-export default function PredictionForm() {
+interface PredictionFormProps {
+  onProjectTypeChange?: (projectType: string) => void;
+}
+
+export default function PredictionForm({ onProjectTypeChange }: PredictionFormProps) {
   const [predictionResult, setPredictionResult] = useState<Prediction | null>(null);
   const [selectedProjectType, setSelectedProjectType] = useState<string>("");
   const { toast } = useToast();
@@ -107,7 +111,14 @@ export default function PredictionForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Project Type</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select 
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          setSelectedProjectType(value);
+                          onProjectTypeChange?.(value);
+                        }} 
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select type..." />
