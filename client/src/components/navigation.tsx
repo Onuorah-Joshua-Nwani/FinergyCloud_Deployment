@@ -1,84 +1,230 @@
 import { Link, useLocation } from "wouter";
-import { Leaf, Menu, User } from "lucide-react";
+import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CurrencySelector from "./currency-selector";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Navigation() {
   const [location] = useLocation();
+  const { user, isAuthenticated } = useAuth();
 
-  const navItems = [
-    { path: "/dashboard", label: "Dashboard" },
-    { path: "/kpi", label: "KPI Dashboard" },
-    { path: "/rewards", label: "Rewards" },
-    { path: "/advanced-features", label: "Advanced Features" },
-    { path: "/projects", label: "Projects" },
-    { path: "/market-insights", label: "Market Insights" },
-    { path: "/ai-model", label: "AI Model" },
-    { path: "/irr-calculator", label: "IRR Calculator" },
-    { path: "/esg-scoring", label: "ESG Scoring" },
-    { path: "/contact", label: "Contact" },
-    { path: "/subscribe", label: "Subscribe" },
+  // Core navigation items - prioritized for mobile
+  const coreNavItems = [
+    { path: "/dashboard", label: "Dashboard", icon: BarChart3, priority: 1 },
+    { path: "/projects", label: "Projects", icon: FolderOpen, priority: 2 },
+    { path: "/rewards", label: "Rewards", icon: Gift, priority: 3 },
+    { path: "/kpi", label: "Analytics", icon: TrendingUp, priority: 4 },
   ];
 
-  const NavLink = ({ path, label }: { path: string; label: string }) => (
+  // Extended navigation items - hidden on mobile in main nav
+  const extendedNavItems = [
+    { path: "/ai-model", label: "AI Model", icon: Brain, priority: 5 },
+    { path: "/market-insights", label: "Market Insights", icon: Newspaper, priority: 6 },
+    { path: "/irr-calculator", label: "IRR Calculator", icon: Calculator, priority: 7 },
+    { path: "/esg-scoring", label: "ESG Scoring", icon: TreePine, priority: 8 },
+    { path: "/advanced-features", label: "Advanced Features", icon: Settings, priority: 9 },
+    { path: "/contact", label: "Contact", icon: Phone, priority: 10 },
+    { path: "/subscribe", label: "Subscribe", icon: CreditCard, priority: 11 },
+  ];
+
+  const allNavItems = [...coreNavItems, ...extendedNavItems];
+
+  const NavLink = ({ path, label, icon: Icon, className = "", isMobile = false }: { 
+    path: string; 
+    label: string; 
+    icon?: any;
+    className?: string;
+    isMobile?: boolean;
+  }) => (
     <Link href={path}>
       <span
-        className={`transition-colors cursor-pointer ${
+        className={`nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer ${
           location === path || (path === "/dashboard" && location === "/")
-            ? "text-primary font-medium"
-            : "text-gray-600 hover:text-primary"
+            ? "bg-gray-100 text-primary border-b-2 border-primary"
+            : "text-gray-600 hover:text-primary hover:bg-gray-50"
+        } ${isMobile ? "mobile-menu-item text-base py-3 border-b border-gray-100" : ""} ${className} ${
+          location === path || (path === "/dashboard" && location === "/") ? "active" : ""
         }`}
       >
+        {isMobile && Icon && (
+          <Icon className="w-5 h-5 mr-3 flex-shrink-0" />
+        )}
         {label}
       </span>
     </Link>
   );
 
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-              <Leaf className="w-4 h-4 text-white" />
+    <nav className="nav-glass nav-blur shadow-sm sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex justify-between items-center h-14 sm:h-16">
+          
+          {/* Brand/Logo - Left Side */}
+          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-sm">
+              <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">FinergyCloud</span>
+            <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              FinergyCloud
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navItems.map(item => (
+          {/* Center - Desktop Core Navigation */}
+          <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
+            {coreNavItems.map(item => (
               <NavLink key={item.path} {...item} />
             ))}
           </div>
 
-          <div className="flex items-center space-x-3">
-            {/* Currency Selector */}
-            <CurrencySelector />
+          {/* Right Side - Actions */}
+          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+            
+            {/* Currency Selector - Hidden on small mobile */}
+            <div className="hidden sm:block">
+              <CurrencySelector />
+            </div>
+            
+            {/* User Profile - Desktop */}
+            {isAuthenticated && (
+              <div className="hidden md:block">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="relative h-8 w-8 rounded-full avatar-ring">
+                      <Avatar className="h-8 w-8">
+                        <AvatarImage src={user?.profileImageUrl || ''} alt={user?.firstName || 'User'} />
+                        <AvatarFallback className="bg-gray-100 text-primary font-medium">
+                          {user?.firstName?.[0] || 'U'}
+                        </AvatarFallback>
+                      </Avatar>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56" align="end" forceMount>
+                    <div className="flex items-center justify-start gap-2 p-2">
+                      <div className="flex flex-col space-y-1 leading-none">
+                        <p className="font-medium text-sm">{user?.firstName} {user?.lastName}</p>
+                        <p className="text-xs text-muted-foreground">{user?.email}</p>
+                      </div>
+                    </div>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <Settings className="mr-2 h-4 w-4" />
+                      <span>Settings</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleLogout}>
+                      <LogOut className="mr-2 h-4 w-4" />
+                      <span>Log out</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            )}
             
             {/* Mobile Navigation */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-5 w-5" />
+                <Button variant="outline" size="icon" className="h-8 w-8 lg:hidden border-gray-300 hover:bg-gray-50">
+                  <Menu className="h-4 w-4" />
+                  <span className="sr-only">Open navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent>
-                <div className="flex flex-col space-y-4 mt-8">
-                  {navItems.map(item => (
-                    <NavLink key={item.path} {...item} />
-                  ))}
+              <SheetContent side="right" className="w-80 sm:w-96">
+                <div className="flex flex-col h-full">
+                  
+                  {/* Mobile Header */}
+                  <div className="flex items-center space-x-3 pb-6 border-b border-gray-200">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                      <Leaf className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-xl font-bold text-gray-900">FinergyCloud</span>
+                  </div>
+
+                  {/* Mobile User Profile */}
+                  {isAuthenticated && (
+                    <div className="flex items-center space-x-3 py-4 border-b border-gray-100">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src={user?.profileImageUrl || ''} alt={user?.firstName || 'User'} />
+                        <AvatarFallback className="bg-primary/10 text-primary font-medium text-lg">
+                          {user?.firstName?.[0] || 'U'}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex flex-col">
+                        <p className="font-medium text-gray-900">{user?.firstName} {user?.lastName}</p>
+                        <p className="text-sm text-gray-500">{user?.email}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Mobile Currency Selector */}
+                  <div className="py-3 border-b border-gray-100 sm:hidden">
+                    <div className="px-2">
+                      <CurrencySelector />
+                    </div>
+                  </div>
+
+                  {/* Mobile Navigation Links */}
+                  <div className="flex-1 py-4 space-y-1 overflow-y-auto">
+                    {allNavItems.map(item => (
+                      <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                    ))}
+                  </div>
+
+                  {/* Mobile Footer Actions */}
+                  {isAuthenticated && (
+                    <div className="pt-4 border-t border-gray-200 space-y-2">
+                      <Button variant="ghost" className="w-full justify-start text-gray-700 hover:text-gray-900">
+                        <Settings className="mr-3 h-4 w-4" />
+                        Settings
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50"
+                        onClick={handleLogout}
+                      >
+                        <LogOut className="mr-3 h-4 w-4" />
+                        Log out
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </SheetContent>
             </Sheet>
+          </div>
+        </div>
 
-            {/* User Profile */}
-            <div className="hidden md:flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                <User className="w-4 h-4 text-gray-600" />
-              </div>
-              <span className="text-sm text-gray-700">John Doe</span>
+        {/* Mobile Bottom Navigation Bar - Core Actions Only */}
+        <div className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
+          <div className="flex justify-center items-center px-2 py-1">
+            <div className="flex space-x-1 max-w-sm w-full justify-between">
+              {coreNavItems.map(item => {
+                const Icon = item.icon;
+                const isActive = location === item.path || (item.path === "/dashboard" && location === "/");
+                return (
+                  <Link key={item.path} href={item.path} className="flex-1">
+                    <div
+                      className={`mobile-nav-item flex flex-col items-center py-2 px-1 rounded-md transition-all duration-200 ${
+                        isActive ? "active text-primary" : "text-gray-500 hover:text-primary hover:bg-gray-50"
+                      }`}
+                    >
+                      <Icon className={`w-4 h-4 mb-1 ${isActive ? "text-primary" : "text-gray-500"}`} />
+                      <span className="text-xs font-medium text-center leading-tight">
+                        {item.label}
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
