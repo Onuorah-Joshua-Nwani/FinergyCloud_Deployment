@@ -120,7 +120,7 @@ export default function Dashboard() {
                   </Button>
                 </Link>
 
-                <Link href="/dashboard">
+                <Link href="/projects">
                   <Button 
                     variant="outline" 
                     className="h-auto p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
@@ -128,8 +128,8 @@ export default function Dashboard() {
                     <div className="p-2 bg-secondary/10 rounded-lg w-fit mb-3">
                       <Folder className="w-4 h-4 text-secondary" />
                     </div>
-                    <h3 className="font-medium text-gray-900 mb-1">Projects</h3>
-                    <p className="text-sm text-gray-600">Manage your investments</p>
+                    <h3 className="font-medium text-gray-900 mb-1">Manage Projects</h3>
+                    <p className="text-sm text-gray-600">Create and manage projects</p>
                   </Button>
                 </Link>
 
@@ -167,9 +167,11 @@ export default function Dashboard() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle>Recent Projects</CardTitle>
-                <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
-                  View All <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
+                <Link href="/projects">
+                  <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
+                    View All <ArrowRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </Link>
               </div>
             </CardHeader>
             <CardContent>

@@ -9,6 +9,7 @@ import Dashboard from "@/pages/dashboard";
 import AIModel from "@/pages/ai-model";
 import ESGScoring from "@/pages/esg-scoring";
 import IRRCalculator from "@/pages/irr-calculator";
+import ProjectManagement from "@/pages/project-management";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
         <Route path="/ai-model" component={AIModel} />
         <Route path="/esg-scoring" component={ESGScoring} />
         <Route path="/irr-calculator" component={IRRCalculator} />
+        <Route path="/projects" component={ProjectManagement} />
         <Route component={NotFound} />
       </Switch>
     </div>
