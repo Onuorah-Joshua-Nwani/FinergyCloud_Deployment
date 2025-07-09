@@ -118,13 +118,15 @@ export default function ESGComponentBreakdownChart() {
   return (
     <Card className="overflow-hidden">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Shield className="w-5 h-5 text-green-600" />
-          ESG Component Analysis
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="flex items-center gap-2 justify-center sm:justify-start">
+            <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+            <span className="mobile-text-lg">ESG Component Analysis</span>
+          </div>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-6 text-sm text-gray-600">
+        <div className="mb-6 mobile-text-sm text-gray-600 text-center">
           Detailed breakdown of Environmental, Social, and Governance performance across 6 key dimensions 
           with industry benchmark comparisons and improvement opportunities.
         </div>
@@ -132,47 +134,49 @@ export default function ESGComponentBreakdownChart() {
         <div className="mobile-grid-3 mobile-gap-2 mb-6">
           <div className="text-center mobile-p-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Shield className="w-4 h-4 text-green-600" />
-              <span className="mobile-text-2xl font-bold text-green-600">{overallScore}</span>
-              <span className="text-lg text-green-500">/10</span>
+              <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
+              <span className="mobile-text-xl font-bold text-green-600">{overallScore}</span>
+              <span className="text-base sm:text-lg text-green-500">/10</span>
             </div>
-            <p className="text-sm text-green-800 font-medium">Overall ESG Score</p>
+            <p className="mobile-text-sm text-green-800 font-medium">Overall ESG Score</p>
             <p className="text-xs text-green-600">Portfolio average</p>
           </div>
-          <div className="text-center p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
+          <div className="text-center mobile-p-2 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Eye className="w-4 h-4 text-blue-600" />
-              <span className="text-2xl font-bold text-blue-600">{benchmarkScore}</span>
-              <span className="text-lg text-blue-500">/10</span>
+              <Eye className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
+              <span className="mobile-text-xl font-bold text-blue-600">{benchmarkScore}</span>
+              <span className="text-base sm:text-lg text-blue-500">/10</span>
             </div>
-            <p className="text-sm text-blue-800 font-medium">Industry Benchmark</p>
+            <p className="mobile-text-sm text-blue-800 font-medium">Industry Benchmark</p>
             <p className="text-xs text-blue-600">Sector average</p>
           </div>
-          <div className="text-center p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+          <div className="text-center mobile-p-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Lightbulb className="w-4 h-4 text-purple-600" />
-              <span className="text-2xl font-bold text-purple-600">{outperformingAreas}</span>
-              <span className="text-lg text-purple-500">/6</span>
+              <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 text-purple-600" />
+              <span className="mobile-text-xl font-bold text-purple-600">{outperformingAreas}</span>
+              <span className="text-base sm:text-lg text-purple-500">/6</span>
             </div>
-            <p className="text-sm text-purple-800 font-medium">Leading Areas</p>
+            <p className="mobile-text-sm text-purple-800 font-medium">Leading Areas</p>
             <p className="text-xs text-purple-600">Above benchmark</p>
           </div>
         </div>
 
         <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4 mb-6">
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">ESG Performance Radar</h4>
-            <ResponsiveContainer width="100%" height={300} className="chart-card-mobile">
+          <div className="chart-container flex flex-col items-center">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">ESG Performance Radar</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
               <RadarChart data={esgData} margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
                 <PolarGrid stroke="#f0f0f0" />
                 <PolarAngleAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 12, fill: '#374151' }}
+                  tick={{ fontSize: 10, fill: '#374151' }}
+                  className="mobile-text-xs"
                 />
                 <PolarRadiusAxis 
                   angle={90} 
                   domain={[0, 10]} 
-                  tick={{ fontSize: 10, fill: '#6b7280' }}
+                  tick={{ fontSize: 8, fill: '#6b7280' }}
+                  className="mobile-text-xs"
                 />
                 <Radar
                   name="Our Score"
@@ -197,24 +201,26 @@ export default function ESGComponentBreakdownChart() {
             </ResponsiveContainer>
           </div>
 
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Performance vs Benchmark</h4>
-            <ResponsiveContainer width="100%" height={300} className="chart-card-mobile">
+          <div className="chart-container flex flex-col items-center">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Performance vs Benchmark</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
               <BarChart data={esgData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 11 }}
+                  tick={{ fontSize: 9 }}
                   tickLine={{ stroke: '#d1d5db' }}
                   angle={-45}
                   textAnchor="end"
                   height={80}
+                  className="mobile-text-xs"
                 />
                 <YAxis 
                   domain={[6, 10]}
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'Score', angle: -90, position: 'insideLeft' }}
+                  label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+                  className="mobile-text-xs"
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar 

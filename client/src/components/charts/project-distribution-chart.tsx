@@ -118,13 +118,13 @@ export default function ProjectDistributionChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <PieChartIcon className="w-5 h-5 text-blue-600" />
-          Portfolio Distribution Analysis
+        <CardTitle className="flex items-center gap-2 justify-center text-center">
+          <PieChartIcon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
+          <span className="mobile-text-lg">Portfolio Distribution Analysis</span>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-6 text-sm text-gray-600">
+        <div className="mb-6 mobile-text-sm text-gray-600 text-center">
           Comprehensive breakdown of renewable energy portfolio across project types, showing distribution 
           by project count, capacity, and investment allocation.
         </div>
@@ -138,38 +138,38 @@ export default function ProjectDistributionChart() {
             <p className="mobile-text-sm text-blue-800 font-medium">Total Projects</p>
             <p className="text-xs text-blue-600">Active portfolio</p>
           </div>
-          <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200">
+          <div className="text-center mobile-p-2 bg-green-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Zap className="w-4 h-4 text-green-600" />
-              <span className="text-2xl font-bold text-green-600">{totalCapacity.toFixed(0)}</span>
+              <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
+              <span className="mobile-text-xl font-bold text-green-600">{totalCapacity.toFixed(0)}</span>
             </div>
-            <p className="text-sm text-green-800 font-medium">Total Capacity</p>
+            <p className="mobile-text-sm text-green-800 font-medium">Total Capacity</p>
             <p className="text-xs text-green-600">MW installed</p>
           </div>
-          <div className="text-center p-3 bg-purple-50 rounded-lg border border-purple-200">
+          <div className="text-center mobile-p-2 bg-purple-50 rounded-lg border border-purple-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <DollarSign className="w-4 h-4 text-purple-600" />
-              <span className="text-2xl font-bold text-purple-600">{convertAndFormat(totalInvestment * 1000000)}</span>
+              <DollarSign className="w-3 h-3 sm:w-4 sm:h-4 text-purple-600" />
+              <span className="mobile-text-xl font-bold text-purple-600">{convertAndFormat(totalInvestment * 1000000)}</span>
             </div>
-            <p className="text-sm text-purple-800 font-medium">Total Investment</p>
+            <p className="mobile-text-sm text-purple-800 font-medium">Total Investment</p>
             <p className="text-xs text-purple-600">Capital deployed</p>
           </div>
-          <div className="text-center p-3 bg-orange-50 rounded-lg border border-orange-200">
+          <div className="text-center mobile-p-2 bg-orange-50 rounded-lg border border-orange-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <TrendingUp className="w-4 h-4 text-orange-600" />
-              <span className="text-2xl font-bold text-orange-600">
+              <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-orange-600" />
+              <span className="mobile-text-xl font-bold text-orange-600">
                 {(portfolioData.reduce((sum, item) => sum + (item.avgIRR * item.investment), 0) / totalInvestment).toFixed(1)}%
               </span>
             </div>
-            <p className="text-sm text-orange-800 font-medium">Weighted IRR</p>
+            <p className="mobile-text-sm text-orange-800 font-medium">Weighted IRR</p>
             <p className="text-xs text-orange-600">Portfolio average</p>
           </div>
         </div>
 
         <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4">
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Distribution by Project Count</h4>
-            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile">
+          <div className="chart-container flex flex-col items-center">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Distribution by Project Count</h4>
+            <ResponsiveContainer width="100%" height={250} className="chart-card-mobile sm:h-[280px]">
               <PieChart>
                 <Pie
                   data={portfolioData}
@@ -193,20 +193,22 @@ export default function ProjectDistributionChart() {
             </ResponsiveContainer>
           </div>
 
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Performance by Technology</h4>
-            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile">
+          <div className="chart-container flex flex-col items-center">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Performance by Technology</h4>
+            <ResponsiveContainer width="100%" height={250} className="chart-card-mobile sm:h-[280px]">
               <BarChart data={portfolioData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="name" 
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
+                  className="mobile-text-xs"
                 />
                 <YAxis 
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'IRR (%)', angle: -90, position: 'insideLeft' }}
+                  label={{ value: 'IRR (%)', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+                  className="mobile-text-xs"
                 />
                 <Tooltip 
                   formatter={(value: number) => [`${value}%`, 'Average IRR']}

@@ -93,77 +93,81 @@ export default function ModelPerformanceChart({ projectType = "solar" }: ModelPe
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Brain className="w-5 h-5 text-purple-600" />
-            XGBoost Model Performance
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="flex items-center gap-2 justify-center sm:justify-start">
+            <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
+            <span className="mobile-text-lg">XGBoost Model Performance</span>
           </div>
-          <span className="text-sm font-normal text-gray-500 capitalize">
+          <span className="text-xs sm:text-sm font-normal text-gray-500 capitalize text-center sm:text-left">
             {projectType} Prediction Model
           </span>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-4 text-sm text-gray-600">
+        <div className="mb-4 mobile-text-sm text-gray-600 text-center">
           Real-time training metrics for the XGBoost model specialized in {projectType} renewable energy project predictions. 
           Model learns from historical data to provide accurate investment forecasts.
         </div>
         
-        <div className="grid grid-cols-4 gap-4 mb-6">
-          <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
+        <div className="mobile-grid-4 mobile-gap-2 mb-6">
+          <div className="text-center mobile-p-2 bg-blue-50 rounded-lg border border-blue-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Target className="w-4 h-4 text-blue-600" />
-              <span className="text-2xl font-bold text-blue-600">{(finalMetrics.validation * 100).toFixed(1)}%</span>
+              <Target className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
+              <span className="mobile-text-xl font-bold text-blue-600">{(finalMetrics.validation * 100).toFixed(1)}%</span>
             </div>
-            <p className="text-sm text-blue-800 font-medium">Validation Accuracy</p>
+            <p className="mobile-text-sm text-blue-800 font-medium">Validation Accuracy</p>
             <p className="text-xs text-blue-600">Model reliability</p>
           </div>
-          <div className="text-center p-3 bg-purple-50 rounded-lg border border-purple-200">
+          <div className="text-center mobile-p-2 bg-purple-50 rounded-lg border border-purple-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Zap className="w-4 h-4 text-purple-600" />
-              <span className="text-2xl font-bold text-purple-600">{(finalMetrics.auc * 100).toFixed(1)}%</span>
+              <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-purple-600" />
+              <span className="mobile-text-xl font-bold text-purple-600">{(finalMetrics.auc * 100).toFixed(1)}%</span>
             </div>
-            <p className="text-sm text-purple-800 font-medium">AUC Score</p>
+            <p className="mobile-text-sm text-purple-800 font-medium">AUC Score</p>
             <p className="text-xs text-purple-600">Predictive power</p>
           </div>
-          <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200">
+          <div className="text-center mobile-p-2 bg-green-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <TrendingUp className="w-4 h-4 text-green-600" />
-              <span className="text-2xl font-bold text-green-600">{(finalMetrics.precision * 100).toFixed(1)}%</span>
+              <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
+              <span className="mobile-text-xl font-bold text-green-600">{(finalMetrics.precision * 100).toFixed(1)}%</span>
             </div>
-            <p className="text-sm text-green-800 font-medium">Precision</p>
+            <p className="mobile-text-sm text-green-800 font-medium">Precision</p>
             <p className="text-xs text-green-600">Accuracy of predictions</p>
           </div>
-          <div className="text-center p-3 bg-orange-50 rounded-lg border border-orange-200">
+          <div className="text-center mobile-p-2 bg-orange-50 rounded-lg border border-orange-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Target className="w-4 h-4 text-orange-600" />
-              <span className="text-2xl font-bold text-orange-600">{(finalMetrics.recall * 100).toFixed(1)}%</span>
+              <Target className="w-3 h-3 sm:w-4 sm:h-4 text-orange-600" />
+              <span className="mobile-text-xl font-bold text-orange-600">{(finalMetrics.recall * 100).toFixed(1)}%</span>
             </div>
-            <p className="text-sm text-orange-800 font-medium">Recall</p>
+            <p className="mobile-text-sm text-orange-800 font-medium">Recall</p>
             <p className="text-xs text-orange-600">Coverage of predictions</p>
           </div>
         </div>
 
-        <ResponsiveContainer width="100%" height={350}>
-          <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis 
-              dataKey="epoch" 
-              tick={{ fontSize: 12 }}
-              tickLine={{ stroke: '#d1d5db' }}
-              label={{ value: 'Training Epoch', position: 'insideBottom', offset: -5 }}
-            />
-            <YAxis 
-              domain={[0.5, 1]} 
-              tick={{ fontSize: 12 }}
-              tickLine={{ stroke: '#d1d5db' }}
-              label={{ value: 'Performance Score', angle: -90, position: 'insideLeft' }}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <Legend 
-              wrapperStyle={{ paddingTop: '20px' }}
-              iconType="line"
-            />
+        <div className="chart-container flex justify-center">
+          <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[320px] lg:h-[350px]">
+            <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <XAxis 
+                dataKey="epoch" 
+                tick={{ fontSize: 10 }}
+                tickLine={{ stroke: '#d1d5db' }}
+                label={{ value: 'Training Epoch', position: 'insideBottom', offset: -5, style: { fontSize: '10px' } }}
+                className="mobile-text-xs"
+              />
+              <YAxis 
+                domain={[0.5, 1]} 
+                tick={{ fontSize: 10 }}
+                tickLine={{ stroke: '#d1d5db' }}
+                label={{ value: 'Performance Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+                className="mobile-text-xs"
+              />
+              <Tooltip content={<CustomTooltip />} />
+              <Legend 
+                wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }}
+                iconType="line"
+                className="mobile-text-xs"
+              />
             <Line 
               type="monotone" 
               dataKey="training" 
@@ -209,8 +213,9 @@ export default function ModelPerformanceChart({ projectType = "solar" }: ModelPe
               activeDot={{ r: 5, stroke: '#ef4444', strokeWidth: 2 }}
               name="Recall"
             />
-          </LineChart>
-        </ResponsiveContainer>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
 
         <div className="mt-4 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-4">
           <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-2">

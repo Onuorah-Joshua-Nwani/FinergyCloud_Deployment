@@ -102,83 +102,88 @@ export default function InvestmentPerformanceChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <BarChart3 className="w-5 h-5 text-green-600" />
-          Investment Performance Analytics
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="flex items-center gap-2 justify-center sm:justify-start">
+            <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+            <span className="mobile-text-lg">Investment Performance Analytics</span>
+          </div>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-6 text-sm text-gray-600">
+        <div className="mb-6 mobile-text-sm text-gray-600 text-center">
           Quarterly performance tracking showing investment flows, returns, and key performance indicators 
           across the renewable energy portfolio with trend analysis.
         </div>
         
         <div className="mobile-grid-5 mobile-gap-2 mb-6">
-          <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="text-center mobile-p-2 bg-blue-50 rounded-lg border border-blue-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <DollarSign className="w-4 h-4 text-blue-600" />
-              <span className="mobile-text-xl font-bold text-blue-600">{convertAndFormat(totalInvestment * 1000000)}</span>
+              <DollarSign className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
+              <span className="mobile-text-base font-bold text-blue-600">{convertAndFormat(totalInvestment * 1000000)}</span>
             </div>
-            <p className="text-sm text-blue-800 font-medium">Total Investment</p>
+            <p className="mobile-text-sm text-blue-800 font-medium">Total Investment</p>
             <p className="text-xs text-blue-600">Millions deployed</p>
           </div>
           <div className="text-center mobile-p-2 bg-green-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <TrendingUp className="w-4 h-4 text-green-600" />
-              <span className="text-xl font-bold text-green-600">{convertAndFormat(totalReturns * 1000000)}</span>
+              <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
+              <span className="mobile-text-base font-bold text-green-600">{convertAndFormat(totalReturns * 1000000)}</span>
             </div>
-            <p className="text-sm text-green-800 font-medium">Total Returns</p>
+            <p className="mobile-text-sm text-green-800 font-medium">Total Returns</p>
             <p className="text-xs text-green-600">Millions generated</p>
           </div>
-          <div className="text-center p-3 bg-purple-50 rounded-lg border border-purple-200">
+          <div className="text-center mobile-p-2 bg-purple-50 rounded-lg border border-purple-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Target className="w-4 h-4 text-purple-600" />
-              <span className="text-xl font-bold text-purple-600">{latestData.irr}%</span>
+              <Target className="w-3 h-3 sm:w-4 sm:h-4 text-purple-600" />
+              <span className="mobile-text-base font-bold text-purple-600">{latestData.irr}%</span>
             </div>
-            <p className="text-sm text-purple-800 font-medium">Current IRR</p>
+            <p className="mobile-text-sm text-purple-800 font-medium">Current IRR</p>
             <p className="text-xs text-purple-600">Internal rate of return</p>
           </div>
-          <div className="text-center p-3 bg-orange-50 rounded-lg border border-orange-200">
+          <div className="text-center mobile-p-2 bg-orange-50 rounded-lg border border-orange-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <AlertCircle className="w-4 h-4 text-orange-600" />
-              <span className="text-xl font-bold text-orange-600">+{growthRate}%</span>
+              <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-orange-600" />
+              <span className="mobile-text-base font-bold text-orange-600">+{growthRate}%</span>
             </div>
-            <p className="text-sm text-orange-800 font-medium">Growth Rate</p>
+            <p className="mobile-text-sm text-orange-800 font-medium">Growth Rate</p>
             <p className="text-xs text-orange-600">Quarter-over-quarter</p>
           </div>
-          <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <div className="text-center mobile-p-2 bg-gray-50 rounded-lg border border-gray-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <BarChart3 className="w-4 h-4 text-gray-600" />
-              <span className="text-xl font-bold text-gray-600">{latestData.projects}</span>
+              <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
+              <span className="mobile-text-base font-bold text-gray-600">{latestData.projects}</span>
             </div>
-            <p className="text-sm text-gray-800 font-medium">Active Projects</p>
+            <p className="mobile-text-sm text-gray-800 font-medium">Active Projects</p>
             <p className="text-xs text-gray-600">Portfolio size</p>
           </div>
         </div>
 
         <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4 mb-6">
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Investment vs Returns Trend</h4>
-            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile">
+          <div className="chart-container flex flex-col items-center">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Investment vs Returns Trend</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
               <ComposedChart data={performanceData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="period" 
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
+                  className="mobile-text-xs"
                 />
                 <YAxis 
                   yAxisId="left"
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: `Amount`, angle: -90, position: 'insideLeft' }}
+                  label={{ value: `Amount`, angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+                  className="mobile-text-xs"
                 />
                 <YAxis 
                   yAxisId="right"
                   orientation="right"
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'IRR (%)', angle: 90, position: 'insideRight' }}
+                  label={{ value: 'IRR (%)', angle: 90, position: 'insideRight', style: { fontSize: '10px' } }}
+                  className="mobile-text-xs"
                 />
                 <Tooltip content={(props) => <CustomTooltip {...props} convertAndFormat={convertAndFormat} />} />
                 <Legend />

@@ -37,33 +37,37 @@ export default function ESGScoreTrendChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center justify-between">
-          ESG Performance Trends
-          <span className="text-sm font-normal text-gray-500">6-Month Overview</span>
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <span className="mobile-text-lg">ESG Performance Trends</span>
+          <span className="text-xs sm:text-sm font-normal text-gray-500">6-Month Overview</span>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-4 text-sm text-gray-600">
+        <div className="mb-4 mobile-text-sm text-gray-600 text-center">
           Track Environmental, Social, and Governance scores over time to identify improvement areas and monitor sustainability progress.
         </div>
-        <ResponsiveContainer width="100%" height={300}>
+        <div className="chart-container flex justify-center">
+          <ResponsiveContainer width="100%" height={250} className="chart-card-mobile sm:h-[280px] lg:h-[300px]">
           <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis 
               dataKey="month" 
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
               tickLine={{ stroke: '#d1d5db' }}
+              className="mobile-text-xs"
             />
             <YAxis 
               domain={[7.5, 9]} 
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
               tickLine={{ stroke: '#d1d5db' }}
-              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft' }}
+              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+              className="mobile-text-xs"
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend 
-              wrapperStyle={{ paddingTop: '20px' }}
+              wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }}
               iconType="circle"
+              className="mobile-text-xs"
             />
             <Line 
               type="monotone" 
@@ -102,7 +106,8 @@ export default function ESGScoreTrendChart() {
               activeDot={{ r: 7, stroke: '#1f2937', strokeWidth: 2 }}
             />
           </LineChart>
-        </ResponsiveContainer>
+          </ResponsiveContainer>
+        </div>
       </CardContent>
     </Card>
   );

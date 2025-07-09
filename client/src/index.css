@@ -172,6 +172,31 @@
     @apply gap-2 sm:gap-3 lg:gap-4;
   }
   
+  /* Mobile text sizing */
+  .mobile-text-xs {
+    @apply text-xs sm:text-sm lg:text-base;
+  }
+  
+  .mobile-text-sm {
+    @apply text-xs sm:text-sm lg:text-base;
+  }
+  
+  .mobile-text-base {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+  
+  .mobile-text-lg {
+    @apply text-base sm:text-lg lg:text-xl;
+  }
+  
+  .mobile-text-xl {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+  
+  .mobile-text-2xl {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+  
   .mobile-gap-4 {
     @apply gap-3 sm:gap-4 lg:gap-6;
   }

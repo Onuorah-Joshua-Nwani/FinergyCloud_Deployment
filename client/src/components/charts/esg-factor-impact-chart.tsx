@@ -137,13 +137,15 @@ export default function ESGFactorImpactChart() {
   return (
     <Card className="overflow-hidden">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <TrendingUp className="w-5 h-5 text-purple-600" />
-          ESG Impact & Improvement Analysis
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="flex items-center gap-2 justify-center sm:justify-start">
+            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
+            <span className="mobile-text-lg">ESG Impact & Improvement Analysis</span>
+          </div>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-6 text-sm text-gray-600">
+        <div className="mb-6 mobile-text-sm text-gray-600 text-center">
           Strategic analysis of ESG improvement opportunities showing current performance, potential gains, 
           required investments, and implementation timelines for maximum impact.
         </div>
@@ -157,51 +159,53 @@ export default function ESGFactorImpactChart() {
             <p className="text-sm text-purple-800 font-medium">Total Impact</p>
             <p className="text-xs text-purple-600">Score improvement</p>
           </div>
-          <div className="text-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
+          <div className="text-center mobile-p-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Zap className="w-4 h-4 text-green-600" />
-              <span className="text-xl font-bold text-green-600">₦{totalInvestment}</span>
+              <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
+              <span className="mobile-text-base font-bold text-green-600">₦{totalInvestment}</span>
             </div>
-            <p className="text-sm text-green-800 font-medium">Investment</p>
+            <p className="mobile-text-sm text-green-800 font-medium">Investment</p>
             <p className="text-xs text-green-600">Millions required</p>
           </div>
-          <div className="text-center p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border border-orange-200">
+          <div className="text-center mobile-p-2 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border border-orange-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <AlertTriangle className="w-4 h-4 text-orange-600" />
-              <span className="text-xl font-bold text-orange-600">{highPriorityItems}</span>
+              <AlertTriangle className="w-3 h-3 sm:w-4 sm:h-4 text-orange-600" />
+              <span className="mobile-text-base font-bold text-orange-600">{highPriorityItems}</span>
             </div>
-            <p className="text-sm text-orange-800 font-medium">High Priority</p>
+            <p className="mobile-text-sm text-orange-800 font-medium">High Priority</p>
             <p className="text-xs text-orange-600">Critical factors</p>
           </div>
-          <div className="text-center p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
+          <div className="text-center mobile-p-2 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Eye className="w-4 h-4 text-blue-600" />
-              <span className="text-xl font-bold text-blue-600">{avgTimeline}mo</span>
+              <Eye className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
+              <span className="mobile-text-base font-bold text-blue-600">{avgTimeline}mo</span>
             </div>
-            <p className="text-sm text-blue-800 font-medium">Avg Timeline</p>
+            <p className="mobile-text-sm text-blue-800 font-medium">Avg Timeline</p>
             <p className="text-xs text-blue-600">Implementation</p>
           </div>
         </div>
 
         <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4 mb-6">
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Current vs Potential Performance</h4>
-            <ResponsiveContainer width="100%" height={300} className="chart-card-mobile">
+          <div className="chart-container flex flex-col items-center">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Current vs Potential Performance</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
               <AreaChart data={impactData} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
-                  tick={{ fontSize: 11 }}
+                  tick={{ fontSize: 9 }}
                   tickLine={{ stroke: '#d1d5db' }}
                   angle={-45}
                   textAnchor="end"
                   height={80}
+                  className="mobile-text-xs"
                 />
                 <YAxis 
                   domain={[7, 10]}
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft' }}
+                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+                  className="mobile-text-xs"
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />
@@ -228,23 +232,25 @@ export default function ESGFactorImpactChart() {
             </ResponsiveContainer>
           </div>
 
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Investment vs Impact Analysis</h4>
-            <ResponsiveContainer width="100%" height={300} className="chart-card-mobile">
+          <div className="chart-container flex flex-col items-center">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Investment vs Impact Analysis</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
               <BarChart data={impactData} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
-                  tick={{ fontSize: 11 }}
+                  tick={{ fontSize: 9 }}
                   tickLine={{ stroke: '#d1d5db' }}
                   angle={-45}
                   textAnchor="end"
                   height={80}
+                  className="mobile-text-xs"
                 />
                 <YAxis 
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'Investment (₦M)', angle: -90, position: 'insideLeft' }}
+                  label={{ value: 'Investment (₦M)', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+                  className="mobile-text-xs"
                 />
                 <Tooltip 
                   formatter={(value: number, name: string) => [

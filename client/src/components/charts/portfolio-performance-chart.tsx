@@ -44,43 +44,48 @@ export default function PortfolioPerformanceChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center justify-between">
-          Portfolio Performance Overview
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <span className="mobile-text-lg">Portfolio Performance Overview</span>
           <div className="flex items-center gap-1 text-green-600">
-            <TrendingUp className="h-4 w-4" />
-            <span className="text-sm font-normal">+{growthRate}% Growth</span>
+            <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
+            <span className="mobile-text-sm font-normal">+{growthRate}% Growth</span>
           </div>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-4 text-sm text-gray-600">
+        <div className="mb-4 mobile-text-sm text-gray-600 text-center">
           Track your renewable energy portfolio's total value, investment returns (IRR), and sustainability impact (ESG scores) over time.
         </div>
-        <ResponsiveContainer width="100%" height={300}>
+        <div className="chart-container flex justify-center">
+          <ResponsiveContainer width="100%" height={250} className="chart-card-mobile sm:h-[280px] lg:h-[300px]">
           <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis 
               dataKey="month" 
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
               tickLine={{ stroke: '#d1d5db' }}
+              className="mobile-text-xs"
             />
             <YAxis 
               yAxisId="left" 
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
               tickLine={{ stroke: '#d1d5db' }}
-              label={{ value: 'Value (₦M)', angle: -90, position: 'insideLeft' }}
+              label={{ value: 'Value (₦M)', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+              className="mobile-text-xs"
             />
             <YAxis 
               yAxisId="right" 
               orientation="right" 
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
               tickLine={{ stroke: '#d1d5db' }}
-              label={{ value: 'IRR (%) / ESG Score', angle: 90, position: 'insideRight' }}
+              label={{ value: 'IRR (%) / ESG Score', angle: 90, position: 'insideRight', style: { fontSize: '10px' } }}
+              className="mobile-text-xs"
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend 
-              wrapperStyle={{ paddingTop: '20px' }}
+              wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }}
               iconType="circle"
+              className="mobile-text-xs"
             />
             <Line 
               yAxisId="left"
@@ -113,19 +118,20 @@ export default function PortfolioPerformanceChart() {
               activeDot={{ r: 6, stroke: '#f59e0b', strokeWidth: 2 }}
             />
           </LineChart>
-        </ResponsiveContainer>
-        <div className="mt-4 grid grid-cols-3 gap-4 text-center">
-          <div className="p-2 bg-green-50 rounded">
-            <div className="text-sm text-gray-600">Current Value</div>
-            <div className="font-semibold text-green-600">₦120M</div>
+          </ResponsiveContainer>
+        </div>
+        <div className="mt-4 mobile-grid-3 mobile-gap-2 text-center">
+          <div className="mobile-p-2 bg-green-50 rounded">
+            <div className="mobile-text-sm text-gray-600">Current Value</div>
+            <div className="font-semibold text-green-600 mobile-text-base">₦120M</div>
           </div>
-          <div className="p-2 bg-blue-50 rounded">
-            <div className="text-sm text-gray-600">Average IRR</div>
-            <div className="font-semibold text-blue-600">15.7%</div>
+          <div className="mobile-p-2 bg-blue-50 rounded">
+            <div className="mobile-text-sm text-gray-600">Average IRR</div>
+            <div className="font-semibold text-blue-600 mobile-text-base">15.7%</div>
           </div>
-          <div className="p-2 bg-yellow-50 rounded">
-            <div className="text-sm text-gray-600">ESG Score</div>
-            <div className="font-semibold text-yellow-600">8.4/10</div>
+          <div className="mobile-p-2 bg-yellow-50 rounded">
+            <div className="mobile-text-sm text-gray-600">ESG Score</div>
+            <div className="font-semibold text-yellow-600 mobile-text-base">8.4/10</div>
           </div>
         </div>
       </CardContent>

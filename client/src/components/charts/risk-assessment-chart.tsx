@@ -93,10 +93,10 @@ export default function RiskAssessmentChart({ projectType = "solar" }: RiskAsses
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Shield className="w-5 h-5 text-blue-600" />
-            Risk Assessment by Category
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="flex items-center gap-2 justify-center sm:justify-start">
+            <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
+            <span className="mobile-text-lg">Risk Assessment by Category</span>
           </div>
           <span className="text-sm font-normal text-gray-500 capitalize">
             {projectType} Projects Analysis
@@ -104,59 +104,63 @@ export default function RiskAssessmentChart({ projectType = "solar" }: RiskAsses
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-4 text-sm text-gray-600">
+        <div className="mb-4 mobile-text-sm text-gray-600 text-center">
           Comprehensive risk analysis across key categories for {projectType} renewable energy projects. 
           Data shows distribution of risk levels based on historical project performance and market conditions.
         </div>
         
-        <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200">
+        <div className="mobile-grid-3 mobile-gap-2 mb-6">
+          <div className="text-center mobile-p-2 bg-green-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Shield className="w-4 h-4 text-green-600" />
-              <span className="text-2xl font-bold text-green-600">{totalLowRisk}</span>
+              <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
+              <span className="mobile-text-xl font-bold text-green-600">{totalLowRisk}</span>
             </div>
-            <p className="text-sm text-green-800 font-medium">Low Risk</p>
+            <p className="mobile-text-sm text-green-800 font-medium">Low Risk</p>
             <p className="text-xs text-green-600">{((totalLowRisk/overallTotal)*100).toFixed(1)}% of projects</p>
           </div>
-          <div className="text-center p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+          <div className="text-center mobile-p-2 bg-yellow-50 rounded-lg border border-yellow-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <AlertTriangle className="w-4 h-4 text-yellow-600" />
-              <span className="text-2xl font-bold text-yellow-600">{totalMediumRisk}</span>
+              <AlertTriangle className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-600" />
+              <span className="mobile-text-xl font-bold text-yellow-600">{totalMediumRisk}</span>
             </div>
-            <p className="text-sm text-yellow-800 font-medium">Medium Risk</p>
+            <p className="mobile-text-sm text-yellow-800 font-medium">Medium Risk</p>
             <p className="text-xs text-yellow-600">{((totalMediumRisk/overallTotal)*100).toFixed(1)}% of projects</p>
           </div>
-          <div className="text-center p-3 bg-red-50 rounded-lg border border-red-200">
+          <div className="text-center mobile-p-2 bg-red-50 rounded-lg border border-red-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <AlertCircle className="w-4 h-4 text-red-600" />
-              <span className="text-2xl font-bold text-red-600">{totalHighRisk}</span>
+              <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-red-600" />
+              <span className="mobile-text-xl font-bold text-red-600">{totalHighRisk}</span>
             </div>
-            <p className="text-sm text-red-800 font-medium">High Risk</p>
+            <p className="mobile-text-sm text-red-800 font-medium">High Risk</p>
             <p className="text-xs text-red-600">{((totalHighRisk/overallTotal)*100).toFixed(1)}% of projects</p>
           </div>
         </div>
 
-        <ResponsiveContainer width="100%" height={350}>
-          <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis 
-              dataKey="category" 
-              tick={{ fontSize: 12 }}
-              tickLine={{ stroke: '#d1d5db' }}
-              angle={-45}
-              textAnchor="end"
-              height={80}
-            />
-            <YAxis 
-              tick={{ fontSize: 12 }}
-              tickLine={{ stroke: '#d1d5db' }}
-              label={{ value: 'Number of Projects', angle: -90, position: 'insideLeft' }}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <Legend 
-              wrapperStyle={{ paddingTop: '20px' }}
-              iconType="rect"
-            />
+        <div className="chart-container flex justify-center">
+          <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[320px] lg:h-[350px]">
+            <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <XAxis 
+                dataKey="category" 
+                tick={{ fontSize: 10 }}
+                tickLine={{ stroke: '#d1d5db' }}
+                angle={-45}
+                textAnchor="end"
+                height={80}
+                className="mobile-text-xs"
+              />
+              <YAxis 
+                tick={{ fontSize: 10 }}
+                tickLine={{ stroke: '#d1d5db' }}
+                label={{ value: 'Number of Projects', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+                className="mobile-text-xs"
+              />
+              <Tooltip content={<CustomTooltip />} />
+              <Legend 
+                wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }}
+                iconType="rect"
+                className="mobile-text-xs"
+              />
             <Bar 
               dataKey="low" 
               stackId="risk" 
@@ -178,8 +182,9 @@ export default function RiskAssessmentChart({ projectType = "solar" }: RiskAsses
               name="High Risk Projects"
               radius={[4, 4, 0, 0]}
             />
-          </BarChart>
-        </ResponsiveContainer>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
 
         <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
           <h4 className="font-medium text-blue-900 mb-2 flex items-center gap-2">
