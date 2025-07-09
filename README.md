@@ -2,6 +2,8 @@
 
 A comprehensive renewable energy investment platform that provides intelligent project management, advanced financial analysis, and data-driven insights for sustainable investments.
 
+> **Note**: This is the web platform component of FinergyCloud. The mobile app can be found in the `main` branch under the `mobile-app/` directory.
+
 ## Features
 
 - **AI-Powered Analytics**: XGBoost machine learning models for project success predictions
