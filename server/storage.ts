@@ -3,6 +3,7 @@ import {
   predictions, 
   esgMetrics, 
   marketInsights,
+  projectTypeEsgTemplates,
   type Project, 
   type InsertProject,
   type Prediction,
@@ -10,7 +11,9 @@ import {
   type EsgMetrics,
   type InsertEsgMetrics,
   type MarketInsight,
-  type InsertMarketInsight
+  type InsertMarketInsight,
+  type ProjectTypeEsgTemplate,
+  type InsertProjectTypeEsgTemplate
 } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
@@ -33,6 +36,11 @@ export interface IStorage {
   // Market Insights
   getMarketInsights(): Promise<MarketInsight[]>;
   createMarketInsight(insight: InsertMarketInsight): Promise<MarketInsight>;
+  
+  // Project Type ESG Templates
+  getProjectTypeEsgTemplates(): Promise<ProjectTypeEsgTemplate[]>;
+  getProjectTypeEsgTemplate(projectType: string): Promise<ProjectTypeEsgTemplate | undefined>;
+  createProjectTypeEsgTemplate(template: InsertProjectTypeEsgTemplate): Promise<ProjectTypeEsgTemplate>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -233,6 +241,26 @@ export class DatabaseStorage implements IStorage {
       .values(insertInsight)
       .returning();
     return insight;
+  }
+
+  async getProjectTypeEsgTemplates(): Promise<ProjectTypeEsgTemplate[]> {
+    return await db.select().from(projectTypeEsgTemplates);
+  }
+
+  async getProjectTypeEsgTemplate(projectType: string): Promise<ProjectTypeEsgTemplate | undefined> {
+    const [template] = await db
+      .select()
+      .from(projectTypeEsgTemplates)
+      .where(eq(projectTypeEsgTemplates.projectType, projectType));
+    return template || undefined;
+  }
+
+  async createProjectTypeEsgTemplate(insertTemplate: InsertProjectTypeEsgTemplate): Promise<ProjectTypeEsgTemplate> {
+    const [template] = await db
+      .insert(projectTypeEsgTemplates)
+      .values(insertTemplate)
+      .returning();
+    return template;
   }
 }
 
@@ -467,6 +495,23 @@ export class MemStorage implements IStorage {
     };
     this.marketInsights.set(id, insight);
     return insight;
+  }
+
+  async getProjectTypeEsgTemplates(): Promise<ProjectTypeEsgTemplate[]> {
+    return [];
+  }
+
+  async getProjectTypeEsgTemplate(projectType: string): Promise<ProjectTypeEsgTemplate | undefined> {
+    return undefined;
+  }
+
+  async createProjectTypeEsgTemplate(insertTemplate: InsertProjectTypeEsgTemplate): Promise<ProjectTypeEsgTemplate> {
+    const template: ProjectTypeEsgTemplate = {
+      ...insertTemplate,
+      id: 1,
+      createdAt: new Date()
+    };
+    return template;
   }
 }
 

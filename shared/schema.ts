@@ -55,6 +55,23 @@ export const marketInsights = pgTable("market_insights", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const projectTypeEsgTemplates = pgTable("project_type_esg_templates", {
+  id: serial("id").primaryKey(),
+  projectType: text("project_type").notNull(), // solar, wind, hydro, biomass, geothermal
+  environmental: real("environmental").notNull(),
+  social: real("social").notNull(),
+  governance: real("governance").notNull(),
+  overall: real("overall").notNull(),
+  co2Reduction: real("co2_reduction").notNull(),
+  cleanEnergyGenerated: real("clean_energy_generated").notNull(),
+  waterSaved: real("water_saved").notNull(),
+  jobsCreated: integer("jobs_created").notNull(),
+  communitiesServed: integer("communities_served").notNull(),
+  educationPrograms: integer("education_programs").notNull(),
+  riskCategory: text("risk_category").notNull(), // low, medium, high
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export const insertProjectSchema = createInsertSchema(projects).omit({
   id: true,
   createdAt: true,
@@ -79,6 +96,11 @@ export const insertMarketInsightSchema = createInsertSchema(marketInsights).omit
   createdAt: true,
 });
 
+export const insertProjectTypeEsgTemplateSchema = createInsertSchema(projectTypeEsgTemplates).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type Project = typeof projects.$inferSelect;
 export type InsertProject = z.infer<typeof insertProjectSchema>;
 export type Prediction = typeof predictions.$inferSelect;
@@ -87,3 +109,5 @@ export type EsgMetrics = typeof esgMetrics.$inferSelect;
 export type InsertEsgMetrics = z.infer<typeof insertEsgMetricsSchema>;
 export type MarketInsight = typeof marketInsights.$inferSelect;
 export type InsertMarketInsight = z.infer<typeof insertMarketInsightSchema>;
+export type ProjectTypeEsgTemplate = typeof projectTypeEsgTemplates.$inferSelect;
+export type InsertProjectTypeEsgTemplate = z.infer<typeof insertProjectTypeEsgTemplateSchema>;

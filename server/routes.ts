@@ -85,6 +85,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Project type ESG template routes
+  app.get("/api/project-type-esg-templates", async (req, res) => {
+    try {
+      const templates = await storage.getProjectTypeEsgTemplates();
+      res.json(templates);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch project type ESG templates" });
+    }
+  });
+
+  app.get("/api/project-type-esg-templates/:projectType", async (req, res) => {
+    try {
+      const { projectType } = req.params;
+      const template = await storage.getProjectTypeEsgTemplate(projectType);
+      if (!template) {
+        return res.status(404).json({ message: "ESG template not found for project type" });
+      }
+      res.json(template);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch project type ESG template" });
+    }
+  });
+
   // Dashboard metrics endpoint
   app.get("/api/dashboard/metrics", async (req, res) => {
     try {
