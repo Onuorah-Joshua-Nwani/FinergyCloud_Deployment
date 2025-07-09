@@ -39,10 +39,10 @@ export async function setupAuth(app: Express) {
 
       // Demo user for GitHub version
       const demoUser = {
-        id: 'demo-user-123',
+        id: '17743017',
         email: email,
-        firstName: 'Demo',
-        lastName: 'User',
+        firstName: 'Joshua',
+        lastName: 'Nwani',
         profileImageUrl: null,
         stripeCustomerId: null,
         stripeSubscriptionId: null,
@@ -72,10 +72,10 @@ export async function setupAuth(app: Express) {
 
       // Demo user for GitHub version
       const demoUser = {
-        id: 'demo-user-123',
+        id: '17743017',
         email: email,
-        firstName: firstName || 'Demo',
-        lastName: lastName || 'User',
+        firstName: firstName || 'Joshua',
+        lastName: lastName || 'Nwani',
         profileImageUrl: null,
         stripeCustomerId: null,
         stripeSubscriptionId: null,
