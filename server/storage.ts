@@ -22,8 +22,10 @@ import { db } from "./db";
 import { eq } from "drizzle-orm";
 
 export interface IStorage {
-  // User operations (required for Replit Auth)
+  // User operations
   getUser(id: string): Promise<User | undefined>;
+  getUserByEmail(email: string): Promise<User | undefined>;
+  createUser(user: { email: string; passwordHash: string; firstName?: string | null; lastName?: string | null; }): Promise<User>;
   upsertUser(user: UpsertUser): Promise<User>;
   updateUserSubscription(userId: string, subscriptionData: {
     stripeCustomerId?: string;
@@ -59,9 +61,29 @@ export interface IStorage {
 }
 
 export class DatabaseStorage implements IStorage {
-  // User operations (required for Replit Auth)
+  // User operations
   async getUser(id: string): Promise<User | undefined> {
     const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
+  }
+
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.email, email));
+    return user;
+  }
+
+  async createUser(userData: { email: string; passwordHash: string; firstName?: string | null; lastName?: string | null; }): Promise<User> {
+    const id = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const [user] = await db
+      .insert(users)
+      .values({
+        id,
+        email: userData.email,
+        passwordHash: userData.passwordHash,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+      })
+      .returning();
     return user;
   }
 
@@ -319,10 +341,36 @@ export class DatabaseStorage implements IStorage {
 }
 
 export class MemStorage implements IStorage {
-  // User operations (required for Replit Auth)
+  // User operations
   async getUser(id: string): Promise<User | undefined> {
     // Mock implementation for memory storage
     return undefined;
+  }
+
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    // Mock implementation for memory storage
+    return undefined;
+  }
+
+  async createUser(userData: { email: string; passwordHash: string; firstName?: string | null; lastName?: string | null; }): Promise<User> {
+    // Mock implementation for memory storage
+    const id = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    return {
+      id,
+      email: userData.email,
+      passwordHash: userData.passwordHash,
+      firstName: userData.firstName || null,
+      lastName: userData.lastName || null,
+      profileImageUrl: null,
+      stripeCustomerId: null,
+      stripeSubscriptionId: null,
+      subscriptionStatus: "inactive",
+      subscriptionPlan: "free",
+      subscriptionStartDate: null,
+      subscriptionEndDate: null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
   }
 
   async upsertUser(userData: UpsertUser): Promise<User> {

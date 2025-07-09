@@ -15,6 +15,7 @@ import MarketInsights from "@/pages/market-insights";
 import KPIDashboard from "@/pages/kpi";
 import AdvancedFeatures from "@/pages/advanced-features";
 import Subscribe from "@/pages/subscribe";
+import Login from "@/pages/login";
 import Landing from "@/pages/landing";
 import NotFound from "@/pages/not-found";
 
@@ -24,7 +25,10 @@ function Router() {
   return (
     <Switch>
       {isLoading || !isAuthenticated ? (
-        <Route path="/" component={Landing} />
+        <>
+          <Route path="/login" component={Login} />
+          <Route path="/" component={Landing} />
+        </>
       ) : (
         <>
           <div className="min-h-screen bg-gray-50">

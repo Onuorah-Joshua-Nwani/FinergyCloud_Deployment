@@ -183,7 +183,7 @@ export default function Landing() {
             Join thousands of investors using FinergyCloud to make smarter, 
             more profitable renewable energy investment decisions.
           </p>
-          <a href="/api/login">
+          <a href="/login">
             <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
               Start Your Free Trial
               <ArrowRight className="w-5 h-5 ml-2" />

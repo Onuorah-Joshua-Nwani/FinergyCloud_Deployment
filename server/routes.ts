@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { setupAuth, isAuthenticated } from "./replitAuth";
+import { setupAuth, isAuthenticated } from "./auth";
 import { insertPredictionSchema } from "@shared/schema";
 import { z } from "zod";
 
@@ -12,8 +12,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Auth routes
   app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
-      const user = await storage.getUser(userId);
+      const user = req.user;
       res.json(user);
     } catch (error) {
       console.error("Error fetching user:", error);
@@ -24,8 +23,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Subscription routes
   app.get('/api/subscription/status', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
-      const user = await storage.getUser(userId);
+      const user = req.user;
       
       if (!user) {
         return res.status(404).json({ message: "User not found" });
@@ -47,7 +45,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post('/api/subscription/create', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
+      const userId = req.user.id;
       const { planId, successUrl, cancelUrl } = req.body;
 
       // Validate plan ID
@@ -105,7 +103,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post('/api/subscription/cancel', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
+      const userId = req.user.id;
 
       await storage.updateUserSubscription(userId, {
         subscriptionStatus: 'canceled',
