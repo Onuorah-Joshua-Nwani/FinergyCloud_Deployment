@@ -44,10 +44,10 @@ export default function MarketingLanding() {
   ];
 
   const stats = [
-    { value: "94%", label: "Prediction Accuracy" },
-    { value: "$2.1B+", label: "Projects Analyzed" },
-    { value: "15+", label: "African Markets" },
-    { value: "500+", label: "Active Investors" }
+    { value: "15,000+", label: "Investment Simulations", subtitle: "With 87% prediction accuracy" },
+    { value: "₦120M+", label: "Analyzed Investment Value", subtitle: "Across 12 solar projects" },
+    { value: "3", label: "Strategic Partnerships", subtitle: "In Nigeria and Kenya" },
+    { value: "150+", label: "GitHub Commits", subtitle: "Open source development" }
   ];
 
   return (
@@ -72,37 +72,67 @@ export default function MarketingLanding() {
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">
-        <Badge className="mb-4 bg-green-100 text-green-800 border-green-200">
-          MBA Distinction Project to Startup Innovation
-        </Badge>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+          <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+            UK Registered
+          </Badge>
+          <Badge className="bg-green-100 text-green-800 border-green-200">
+            AI-Powered
+          </Badge>
+          <Badge className="bg-orange-100 text-orange-800 border-orange-200">
+            Africa-Focused
+          </Badge>
+        </div>
         <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
           AI-Driven Risk Intelligence for{" "}
-          <span className="text-green-600">Renewable Energy</span> Investments
+          <span className="text-green-600">Renewable Energy</span> Investors
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Transform your renewable energy investment decisions with smart analytics, 
-          ESG scoring, and AI-powered risk profiling. From emerging market intelligence 
-          to IRR simulation - make informed decisions that drive sustainable returns.
+        <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto">
+          Transform your renewable energy investment decisions with our AI-powered platform. 
+          Advanced IRR simulation, ESG scoring, and risk profiling specifically designed for 
+          emerging market opportunities.
         </p>
+        
+        {/* Key Metrics */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-8">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-green-600">15.2%</div>
+            <div className="text-sm text-gray-600">Average IRR</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-blue-600">15,000+</div>
+            <div className="text-sm text-gray-600">Simulations</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-orange-600">₦120M+</div>
+            <div className="text-sm text-gray-600">Pilot Funding</div>
+          </div>
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" asChild className="bg-green-600 hover:bg-green-700">
             <a href="/app" className="flex items-center">
-              Try Platform Free <ArrowRight className="ml-2 h-4 w-4" />
+              Explore MVP <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="#demo">Watch Demo</a>
+            <a href="https://www.youtube.com/@FinergyCloud_official" target="_blank">Watch Videos</a>
           </Button>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Market Validation & Traction</h2>
+          <p className="text-lg text-gray-600">Quantifiable impact across multiple African markets</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className="text-center bg-white p-6 rounded-lg shadow-lg">
               <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">{stat.value}</div>
-              <div className="text-gray-600">{stat.label}</div>
+              <div className="text-gray-900 font-semibold mb-1">{stat.label}</div>
+              <div className="text-sm text-gray-600">{stat.subtitle}</div>
             </div>
           ))}
         </div>
@@ -140,68 +170,204 @@ export default function MarketingLanding() {
         </div>
       </section>
 
-      {/* Platform Preview */}
+      {/* Technical Stack */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Built with Cutting-Edge Technology</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Our platform combines proven technologies with innovative AI approaches for maximum reliability and performance
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">Frontend Technology</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li>• React.js with TypeScript</li>
+              <li>• Modern ES6+ JavaScript</li>
+              <li>• Responsive Design</li>
+              <li>• Interactive Dashboards</li>
+            </ul>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">AI Engine (2025)</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li>• XGBoost Predictive Models</li>
+              <li>• NLP Document Analysis</li>
+              <li>• Machine Learning Pipeline</li>
+              <li>• Real-time Processing</li>
+            </ul>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">Data Infrastructure</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li>• PostgreSQL Database</li>
+              <li>• RESTful API Architecture</li>
+              <li>• Real-time Data Processing</li>
+              <li>• Secure Authentication</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-green-50 py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What People Say</h2>
+            <p className="text-xl text-gray-600">Feedback from our users and partners</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <p className="text-gray-600 mb-6 text-lg">
+                "We used FinergyCloud to score ₦50M in solar projects – it simplified our risk decisions."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  IM
+                </div>
+                <div>
+                  <div className="font-semibold">Investment Manager</div>
+                  <div className="text-gray-600 text-sm">Renewable Energy Firm, Nigeria</div>
+                  <Badge className="mt-1 bg-green-100 text-green-800">Live on GitHub</Badge>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <p className="text-gray-600 mb-6 text-lg">
+                "The ESG integration and emerging market focus are particularly valuable for our investment decisions."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  BU
+                </div>
+                <div>
+                  <div className="font-semibold">Beta User</div>
+                  <div className="text-gray-600 text-sm">Renewable Energy Investment Firm</div>
+                  <Badge className="mt-1 bg-blue-100 text-blue-800">2024</Badge>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder Section */}
+      <section id="about" className="bg-gray-50 py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900 mb-6">Founder's Note</h2>
+                <p className="text-gray-600 mb-6">
+                  FinergyCloud was founded by O.J. Nwani, a UK-based SAP & AI consultant and clean energy innovator. 
+                  The company was officially registered in the UK in June 2025 to scale its mission of unlocking 
+                  sustainable energy financing in Africa using artificial intelligence.
+                </p>
+                <p className="text-gray-600 mb-6">
+                  Now headquartered in the UK, FinergyCloud plans to collaborate with UK-based clean energy 
+                  investors and climate tech researchers to expand the platform's reach and impact.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">
+                    ON
+                  </div>
+                  <div>
+                    <div className="font-semibold">O.J. Nwani</div>
+                    <div className="text-gray-600">Founder & CEO</div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <div className="text-center mb-6">
+                  <Globe className="h-16 w-16 text-green-600 mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold">UK Registration & Global Vision</h3>
+                </div>
+                <div className="space-y-4 text-sm text-gray-600">
+                  <div className="flex justify-between">
+                    <span>Company Registration:</span>
+                    <span className="font-semibold">UK - June 2025</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Focus Markets:</span>
+                    <span className="font-semibold">Nigeria & Kenya</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Technology Base:</span>
+                    <span className="font-semibold">AI & Machine Learning</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MVP Section */}
       <section className="bg-gray-900 text-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">See FinergyCloud in Action</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Experience the power of AI-driven renewable energy investment intelligence
+          <h2 className="text-4xl font-bold mb-4">Explore Our MVP</h2>
+          <p className="text-xl mb-8 text-gray-300 max-w-3xl mx-auto">
+            Our Minimum Viable Product is already live and functional on GitHub. Explore the code, 
+            test the IRR calculator, and see our ESG scoring framework in action.
           </p>
-          <div className="bg-gray-800 rounded-lg p-8 max-w-4xl mx-auto">
-            <div className="aspect-video bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <BarChart3 className="h-16 w-16 mx-auto mb-4 opacity-80" />
-                <p className="text-lg">Interactive Platform Demo</p>
-                <Button className="mt-4 bg-white text-gray-900 hover:bg-gray-100" asChild>
-                  <a href="/app">Launch Platform</a>
-                </Button>
-              </div>
+          
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-green-400 mb-2">150+</div>
+              <div className="text-gray-400">Commits</div>
             </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-400 mb-2">12</div>
+              <div className="text-gray-400">Releases</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-orange-400 mb-2">5</div>
+              <div className="text-gray-400">Beta Users</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-purple-400 mb-2">87%</div>
+              <div className="text-gray-400">Accuracy</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
+              <a href="https://github.com/Onuorah-Joshua-Nwani/ojn-msp-1-finergycloud" target="_blank">
+                View on GitHub
+              </a>
+            </Button>
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
+              <a href="/app">Try Live Platform</a>
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-gray-900" asChild>
+              <a href="https://www.youtube.com/@FinergyCloud_official" target="_blank">Watch Demo</a>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8">From Academic Excellence to Market Innovation</h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-left">
-              <h3 className="text-2xl font-semibold mb-4">Born from Research Excellence</h3>
-              <p className="text-gray-600 mb-6">
-                FinergyCloud originated as an MBA distinction project, combining rigorous academic 
-                research with real-world market needs. Our platform bridges the gap between 
-                theoretical investment models and practical renewable energy decision-making.
-              </p>
-              <div className="flex items-center space-x-4">
-                <Users className="h-6 w-6 text-green-600" />
-                <span className="text-gray-700">Built by renewable energy investment experts</span>
-              </div>
-            </div>
-            <div className="bg-green-50 p-8 rounded-lg">
-              <TrendingUp className="h-12 w-12 text-green-600 mb-4" />
-              <h4 className="text-xl font-semibold mb-2">Our Mission</h4>
-              <p className="text-gray-600">
-                Democratizing access to sophisticated renewable energy investment intelligence, 
-                enabling smarter decisions that accelerate the global transition to clean energy.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
+      {/* Final CTA Section */}
       <section className="bg-green-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Investment Strategy?</h2>
+          <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Investment Process?</h2>
           <p className="text-xl mb-8 opacity-90">
-            Join hundreds of investors using FinergyCloud to make smarter renewable energy decisions
+            Join forward-thinking investors who are already using FinergyCloud to make smarter, 
+            faster decisions in renewable energy investments.
           </p>
-          <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100" asChild>
-            <a href="/app" className="flex items-center">
-              Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+            <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100" asChild>
+              <a href="/contact.html">Book Demo</a>
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-green-600" asChild>
+              <a href="/app">Try Platform Free</a>
+            </Button>
+          </div>
+          <p className="text-sm opacity-75">
+            Free demo • No commitment • Expert guidance • Video tutorials available
+          </p>
         </div>
       </section>
 
