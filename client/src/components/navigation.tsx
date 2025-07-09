@@ -10,6 +10,7 @@ export default function Navigation() {
   const navItems = [
     { path: "/dashboard", label: "Dashboard" },
     { path: "/ai-model", label: "AI Model" },
+    { path: "/irr-calculator", label: "IRR Calculator" },
     { path: "/esg-scoring", label: "ESG Scoring" },
   ];
 

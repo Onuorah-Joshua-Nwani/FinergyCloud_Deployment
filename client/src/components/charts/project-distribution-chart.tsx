@@ -56,11 +56,11 @@ const portfolioData = [
   },
 ];
 
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({ active, payload, convertAndFormat }: any) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
-      <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg min-w-[200px]">
+      <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg min-w-[200px] mobile-tooltip">
         <h3 className="font-medium text-gray-900 mb-3">{data.name} Projects</h3>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
@@ -188,7 +188,7 @@ export default function ProjectDistributionChart() {
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip content={(props) => <CustomTooltip {...props} convertAndFormat={convertAndFormat} />} />
               </PieChart>
             </ResponsiveContainer>
           </div>

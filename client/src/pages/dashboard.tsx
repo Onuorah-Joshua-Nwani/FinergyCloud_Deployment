@@ -107,7 +107,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
-                <Link href="/ai-model">
+                <Link href="/irr-calculator">
                   <Button 
                     variant="outline" 
                     className="h-auto p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
