@@ -111,16 +111,16 @@ export default function InvestmentPerformanceChart() {
           across the renewable energy portfolio with trend analysis.
         </div>
         
-        <div className="grid grid-cols-5 gap-4 mb-6">
+        <div className="mobile-grid-5 mobile-gap-2 mb-6">
           <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
             <div className="flex items-center justify-center gap-1 mb-1">
               <DollarSign className="w-4 h-4 text-blue-600" />
-              <span className="text-xl font-bold text-blue-600">₦{totalInvestment}</span>
+              <span className="mobile-text-xl font-bold text-blue-600">₦{totalInvestment}</span>
             </div>
             <p className="text-sm text-blue-800 font-medium">Total Investment</p>
             <p className="text-xs text-blue-600">Millions deployed</p>
           </div>
-          <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200">
+          <div className="text-center mobile-p-2 bg-green-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
               <TrendingUp className="w-4 h-4 text-green-600" />
               <span className="text-xl font-bold text-green-600">₦{totalReturns}</span>
@@ -154,10 +154,10 @@ export default function InvestmentPerformanceChart() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 mb-6">
-          <div>
-            <h4 className="font-medium text-gray-900 mb-4">Investment vs Returns Trend</h4>
-            <ResponsiveContainer width="100%" height={280}>
+        <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4 mb-6">
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Investment vs Returns Trend</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile">
               <ComposedChart data={performanceData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
@@ -208,9 +208,9 @@ export default function InvestmentPerformanceChart() {
             </ResponsiveContainer>
           </div>
 
-          <div>
-            <h4 className="font-medium text-gray-900 mb-4">Cumulative ROI Growth</h4>
-            <ResponsiveContainer width="100%" height={280}>
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Cumulative ROI Growth</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile">
               <AreaChart data={performanceData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 

@@ -100,4 +100,125 @@
   .border-error {
     border-color: hsl(var(--error));
   }
+
+  /* Mobile-first responsive chart containers */
+  .chart-container {
+    @apply w-full overflow-x-auto;
+  }
+  
+  /* Mobile chart responsive adjustments */
+  @media (max-width: 640px) {
+    .recharts-responsive-container {
+      min-height: 250px !important;
+    }
+    
+    .recharts-cartesian-axis-tick-value {
+      font-size: 10px !important;
+    }
+    
+    .recharts-legend-wrapper {
+      padding-top: 10px !important;
+    }
+    
+    /* Adjust polar chart sizing for mobile */
+    .recharts-polar-grid-radial-line,
+    .recharts-polar-grid-concentric-circle {
+      stroke-width: 0.5 !important;
+    }
+    
+    .recharts-polar-angle-axis-tick-value {
+      font-size: 9px !important;
+    }
+  }
+  
+  /* Tablet adjustments */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .recharts-responsive-container {
+      min-height: 280px !important;
+    }
+    
+    .recharts-cartesian-axis-tick-value {
+      font-size: 11px !important;
+    }
+  }
+  
+  /* Mobile-first grid adjustments */
+  .mobile-grid-1 {
+    @apply grid grid-cols-1;
+  }
+  
+  .mobile-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2;
+  }
+  
+  .mobile-grid-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .mobile-grid-4 {
+    @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4;
+  }
+  
+  .mobile-grid-5 {
+    @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5;
+  }
+  
+  /* Mobile padding and spacing */
+  .mobile-p-2 {
+    @apply p-2 sm:p-3 lg:p-4;
+  }
+  
+  .mobile-gap-2 {
+    @apply gap-2 sm:gap-3 lg:gap-4;
+  }
+  
+  .mobile-gap-4 {
+    @apply gap-3 sm:gap-4 lg:gap-6;
+  }
+  
+  /* Mobile text sizing */
+  .mobile-text-sm {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .mobile-text-base {
+    @apply text-sm sm:text-base;
+  }
+  
+  .mobile-text-lg {
+    @apply text-base sm:text-lg;
+  }
+  
+  .mobile-text-xl {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .mobile-text-2xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  /* Chart card mobile adjustments */
+  .chart-card {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+  }
+  
+  .chart-card-mobile {
+    @apply chart-card overflow-hidden;
+  }
+  
+  /* Scrollable tables for mobile */
+  .mobile-scroll {
+    @apply overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100;
+  }
+  
+  /* Mobile tooltip adjustments */
+  .mobile-tooltip {
+    @apply max-w-xs;
+  }
+  
+  @media (max-width: 640px) {
+    .mobile-tooltip {
+      @apply max-w-56;
+    }
+  }
 }

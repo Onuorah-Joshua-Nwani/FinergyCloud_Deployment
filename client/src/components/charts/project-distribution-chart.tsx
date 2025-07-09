@@ -127,13 +127,13 @@ export default function ProjectDistributionChart() {
           by project count, capacity, and investment allocation.
         </div>
         
-        <div className="grid grid-cols-4 gap-4 mb-6">
-          <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
+        <div className="mobile-grid-4 mobile-gap-2 mb-6">
+          <div className="text-center mobile-p-2 bg-blue-50 rounded-lg border border-blue-200">
             <div className="flex items-center justify-center gap-1 mb-1">
               <PieChartIcon className="w-4 h-4 text-blue-600" />
-              <span className="text-2xl font-bold text-blue-600">{totalProjects}</span>
+              <span className="mobile-text-2xl font-bold text-blue-600">{totalProjects}</span>
             </div>
-            <p className="text-sm text-blue-800 font-medium">Total Projects</p>
+            <p className="mobile-text-sm text-blue-800 font-medium">Total Projects</p>
             <p className="text-xs text-blue-600">Active portfolio</p>
           </div>
           <div className="text-center p-3 bg-green-50 rounded-lg border border-green-200">
@@ -164,10 +164,10 @@ export default function ProjectDistributionChart() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
-          <div>
-            <h4 className="font-medium text-gray-900 mb-4">Distribution by Project Count</h4>
-            <ResponsiveContainer width="100%" height={280}>
+        <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4">
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Distribution by Project Count</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile">
               <PieChart>
                 <Pie
                   data={portfolioData}
@@ -191,9 +191,9 @@ export default function ProjectDistributionChart() {
             </ResponsiveContainer>
           </div>
 
-          <div>
-            <h4 className="font-medium text-gray-900 mb-4">Performance by Technology</h4>
-            <ResponsiveContainer width="100%" height={280}>
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Performance by Technology</h4>
+            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile">
               <BarChart data={portfolioData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
@@ -225,7 +225,7 @@ export default function ProjectDistributionChart() {
           </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-5 gap-3">
+        <div className="mt-6 mobile-grid-5 mobile-gap-2">
           {portfolioData.map((item, index) => (
             <div key={index} className={`p-3 rounded-lg border ${item.iconBg} border-gray-200`}>
               <div className="flex items-center justify-between mb-2">
