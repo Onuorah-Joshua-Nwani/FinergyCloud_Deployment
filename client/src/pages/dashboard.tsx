@@ -2,9 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card";
-import PortfolioPerformanceChart from "@/components/charts/portfolio-performance-chart";
-import ProjectDistributionChart from "@/components/charts/project-distribution-chart";
-import InvestmentPerformanceChart from "@/components/charts/investment-performance-chart";
 import { 
   Calculator, 
   Folder, 
@@ -166,16 +163,7 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        {/* Portfolio Analytics */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6">
-          <PortfolioPerformanceChart />
-          <ProjectDistributionChart />
-        </div>
 
-        {/* Investment Performance */}
-        <div className="mt-4 md:mt-6">
-          <InvestmentPerformanceChart />
-        </div>
 
 
       </div>
