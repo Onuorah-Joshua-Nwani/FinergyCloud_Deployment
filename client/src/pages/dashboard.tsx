@@ -15,7 +15,9 @@ import {
   Calculator, 
   Folder, 
   Brain,
-  ArrowRight 
+  ArrowRight,
+  Globe,
+  BarChart3
 } from "lucide-react";
 import { Link } from "wouter";
 import type { Project, MarketInsight } from "@shared/schema";
@@ -106,7 +108,7 @@ export default function Dashboard() {
               <CardTitle>Quick Actions</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <Link href="/irr-calculator">
                   <Button 
                     variant="outline" 
@@ -130,6 +132,19 @@ export default function Dashboard() {
                     </div>
                     <h3 className="font-medium text-gray-900 mb-1">Manage Projects</h3>
                     <p className="text-sm text-gray-600">Create and manage projects</p>
+                  </Button>
+                </Link>
+
+                <Link href="/market-insights">
+                  <Button 
+                    variant="outline" 
+                    className="h-auto p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5"
+                  >
+                    <div className="p-2 bg-blue-100 rounded-lg w-fit mb-3">
+                      <Globe className="w-4 h-4 text-blue-600" />
+                    </div>
+                    <h3 className="font-medium text-gray-900 mb-1">Market Insights</h3>
+                    <p className="text-sm text-gray-600">Trends and analysis</p>
                   </Button>
                 </Link>
 
@@ -204,9 +219,11 @@ export default function Dashboard() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Market Insights</CardTitle>
-              <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
-                View All <ArrowRight className="w-4 h-4 ml-1" />
-              </Button>
+              <Link href="/market-insights">
+                <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
+                  View All <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+              </Link>
             </div>
           </CardHeader>
           <CardContent>
