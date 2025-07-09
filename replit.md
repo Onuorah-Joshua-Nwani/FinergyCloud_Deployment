@@ -330,7 +330,24 @@ The architecture emphasizes type safety, developer experience, and maintainabili
   - Quick action buttons for immediate platform access and demo viewing
 - **Server-Side Processing**: Backend API endpoint for contact form submissions with logging and validation
 
+### Unified Platform Architecture (July 9, 2025)
+- **Domain Integration**: Restructured for unified platform serving both web and mobile app access
+  - Root domain (/) serves unified platform landing with web + mobile options
+  - Removed separate marketing site in favor of integrated platform experience
+  - Direct web platform access and mobile app download links from main domain
+  - Seamless transition from landing to authenticated web platform
+- **Cross-Platform Design**: Landing page showcases both web platform and mobile app capabilities
+  - Side-by-side comparison of web vs mobile features and capabilities
+  - Professional presentation highlighting AI predictions, ESG scoring, and analytics
+  - Mobile app download buttons ready for iOS/Android deployment
+  - Unified branding and consistent user experience across all touchpoints
+- **Architecture Simplification**: Removed path-based routing in favor of direct platform access
+  - Clean URL structure with platform features directly accessible
+  - Authentication flow leads directly to dashboard without /app/ prefix
+  - Streamlined navigation and user journey from discovery to platform use
+
 ### Current Status
+- **Architecture**: Unified platform ready for deployment with integrated web + mobile experience
 - **Authentication**: Demo authentication system ready for GitHub deployment
 - **Database**: Fully operational PostgreSQL with persistent data storage and user management
 - **Charts**: Professional interactive visualizations with comprehensive analytics and mobile-first design
