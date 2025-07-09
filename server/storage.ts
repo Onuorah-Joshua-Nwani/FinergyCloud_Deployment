@@ -12,6 +12,8 @@ import {
   type MarketInsight,
   type InsertMarketInsight
 } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   // Projects
@@ -31,6 +33,207 @@ export interface IStorage {
   // Market Insights
   getMarketInsights(): Promise<MarketInsight[]>;
   createMarketInsight(insight: InsertMarketInsight): Promise<MarketInsight>;
+}
+
+export class DatabaseStorage implements IStorage {
+  async seedData() {
+    // Check if data already exists
+    const existingProjects = await db.select().from(projects);
+    if (existingProjects.length > 0) {
+      return; // Data already seeded
+    }
+
+    // Seed projects
+    const [project1] = await db
+      .insert(projects)
+      .values({
+        name: "Lagos Solar Farm",
+        type: "solar",
+        location: "lagos",
+        capacity: 5.0,
+        status: "active",
+        irr: 16.8,
+        esgScore: 8.9,
+        riskLevel: "low",
+      })
+      .returning();
+
+    const [project2] = await db
+      .insert(projects)
+      .values({
+        name: "Abuja Wind Project",
+        type: "wind",
+        location: "abuja",
+        capacity: 2.5,
+        status: "pending",
+        irr: 14.5,
+        esgScore: 8.2,
+        riskLevel: "medium",
+      })
+      .returning();
+
+    // Seed ESG metrics
+    await db
+      .insert(esgMetrics)
+      .values({
+        projectId: project1.id,
+        environmental: 8.7,
+        social: 8.1,
+        governance: 8.4,
+        overall: 8.4,
+        co2Reduction: 2450,
+        cleanEnergyGenerated: 12.5,
+        waterSaved: 890000,
+        jobsCreated: 156,
+        communitiesServed: 8,
+        educationPrograms: 4,
+      });
+
+    // Seed market insights
+    await db
+      .insert(marketInsights)
+      .values([
+        {
+          title: "The AI Revolution in Renewable Energy Investment",
+          date: new Date("2024-12-15"),
+          excerpt: "Discover how artificial intelligence is transforming renewable energy investment decisions and why traditional models are failing.",
+          content: null,
+          author: "FinergyCloud Research Team",
+        },
+        {
+          title: "ESG Scoring Revolution: Making Sustainability Measurable",
+          date: new Date("2024-12-12"),
+          excerpt: "How AI is revolutionizing ESG scoring and making environmental impact quantifiable.",
+          content: null,
+          author: "FinergyCloud Research Team",
+        },
+      ]);
+  }
+
+  async getProjects(): Promise<Project[]> {
+    return await db.select().from(projects);
+  }
+
+  async getProject(id: number): Promise<Project | undefined> {
+    const [project] = await db.select().from(projects).where(eq(projects.id, id));
+    return project || undefined;
+  }
+
+  async createProject(insertProject: InsertProject): Promise<Project> {
+    const [project] = await db
+      .insert(projects)
+      .values(insertProject)
+      .returning();
+    return project;
+  }
+
+  async getPredictions(): Promise<Prediction[]> {
+    return await db.select().from(predictions);
+  }
+
+  async createPrediction(insertPrediction: InsertPrediction): Promise<Prediction> {
+    // Mock AI prediction logic - same as before
+    const { projectType, location, gridStability, communityEngagement, projectSize } = insertPrediction;
+    
+    let baseIrr = 12.0;
+    let successProb = 0.75;
+    let confidence = 0.85;
+    
+    // Adjust based on project type
+    switch (projectType) {
+      case "solar":
+        baseIrr += 2.5;
+        successProb += 0.1;
+        break;
+      case "wind":
+        baseIrr += 1.8;
+        successProb += 0.08;
+        break;
+      case "hydro":
+        baseIrr += 3.0;
+        successProb += 0.12;
+        break;
+    }
+    
+    // Adjust based on location
+    if (location === "lagos" || location === "abuja") {
+      baseIrr += 1.0;
+      successProb += 0.05;
+    }
+    
+    // Adjust based on grid stability
+    switch (gridStability) {
+      case "high":
+        baseIrr += 0.8;
+        successProb += 0.08;
+        break;
+      case "medium":
+        baseIrr += 0.3;
+        break;
+      case "low":
+        baseIrr -= 0.5;
+        successProb -= 0.1;
+        break;
+    }
+    
+    // Adjust based on project size
+    if (projectSize > 5) {
+      baseIrr += 0.5;
+      confidence += 0.05;
+    }
+    
+    const predictedIrr = Math.max(8.0, Math.min(25.0, baseIrr + (Math.random() - 0.5) * 2));
+    const finalSuccessProb = Math.max(0.5, Math.min(0.95, successProb + (Math.random() - 0.5) * 0.1));
+    const finalConfidence = Math.max(0.75, Math.min(0.98, confidence + (Math.random() - 0.5) * 0.1));
+    
+    let riskLevel = "medium";
+    if (predictedIrr > 15 && finalSuccessProb > 0.85) riskLevel = "low";
+    if (predictedIrr < 12 || finalSuccessProb < 0.7) riskLevel = "high";
+
+    const predictionData = {
+      ...insertPrediction,
+      predictedIrr: Math.round(predictedIrr * 10) / 10,
+      successProbability: Math.round(finalSuccessProb * 100) / 100,
+      riskLevel,
+      confidence: Math.round(finalConfidence * 100) / 100,
+    };
+
+    const [prediction] = await db
+      .insert(predictions)
+      .values(predictionData)
+      .returning();
+    
+    return prediction;
+  }
+
+  async getEsgMetrics(): Promise<EsgMetrics[]> {
+    return await db.select().from(esgMetrics);
+  }
+
+  async getEsgMetricsByProjectId(projectId: number): Promise<EsgMetrics | undefined> {
+    const [metrics] = await db.select().from(esgMetrics).where(eq(esgMetrics.projectId, projectId));
+    return metrics || undefined;
+  }
+
+  async createEsgMetrics(insertMetrics: InsertEsgMetrics): Promise<EsgMetrics> {
+    const [metrics] = await db
+      .insert(esgMetrics)
+      .values(insertMetrics)
+      .returning();
+    return metrics;
+  }
+
+  async getMarketInsights(): Promise<MarketInsight[]> {
+    return await db.select().from(marketInsights);
+  }
+
+  async createMarketInsight(insertInsight: InsertMarketInsight): Promise<MarketInsight> {
+    const [insight] = await db
+      .insert(marketInsights)
+      .values(insertInsight)
+      .returning();
+    return insight;
+  }
 }
 
 export class MemStorage implements IStorage {
@@ -267,4 +470,7 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
+
+// Initialize database with seed data
+storage.seedData().catch(console.error);
