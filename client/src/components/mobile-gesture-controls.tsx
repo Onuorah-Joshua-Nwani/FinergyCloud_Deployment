@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'wouter';
+import { useLocation, useRouter } from 'wouter';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
@@ -22,7 +22,8 @@ interface GestureState {
 }
 
 export default function MobileGestureControls() {
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
+  const router = useRouter();
   const [gestureState, setGestureState] = useState<GestureState>({
     isActive: false,
     startX: 0,
@@ -46,7 +47,8 @@ export default function MobileGestureControls() {
   ];
 
   const getCurrentPathIndex = () => {
-    return navigationPaths.findIndex(path => path === location) || 0;
+    const index = navigationPaths.findIndex(path => path === location);
+    return index !== -1 ? index : 0;
   };
 
   const navigateWithGesture = (direction: 'left' | 'right') => {
@@ -60,7 +62,7 @@ export default function MobileGestureControls() {
     }
 
     const newPath = navigationPaths[newIndex];
-    setLocation(newPath);
+    router.navigate(newPath);
     setGestureHistory(prev => [...prev.slice(-4), `${direction} → ${newPath}`]);
   };
 
