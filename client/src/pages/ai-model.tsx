@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PredictionForm from "@/components/prediction-form";
-import ChartPlaceholder from "@/components/chart-placeholder";
+import ModelPerformanceChart from "@/components/charts/model-performance-chart";
+import RiskAssessmentChart from "@/components/charts/risk-assessment-chart";
 
 export default function AIModel() {
   return (
@@ -80,15 +81,16 @@ export default function AIModel() {
           </Card>
 
           {/* Model Performance Chart */}
-          <ChartPlaceholder 
-            title="Model Performance" 
-            type="area"
-            description="Performance visualization"
-          />
+          <ModelPerformanceChart />
         </div>
 
         {/* Prediction Form */}
         <PredictionForm />
+
+        {/* Risk Analysis */}
+        <div className="mt-8">
+          <RiskAssessmentChart />
+        </div>
 
         {/* Case Studies */}
         <Card className="mt-8">

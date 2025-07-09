@@ -2,7 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import ESGScoreDisplay from "@/components/esg-score-display";
-import ChartPlaceholder from "@/components/chart-placeholder";
+import ESGScoreTrendChart from "@/components/charts/esg-score-trend-chart";
+import ESGComponentBreakdownChart from "@/components/charts/esg-component-breakdown-chart";
+import PeerComparisonChart from "@/components/charts/peer-comparison-chart";
+import ESGFactorImpactChart from "@/components/charts/esg-factor-impact-chart";
 import { Leaf, Shield, Recycle } from "lucide-react";
 import type { EsgMetrics } from "@shared/schema";
 
@@ -141,26 +144,10 @@ export default function ESGScoring() {
 
         {/* ESG Analytics */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <ChartPlaceholder 
-            title="ESG Score Trend" 
-            type="line"
-            description="Loading visualization..."
-          />
-          <ChartPlaceholder 
-            title="ESG Component Breakdown" 
-            type="radar"
-            description="Loading visualization..."
-          />
-          <ChartPlaceholder 
-            title="Peer Comparison" 
-            type="bar"
-            description="Loading visualization..."
-          />
-          <ChartPlaceholder 
-            title="ESG Factor Impact" 
-            type="area"
-            description="Loading visualization..."
-          />
+          <ESGScoreTrendChart />
+          <ESGComponentBreakdownChart />
+          <PeerComparisonChart />
+          <ESGFactorImpactChart />
         </div>
 
         {/* ESG Improvement Recommendations */}

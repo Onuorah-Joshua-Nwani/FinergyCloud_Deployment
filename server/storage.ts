@@ -242,6 +242,7 @@ export class MemStorage implements IStorage {
     const metrics: EsgMetrics = {
       ...insertMetrics,
       id,
+      projectId: insertMetrics.projectId || null,
       createdAt: new Date()
     };
     this.esgMetrics.set(id, metrics);
@@ -257,6 +258,8 @@ export class MemStorage implements IStorage {
     const insight: MarketInsight = {
       ...insertInsight,
       id,
+      content: insertInsight.content || null,
+      author: insertInsight.author || null,
       createdAt: new Date()
     };
     this.marketInsights.set(id, insight);

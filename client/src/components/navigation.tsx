@@ -14,15 +14,15 @@ export default function Navigation() {
 
   const NavLink = ({ path, label }: { path: string; label: string }) => (
     <Link href={path}>
-      <a
-        className={`transition-colors ${
+      <span
+        className={`transition-colors cursor-pointer ${
           location === path || (path === "/dashboard" && location === "/")
             ? "text-primary font-medium"
             : "text-gray-600 hover:text-primary"
         }`}
       >
         {label}
-      </a>
+      </span>
     </Link>
   );
 

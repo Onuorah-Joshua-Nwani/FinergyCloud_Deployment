@@ -3,6 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import KPICard from "@/components/kpi-card";
 import ProjectCard from "@/components/project-card";
+import PortfolioPerformanceChart from "@/components/charts/portfolio-performance-chart";
+import ProjectDistributionChart from "@/components/charts/project-distribution-chart";
+import InvestmentPerformanceChart from "@/components/charts/investment-performance-chart";
 import { 
   TrendingUp, 
   Leaf, 
@@ -179,6 +182,17 @@ export default function Dashboard() {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Portfolio Analytics */}
+        <div className="grid lg:grid-cols-2 gap-8 mt-8">
+          <PortfolioPerformanceChart />
+          <ProjectDistributionChart />
+        </div>
+
+        {/* Investment Performance */}
+        <div className="mt-8">
+          <InvestmentPerformanceChart />
         </div>
 
         {/* Market Insights */}
