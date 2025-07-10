@@ -36,7 +36,7 @@ export default function PlatformSwitcher({
     web: {
       name: "FinergyCloud Website",
       icon: Monitor,
-      url: "https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=web",
+      url: "/?platform=web",
       description: "Official FinergyCloud company website with full platform access",
       features: ["Company Information", "Full Web Platform", "Advanced Analytics", "Portfolio Management"],
       badge: "Official Website"
@@ -44,7 +44,7 @@ export default function PlatformSwitcher({
     mobile: {
       name: "Mobile Investment App",
       icon: Smartphone,
-      url: "https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile",
+      url: "/?platform=mobile",
       description: "Dedicated mobile app for renewable energy investment tracking",
       features: ["Portfolio Tracking", "Real-time Notifications", "Quick Actions", "Offline Access"],
       badge: "Mobile App"
