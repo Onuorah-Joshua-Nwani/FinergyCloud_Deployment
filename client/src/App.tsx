@@ -60,38 +60,8 @@ function Router() {
 
   // MOBILE APP PLATFORM
   if (isMobileApp || shouldForceMobile) {
-    // Auto-login for mobile app demo
-    if (isLoading) {
-      // Auto-login after a short delay
-      setTimeout(async () => {
-        if (!isAuthenticated) {
-          try {
-            const response = await fetch('/api/auth/login', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ 
-                email: 'demo@finergycloud.com', 
-                password: 'demo123' 
-              })
-            });
-            if (response.ok) {
-              window.location.reload();
-            }
-          } catch (error) {
-            console.log('Auto-login failed, showing landing page');
-          }
-        }
-      }, 1000);
-      
-      return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading mobile app...</p>
-          </div>
-        </div>
-      );
-    }
+    // Skip loading state for mobile app - show content immediately
+    const mobileAppAuthenticated = isAuthenticated || !isLoading;
 
     return (
       <div className="min-h-screen bg-gray-50">
@@ -99,7 +69,7 @@ function Router() {
         <div className="pb-16 lg:pb-0">
           <Switch>
           <Route path="/login" component={Login} />
-          {!isAuthenticated ? (
+          {!mobileAppAuthenticated ? (
             <>
               <Route path="/" component={MobileLanding} />
               <Route path="*" component={MobileLanding} />

@@ -10,10 +10,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
   await setupAuth(app);
 
   // Auth routes
-  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+  app.get('/api/auth/user', async (req: any, res) => {
     try {
-      const user = req.user;
-      res.json(user);
+      // Check if user is already authenticated
+      if ((req.session as any)?.user) {
+        return res.json((req.session as any).user);
+      }
+      
+      // Auto-authenticate for demo
+      const demoUser = {
+        id: '17743017',
+        email: 'demo@finergycloud.com',
+        firstName: 'Joshua',
+        lastName: 'Nwani',
+        profileImageUrl: null,
+        stripeCustomerId: null,
+        stripeSubscriptionId: null,
+        subscriptionStatus: 'active',
+        subscriptionPlan: 'basic',
+        subscriptionStartDate: new Date(),
+        subscriptionEndDate: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+      
+      (req.session as any).user = demoUser;
+      res.json(demoUser);
     } catch (error) {
       console.error("Error fetching user:", error);
       res.status(500).json({ message: "Failed to fetch user" });
