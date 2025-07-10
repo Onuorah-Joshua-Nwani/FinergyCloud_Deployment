@@ -11,11 +11,6 @@ import { Leaf, Shield, Recycle, Home, ChevronRight } from "lucide-react";
 import type { EsgMetrics } from "@shared/schema";
 
 export default function ESGScoring() {
-  const breadcrumbs = [
-    { label: "Home", path: "/" },
-    { label: "Dashboard", path: "/dashboard" },
-    { label: "ESG Scoring", path: "/esg-scoring" }
-  ];
 
   const { data: esgMetrics, isLoading } = useQuery<EsgMetrics[]>({
     queryKey: ["/api/esg-metrics"],
@@ -63,27 +58,6 @@ export default function ESGScoring() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Breadcrumb Navigation */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center space-x-2 text-sm text-gray-600">
-            {breadcrumbs.map((crumb, index) => (
-              <div key={crumb.path} className="flex items-center">
-                {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
-                {index === breadcrumbs.length - 1 ? (
-                  <span className="text-gray-900 font-medium">{crumb.label}</span>
-                ) : (
-                  <Link href={crumb.path} className="hover:text-green-600 transition-colors flex items-center">
-                    {index === 0 && <Home className="w-4 h-4 mr-1" />}
-                    {crumb.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </nav>
-        </div>
-      </div>
-
       <section className="py-8 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
