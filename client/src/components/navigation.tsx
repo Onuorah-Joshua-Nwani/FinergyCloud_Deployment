@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard, Info, Wrench, BookOpen, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,10 +8,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CurrencySelector from "./currency-selector";
 import SocialLinks from "./social-links";
 import PlatformSwitcher from "./platform-switcher";
+import { MobileSideNav, MobileMenuButton } from "./mobile-side-nav";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function Navigation() {
   const [location] = useLocation();
+  const [sideNavOpen, setSideNavOpen] = useState(false);
   const { user, isAuthenticated } = useAuth();
   
   // Check if we're on mobile app platform - more robust detection
@@ -103,6 +106,11 @@ export default function Navigation() {
     <nav className="nav-glass nav-blur shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-14 sm:h-16">
+          
+          {/* Mobile App Hamburger Menu - Only for mobile app */}
+          {actuallyMobileApp && (
+            <MobileMenuButton onClick={() => setSideNavOpen(true)} />
+          )}
           
           {/* Brand - Left Side */}
           <Link href={actuallyMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
@@ -360,6 +368,15 @@ export default function Navigation() {
           </div>
         )}
       </div>
+      
+      {/* Mobile Side Navigation - Only for mobile app */}
+      {actuallyMobileApp && (
+        <MobileSideNav 
+          isOpen={sideNavOpen} 
+          onClose={() => setSideNavOpen(false)} 
+          user={user}
+        />
+      )}
     </nav>
   );
 }
