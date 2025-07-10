@@ -1,0 +1,161 @@
+
+Name		
+Onuorah-Joshua-Nwani
+Onuorah-Joshua-Nwani
+Delete index.html
+397bd24
+ · 
+23 minutes ago
+.devcontainer
+Fix Python _socket module error in Docker
+2 days ago
+.theia
+changes in the theia folder
+2 years ago
+assets
+Updated index.html
+2 days ago
+dashboard-integration
+Implement Manual Power BI Dashboard Integration
+2 days ago
+documentation
+Delete documentation/update-amiresponsive-guide.md
+2 weeks ago
+mobile-app
+Added settings.json
+20 hours ago
+technical-documentation
+Implement Manual Power BI Dashboard Integration
+2 days ago
+.env.example
+Add files via upload
+27 minutes ago
+.gitignore
+Add files via upload
+27 minutes ago
+.replit
+Add files via upload
+27 minutes ago
+BRANCH_SEPARATION_GUIDE.md
+Add files via upload
+27 minutes ago
+CLEAN_BRANCH_SETUP.md
+Add files via upload
+27 minutes ago
+CLEAN_DEPLOYMENT_NOTES.md
+Add files via upload
+27 minutes ago
+CNAME
+Updated index.html
+2 days ago
+DEPLOYMENT_CHECKLIST.md
+Add files via upload
+27 minutes ago
+DEPLOYMENT_GUIDE.md
+Add files via upload
+27 minutes ago
+DEPLOYMENT_STATUS.md
+Add files via upload
+27 minutes ago
+DOMAIN_DEPLOYMENT_GUIDE.md
+Add files via upload
+27 minutes ago
+ECOSYSTEM_INTEGRATION_GUIDE.md
+Add files via upload
+27 minutes ago
+FINAL_GITHUB_SETUP.md
+Add files via upload
+27 minutes ago
+FinergyCloud-Pitch-Deck.md
+Update founder name and remove repetitions
+last week
+GITHUB_SETUP.md
+Add files via upload
+27 minutes ago
+GIT_COMMANDS.md
+Add files via upload
+27 minutes ago
+INDEPENDENT_DEPLOYMENT.md
+Add files via upload
+27 minutes ago
+LICENSE
+Add files via upload
+27 minutes ago
+OWNERSHIP.md
+Add files via upload
+27 minutes ago
+PATH_BASED_DEPLOYMENT.md
+Add files via upload
+27 minutes ago
+PLATFORM.md
+Add files via upload
+27 minutes ago
+README.md
+Add files via upload
+27 minutes ago
+UNIFIED_PLATFORM_GUIDE.md
+Add files via upload
+27 minutes ago
+about.html
+Update Favicon for Website and Mobile App
+2 days ago
+blog.html
+Update Favicon for Website and Mobile App
+2 days ago
+components.json
+Add files via upload
+27 minutes ago
+contact.html
+Update Favicon for Website and Mobile App
+2 days ago
+drizzle.config.ts
+Add files via upload
+27 minutes ago
+favicon.ico
+Update Favicon for Website and Mobile App
+2 days ago
+logo-usage-guide.html
+FinergyCloud Professional Logo Design
+2 weeks ago
+mobile-app.html
+Add files via upload
+27 minutes ago
+package-lock.json
+Add files via upload
+27 minutes ago
+package.json
+Add files via upload
+27 minutes ago
+postcss.config.js
+Add files via upload
+27 minutes ago
+privacy.html
+Update Favicon for Website and Mobile App
+2 days ago
+replit.md
+Add files via upload
+27 minutes ago
+security.html
+Update Favicon for Website and Mobile App
+2 days ago
+services.html
+Implement Power BI Dashboards
+2 days ago
+site.webmanifest
+Update Favicon for Website and Mobile App
+2 days ago
+tailwind.config.ts
+Add files via upload
+27 minutes ago
+terms.html
+Update Favicon for Website and Mobile App
+2 days ago
+tsconfig.json
+Add files via upload
+27 minutes ago
+vite.config.ts
+Add files via upload
+27 minutes ago
+xgboost-model.html
+Implement Integrated Dashboard and XGBoost Model
+2 days ago
