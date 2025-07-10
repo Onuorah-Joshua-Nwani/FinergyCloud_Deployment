@@ -215,14 +215,15 @@ export default function Navigation() {
               </div>
             )}
             
-            {/* Mobile Navigation - Always visible on small screens */}
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden">
-                  <Menu className="h-4 w-4" />
-                  <span className="sr-only">Open navigation menu</span>
-                </Button>
-              </SheetTrigger>
+            {/* Mobile Navigation - Only show for website, not mobile app */}
+            {!actuallyMobileApp && (
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="outline" size="icon" className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden">
+                    <Menu className="h-4 w-4" />
+                    <span className="sr-only">Open navigation menu</span>
+                  </Button>
+                </SheetTrigger>
               <SheetContent side="right" className="w-80 sm:w-96">
                 <div className="flex flex-col h-full">
                   
@@ -331,6 +332,7 @@ export default function Navigation() {
                 </div>
               </SheetContent>
             </Sheet>
+            )}
           </div>
         </div>
 
