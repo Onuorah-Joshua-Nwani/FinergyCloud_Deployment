@@ -29,10 +29,18 @@ import NotFound from "@/pages/not-found";
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
   
-  // Detect if we're on mobile app URL
-  const isMobileApp = typeof window !== 'undefined' && 
-    (window.location.href.includes('7dd13212-e6ad-4c47-be70-2f844171b442') || 
-     window.location.href.includes('spock.replit.dev'));
+  // Detect if we're on mobile app URL or using mobile platform parameter
+  const isMobileApp = typeof window !== 'undefined' && (() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const platformParam = urlParams.get('platform');
+    if (platformParam === 'mobile') {
+      return true;
+    } else if (platformParam === 'web') {
+      return false;
+    }
+    // Default to mobile app for the base URL
+    return true;
+  })();
 
   return (
     <Switch>

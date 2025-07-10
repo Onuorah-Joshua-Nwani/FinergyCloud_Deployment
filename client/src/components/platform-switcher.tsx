@@ -16,13 +16,17 @@ export default function PlatformSwitcher({
 }: PlatformSwitcherProps) {
   // Auto-detect platform if not specified
   const detectedPlatform = currentPlatform || (() => {
-    // Check if we're on the mobile app URL
+    // Check URL parameters or default behavior
     if (typeof window !== 'undefined') {
-      const currentUrl = window.location.href;
-      if (currentUrl.includes('7dd13212-e6ad-4c47-be70-2f844171b442') || 
-          currentUrl.includes('spock.replit.dev')) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const platformParam = urlParams.get('platform');
+      if (platformParam === 'mobile') {
         return "mobile";
+      } else if (platformParam === 'web') {
+        return "web";
       }
+      // Default to mobile for the base app URL
+      return "mobile";
     }
     return "web";
   })();
@@ -32,9 +36,7 @@ export default function PlatformSwitcher({
     web: {
       name: "FinergyCloud Website",
       icon: Monitor,
-      url: typeof window !== 'undefined' && window.location.href.includes('spock.replit.dev') 
-        ? window.location.origin.replace('7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev', '5000-7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev')
-        : (typeof window !== 'undefined' ? window.location.origin : "https://www.finergycloud.com"),
+      url: "https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=web",
       description: "Official FinergyCloud company website with full platform access",
       features: ["Company Information", "Full Web Platform", "Advanced Analytics", "Portfolio Management"],
       badge: "Official Website"
@@ -42,7 +44,7 @@ export default function PlatformSwitcher({
     mobile: {
       name: "Mobile Investment App",
       icon: Smartphone,
-      url: "https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/#",
+      url: "https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile",
       description: "Dedicated mobile app for renewable energy investment tracking",
       features: ["Portfolio Tracking", "Real-time Notifications", "Quick Actions", "Offline Access"],
       badge: "Mobile App"
