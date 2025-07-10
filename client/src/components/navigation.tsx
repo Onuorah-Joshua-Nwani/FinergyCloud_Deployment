@@ -70,7 +70,7 @@ export default function Navigation() {
     const isActive = location === path || (path === "/" && (location === "/" || location === "/dashboard"));
     
     // Preserve platform parameter for mobile app navigation
-    const linkPath = actuallyMobileApp && isMobile ? `${path}?platform=mobile` : path;
+    const linkPath = actuallyMobileApp ? `${path}?platform=mobile` : path;
     
     return (
       <Link href={linkPath}>
@@ -117,9 +117,9 @@ export default function Navigation() {
           {/* Center - Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
             {actuallyMobileApp ? (
-              // Mobile App Navigation
-              navItems.map(item => (
-                <NavLink key={item.path} {...item} />
+              // Mobile App Navigation - Keep within mobile app platform
+              mobileAppNavItems.map(item => (
+                <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} />
               ))
             ) : (
               // Website Navigation with Mobile App Link
