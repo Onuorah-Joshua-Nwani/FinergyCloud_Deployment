@@ -109,12 +109,19 @@ export default function Blog() {
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center space-x-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-green-600 transition-colors flex items-center">
-              <Home className="w-4 h-4 mr-1" />
-              Home
-            </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-gray-900 font-medium">Blog & Insights</span>
+            {breadcrumbs.map((crumb, index) => (
+              <div key={crumb.path} className="flex items-center">
+                {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
+                {index === breadcrumbs.length - 1 ? (
+                  <span className="text-gray-900 font-medium">{crumb.label}</span>
+                ) : (
+                  <Link href={crumb.path} className="hover:text-green-600 transition-colors flex items-center">
+                    {index === 0 && <Home className="w-4 h-4 mr-1" />}
+                    {crumb.label}
+                  </Link>
+                )}
+              </div>
+            ))}
           </nav>
         </div>
       </div>
