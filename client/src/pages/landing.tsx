@@ -51,12 +51,12 @@ export default function Landing() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <a href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" target="_blank" rel="noopener noreferrer">
+            <Link href="/about">
               <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-blue-600 text-blue-600 hover:bg-blue-50">
-                Try Mobile App
+                Learn More
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </a>
+            </Link>
           </div>
           
           {/* Quick Navigation Links */}

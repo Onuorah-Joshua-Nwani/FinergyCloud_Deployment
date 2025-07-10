@@ -78,29 +78,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Platform Access */}
+          {/* Quick Actions */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Platform Access</h4>
+            <h4 className="text-sm font-semibold mb-4">Quick Actions</h4>
             <div className="space-y-3">
               <div>
                 <a 
                   href="/login" 
                   className="block text-sm text-gray-400 hover:text-white transition-colors mb-2"
                 >
-                  🌐 Web Platform
+                  🚀 Get Started
                 </a>
-                <p className="text-xs text-gray-500">Full desktop experience</p>
+                <p className="text-xs text-gray-500">Start investing today</p>
               </div>
               <div>
                 <a 
-                  href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  href="/contact" 
                   className="block text-sm text-gray-400 hover:text-white transition-colors mb-2"
                 >
-                  📱 Mobile App
+                  📞 Contact Support
                 </a>
-                <p className="text-xs text-gray-500">On-the-go access</p>
+                <p className="text-xs text-gray-500">Expert assistance</p>
               </div>
             </div>
           </div>
