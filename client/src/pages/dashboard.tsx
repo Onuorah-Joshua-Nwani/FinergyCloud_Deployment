@@ -10,12 +10,18 @@ import {
   Globe,
   BarChart3,
   Leaf,
-  Trophy
+  Trophy,
+  Home,
+  ChevronRight
 } from "lucide-react";
 import { Link } from "wouter";
 import type { Project } from "@shared/schema";
 
 export default function Dashboard() {
+  const breadcrumbs = [
+    { label: "Home", path: "/" },
+    { label: "Dashboard", path: "/dashboard" }
+  ];
 
   const { data: projects, isLoading: isLoadingProjects } = useQuery<Project[]>({
     queryKey: ["/api/projects"],
@@ -42,12 +48,34 @@ export default function Dashboard() {
   const recentProjects = projects?.slice(0, 2) || [];
 
   return (
-    <section className="py-4 md:py-6 lg:py-8">
+    <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600">
+            {breadcrumbs.map((crumb, index) => (
+              <div key={crumb.path} className="flex items-center">
+                {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
+                {index === breadcrumbs.length - 1 ? (
+                  <span className="text-gray-900 font-medium">{crumb.label}</span>
+                ) : (
+                  <Link href={crumb.path} className="hover:text-green-600 transition-colors flex items-center">
+                    {index === 0 && <Home className="w-4 h-4 mr-1" />}
+                    {crumb.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <section className="py-4 md:py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           {/* Header */}
         <div className="mb-4 md:mb-6">
           <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1 md:mb-2">Dashboard</h1>
-          <p className="text-xs md:text-sm lg:text-base text-gray-600">Welcome to FinergyCloud Mobile</p>
+          <p className="text-xs md:text-sm lg:text-base text-gray-600">Welcome to FinergyCloud Web Platform</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
@@ -179,5 +207,6 @@ export default function Dashboard() {
         </div>
         </div>
       </section>
+    </div>
   );
 }

@@ -7,6 +7,7 @@ import PortfolioPerformanceChart from "@/components/charts/portfolio-performance
 import ProjectDistributionChart from "@/components/charts/project-distribution-chart";
 import InvestmentPerformanceChart from "@/components/charts/investment-performance-chart";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
+import { Link } from "wouter";
 import { 
   TrendingUp, 
   Leaf, 
@@ -21,7 +22,9 @@ import {
   Droplets,
   Trees,
   Mountain,
-  Filter
+  Filter,
+  Home,
+  ChevronRight
 } from "lucide-react";
 
 // Project type configuration with unique stories and characteristics
@@ -77,6 +80,11 @@ const PROJECT_TYPE_CONFIG = {
 };
 
 export default function KPIDashboard() {
+  const breadcrumbs = [
+    { label: "Home", path: "/" },
+    { label: "Dashboard", path: "/dashboard" },
+    { label: "KPI Dashboard", path: "/kpi" }
+  ];
   
   const [selectedProjectType, setSelectedProjectType] = useState<string>("all");
   const { convertAndFormat } = useCurrencyFormat();
@@ -160,6 +168,28 @@ export default function KPIDashboard() {
   }
 
   return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600">
+            {breadcrumbs.map((crumb, index) => (
+              <div key={crumb.path} className="flex items-center">
+                {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
+                {index === breadcrumbs.length - 1 ? (
+                  <span className="text-gray-900 font-medium">{crumb.label}</span>
+                ) : (
+                  <Link href={crumb.path} className="hover:text-green-600 transition-colors flex items-center">
+                    {index === 0 && <Home className="w-4 h-4 mr-1" />}
+                    {crumb.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+
       <section className="py-4 md:py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           {/* Header with Project Type Selector */}
@@ -438,5 +468,6 @@ export default function KPIDashboard() {
         </div>
         </div>
       </section>
+    </div>
   );
 }

@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Link } from "wouter";
 import { 
   Plus, 
   TrendingUp, 
@@ -27,7 +28,9 @@ import {
   Activity,
   ArrowRight,
   FileText,
-  Filter
+  Filter,
+  Home,
+  ChevronRight
 } from "lucide-react";
 import { insertMarketInsightSchema, type MarketInsight, type InsertMarketInsight } from "@shared/schema";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
@@ -97,6 +100,12 @@ const getTimeAgo = (date: string) => {
 };
 
 export default function MarketInsights() {
+  const breadcrumbs = [
+    { label: "Home", path: "/" },
+    { label: "Dashboard", path: "/dashboard" },
+    { label: "Market Insights", path: "/market-insights" }
+  ];
+
   const { convertAndFormat } = useCurrencyFormat();
   const queryClient = useQueryClient();
   const [selectedInsight, setSelectedInsight] = useState<MarketInsight | null>(null);
@@ -269,7 +278,28 @@ export default function MarketInsights() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600">
+            {breadcrumbs.map((crumb, index) => (
+              <div key={crumb.path} className="flex items-center">
+                {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
+                {index === breadcrumbs.length - 1 ? (
+                  <span className="text-gray-900 font-medium">{crumb.label}</span>
+                ) : (
+                  <Link href={crumb.path} className="hover:text-green-600 transition-colors flex items-center">
+                    {index === 0 && <Home className="w-4 h-4 mr-1" />}
+                    {crumb.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
