@@ -19,11 +19,11 @@ export default function Navigation() {
 
   // Website navigation items (Clean FinergyCloud website)
   const websiteNavItems = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
-    { path: "/solutions", label: "Solutions" },
-    { path: "/blog", label: "Blog" },
-    { path: "/contact", label: "Contact" },
+    { path: "/", label: "Home", icon: BookOpen },
+    { path: "/about", label: "About", icon: Info },
+    { path: "/solutions", label: "Solutions", icon: Wrench },
+    { path: "/blog", label: "Blog", icon: Newspaper },
+    { path: "/contact", label: "Contact", icon: Phone },
   ];
 
   // Mobile app navigation items (clean simplified list)
@@ -61,7 +61,7 @@ export default function Navigation() {
     const isActive = location === path || (path === "/" && (location === "/" || location === "/dashboard"));
     
     // Preserve platform parameter for mobile app navigation
-    const linkPath = isMobileApp ? `${path}?platform=mobile` : path;
+    const linkPath = isMobileApp && isMobile ? `${path}?platform=mobile` : path;
     
     return (
       <Link href={linkPath}>
@@ -84,7 +84,7 @@ export default function Navigation() {
   const handleLogout = async () => {
     try {
       await fetch('/api/auth/logout', { method: 'POST' });
-      window.location.href = '/';
+      window.location.href = isMobileApp ? '/?platform=mobile' : '/';
     } catch (error) {
       console.error('Logout failed:', error);
     }
@@ -96,7 +96,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-14 sm:h-16">
           
           {/* Brand - Left Side */}
-          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <Link href={isMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
             <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
               <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
             </div>
