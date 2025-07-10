@@ -32,7 +32,7 @@ export default function PlatformSwitcher({
     web: {
       name: "Web Platform",
       icon: Monitor,
-      url: "https://www.finergycloud.com",
+      url: typeof window !== 'undefined' ? window.location.origin : "https://www.finergycloud.com",
       description: "Full-featured desktop experience with advanced analytics",
       features: ["AI-Powered Analytics", "Advanced Reporting", "Portfolio Management"],
       badge: "Desktop & Tablet"
@@ -40,7 +40,7 @@ export default function PlatformSwitcher({
     mobile: {
       name: "Mobile App",
       icon: Smartphone,
-      url: "#", // This will be updated when mobile app is deployed
+      url: "https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/#",
       description: "On-the-go investment tracking and quick insights",
       features: ["Real-time Notifications", "Quick Actions", "Offline Access"],
       badge: "iOS & Android"
