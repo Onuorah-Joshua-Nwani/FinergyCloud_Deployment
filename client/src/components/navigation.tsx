@@ -103,9 +103,17 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="nav-glass nav-blur shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
-        <div className="flex justify-between items-center h-14 sm:h-16">
+    <>
+      {/* Fixed Hamburger Menu for Mobile App - Always visible */}
+      {actuallyMobileApp && (
+        <div className="fixed top-4 left-4 z-50 md:hidden">
+          <MobileMenuButton onClick={() => setSideNavOpen(true)} />
+        </div>
+      )}
+      
+      <nav className="nav-glass nav-blur shadow-sm sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+          <div className="flex justify-between items-center h-14 sm:h-16">
           
           {/* Left Side - Mobile Menu + Brand */}
           <div className="flex items-center space-x-1 sm:space-x-3 flex-shrink-0">
@@ -383,5 +391,6 @@ export default function Navigation() {
         />
       )}
     </nav>
+    </>
   );
 }
