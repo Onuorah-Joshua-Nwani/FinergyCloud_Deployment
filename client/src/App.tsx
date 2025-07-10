@@ -30,7 +30,7 @@ import NotFound from "@/pages/not-found";
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
   
-  // Check URL parameters directly
+  // Check URL parameters directly with more robust parsing
   const urlParams = new URLSearchParams(window.location.search);
   const platformParam = urlParams.get('platform');
   const isMobileApp = platformParam === 'mobile';
@@ -45,6 +45,14 @@ function Router() {
     isAuthenticated,
     isLoading
   });
+  
+  // If there's a URL encoding issue, try to handle it
+  if (window.location.pathname.includes('%3F')) {
+    const correctedUrl = window.location.href.replace('%3F', '?');
+    console.log('Fixing URL encoding issue:', correctedUrl);
+    window.location.replace(correctedUrl);
+    return null;
+  }
 
   // MOBILE APP PLATFORM
   if (isMobileApp) {
