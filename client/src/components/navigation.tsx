@@ -161,10 +161,12 @@ export default function Navigation() {
                       <Settings className="mr-2 h-4 w-4" />
                       <span>Settings</span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => window.open(isMobileApp ? "/" : "/?platform=mobile", '_blank')}>
-                      {isMobileApp ? <Info className="mr-2 h-4 w-4" /> : <Smartphone className="mr-2 h-4 w-4" />}
-                      <span>{isMobileApp ? "FinergyCloud Website" : "Mobile App"}</span>
-                    </DropdownMenuItem>
+                    {!isMobileApp && (
+                      <DropdownMenuItem onClick={() => window.open("/?platform=mobile", '_blank')}>
+                        <Smartphone className="mr-2 h-4 w-4" />
+                        <span>Mobile App</span>
+                      </DropdownMenuItem>
+                    )}
                     <DropdownMenuItem onClick={handleLogout}>
                       <LogOut className="mr-2 h-4 w-4" />
                       <span>Log out</span>
@@ -232,16 +234,7 @@ export default function Navigation() {
                           </div>
                         </div>
                         
-                        {isAuthenticated && (
-                          <div>
-                            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Platform Tools</h3>
-                            <div className="space-y-1">
-                              {mobileAppNavItems.map(item => (
-                                <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                              ))}
-                            </div>
-                          </div>
-                        )}
+
                       </>
                     ) : (
                       // Mobile App Navigation - Only show app features
