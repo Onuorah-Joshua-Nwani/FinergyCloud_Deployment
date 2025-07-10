@@ -162,15 +162,15 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
         {/* Footer Actions */}
         <div className="border-t border-gray-200 p-4 space-y-2">
           <Button
-            variant="outline"
-            className="w-full justify-start border-green-200 text-green-600 hover:bg-green-50"
+            variant="default"
+            className="w-full justify-start bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-lg"
             onClick={() => {
               window.open('/', '_blank');
               onClose();
             }}
           >
             <Info className="w-4 h-4 mr-3" />
-            Open Website
+            Visit FinergyCloud Website
           </Button>
           
           {user && (
