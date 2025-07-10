@@ -271,11 +271,13 @@ export default function Navigation() {
 
                   {/* Mobile Footer Actions - Fixed at bottom */}
                   <div className="flex-shrink-0 pt-4 border-t border-gray-200 space-y-3">
-                    {/* Social Links */}
-                    <div>
-                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-2">Connect</h4>
-                      <SocialLinks variant="sidebar" />
-                    </div>
+                    {/* Social Links - Only show for website, not mobile app */}
+                    {!isMobileApp && (
+                      <div>
+                        <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-2">Connect</h4>
+                        <SocialLinks variant="sidebar" />
+                      </div>
+                    )}
 
                     {/* User Actions */}
                     {isAuthenticated && (
