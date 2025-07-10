@@ -12,8 +12,29 @@ import { useAuth } from "@/hooks/useAuth";
 export default function Navigation() {
   const [location] = useLocation();
   const { user, isAuthenticated } = useAuth();
+  
+  // Detect platform mode
+  const isMobileApp = typeof window !== 'undefined' && (() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const platformParam = urlParams.get('platform');
+    if (platformParam === 'mobile') {
+      return true;
+    } else if (platformParam === 'web') {
+      return false;
+    }
+    return true; // Default to mobile
+  })();
 
-  // Core navigation items - prioritized for mobile
+  // Website navigation items (for FinergyCloud website)
+  const websiteNavItems = [
+    { path: "/", label: "Home", icon: BarChart3, priority: 1 },
+    { path: "/about", label: "About", icon: Info, priority: 2 },
+    { path: "/solutions", label: "Solutions", icon: Wrench, priority: 3 },
+    { path: "/blog", label: "Blog", icon: BookOpen, priority: 4 },
+    { path: "/contact", label: "Contact", icon: Phone, priority: 5 },
+  ];
+
+  // Mobile app navigation items (functional app only)
   const coreNavItems = [
     { path: "/dashboard", label: "Dashboard", icon: BarChart3, priority: 1 },
     { path: "/projects", label: "Projects", icon: FolderOpen, priority: 2 },
@@ -21,7 +42,7 @@ export default function Navigation() {
     { path: "/kpi", label: "Analytics", icon: TrendingUp, priority: 4 },
   ];
 
-  // Extended navigation items - hidden on mobile in main nav
+  // Extended navigation items - for authenticated users
   const extendedNavItems = [
     { path: "/ai-model", label: "AI Model", icon: Brain, priority: 5 },
     { path: "/market-insights", label: "Market Insights", icon: Newspaper, priority: 6 },
@@ -30,16 +51,7 @@ export default function Navigation() {
     { path: "/advanced-features", label: "Advanced Features", icon: Settings, priority: 9 },
   ];
 
-  // Public navigation items
-  const publicNavItems = [
-    { path: "/solutions", label: "Solutions", icon: Wrench, priority: 10 },
-    { path: "/about", label: "About", icon: Info, priority: 11 },
-    { path: "/blog", label: "Blog", icon: BookOpen, priority: 12 },
-    { path: "/contact", label: "Contact", icon: Phone, priority: 13 },
-    { path: "/subscribe", label: "Subscribe", icon: CreditCard, priority: 14 },
-  ];
-
-  const allNavItems = [...coreNavItems, ...extendedNavItems, ...publicNavItems];
+  const allNavItems = isMobileApp ? [...coreNavItems, ...extendedNavItems] : [...websiteNavItems, ...(isAuthenticated ? [...coreNavItems, ...extendedNavItems] : [])];
 
   const NavLink = ({ path, label, icon: Icon, className = "", isMobile = false }: { 
     path: string; 
@@ -80,19 +92,19 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-14 sm:h-16">
           
-          {/* App Brand - Left Side (Mobile App Only) */}
+          {/* Brand - Left Side */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
             <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
               <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
             </div>
             <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Renewable Energy App
+              {isMobileApp ? "Renewable Energy App" : "FinergyCloud"}
             </span>
           </Link>
 
-          {/* Center - Desktop Core Navigation */}
+          {/* Center - Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
-            {coreNavItems.map(item => (
+            {(isMobileApp ? coreNavItems : websiteNavItems).map(item => (
               <NavLink key={item.path} {...item} />
             ))}
           </div>
@@ -157,14 +169,18 @@ export default function Navigation() {
               <SheetContent side="right" className="w-80 sm:w-96">
                 <div className="flex flex-col h-full">
                   
-                  {/* Mobile App Header */}
+                  {/* Mobile Header */}
                   <div className="flex items-center space-x-3 pb-6 border-b border-gray-200">
                     <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
                       <Leaf className="w-5 h-5 text-white" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-lg font-bold text-gray-900">Renewable Energy</span>
-                      <span className="text-sm text-gray-500">Investment App</span>
+                      <span className="text-lg font-bold text-gray-900">
+                        {isMobileApp ? "Renewable Energy" : "FinergyCloud"}
+                      </span>
+                      <span className="text-sm text-gray-500">
+                        {isMobileApp ? "Investment App" : "Official Website"}
+                      </span>
                     </div>
                   </div>
 
@@ -193,14 +209,27 @@ export default function Navigation() {
 
                   {/* Mobile Navigation Links */}
                   <div className="flex-1 py-4 space-y-4 overflow-y-auto">
-                    <div>
-                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Dashboard</h3>
-                      <div className="space-y-1">
-                        {coreNavItems.map(item => (
-                          <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                        ))}
+                    {!isMobileApp ? (
+                      // Website Navigation
+                      <div>
+                        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Website</h3>
+                        <div className="space-y-1">
+                          {websiteNavItems.map(item => (
+                            <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    ) : (
+                      // Mobile App Navigation
+                      <div>
+                        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Dashboard</h3>
+                        <div className="space-y-1">
+                          {coreNavItems.map(item => (
+                            <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                          ))}
+                        </div>
+                      </div>
+                    )}
                     
                     <div>
                       <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Tools</h3>
@@ -211,14 +240,16 @@ export default function Navigation() {
                       </div>
                     </div>
                     
-                    <div>
-                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Company</h3>
-                      <div className="space-y-1">
-                        {publicNavItems.map(item => (
-                          <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                        ))}
+                    {(isMobileApp || isAuthenticated) && (
+                      <div>
+                        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Advanced Features</h3>
+                        <div className="space-y-1">
+                          {extendedNavItems.map(item => (
+                            <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
 
                   {/* Mobile Footer Actions */}
