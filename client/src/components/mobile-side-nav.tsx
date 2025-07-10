@@ -100,7 +100,7 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
       {/* Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+          className="fixed inset-0 bg-black bg-opacity-50 z-[60] transition-opacity duration-300"
           onClick={onClose}
         />
       )}
@@ -108,7 +108,7 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
       {/* Side Navigation */}
       <div
         id="mobile-side-nav"
-        className={`fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-72 max-w-[85vw] bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -194,7 +194,7 @@ export function MobileMenuButton({ onClick }: { onClick: () => void }) {
     <button
       id="mobile-menu-button"
       onClick={onClick}
-      className="flex items-center justify-center w-10 h-10 bg-white border-2 border-green-600 rounded-lg shadow-sm hover:bg-green-50 active:bg-green-100 transition-colors"
+      className="flex items-center justify-center w-11 h-11 bg-white border-2 border-green-600 rounded-lg shadow-lg hover:bg-green-50 active:bg-green-100 transition-all duration-200 hover:scale-105"
       aria-label="Open navigation menu"
     >
       <Menu className="w-6 h-6 text-green-600" />

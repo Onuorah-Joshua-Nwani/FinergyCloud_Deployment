@@ -106,7 +106,7 @@ export default function Navigation() {
     <>
       {/* Fixed Hamburger Menu for Mobile App - Always visible */}
       {actuallyMobileApp && (
-        <div className="fixed top-4 left-4 z-50 md:hidden">
+        <div className="fixed top-4 left-4 z-[55] md:hidden">
           <MobileMenuButton onClick={() => setSideNavOpen(true)} />
         </div>
       )}
