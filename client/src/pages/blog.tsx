@@ -307,7 +307,7 @@ export default function Blog() {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Access Platform</h3>
-              <PlatformSwitcher variant="banner" currentPlatform="web" />
+              <PlatformSwitcher variant="banner" />
             </div>
           </div>
         </div>

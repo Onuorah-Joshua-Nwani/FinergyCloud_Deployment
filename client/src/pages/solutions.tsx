@@ -265,8 +265,14 @@ export default function Solutions() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <PlatformSwitcher currentPlatform="mobile" />
-            <PlatformSwitcher currentPlatform="web" />
+            <div>
+              <h3 className="text-lg font-semibold text-center mb-4">Web Platform</h3>
+              <PlatformSwitcher currentPlatform="web" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-center mb-4">Mobile App</h3>
+              <PlatformSwitcher currentPlatform="mobile" />
+            </div>
           </div>
         </div>
       </section>

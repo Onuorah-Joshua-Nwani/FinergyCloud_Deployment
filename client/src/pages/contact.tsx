@@ -410,7 +410,7 @@ export default function Contact() {
                 <p className="text-gray-600 mb-6">
                   Experience our renewable energy investment platform on web or mobile
                 </p>
-                <PlatformSwitcher variant="banner" currentPlatform="web" />
+                <PlatformSwitcher variant="banner" />
               </div>
             </div>
           </div>

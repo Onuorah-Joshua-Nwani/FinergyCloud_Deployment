@@ -269,7 +269,7 @@ export default function About() {
               <p className="text-gray-600 mb-6">
                 Access our platform from web or mobile to start your renewable energy investment journey
               </p>
-              <PlatformSwitcher variant="banner" currentPlatform="web" />
+              <PlatformSwitcher variant="banner" />
             </div>
           </div>
         </div>

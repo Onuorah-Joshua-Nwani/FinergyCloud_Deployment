@@ -10,10 +10,13 @@ interface PlatformSwitcherProps {
 }
 
 export default function PlatformSwitcher({ 
-  currentPlatform = "web", 
+  currentPlatform, 
   variant = "card", 
   className = "" 
 }: PlatformSwitcherProps) {
+  // Auto-detect platform if not specified
+  const detectedPlatform = currentPlatform || "web"; // Since this is the web platform
+  const actualCurrentPlatform = detectedPlatform;
   
   const platforms = {
     web: {
@@ -34,7 +37,7 @@ export default function PlatformSwitcher({
     }
   };
 
-  const otherPlatform = currentPlatform === "web" ? "mobile" : "web";
+  const otherPlatform = actualCurrentPlatform === "web" ? "mobile" : "web";
   const platform = platforms[otherPlatform];
   const Icon = platform.icon;
 
@@ -45,7 +48,7 @@ export default function PlatformSwitcher({
           <div className="flex items-center space-x-3">
             <Icon className="w-6 h-6 text-green-600" />
             <div>
-              <h4 className="font-semibold text-gray-900">Try our {platform.name}</h4>
+              <h4 className="font-semibold text-gray-900">Switch to {platform.name}</h4>
               <p className="text-sm text-gray-600">{platform.description}</p>
             </div>
           </div>
@@ -76,21 +79,25 @@ export default function PlatformSwitcher({
     );
   }
 
+  // For card variant, show the platform we're switching TO, not the current one
+  const displayPlatform = platforms[otherPlatform];
+  const DisplayIcon = displayPlatform.icon;
+
   return (
     <Card className={`hover:shadow-lg transition-all duration-300 ${className}`}>
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
-            <Icon className="w-5 h-5 text-green-600" />
-            {platform.name}
+            <DisplayIcon className="w-5 h-5 text-green-600" />
+            {displayPlatform.name}
           </CardTitle>
-          <Badge variant="secondary">{platform.badge}</Badge>
+          <Badge variant="secondary">{displayPlatform.badge}</Badge>
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-600 mb-4">{platform.description}</p>
+        <p className="text-gray-600 mb-4">{displayPlatform.description}</p>
         <ul className="space-y-1 mb-4">
-          {platform.features.map((feature, index) => (
+          {displayPlatform.features.map((feature, index) => (
             <li key={index} className="text-sm text-gray-700 flex items-center">
               <div className="w-1.5 h-1.5 bg-green-600 rounded-full mr-2" />
               {feature}
@@ -98,7 +105,7 @@ export default function PlatformSwitcher({
           ))}
         </ul>
         <Button className="w-full bg-green-600 hover:bg-green-700" asChild>
-          <a href={platform.url} target="_blank" rel="noopener noreferrer">
+          <a href={displayPlatform.url} target="_blank" rel="noopener noreferrer">
             {otherPlatform === "mobile" ? (
               <>
                 <Download className="w-4 h-4 mr-2" />

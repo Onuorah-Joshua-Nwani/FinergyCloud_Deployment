@@ -223,7 +223,7 @@ export default function Navigation() {
                     {/* Platform Switcher */}
                     <div>
                       <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-2">Switch Platform</h4>
-                      <PlatformSwitcher variant="menu" currentPlatform="web" />
+                      <PlatformSwitcher variant="menu" />
                     </div>
 
                     {/* Social Links */}
