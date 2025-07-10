@@ -29,7 +29,7 @@ export default function Landing() {
               </span>
             </div>
             <div className="flex items-center gap-4">
-              <a href="/api/login">
+              <a href="/login">
                 <Button>
                   Sign In
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -65,7 +65,7 @@ export default function Landing() {
             and portfolio management from web or mobile. Your investment intelligence, anywhere.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/api/login">
+            <a href="/login">
               <Button size="lg" className="text-lg px-8 py-4 bg-green-600 hover:bg-green-700">
                 Access Web Platform
                 <ArrowRight className="w-5 h-5 ml-2" />

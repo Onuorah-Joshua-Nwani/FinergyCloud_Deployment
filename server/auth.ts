@@ -103,6 +103,11 @@ export async function setupAuth(app: Express) {
       res.json({ message: 'Logout successful' });
     });
   });
+
+  // GET route for login redirect
+  app.get('/api/login', (req, res) => {
+    res.redirect('/login');
+  });
 }
 
 export const isAuthenticated: RequestHandler = (req, res, next) => {
