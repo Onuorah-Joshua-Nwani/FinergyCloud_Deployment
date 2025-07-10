@@ -64,16 +64,16 @@ export default function WebsiteLanding() {
   ];
 
   const stats = [
-    { value: "5,000+", label: "Projects Analyzed", icon: Target },
+    { value: "15,000+", label: "Projects Analyzed", icon: Target },
     { value: "50+", label: "Countries Served", icon: Globe },
     { value: "94%", label: "Prediction Accuracy", icon: Brain },
-    { value: "$2.5B", label: "Investment Value", icon: Award }
+    { value: "₦120M+", label: "Investment Value", icon: Award }
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 overflow-hidden">
+      {/* Hero Section - Mobile First Design */}
+      <section className="relative py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -82,64 +82,67 @@ export default function WebsiteLanding() {
         </div>
         
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <div className="flex justify-center items-center gap-3 mb-8">
-            <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium">
+          {/* Mobile-First Badge Design */}
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+            <Badge className="bg-green-100 text-green-800 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium">
               🌱 Renewable Energy
             </Badge>
-            <Badge className="bg-blue-100 text-blue-800 px-4 py-2 text-sm font-medium">
+            <Badge className="bg-blue-100 text-blue-800 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium">
               🤖 AI-Powered
             </Badge>
-            <Badge className="bg-purple-100 text-purple-800 px-4 py-2 text-sm font-medium">
+            <Badge className="bg-purple-100 text-purple-800 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium">
               📊 Investment Intelligence
             </Badge>
           </div>
           
-          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          {/* Mobile-First Typography */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             <span className="block">FinergyCloud</span>
             <span className="block bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
               Renewable Energy Intelligence
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
             Transform your renewable energy investments with advanced AI predictions, comprehensive ESG scoring, 
             and sophisticated portfolio management. Make smarter, data-driven sustainable investment decisions.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link href="/login">
-              <Button size="lg" className="text-lg px-10 py-5 bg-green-600 hover:bg-green-700 shadow-lg">
+          {/* Mobile-First Button Layout */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 px-4 sm:px-0">
+            <Link href="/login" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 bg-green-600 hover:bg-green-700 shadow-lg transition-all duration-200">
                 Start Free Trial
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </Button>
             </Link>
             <Button 
               size="lg" 
-              className="text-lg px-10 py-5 bg-blue-600 hover:bg-blue-700 shadow-lg"
+              className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 bg-blue-600 hover:bg-blue-700 shadow-lg transition-all duration-200"
               onClick={() => window.open('/?platform=mobile', '_blank')}
             >
-              <Smartphone className="w-5 h-5 mr-2" />
+              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Mobile App
             </Button>
-            <Link href="/about">
-              <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 border-gray-300 hover:bg-gray-50 shadow-lg">
-                <PlayCircle className="w-5 h-5 mr-2" />
+            <Link href="/about" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 border-2 border-gray-300 hover:bg-gray-50 shadow-lg transition-all duration-200">
+                <PlayCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Watch Demo
               </Button>
             </Link>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+          {/* Mobile-First Stats Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16 px-4 sm:px-0">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
                 <div key={index} className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-green-600 to-blue-600 rounded-xl flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 bg-gradient-to-br from-green-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
                 </div>
               );
             })}
@@ -147,32 +150,36 @@ export default function WebsiteLanding() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* Features Section - Mobile First */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Comprehensive Investment Intelligence
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Comprehensive Renewable Energy Solutions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our platform combines cutting-edge AI technology with deep industry expertise 
-              to deliver unparalleled insights for renewable energy investments.
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Empower your investment decisions with our cutting-edge AI technology, comprehensive ESG analysis, 
+              and advanced financial modeling tools designed specifically for renewable energy projects.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white">
                   <CardHeader className="pb-4">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-7 h-7 text-white" />
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">{feature.title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                      {feature.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                      {feature.description}
+                    </p>
                   </CardContent>
                 </Card>
               );
@@ -181,34 +188,98 @@ export default function WebsiteLanding() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 to-blue-600">
+      {/* Call to Action Section - Mobile First */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-600 via-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Transform Your Investments?
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
+            Ready to Transform Your Renewable Energy Investments?
           </h2>
-          <p className="text-xl text-green-100 mb-10 max-w-2xl mx-auto">
-            Join thousands of investors who trust FinergyCloud for their renewable energy investment decisions.
+          <p className="text-base sm:text-lg text-green-100 mb-8 sm:mb-10 leading-relaxed">
+            Join thousands of investors using FinergyCloud to make smarter, data-driven decisions 
+            in the renewable energy sector. Start your journey towards sustainable investing today.
           </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/login">
-              <Button size="lg" className="text-lg px-10 py-5 bg-white text-green-600 hover:bg-gray-100 shadow-lg">
+            <Link href="/login" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 bg-white text-green-600 hover:bg-gray-50 shadow-xl transition-all duration-200">
                 Get Started Free
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </Button>
             </Link>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-10 py-5 border-2 border-white text-white hover:bg-white hover:text-green-600 shadow-lg"
-              onClick={() => window.open('/?platform=mobile', '_blank')}
-            >
-              <Smartphone className="w-5 h-5 mr-2" />
-              Try Mobile App
-            </Button>
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 border-2 border-white text-white hover:bg-white/10 shadow-xl transition-all duration-200">
+                Contact Sales
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+            
+            {/* Company Info */}
+            <div className="col-span-1 sm:col-span-2 lg:col-span-1">
+              <div className="flex items-center space-x-3 mb-4 sm:mb-6">
+                <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+                  <Leaf className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-lg sm:text-xl font-bold">FinergyCloud</span>
+              </div>
+              <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
+                Transforming renewable energy investments through artificial intelligence 
+                and comprehensive ESG analysis.
+              </p>
+              <SocialLinks />
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Platform</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li><Link href="/about" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">About</Link></li>
+                <li><Link href="/solutions" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Solutions</Link></li>
+                <li><Link href="/blog" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Blog</Link></li>
+                <li><Link href="/contact" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Resources</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li><button onClick={() => window.open('/?platform=mobile', '_blank')} className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors text-left">Mobile App</button></li>
+                <li><Link href="/login" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Sign In</Link></li>
+                <li><a href="#" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Support</a></li>
+                <li><a href="#" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Documentation</a></li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Contact</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li className="text-sm sm:text-base text-gray-300">United Kingdom</li>
+                <li className="text-sm sm:text-base text-gray-300">info@finergycloud.com</li>
+                <li className="text-sm sm:text-base text-gray-300">+44 (0) 20 7946 0958</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-0">
+              © 2025 FinergyCloud. All rights reserved.
+            </p>
+            <div className="flex space-x-4 sm:space-x-6">
+              <a href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
