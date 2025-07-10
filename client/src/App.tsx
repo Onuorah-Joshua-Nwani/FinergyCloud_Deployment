@@ -22,50 +22,28 @@ import Solutions from "@/pages/solutions";
 import About from "@/pages/about";
 import Blog from "@/pages/blog";
 import Login from "@/pages/login";
-import Landing from "@/pages/landing";
-import MarketingLanding from "@/pages/landing-marketing";
+import WebsiteLanding from "@/pages/website/website-landing";
+import MobileLanding from "@/pages/mobile-app/mobile-landing";
 import NotFound from "@/pages/not-found";
 
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
   
-  // Check URL parameters directly - simpler approach
+  // Check URL parameters directly
   const urlParams = new URLSearchParams(window.location.search);
   const platformParam = urlParams.get('platform');
   const isMobileApp = platformParam === 'mobile';
-  
-  // Debug logging
-  console.log('Router Debug:', {
-    search: window.location.search,
-    platformParam,
-    isMobileApp,
-    isAuthenticated,
-    isLoading
-  });
 
-  // If mobile platform is explicitly requested, show mobile app only
+  // MOBILE APP PLATFORM
   if (isMobileApp) {
-    console.log('Rendering mobile app routes, isAuthenticated:', isAuthenticated, 'isLoading:', isLoading);
-    
-    if (isLoading) {
-      return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-          <div>Loading...</div>
-        </div>
-      );
-    }
-    
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
         <Switch>
           <Route path="/login" component={Login} />
           {!isAuthenticated ? (
-            <>
-              <Route path="/" component={MarketingLanding} />
-              <Route path="*" component={MarketingLanding} />
-            </>
+            <Route path="*" component={MobileLanding} />
           ) : (
             <>
               <Route path="/" component={Dashboard} />
@@ -87,18 +65,17 @@ function Router() {
     );
   }
 
-  // Default: Show website pages (public website)
+  // WEBSITE PLATFORM (Default)
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
       <Switch>
-        <Route path="/" component={Landing} />
+        <Route path="/" component={WebsiteLanding} />
         <Route path="/about" component={About} />
         <Route path="/solutions" component={Solutions} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
-        
         <Route path="*" component={NotFound} />
       </Switch>
     </div>

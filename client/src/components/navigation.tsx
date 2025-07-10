@@ -39,13 +39,7 @@ export default function Navigation() {
     { path: "/advanced-features", label: "Advanced Features", icon: Settings },
   ];
 
-  // Add website link for mobile app center navigation
-  const mobileAppNavItemsWithWebsite = isMobileApp ? [
-    ...mobileAppNavItems,
-    { path: "/", label: "FinergyCloud Website", icon: Info, external: true }
-  ] : mobileAppNavItems;
-
-  const navItems = isMobileApp ? mobileAppNavItemsWithWebsite : websiteNavItems;
+  const navItems = isMobileApp ? mobileAppNavItems : websiteNavItems;
 
   const NavLink = ({ path, label, icon: Icon, className = "", isMobile = false }: { 
     path: string; 
