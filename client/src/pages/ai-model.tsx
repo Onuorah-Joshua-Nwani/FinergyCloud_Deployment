@@ -4,42 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import PredictionForm from "@/components/prediction-form";
 import ModelPerformanceChart from "@/components/charts/model-performance-chart";
 import RiskAssessmentChart from "@/components/charts/risk-assessment-chart";
-import { Brain, Zap, Home, ChevronRight } from "lucide-react";
-import { Link } from "wouter";
+import { Brain, Zap } from "lucide-react";
 
 export default function AIModel() {
-  const breadcrumbs = [
-    { label: "Home", path: "/" },
-    { label: "Dashboard", path: "/dashboard" },
-    { label: "AI Model", path: "/ai-model" }
-  ];
-  
   const [selectedProjectType, setSelectedProjectType] = useState<string>("solar");
 
   return (
-    <div>
-      {/* Breadcrumb Navigation */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center space-x-2 text-sm text-gray-600">
-            {breadcrumbs.map((crumb, index) => (
-              <div key={crumb.path} className="flex items-center">
-                {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
-                {index === breadcrumbs.length - 1 ? (
-                  <span className="text-gray-900 font-medium">{crumb.label}</span>
-                ) : (
-                  <Link href={crumb.path} className="hover:text-green-600 transition-colors flex items-center">
-                    {index === 0 && <Home className="w-4 h-4 mr-1" />}
-                    {crumb.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </nav>
-        </div>
-      </div>
-
-      <section className="py-8 bg-white">
+    <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
@@ -193,6 +164,5 @@ export default function AIModel() {
         </Card>
         </div>
       </section>
-    </div>
   );
 }
