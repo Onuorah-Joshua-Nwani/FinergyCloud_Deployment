@@ -7,6 +7,7 @@ import PlatformSwitcher from "@/components/platform-switcher";
 import { 
   Calendar,
   User,
+  Users,
   ArrowRight,
   TrendingUp,
   Globe,
