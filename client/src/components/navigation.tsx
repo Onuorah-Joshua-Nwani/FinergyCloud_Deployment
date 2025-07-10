@@ -212,26 +212,50 @@ export default function Navigation() {
                   <div className="flex-1 py-4 space-y-4 overflow-y-auto">
                     {!isMobileApp ? (
                       // Website Navigation
-                      <div>
-                        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Website</h3>
-                        <div className="space-y-1">
-                          {websiteNavItems.map(item => (
-                            <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                          ))}
+                      <>
+                        <div>
+                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Website</h3>
+                          <div className="space-y-1">
+                            {websiteNavItems.map(item => (
+                              <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                        
+                        {isAuthenticated && (
+                          <div>
+                            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Platform Tools</h3>
+                            <div className="space-y-1">
+                              {[...coreNavItems, ...extendedNavItems].map(item => (
+                                <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </>
                     ) : (
                       // Mobile App Navigation
-                      <div>
-                        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Dashboard</h3>
-                        <div className="space-y-1">
-                          {coreNavItems.map(item => (
-                            <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                          ))}
+                      <>
+                        <div>
+                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Dashboard</h3>
+                          <div className="space-y-1">
+                            {coreNavItems.map(item => (
+                              <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Tools</h3>
+                          <div className="space-y-1">
+                            {extendedNavItems.map(item => (
+                              <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                            ))}
+                          </div>
                         </div>
                         
                         {/* Website Link for Mobile App */}
-                        <div className="mt-4">
+                        <div>
                           <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Platform</h3>
                           <div className="space-y-1">
                             <Link href="/?platform=web">
@@ -242,27 +266,7 @@ export default function Navigation() {
                             </Link>
                           </div>
                         </div>
-                      </div>
-                    )}
-                    
-                    <div>
-                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Tools</h3>
-                      <div className="space-y-1">
-                        {extendedNavItems.map(item => (
-                          <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                        ))}
-                      </div>
-                    </div>
-                    
-                    {(isMobileApp || isAuthenticated) && (
-                      <div>
-                        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Advanced Features</h3>
-                        <div className="space-y-1">
-                          {extendedNavItems.map(item => (
-                            <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                          ))}
-                        </div>
-                      </div>
+                      </>
                     )}
                   </div>
 
