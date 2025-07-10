@@ -431,18 +431,20 @@ export default function Contact() {
                 <SocialLinks showLabels />
               </div>
 
-              {/* Newsletter Signup */}
+              {/* Mobile App Access */}
               <div className="text-center lg:text-left">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Stay Updated
+                  Try Our Mobile App
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Get the latest insights on renewable energy investments and platform updates delivered to your inbox
+                  Access FinergyCloud on mobile for real-time portfolio monitoring and investment insights on the go
                 </p>
-                <Button className="bg-green-600 hover:bg-green-700">
-                  Subscribe to Newsletter
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <a href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-green-600 hover:bg-green-700">
+                    Launch Mobile App
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
