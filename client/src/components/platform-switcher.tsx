@@ -15,7 +15,17 @@ export default function PlatformSwitcher({
   className = "" 
 }: PlatformSwitcherProps) {
   // Auto-detect platform if not specified
-  const detectedPlatform = currentPlatform || "web"; // Since this is the web platform
+  const detectedPlatform = currentPlatform || (() => {
+    // Check if we're on the mobile app URL
+    if (typeof window !== 'undefined') {
+      const currentUrl = window.location.href;
+      if (currentUrl.includes('7dd13212-e6ad-4c47-be70-2f844171b442') || 
+          currentUrl.includes('spock.replit.dev')) {
+        return "mobile";
+      }
+    }
+    return "web";
+  })();
   const actualCurrentPlatform = detectedPlatform;
   
   const platforms = {
