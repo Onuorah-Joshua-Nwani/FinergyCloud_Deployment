@@ -18,6 +18,9 @@ import AdvancedFeatures from "@/pages/advanced-features";
 import RewardsPage from "@/pages/rewards";
 import Subscribe from "@/pages/subscribe";
 import Contact from "@/pages/contact";
+import Solutions from "@/pages/solutions";
+import About from "@/pages/about";
+import Blog from "@/pages/blog";
 import Login from "@/pages/login";
 import Landing from "@/pages/landing";
 import MarketingLanding from "@/pages/landing-marketing";
@@ -31,7 +34,10 @@ function Router() {
       {/* Direct access to platform - Root path shows platform */}
       <Route path="/login" component={Login} />
       
-      {/* Contact Page */}
+      {/* Public Pages */}
+      <Route path="/solutions" component={Solutions} />
+      <Route path="/about" component={About} />
+      <Route path="/blog" component={Blog} />
       <Route path="/contact" component={Contact} />
       
       {/* Main Platform Routes */}
@@ -39,6 +45,10 @@ function Router() {
         {isLoading || !isAuthenticated ? (
           <Switch>
             <Route path="/login" component={Login} />
+            <Route path="/solutions" component={Solutions} />
+            <Route path="/about" component={About} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/contact" component={Contact} />
             <Route path="/" component={Landing} />
             <Route path="*" component={Landing} />
           </Switch>
@@ -57,6 +67,9 @@ function Router() {
               <Route path="/projects" component={ProjectManagement} />
               <Route path="/market-insights" component={MarketInsights} />
               <Route path="/subscribe" component={Subscribe} />
+              <Route path="/solutions" component={Solutions} />
+              <Route path="/about" component={About} />
+              <Route path="/blog" component={Blog} />
               <Route path="/contact" component={Contact} />
               <Route component={NotFound} />
             </Switch>

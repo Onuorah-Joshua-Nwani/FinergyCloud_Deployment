@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard } from "lucide-react";
+import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard, Info, Wrench, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -26,11 +26,18 @@ export default function Navigation() {
     { path: "/irr-calculator", label: "IRR Calculator", icon: Calculator, priority: 7 },
     { path: "/esg-scoring", label: "ESG Scoring", icon: TreePine, priority: 8 },
     { path: "/advanced-features", label: "Advanced Features", icon: Settings, priority: 9 },
-    { path: "/contact", label: "Contact", icon: Phone, priority: 10 },
-    { path: "/subscribe", label: "Subscribe", icon: CreditCard, priority: 11 },
   ];
 
-  const allNavItems = [...coreNavItems, ...extendedNavItems];
+  // Public navigation items
+  const publicNavItems = [
+    { path: "/solutions", label: "Solutions", icon: Wrench, priority: 10 },
+    { path: "/about", label: "About", icon: Info, priority: 11 },
+    { path: "/blog", label: "Blog", icon: BookOpen, priority: 12 },
+    { path: "/contact", label: "Contact", icon: Phone, priority: 13 },
+    { path: "/subscribe", label: "Subscribe", icon: CreditCard, priority: 14 },
+  ];
+
+  const allNavItems = [...coreNavItems, ...extendedNavItems, ...publicNavItems];
 
   const NavLink = ({ path, label, icon: Icon, className = "", isMobile = false }: { 
     path: string; 
@@ -174,10 +181,33 @@ export default function Navigation() {
                   </div>
 
                   {/* Mobile Navigation Links */}
-                  <div className="flex-1 py-4 space-y-1 overflow-y-auto">
-                    {allNavItems.map(item => (
-                      <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                    ))}
+                  <div className="flex-1 py-4 space-y-4 overflow-y-auto">
+                    <div>
+                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Dashboard</h3>
+                      <div className="space-y-1">
+                        {coreNavItems.map(item => (
+                          <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Tools</h3>
+                      <div className="space-y-1">
+                        {extendedNavItems.map(item => (
+                          <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Company</h3>
+                      <div className="space-y-1">
+                        {publicNavItems.map(item => (
+                          <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
                   {/* Mobile Footer Actions */}

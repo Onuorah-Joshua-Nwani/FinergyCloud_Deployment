@@ -1,440 +1,380 @@
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { z } from "zod";
 import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  MessageSquare, 
-  Calendar,
-  Building2,
-  Globe,
-  Github,
-  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  MessageSquare,
   Users,
-  Target,
-  Handshake
+  Headphones,
+  Globe,
+  CheckCircle,
+  ArrowRight
 } from "lucide-react";
 
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  company: z.string().optional(),
-  inquiryType: z.string().min(1, "Please select an inquiry type"),
-  subject: z.string().min(5, "Subject must be at least 5 characters"),
-  message: z.string().min(20, "Message must be at least 20 characters"),
-  investmentRange: z.string().optional(),
-  preferredContact: z.string().min(1, "Please select preferred contact method")
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    subject: "",
+    message: "",
+    inquiryType: "general"
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  
-  const form = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      company: "",
-      inquiryType: "",
-      subject: "",
-      message: "",
-      investmentRange: "",
-      preferredContact: ""
-    }
-  });
-
-  const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message Sent Successfully",
-        description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-      });
-      form.reset();
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Error Sending Message",
-        description: "Please try again or contact us directly via email.",
-        variant: "destructive",
-      });
-      console.error("Contact form error:", error);
-    }
-  });
-
-  const onSubmit = (data: ContactFormData) => {
-    contactMutation.mutate(data);
-  };
 
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
-      primary: "hello@finergycloud.com",
-      secondary: "For general inquiries and support",
-      action: "mailto:hello@finergycloud.com"
+      title: "Email Support",
+      details: "support@finergycloud.com",
+      description: "Get in touch with our support team",
+      available: "24/7 Response"
     },
     {
-      icon: Building2,
-      title: "Business Inquiries",
-      primary: "partnerships@finergycloud.com",
-      secondary: "For investment partnerships and collaborations",
-      action: "mailto:partnerships@finergycloud.com"
+      icon: Phone,
+      title: "Phone Support",
+      details: "+1 (555) 123-4567",
+      description: "Speak directly with our experts",
+      available: "Mon-Fri 9AM-6PM UTC"
     },
     {
       icon: MapPin,
       title: "Headquarters",
-      primary: "United Kingdom",
-      secondary: "Registered June 2025",
-      action: null
-    },
-    {
-      icon: Clock,
-      title: "Response Time",
-      primary: "Within 24 hours",
-      secondary: "Monday to Friday, UK time",
-      action: null
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      title: "GitHub Repository",
-      description: "Explore our open-source code",
-      link: "https://github.com/Onuorah-Joshua-Nwani/ojn-msp-1-finergycloud",
-      badge: "150+ Commits"
-    },
-    {
-      icon: Youtube,
-      title: "YouTube Channel",
-      description: "Watch demos and tutorials",
-      link: "https://www.youtube.com/@FinergyCloud_official",
-      badge: "Video Demos"
+      details: "Lagos, Nigeria",
+      description: "Visit our main office",
+      available: "By Appointment"
     },
     {
       icon: Globe,
-      title: "Main Website",
-      description: "Visit our company website",
-      link: "https://www.finergycloud.com",
-      badge: "Live Site"
+      title: "Global Presence",
+      details: "50+ Countries",
+      description: "Serving investors worldwide",
+      available: "Multiple Timezones"
     }
   ];
 
+  const inquiryTypes = [
+    { value: "general", label: "General Inquiry" },
+    { value: "sales", label: "Sales & Pricing" },
+    { value: "support", label: "Technical Support" },
+    { value: "partnership", label: "Partnership Opportunities" },
+    { value: "media", label: "Media & Press" },
+    { value: "demo", label: "Request Demo" }
+  ];
+
+  const faqs = [
+    {
+      question: "How accurate are FinergyCloud's AI predictions?",
+      answer: "Our XGBoost machine learning models achieve 94% accuracy in renewable energy project success predictions, continuously improved through real-world data."
+    },
+    {
+      question: "What currencies does the IRR calculator support?",
+      answer: "We support Nigerian Naira (NGN), British Pound (GBP), and Euro (EUR) with real-time exchange rate conversion and localized financial modeling."
+    },
+    {
+      question: "How does the ESG scoring system work?",
+      answer: "Our ESG assessment evaluates Environmental, Social, and Governance factors using industry-standard metrics and proprietary algorithms tailored for renewable energy projects."
+    },
+    {
+      question: "Can I integrate FinergyCloud with existing systems?",
+      answer: "Yes, we offer API access and custom integrations for enterprise clients. Contact our technical team to discuss your specific requirements."
+    },
+    {
+      question: "What kind of support do you provide?",
+      answer: "We provide 24/7 email support, phone support during business hours, comprehensive documentation, video tutorials, and dedicated account management for enterprise clients."
+    }
+  ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    setTimeout(() => {
+      toast({
+        title: "Message Sent Successfully",
+        description: "Thank you for contacting us. We'll respond within 24 hours.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        subject: "",
+        message: "",
+        inquiryType: "general"
+      });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Get in Touch</h1>
-          <p className="text-xl text-green-100 max-w-3xl mx-auto">
-            Ready to transform your renewable energy investment strategy? 
-            Let's discuss how FinergyCloud can help you make smarter decisions.
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-green-600 to-blue-600 text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Get in Touch
+            <span className="block bg-gradient-to-r from-yellow-300 to-green-300 bg-clip-text text-transparent">
+              We're Here to Help
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-green-100">
+            Have questions about renewable energy investment? Need technical support? 
+            Want to explore partnership opportunities? Our expert team is ready to assist you.
           </p>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Badge className="bg-white text-green-600 text-lg py-2 px-4">
+              <Clock className="w-4 h-4 mr-2" />
+              24/7 Support
+            </Badge>
+            <Badge className="bg-green-100 text-green-800 text-lg py-2 px-4">
+              <Users className="w-4 h-4 mr-2" />
+              Expert Team
+            </Badge>
+            <Badge className="bg-blue-100 text-blue-800 text-lg py-2 px-4">
+              <Globe className="w-4 h-4 mr-2" />
+              Global Reach
+            </Badge>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <Card className="shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl flex items-center">
-                  <MessageSquare className="mr-3 h-6 w-6 text-green-600" />
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <MessageSquare className="w-6 h-6 text-green-600" />
                   Send us a Message
                 </CardTitle>
-                <CardDescription>
-                  Fill out the form below and we'll get back to you within 24 hours
-                </CardDescription>
+                <p className="text-gray-600">
+                  Fill out the form below and we'll get back to you within 24 hours.
+                </p>
               </CardHeader>
               <CardContent>
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
                         name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Full Name *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Your name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+                        type="text"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="John Doe"
+                        required
                       />
-                      <FormField
-                        control={form.control}
+                    </div>
+                    <div>
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
                         name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email Address *</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="your.email@company.com" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="john@company.com"
+                        required
                       />
                     </div>
+                  </div>
 
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Company/Organization</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your company name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="company">Company/Organization</Label>
+                      <Input
+                        id="company"
+                        name="company"
+                        type="text"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        placeholder="Your Company Name"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="inquiryType">Inquiry Type</Label>
+                      <select
+                        id="inquiryType"
                         name="inquiryType"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Inquiry Type *</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Select inquiry type" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="demo">Request Demo</SelectItem>
-                                <SelectItem value="partnership">Partnership Inquiry</SelectItem>
-                                <SelectItem value="investment">Investment Opportunity</SelectItem>
-                                <SelectItem value="technical">Technical Support</SelectItem>
-                                <SelectItem value="media">Media & Press</SelectItem>
-                                <SelectItem value="general">General Question</SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="investmentRange"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Investment Range (Optional)</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Select range" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="under-1m">Under ₦1M</SelectItem>
-                                <SelectItem value="1m-10m">₦1M - ₦10M</SelectItem>
-                                <SelectItem value="10m-50m">₦10M - ₦50M</SelectItem>
-                                <SelectItem value="50m-100m">₦50M - ₦100M</SelectItem>
-                                <SelectItem value="over-100m">Over ₦100M</SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        value={formData.inquiryType}
+                        onChange={handleInputChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      >
+                        {inquiryTypes.map((type) => (
+                          <option key={type.value} value={type.value}>
+                            {type.label}
+                          </option>
+                        ))}
+                      </select>
                     </div>
+                  </div>
 
-                    <FormField
-                      control={form.control}
+                  <div>
+                    <Label htmlFor="subject">Subject *</Label>
+                    <Input
+                      id="subject"
                       name="subject"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Subject *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Brief description of your inquiry" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
+                      type="text"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      placeholder="Brief description of your inquiry"
+                      required
                     />
+                  </div>
 
-                    <FormField
-                      control={form.control}
+                  <div>
+                    <Label htmlFor="message">Message *</Label>
+                    <Textarea
+                      id="message"
                       name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message *</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Tell us more about your needs, project details, or questions..."
-                              className="min-h-[120px]"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Please provide details about your inquiry..."
+                      rows={6}
+                      required
                     />
+                  </div>
 
-                    <FormField
-                      control={form.control}
-                      name="preferredContact"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Preferred Contact Method *</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="How would you like us to contact you?" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="email">Email</SelectItem>
-                              <SelectItem value="phone">Phone Call</SelectItem>
-                              <SelectItem value="video">Video Call</SelectItem>
-                              <SelectItem value="meeting">In-Person Meeting</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-green-600 hover:bg-green-700" 
-                      size="lg"
-                      disabled={contactMutation.isPending}
-                    >
-                      {contactMutation.isPending ? "Sending..." : "Send Message"}
-                    </Button>
-                  </form>
-                </Form>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-green-600 hover:bg-green-700 text-lg py-3"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        Sending...
+                      </div>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="w-4 h-4 ml-2" />
+                      </>
+                    )}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>
 
           {/* Contact Information */}
           <div className="space-y-6">
-            {/* Contact Info Cards */}
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="shadow-sm hover:shadow-md transition-shadow">
-                  <CardContent className="p-4">
-                    <div className="flex items-start space-x-3">
-                      <info.icon className="h-5 w-5 text-green-600 mt-1" />
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900">{info.title}</h3>
-                        {info.action ? (
-                          <a 
-                            href={info.action}
-                            className="text-green-600 hover:text-green-700 font-medium"
-                          >
-                            {info.primary}
-                          </a>
-                        ) : (
-                          <p className="text-gray-900 font-medium">{info.primary}</p>
-                        )}
-                        <p className="text-sm text-gray-600">{info.secondary}</p>
+            {/* Contact Details */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Contact Information</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {contactInfo.map((info, index) => {
+                  const Icon = info.icon;
+                  return (
+                    <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <Icon className="w-5 h-5 text-green-600 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{info.title}</h4>
+                        <p className="text-gray-700 font-medium">{info.details}</p>
+                        <p className="text-sm text-gray-600">{info.description}</p>
+                        <Badge variant="outline" className="text-xs mt-1">
+                          {info.available}
+                        </Badge>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Quick Actions */}
-            <Card className="shadow-sm">
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center">
-                  <Calendar className="mr-2 h-5 w-5 text-green-600" />
-                  Quick Actions
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Button className="w-full justify-start" variant="outline" asChild>
-                  <a href="/app">
-                    <Target className="mr-2 h-4 w-4" />
-                    Try Live Platform
-                  </a>
-                </Button>
-                <Button className="w-full justify-start" variant="outline" asChild>
-                  <a href="https://www.youtube.com/@FinergyCloud_official" target="_blank">
-                    <Youtube className="mr-2 h-4 w-4" />
-                    Watch Video Demo
-                  </a>
-                </Button>
-                <Button className="w-full justify-start" variant="outline" asChild>
-                  <a href="https://github.com/Onuorah-Joshua-Nwani/ojn-msp-1-finergycloud" target="_blank">
-                    <Github className="mr-2 h-4 w-4" />
-                    View GitHub Repository
-                  </a>
-                </Button>
+                  );
+                })}
               </CardContent>
             </Card>
 
-            {/* Social Links */}
-            <Card className="shadow-sm">
+            {/* Quick Actions */}
+            <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Connect With Us</CardTitle>
+                <CardTitle>Quick Actions</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                {socialLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <link.icon className="h-5 w-5 text-gray-600" />
-                      <div>
-                        <p className="font-medium text-gray-900">{link.title}</p>
-                        <p className="text-sm text-gray-600">{link.description}</p>
-                      </div>
-                    </div>
-                    <Badge variant="secondary">{link.badge}</Badge>
-                  </a>
-                ))}
+              <CardContent className="space-y-3">
+                <Button className="w-full justify-start bg-blue-600 hover:bg-blue-700">
+                  <Headphones className="w-4 h-4 mr-2" />
+                  Schedule a Demo Call
+                </Button>
+                <Button variant="outline" className="w-full justify-start">
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Live Chat Support
+                </Button>
+                <Button variant="outline" className="w-full justify-start">
+                  <Users className="w-4 h-4 mr-2" />
+                  Partner with Us
+                </Button>
               </CardContent>
             </Card>
 
             {/* Office Hours */}
-            <Card className="shadow-sm">
-              <CardContent className="p-4">
-                <div className="text-center">
-                  <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                  <h3 className="font-semibold text-gray-900 mb-1">Office Hours</h3>
-                  <p className="text-sm text-gray-600 mb-2">Monday - Friday</p>
-                  <p className="text-sm text-gray-600">9:00 AM - 6:00 PM (UK Time)</p>
-                  <Badge className="mt-2 bg-green-100 text-green-800">
-                    Usually reply within 4 hours
-                  </Badge>
+            <Card>
+              <CardHeader>
+                <CardTitle>Support Hours</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span>Email Support:</span>
+                    <Badge className="bg-green-100 text-green-800">24/7</Badge>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Phone Support:</span>
+                    <span className="text-gray-600">Mon-Fri 9AM-6PM UTC</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Live Chat:</span>
+                    <span className="text-gray-600">Mon-Fri 8AM-8PM UTC</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Response Time:</span>
+                    <span className="text-gray-600">Within 24 hours</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <section className="mt-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    {faq.question}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
