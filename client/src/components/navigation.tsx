@@ -13,9 +13,13 @@ export default function Navigation() {
   const [location] = useLocation();
   const { user, isAuthenticated } = useAuth();
   
-  // Check if we're on mobile app platform
+  // Check if we're on mobile app platform - more robust detection
   const urlParams = new URLSearchParams(window.location.search);
-  const isMobileApp = urlParams.get('platform') === 'mobile';
+  const platformParam = urlParams.get('platform');
+  const isMobileApp = platformParam === 'mobile';
+  
+  // Debug: Force mobile app if URL suggests it should be mobile
+  const shouldForceMobile = window.location.href.includes('platform=mobile') || window.location.search.includes('platform=mobile');
 
   // Website navigation items (Clean FinergyCloud website)
   const websiteNavItems = [
@@ -39,15 +43,20 @@ export default function Navigation() {
     { path: "/advanced-features", label: "Advanced Features", icon: Settings },
   ];
 
-  const navItems = isMobileApp ? mobileAppNavItems : websiteNavItems;
+  // Use mobile app navigation if platform parameter exists
+  const actuallyMobileApp = isMobileApp || shouldForceMobile;
+  const navItems = actuallyMobileApp ? mobileAppNavItems : websiteNavItems;
   
   // Debug logging
   console.log('Navigation Debug:', {
     url: window.location.href,
     search: window.location.search,
     pathname: window.location.pathname,
-    platformParam: urlParams.get('platform'),
+    platformParam,
     isMobileApp,
+    shouldForceMobile,
+    actuallyMobileApp,
+    actualPlatform: actuallyMobileApp ? 'mobile' : 'website',
     navItems: navItems.map(item => item.label)
   });
 
@@ -61,7 +70,7 @@ export default function Navigation() {
     const isActive = location === path || (path === "/" && (location === "/" || location === "/dashboard"));
     
     // Preserve platform parameter for mobile app navigation
-    const linkPath = isMobileApp && isMobile ? `${path}?platform=mobile` : path;
+    const linkPath = actuallyMobileApp && isMobile ? `${path}?platform=mobile` : path;
     
     return (
       <Link href={linkPath}>
@@ -84,7 +93,7 @@ export default function Navigation() {
   const handleLogout = async () => {
     try {
       await fetch('/api/auth/logout', { method: 'POST' });
-      window.location.href = isMobileApp ? '/?platform=mobile' : '/';
+      window.location.href = actuallyMobileApp ? '/?platform=mobile' : '/';
     } catch (error) {
       console.error('Logout failed:', error);
     }
@@ -96,18 +105,18 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-14 sm:h-16">
           
           {/* Brand - Left Side */}
-          <Link href={isMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <Link href={actuallyMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
             <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
               <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
             </div>
             <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              {isMobileApp ? "Renewable Energy App" : "FinergyCloud"}
+              {actuallyMobileApp ? "Renewable Energy App" : "FinergyCloud"}
             </span>
           </Link>
 
           {/* Center - Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
-            {isMobileApp ? (
+            {actuallyMobileApp ? (
               // Mobile App Navigation
               navItems.map(item => (
                 <NavLink key={item.path} {...item} />
@@ -132,7 +141,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
             
             {/* Mobile App Button for website */}
-            {!isMobileApp && (
+            {!actuallyMobileApp && (
               <Button 
                 variant="outline" 
                 size="sm" 
@@ -145,7 +154,7 @@ export default function Navigation() {
             )}
             
             {/* Website Button for mobile app - Always visible */}
-            {isMobileApp && (
+            {actuallyMobileApp && (
               <Button 
                 variant="outline" 
                 size="sm" 
@@ -188,7 +197,7 @@ export default function Navigation() {
                       <Settings className="mr-2 h-4 w-4" />
                       <span>Settings</span>
                     </DropdownMenuItem>
-                    {!isMobileApp && (
+                    {!actuallyMobileApp && (
                       <DropdownMenuItem onClick={() => window.location.href = '/?platform=mobile'}>
                         <Smartphone className="mr-2 h-4 w-4" />
                         <span>Mobile App</span>
@@ -221,10 +230,10 @@ export default function Navigation() {
                     </div>
                     <div className="flex flex-col">
                       <span className="text-lg font-bold text-gray-900">
-                        {isMobileApp ? "Renewable Energy" : "FinergyCloud"}
+                        {actuallyMobileApp ? "Renewable Energy" : "FinergyCloud"}
                       </span>
                       <span className="text-sm text-gray-500">
-                        {isMobileApp ? "Investment App" : "Official Website"}
+                        {actuallyMobileApp ? "Investment App" : "Official Website"}
                       </span>
                     </div>
                   </div>
@@ -249,7 +258,7 @@ export default function Navigation() {
 
                   {/* Mobile Navigation Links */}
                   <div className="flex-1 py-3 overflow-y-auto min-h-0">
-                    {!isMobileApp ? (
+                    {!actuallyMobileApp ? (
                       // Website Navigation
                       <>
                         <div>
@@ -323,7 +332,7 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Bottom Navigation Bar - Only for mobile app */}
-        {isMobileApp && (
+        {actuallyMobileApp && (
           <div className="lg:hidden fixed bottom-0 left-0 right-0 border-t border-gray-200 bg-white/95 backdrop-blur-md z-40 safe-area-pb">
             <div className="flex justify-center items-center px-2 py-1.5">
               <div className="flex space-x-1 max-w-sm w-full justify-between">

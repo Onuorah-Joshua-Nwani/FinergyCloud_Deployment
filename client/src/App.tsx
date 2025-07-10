@@ -35,6 +35,9 @@ function Router() {
   const platformParam = urlParams.get('platform');
   const isMobileApp = platformParam === 'mobile';
   
+  // Also check if URL suggests mobile app
+  const shouldForceMobile = window.location.href.includes('platform=mobile');
+  
   // Debug logging
   console.log('Router Debug:', {
     url: window.location.href,
@@ -42,6 +45,7 @@ function Router() {
     pathname: window.location.pathname,
     platformParam,
     isMobileApp,
+    shouldForceMobile,
     isAuthenticated,
     isLoading
   });
@@ -55,13 +59,35 @@ function Router() {
   }
 
   // MOBILE APP PLATFORM
-  if (isMobileApp) {
+  if (isMobileApp || shouldForceMobile) {
+    // Auto-login for mobile app demo
     if (isLoading) {
+      // Auto-login after a short delay
+      setTimeout(async () => {
+        if (!isAuthenticated) {
+          try {
+            const response = await fetch('/api/auth/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ 
+                email: 'demo@finergycloud.com', 
+                password: 'demo123' 
+              })
+            });
+            if (response.ok) {
+              window.location.reload();
+            }
+          } catch (error) {
+            console.log('Auto-login failed, showing landing page');
+          }
+        }
+      }, 1000);
+      
       return (
         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading...</p>
+            <p className="text-gray-600">Loading mobile app...</p>
           </div>
         </div>
       );
