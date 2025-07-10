@@ -21,6 +21,10 @@ import {
 } from "lucide-react";
 
 export default function About() {
+  const breadcrumbs = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" }
+  ];
   const stats = [
     { value: "5,000+", label: "Projects Analyzed", icon: Target },
     { value: "50+", label: "Countries Served", icon: Globe },

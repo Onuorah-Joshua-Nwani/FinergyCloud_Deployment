@@ -7,7 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, Plus, Minus, TrendingUp, DollarSign, AlertTriangle, CheckCircle, Sun, Wind, Droplets, Leaf, Mountain } from "lucide-react";
+import { Calculator, Plus, Minus, TrendingUp, DollarSign, AlertTriangle, CheckCircle, Sun, Wind, Droplets, Leaf, Mountain, Home, ChevronRight } from "lucide-react";
+import { Link } from "wouter";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
 import { useCurrency } from "@/lib/currency-context";
 import type { Currency } from "@shared/currency";
@@ -102,6 +103,11 @@ interface CashFlow {
 }
 
 export default function IRRCalculator() {
+  const breadcrumbs = [
+    { label: "Home", path: "/" },
+    { label: "Dashboard", path: "/dashboard" },
+    { label: "IRR Calculator", path: "/irr-calculator" }
+  ];
   const { convertAndFormat, convert } = useCurrencyFormat();
   const { selectedCurrency, setSelectedCurrency } = useCurrency();
   const [selectedProjectType, setSelectedProjectType] = useState<string>("");
@@ -254,9 +260,31 @@ export default function IRRCalculator() {
   };
 
   return (
-    <section className="py-8 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
+    <div>
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600">
+            {breadcrumbs.map((crumb, index) => (
+              <div key={crumb.path} className="flex items-center">
+                {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
+                {index === breadcrumbs.length - 1 ? (
+                  <span className="text-gray-900 font-medium">{crumb.label}</span>
+                ) : (
+                  <Link href={crumb.path} className="hover:text-green-600 transition-colors flex items-center">
+                    {index === 0 && <Home className="w-4 h-4 mr-1" />}
+                    {crumb.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <section className="py-8 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <Calculator className="w-8 h-8 text-blue-600" />
             <div>
@@ -661,7 +689,8 @@ export default function IRRCalculator() {
             </div>
           </CardContent>
         </Card>
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 }

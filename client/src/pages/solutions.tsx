@@ -22,6 +22,10 @@ import {
 } from "lucide-react";
 
 export default function Solutions() {
+  const breadcrumbs = [
+    { label: "Home", path: "/" },
+    { label: "Solutions", path: "/solutions" }
+  ];
   const solutions = [
     {
       icon: Brain,

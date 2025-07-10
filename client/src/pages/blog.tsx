@@ -21,6 +21,10 @@ import {
 } from "lucide-react";
 
 export default function Blog() {
+  const breadcrumbs = [
+    { label: "Home", path: "/" },
+    { label: "Blog", path: "/blog" }
+  ];
   const featuredPost = {
     title: "The Future of AI in Renewable Energy Investment: A 2025 Perspective",
     excerpt: "How machine learning and artificial intelligence are revolutionizing investment decisions in the renewable energy sector, with insights from FinergyCloud's proprietary algorithms.",

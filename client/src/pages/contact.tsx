@@ -26,6 +26,10 @@ import {
 } from "lucide-react";
 
 export default function Contact() {
+  const breadcrumbs = [
+    { label: "Home", path: "/" },
+    { label: "Contact", path: "/contact" }
+  ];
   const [formData, setFormData] = useState({
     name: "",
     email: "",
