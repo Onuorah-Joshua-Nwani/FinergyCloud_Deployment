@@ -24,79 +24,89 @@ import {
 export default function Solutions() {
   const breadcrumbs = [
     { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
     { label: "Solutions", path: "/solutions" }
   ];
+  
   const solutions = [
     {
       icon: Brain,
       title: "AI-Powered Risk Intelligence",
-      description: "Advanced machine learning models analyze project viability with 94% accuracy",
+      description: "Advanced XGBoost machine learning models delivering 94% accuracy in renewable energy project success prediction",
       features: [
-        "XGBoost prediction algorithms",
-        "Risk probability assessment",
-        "Performance forecasting",
-        "Market trend analysis"
+        "Proprietary XGBoost prediction algorithms",
+        "Multi-factor risk probability assessment",
+        "Long-term performance forecasting",
+        "Real-time market trend analysis",
+        "Scenario-based stress testing"
       ],
-      badge: "Core Technology",
-      color: "from-blue-500 to-purple-600"
+      badge: "Core AI Technology",
+      color: "from-blue-500 to-purple-600",
+      metrics: { accuracy: "94%", projects: "15,000+", speed: "Real-time" }
     },
     {
       icon: Leaf,
       title: "ESG Impact Assessment",
-      description: "Comprehensive sustainability scoring for renewable energy investments",
+      description: "Comprehensive Environmental, Social, and Governance scoring framework specifically designed for emerging market renewable energy projects",
       features: [
-        "Environmental impact metrics",
-        "Social governance evaluation",
-        "Carbon footprint tracking",
-        "Regulatory compliance scoring"
+        "Environmental impact quantification",
+        "Social governance evaluation matrix",
+        "Carbon footprint tracking & offsetting",
+        "Regulatory compliance scoring",
+        "Community impact assessment"
       ],
-      badge: "Sustainability",
-      color: "from-green-500 to-emerald-600"
+      badge: "Sustainability Framework",
+      color: "from-green-500 to-emerald-600",
+      metrics: { factors: "50+", coverage: "Global", precision: "±5%" }
     },
     {
       icon: Calculator,
-      title: "Financial Modeling Suite",
-      description: "Multi-currency IRR calculations and investment optimization tools",
+      title: "Multi-Currency Financial Modeling",
+      description: "Advanced IRR simulation and financial modeling suite supporting NGN, GBP, and EUR with real-time exchange rate integration",
       features: [
-        "Real-time currency conversion",
-        "Cash flow projections",
-        "ROI optimization",
-        "Risk-adjusted returns"
+        "Real-time multi-currency conversion",
+        "Advanced cash flow projections",
+        "ROI optimization algorithms",
+        "Risk-adjusted return calculations",
+        "Sensitivity analysis tools"
       ],
-      badge: "Financial Tools",
-      color: "from-yellow-500 to-orange-600"
+      badge: "Financial Intelligence",
+      color: "from-yellow-500 to-orange-600",
+      metrics: { currencies: "3", accuracy: "99.5%", speed: "Instant" }
     },
     {
       icon: BarChart3,
-      title: "Portfolio Analytics",
-      description: "Real-time performance tracking and investment portfolio optimization",
+      title: "Portfolio Analytics & Optimization",
+      description: "Real-time portfolio performance tracking with AI-driven optimization recommendations for renewable energy investments",
       features: [
-        "Interactive dashboards",
-        "Performance benchmarking",
+        "Interactive portfolio dashboards",
+        "Performance benchmarking tools",
         "Risk diversification analysis",
-        "Investment recommendations"
+        "AI-powered investment recommendations",
+        "Custom KPI tracking"
       ],
-      badge: "Analytics",
-      color: "from-red-500 to-pink-600"
+      badge: "Portfolio Intelligence",
+      color: "from-red-500 to-pink-600",
+      metrics: { visualization: "Interactive", updates: "Real-time", insights: "AI-driven" }
     },
     {
       icon: Globe,
-      title: "Market Intelligence",
-      description: "Industry insights and regulatory updates for informed decision-making",
+      title: "Emerging Market Intelligence",
+      description: "Specialized market analysis and regulatory intelligence focused on African and emerging market renewable energy opportunities",
       features: [
-        "Market trend analysis",
-        "Regulatory change tracking",
-        "Competitor benchmarking",
-        "Investment opportunities"
+        "Emerging market trend analysis",
+        "Regulatory change monitoring",
+        "Local market opportunity identification",
+        "Risk profiling for developing economies",
+        "Investment climate assessment"
       ],
-      badge: "Market Insights",
-      color: "from-indigo-500 to-blue-600"
+      badge: "Market Intelligence",
+      color: "from-indigo-500 to-blue-600",
+      metrics: { markets: "50+", coverage: "Africa-focused", updates: "Daily" }
     },
     {
       icon: Shield,
-      title: "Risk Management",
-      description: "Comprehensive risk assessment and mitigation strategies",
+      title: "Advanced Risk Management",
+      description: "Comprehensive risk assessment framework with predictive analytics and mitigation strategy recommendations",
       features: [
         "Project risk scoring",
         "Scenario modeling",

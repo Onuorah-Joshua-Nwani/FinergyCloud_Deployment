@@ -23,79 +23,90 @@ import {
 export default function Blog() {
   const breadcrumbs = [
     { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
     { label: "Blog", path: "/blog" }
   ];
+  
   const featuredPost = {
     title: "The Future of AI in Renewable Energy Investment: A 2025 Perspective",
-    excerpt: "How machine learning and artificial intelligence are revolutionizing investment decisions in the renewable energy sector, with insights from FinergyCloud's proprietary algorithms.",
+    excerpt: "How machine learning and artificial intelligence are revolutionizing investment decisions in the renewable energy sector, with insights from FinergyCloud's proprietary XGBoost algorithms achieving 94% accuracy.",
     author: "O.J. Nwani",
-    date: "January 8, 2025",
+    date: "January 10, 2025",
     readTime: "8 min read",
     category: "AI & Technology",
     image: "🤖",
-    tags: ["AI", "Machine Learning", "Investment Strategy", "Future Trends"]
+    tags: ["AI", "Machine Learning", "Investment Strategy", "XGBoost", "Emerging Markets"]
   };
 
   const blogPosts = [
     {
-      title: "ESG Scoring in Emerging Markets: Challenges and Opportunities",
-      excerpt: "Analyzing the unique considerations for Environmental, Social, and Governance assessments in developing economies and how FinergyCloud addresses these complexities.",
-      author: "FinergyCloud Research Team",
-      date: "January 5, 2025",
+      title: "FinergyCloud's UK Registration: Scaling AI-Powered Sustainable Finance",
+      excerpt: "Our journey from Nigeria-focused platform to UK-registered company, expanding our mission to transform renewable energy investment intelligence across global markets with strategic partnerships.",
+      author: "O.J. Nwani",
+      date: "January 8, 2025",
       readTime: "6 min read",
-      category: "ESG & Sustainability",
-      image: "🌍",
-      tags: ["ESG", "Emerging Markets", "Sustainability", "Risk Assessment"]
+      category: "Company Updates",
+      image: "🇬🇧",
+      tags: ["UK Registration", "Global Expansion", "Company Growth", "Strategic Partnerships"]
     },
     {
-      title: "Multi-Currency IRR Analysis: Navigating Global Renewable Energy Markets",
-      excerpt: "Best practices for conducting Internal Rate of Return calculations across different currencies, with real-world examples from Nigerian, British, and European markets.",
-      author: "Financial Analysis Team",
+      title: "XGBoost in Action: How We Achieved 94% Prediction Accuracy",
+      excerpt: "Deep dive into our proprietary machine learning algorithms, the data science methodology behind our renewable energy project success predictions, and real-world validation results.",
+      author: "FinergyCloud AI Team",
+      date: "January 5, 2025",
+      readTime: "12 min read",
+      category: "AI & Technology",
+      image: "⚙️",
+      tags: ["XGBoost", "Machine Learning", "Data Science", "Prediction Accuracy", "Algorithm"]
+    },
+    {
+      title: "Multi-Currency IRR Analysis: Supporting NGN, GBP, and EUR Markets",
+      excerpt: "Technical implementation of real-time currency conversion in renewable energy financial modeling, with case studies from Nigerian, British, and European investment scenarios.",
+      author: "Financial Engineering Team",
       date: "January 3, 2025",
       readTime: "10 min read",
       category: "Financial Modeling",
-      image: "💰",
-      tags: ["IRR", "Financial Modeling", "Currency Exchange", "Global Markets"]
+      image: "💱",
+      tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets"]
     },
     {
-      title: "Solar vs Wind: Comparative Investment Analysis for 2025",
-      excerpt: "Comprehensive comparison of solar and wind energy investments, including market trends, technology advances, and regional performance metrics.",
-      author: "Market Intelligence Team",
+      title: "ESG Scoring Framework for Emerging Market Renewable Energy",
+      excerpt: "How we adapted traditional ESG assessment methodologies for African renewable energy projects, addressing unique challenges in emerging market sustainability evaluation.",
+      author: "ESG Research Team",
       date: "December 30, 2024",
-      readTime: "12 min read",
-      category: "Market Analysis",
-      image: "⚡",
-      tags: ["Solar Energy", "Wind Power", "Investment Comparison", "Market Trends"]
-    },
-    {
-      title: "Risk Management Strategies for Renewable Energy Portfolios",
-      excerpt: "Advanced risk assessment techniques and diversification strategies to optimize renewable energy investment portfolios in volatile markets.",
-      author: "Risk Management Team",
-      date: "December 28, 2024",
       readTime: "9 min read",
-      category: "Risk Management",
-      image: "🛡️",
-      tags: ["Risk Management", "Portfolio Optimization", "Investment Strategy", "Diversification"]
+      category: "ESG & Sustainability",
+      image: "🌍",
+      tags: ["ESG Scoring", "Emerging Markets", "Sustainability", "Africa", "Framework"]
     },
     {
-      title: "The Rise of Energy Storage: Investment Opportunities and Challenges",
-      excerpt: "Exploring the rapidly growing energy storage sector, from battery technologies to grid-scale solutions, and their impact on renewable energy investments.",
-      author: "Technology Analysis Team",
-      date: "December 25, 2024",
+      title: "From Academic Research to ₦120M+ Investment Analysis",
+      excerpt: "The evolution of FinergyCloud from university research project to analyzing over ₦120 million in renewable energy investments across 12 solar projects in Nigeria and Kenya.",
+      author: "Market Intelligence Team",
+      date: "December 28, 2024",
       readTime: "11 min read",
-      category: "Technology Trends",
-      image: "🔋",
-      tags: ["Energy Storage", "Battery Technology", "Grid Solutions", "Technology Investment"]
+      category: "Market Analysis",
+      image: "📊",
+      tags: ["Market Traction", "Investment Analysis", "Africa", "Solar Energy", "Growth"]
+    },
+    {
+      title: "Building Cross-Platform Investment Intelligence: Web + Mobile",
+      excerpt: "Technical architecture and user experience considerations for delivering seamless renewable energy investment insights across web and mobile platforms with real-time synchronization.",
+      author: "Platform Engineering Team",
+      date: "December 25, 2024",
+      readTime: "8 min read",
+      category: "Platform Development",
+      image: "📱",
+      tags: ["Cross-Platform", "Mobile Development", "Web Platform", "User Experience", "Architecture"]
     }
   ];
 
   const categories = [
-    { name: "AI & Technology", count: 12, icon: Zap },
-    { name: "ESG & Sustainability", count: 18, icon: Leaf },
-    { name: "Financial Modeling", count: 15, icon: BarChart3 },
-    { name: "Market Analysis", count: 22, icon: TrendingUp },
-    { name: "Risk Management", count: 9, icon: Globe }
+    { name: "AI & Technology", count: 15, icon: Zap, description: "Machine learning, algorithms, and tech innovation" },
+    { name: "ESG & Sustainability", count: 22, icon: Leaf, description: "Environmental and social impact assessment" },
+    { name: "Financial Modeling", count: 18, icon: BarChart3, description: "IRR analysis, currency modeling, and finance" },
+    { name: "Market Analysis", count: 28, icon: TrendingUp, description: "Market intelligence and investment trends" },
+    { name: "Company Updates", count: 8, icon: Users, description: "Company news, partnerships, and growth" },
+    { name: "Platform Development", count: 12, icon: Globe, description: "Technical architecture and platform evolution" }
   ];
 
   const handleReadMore = (postTitle: string) => {
@@ -156,201 +167,226 @@ export default function Blog() {
         </div>
       </section>
 
+      {/* Featured Post */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-4 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-3">
-            {/* Featured Post */}
-            <div className="mb-16">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Featured Article</h2>
-              <Card className="hover:shadow-lg transition-all duration-300 border-0 shadow-md">
-                <CardHeader>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="text-6xl">{featuredPost.image}</div>
-                    <div className="flex-1">
-                      <Badge className="bg-green-100 text-green-800 mb-2">
-                        {featuredPost.category}
-                      </Badge>
-                      <CardTitle className="text-2xl md:text-3xl mb-2">
-                        {featuredPost.title}
-                      </CardTitle>
-                      <div className="flex items-center gap-4 text-gray-600 text-sm">
-                        <div className="flex items-center gap-1">
-                          <User className="w-4 h-4" />
-                          {featuredPost.author}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          {featuredPost.date}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          {featuredPost.readTime}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                    {featuredPost.excerpt}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {featuredPost.tags.map((tag, index) => (
-                      <Badge key={index} variant="outline" className="text-sm">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700"
-                    onClick={() => handleReadMore(featuredPost.title)}
-                  >
-                    Read Full Article
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Recent Posts */}
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Latest Articles</h2>
-              <div className="space-y-6">
-                {blogPosts.map((post, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-md">
-                    <CardHeader>
-                      <div className="flex items-start gap-4">
-                        <div className="text-4xl">{post.image}</div>
-                        <div className="flex-1">
-                          <Badge className="bg-blue-100 text-blue-800 mb-2">
-                            {post.category}
-                          </Badge>
-                          <CardTitle className="text-xl mb-2">
-                            {post.title}
-                          </CardTitle>
-                          <div className="flex items-center gap-4 text-gray-600 text-sm mb-3">
-                            <div className="flex items-center gap-1">
-                              <User className="w-4 h-4" />
-                              {post.author}
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Calendar className="w-4 h-4" />
-                              {post.date}
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Clock className="w-4 h-4" />
-                              {post.readTime}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-700 mb-4 leading-relaxed">
-                        {post.excerpt}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {post.tags.map((tag, tagIndex) => (
-                          <Badge key={tagIndex} variant="outline" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                      <Button 
-                        variant="outline" 
-                        className="text-green-600 border-green-600 hover:bg-green-50"
-                        onClick={() => handleReadMore(post.title)}
-                      >
-                        Read More
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
+        <Card className="mb-16 overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+          <div className="grid md:grid-cols-2 gap-0">
+            <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-12 text-white flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-6xl mb-4">{featuredPost.image}</div>
+                <Badge className="bg-white/20 text-white px-3 py-1 text-sm">
+                  {featuredPost.category}
+                </Badge>
               </div>
             </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            {/* Categories */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle>Categories</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {categories.map((category, index) => {
-                    const Icon = category.icon;
-                    return (
-                      <div key={index} className="flex items-center justify-between py-2 hover:bg-gray-50 px-2 rounded cursor-pointer transition-colors">
-                        <div className="flex items-center gap-2">
-                          <Icon className="w-4 h-4 text-green-600" />
-                          <span className="text-sm">{category.name}</span>
-                        </div>
-                        <Badge variant="secondary" className="text-xs">
-                          {category.count}
-                        </Badge>
-                      </div>
-                    );
-                  })}
+            
+            <div className="p-12">
+              <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                <div className="flex items-center gap-2">
+                  <User className="w-4 h-4" />
+                  {featuredPost.author}
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  {featuredPost.date}
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  {featuredPost.readTime}
+                </div>
+              </div>
+              
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                {featuredPost.title}
+              </h3>
+              
+              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                {featuredPost.excerpt}
+              </p>
+              
+              <div className="flex flex-wrap gap-2 mb-6">
+                {featuredPost.tags.map((tag, index) => (
+                  <Badge key={index} variant="secondary" className="text-xs">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+              
+              <Button 
+                onClick={() => handleReadMore(featuredPost.title)}
+                className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+              >
+                Read Full Article
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+          </div>
+        </Card>
 
-            {/* Newsletter */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle>Subscribe to Insights</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600 mb-4">
-                  Get weekly insights on renewable energy markets, AI developments, and investment strategies.
-                </p>
-                <Button className="w-full bg-green-600 hover:bg-green-700">
-                  Subscribe Now
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Popular Tags */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Popular Tags</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {["AI", "ESG", "Solar", "Wind", "Investment", "Risk", "Portfolio", "Technology", "Markets", "Sustainability"].map((tag, index) => (
-                    <Badge key={index} variant="outline" className="text-xs cursor-pointer hover:bg-green-50">
-                      {tag}
+        {/* Blog Posts Grid */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Latest Articles
+            </h2>
+            <p className="text-xl text-gray-600">
+              In-depth analysis, technical insights, and company updates
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post, index) => (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md cursor-pointer h-full">
+                <CardContent className="p-0">
+                  <div className="bg-gradient-to-br from-green-500 to-blue-600 p-8 text-white text-center">
+                    <div className="text-4xl mb-2">{post.image}</div>
+                    <Badge className="bg-white/20 text-white px-2 py-1 text-xs">
+                      {post.category}
                     </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                  
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {post.date}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {post.readTime}
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {post.tags.slice(0, 3).map((tag, idx) => (
+                        <Badge key={idx} variant="secondary" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="text-xs text-gray-500">
+                        By {post.author}
+                      </div>
+                      <Button 
+                        onClick={() => handleReadMore(post.title)}
+                        variant="ghost" 
+                        size="sm" 
+                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      >
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </div>
+        </section>
+
+        {/* Categories Section */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Browse by Category
+            </h2>
+            <p className="text-xl text-gray-600">
+              Dive deeper into specific topics that interest you most
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        {category.count} articles
+                      </Badge>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                      {category.name}
+                    </h3>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {category.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
       </div>
 
-      {/* Connect & Subscribe Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      {/* Newsletter Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Stay Updated with FinergyCloud
+          <Badge className="bg-gray-800 text-white px-4 py-2 text-sm font-medium mb-6">
+            Stay Updated
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Never Miss an Insight
           </h2>
-          <p className="text-gray-600 mb-8">
-            Follow our latest insights and join the renewable energy investment community
+          <p className="text-xl mb-8 text-gray-300">
+            Get the latest renewable energy investment intelligence and platform updates delivered to your inbox.
           </p>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Social Media</h3>
-              <SocialLinks showLabels className="justify-center" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Access Platform</h3>
-              <PlatformSwitcher variant="banner" />
-            </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mb-8">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <Button className="bg-green-600 hover:bg-green-700 px-6 py-3">
+              Subscribe
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+          
+          <div className="text-sm text-gray-400">
+            Join 2,500+ renewable energy professionals. Unsubscribe anytime.
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Experience FinergyCloud?
+          </h2>
+          <p className="text-xl mb-8 text-green-100">
+            Join the renewable energy investment revolution with AI-powered intelligence and comprehensive market insights.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/login">
+              <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 shadow-lg">
+                Start Free Trial
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/?platform=mobile">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 shadow-lg">
+                Try Mobile Platform
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -169,113 +169,120 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Trusted by Renewable Energy Investors Worldwide
+            </h2>
+            <p className="text-xl text-gray-600">
+              Proven results across emerging markets and developed economies
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-4">
+              Platform Capabilities
+            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Everything You Need for Renewable Energy Investment
+              AI-Driven Investment Intelligence
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive tools and insights to maximize your renewable energy investment returns
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our platform combines advanced financial modeling with sustainability metrics to transform renewable energy investment decisions
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md cursor-pointer h-full">
+                  <CardHeader>
+                    <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    <div className="flex items-center text-blue-600 font-medium mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+          
+          <div className="text-center mt-12">
             <Link href="/solutions">
-              <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md cursor-pointer">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                    <Brain className="w-6 h-6 text-white" />
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4">
+                Explore All Features
+                <ChevronRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="bg-blue-100 text-blue-800 px-4 py-2 text-sm font-medium mb-4">
+              Customer Success
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What Our Users Say
+            </h2>
+            <p className="text-xl text-gray-600">
+              Trusted by renewable energy professionals worldwide
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-8">
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    ))}
                   </div>
-                  <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">AI-Powered Predictions</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Advanced XGBoost machine learning models analyze project success probability, 
-                    IRR predictions, and risk assessment with high accuracy.
+                  <p className="text-gray-600 mb-6 italic leading-relaxed">
+                    "{testimonial.content}"
                   </p>
-                  <div className="flex items-center text-blue-600 font-medium mt-4">
-                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                  <div className="border-t pt-4">
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+                    <div className="text-sm text-blue-600">{testimonial.company}</div>
                   </div>
                 </CardContent>
               </Card>
-            </Link>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                  <Leaf className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">ESG Scoring</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Comprehensive Environmental, Social, and Governance assessment 
-                  with detailed impact metrics and sustainability benchmarks.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center mb-4">
-                  <Calculator className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">IRR Calculator</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Advanced financial modeling with multi-currency support, 
-                  cash flow analysis, and investment performance calculations.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
-                  <BarChart3 className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Portfolio Analytics</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Interactive charts and dashboards for portfolio performance tracking, 
-                  risk analysis, and investment optimization.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Market Insights</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Real-time market analysis, industry trends, and regulatory updates 
-                  to stay ahead of the renewable energy market.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Risk Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Comprehensive risk assessment tools with scenario analysis, 
-                  stress testing, and mitigation strategy recommendations.
-                </p>
-              </CardContent>
-            </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -284,6 +291,9 @@ export default function Landing() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            <Badge className="bg-gray-800 text-white px-4 py-2 text-sm font-medium mb-4">
+              Platform Experience
+            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Comprehensive Investment Intelligence
             </h2>
@@ -294,49 +304,72 @@ export default function Landing() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="bg-gray-800 p-8 rounded-xl">
+              <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
                 <Globe className="w-12 h-12 text-blue-400 mb-4" />
-                <h3 className="text-2xl font-bold mb-4">Advanced Analytics Suite</h3>
+                <h3 className="text-2xl font-bold mb-4">Web Platform</h3>
                 <p className="text-gray-300 mb-6">
-                  Leverage our comprehensive analytics tools for deep market insights 
-                  and data-driven investment strategies.
+                  Comprehensive analytics and investment intelligence designed for professional renewable energy investors and fund managers.
                 </p>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li>• AI-powered predictions with 94% accuracy</li>
-                  <li>• Comprehensive ESG scoring system</li>
-                  <li>• Multi-currency financial modeling</li>
-                  <li>• Real-time market intelligence</li>
+                <ul className="text-gray-300 space-y-3 mb-6">
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    AI-powered predictions with 94% accuracy
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    Comprehensive ESG scoring system
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    Multi-currency financial modeling
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    Real-time market intelligence
+                  </li>
                 </ul>
                 <Link href="/solutions">
-                  <Button className="bg-blue-600 hover:bg-blue-700">
-                    Explore Our Solutions
+                  <Button className="bg-blue-600 hover:bg-blue-700 w-full">
+                    Explore Web Platform
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
               </div>
             </div>
 
             <div>
-              <div className="bg-gray-800 p-8 rounded-xl">
+              <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-white" />
+                  <Smartphone className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Mobile Companion App</h3>
+                <h3 className="text-2xl font-bold mb-4">Mobile App</h3>
                 <p className="text-gray-300 mb-6">
-                  Stay connected to your investments on-the-go with our mobile app 
-                  featuring real-time monitoring and instant alerts.
+                  Stay connected to your investments on-the-go with our mobile app featuring real-time monitoring and instant insights.
                 </p>
-                <ul className="text-gray-300 space-y-2 mb-6">
-                  <li>• Real-time portfolio monitoring</li>
-                  <li>• Push notifications for market changes</li>
-                  <li>• Quick project insights and analytics</li>
-                  <li>• Synchronized with web platform</li>
+                <ul className="text-gray-300 space-y-3 mb-6">
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    Real-time portfolio monitoring
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    Push notifications for market changes
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    Quick project insights and analytics
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    Synchronized with web platform
+                  </li>
                 </ul>
-                <a href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-green-600 hover:bg-green-700">
+                <Link href="/?platform=mobile">
+                  <Button className="bg-green-600 hover:bg-green-700 w-full">
+                    <Smartphone className="w-4 h-4 mr-2" />
                     Try Mobile App
-                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -344,7 +377,7 @@ export default function Landing() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Renewable Energy Investments?
@@ -354,17 +387,17 @@ export default function Landing() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
-              <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4">
+              <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 shadow-lg">
                 Start Your Investment Journey
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <a href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4">
+            <Link href="/?platform=mobile">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 shadow-lg">
+                <Smartphone className="w-4 h-4 mr-2" />
                 Try Mobile App
-                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </a>
+            </Link>
           </div>
           
           {/* Quick Links */}

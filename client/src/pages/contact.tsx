@@ -1,155 +1,122 @@
-import { useState } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { useToast } from "@/hooks/use-toast";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import SocialLinks from "@/components/social-links";
-import PlatformSwitcher from "@/components/platform-switcher";
 import { 
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
+  Mail, 
+  Phone, 
+  MapPin, 
+  Clock, 
   Send,
   MessageSquare,
   Users,
-  Headphones,
-  Globe,
-  CheckCircle,
+  Zap,
   ArrowRight,
+  CheckCircle,
   Home,
   ChevronRight,
-  Smartphone
+  Globe,
+  Calendar,
+  Video,
+  FileText
 } from "lucide-react";
 
 export default function Contact() {
   const breadcrumbs = [
     { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" }
   ];
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    subject: "",
-    message: "",
-    inquiryType: "general"
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
-  const contactInfo = [
+  const contactMethods = [
     {
       icon: Mail,
       title: "Email Support",
-      details: "support@finergycloud.com",
-      description: "Get in touch with our support team",
-      available: "24/7 Response"
+      description: "Get help with technical issues, billing, or general inquiries",
+      contact: "support@finergycloud.com",
+      action: "Send Email",
+      color: "from-blue-500 to-indigo-600"
     },
     {
-      icon: Phone,
-      title: "Phone Support",
-      details: "+1 (555) 123-4567",
-      description: "Speak directly with our experts",
-      available: "Mon-Fri 9AM-6PM UTC"
+      icon: MessageSquare,
+      title: "Business Inquiries",
+      description: "Partnership opportunities, enterprise solutions, and custom integrations",
+      contact: "business@finergycloud.com",
+      action: "Contact Sales",
+      color: "from-green-500 to-emerald-600"
     },
+    {
+      icon: Users,
+      title: "Investor Relations",
+      description: "Connect with our team for investment discussions and platform demos",
+      contact: "investors@finergycloud.com",
+      action: "Schedule Meeting",
+      color: "from-purple-500 to-pink-600"
+    }
+  ];
+
+  const officeInfo = [
     {
       icon: MapPin,
       title: "Headquarters",
-      details: "Lagos, Nigeria",
-      description: "Visit our main office",
-      available: "By Appointment"
+      details: ["United Kingdom", "London Office", "Registered Company"]
+    },
+    {
+      icon: Clock,
+      title: "Business Hours",
+      details: ["Monday - Friday", "9:00 AM - 6:00 PM GMT", "Weekend Support Available"]
     },
     {
       icon: Globe,
-      title: "Global Presence",
-      details: "50+ Countries",
-      description: "Serving investors worldwide",
-      available: "Multiple Timezones"
+      title: "Global Reach",
+      details: ["50+ Countries Served", "Africa-Focused Operations", "Emerging Markets Specialist"]
     }
   ];
 
-  const inquiryTypes = [
-    { value: "general", label: "General Inquiry" },
-    { value: "sales", label: "Sales & Pricing" },
-    { value: "support", label: "Technical Support" },
-    { value: "partnership", label: "Partnership Opportunities" },
-    { value: "media", label: "Media & Press" },
-    { value: "demo", label: "Request Demo" }
-  ];
-
-  const faqs = [
+  const supportOptions = [
     {
-      question: "How accurate are FinergyCloud's AI predictions?",
-      answer: "Our XGBoost machine learning models achieve 94% accuracy in renewable energy project success predictions, continuously improved through real-world data."
+      icon: Video,
+      title: "Schedule Demo",
+      description: "Book a personalized platform demonstration with our team",
+      action: "Book Demo Call"
     },
     {
-      question: "What currencies does the IRR calculator support?",
-      answer: "We support Nigerian Naira (NGN), British Pound (GBP), and Euro (EUR) with real-time exchange rate conversion and localized financial modeling."
+      icon: FileText,
+      title: "Documentation",
+      description: "Comprehensive guides, API docs, and technical resources",
+      action: "View Docs"
     },
     {
-      question: "How does the ESG scoring system work?",
-      answer: "Our ESG assessment evaluates Environmental, Social, and Governance factors using industry-standard metrics and proprietary algorithms tailored for renewable energy projects."
+      icon: MessageSquare,
+      title: "Community Forum",
+      description: "Connect with other users and get answers from experts",
+      action: "Join Community"
     },
     {
-      question: "Can I integrate FinergyCloud with existing systems?",
-      answer: "Yes, we offer API access and custom integrations for enterprise clients. Contact our technical team to discuss your specific requirements."
-    },
-    {
-      question: "What kind of support do you provide?",
-      answer: "We provide 24/7 email support, phone support during business hours, comprehensive documentation, video tutorials, and dedicated account management for enterprise clients."
+      icon: Calendar,
+      title: "Training Sessions",
+      description: "Learn to maximize your investment analysis capabilities",
+      action: "Schedule Training"
     }
   ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent Successfully",
-        description: "Thank you for contacting us. We'll respond within 24 hours.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        subject: "",
-        message: "",
-        inquiryType: "general"
-      });
-      setIsSubmitting(false);
-    }, 1000);
-  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Breadcrumb Navigation */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center space-x-2 text-sm text-gray-600">
-            {breadcrumbs.map((crumb, index) => (
-              <div key={crumb.path} className="flex items-center">
-                {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
+            {breadcrumbs.map((item, index) => (
+              <div key={index} className="flex items-center">
+                {index > 0 && <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />}
                 {index === breadcrumbs.length - 1 ? (
-                  <span className="text-gray-900 font-medium">{crumb.label}</span>
+                  <span className="font-medium text-gray-900">{item.label}</span>
                 ) : (
-                  <Link href={crumb.path} className="hover:text-green-600 transition-colors flex items-center">
-                    {index === 0 && <Home className="w-4 h-4 mr-1" />}
-                    {crumb.label}
+                  <Link href={item.path} className="hover:text-green-600 transition-colors">
+                    {item.label}
                   </Link>
                 )}
               </div>
@@ -159,302 +126,249 @@ export default function Contact() {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-600 to-blue-600 text-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-6">
             Get in Touch
-            <span className="block bg-gradient-to-r from-yellow-300 to-green-300 bg-clip-text text-transparent">
-              We're Here to Help
+          </Badge>
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            Contact 
+            <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+              FinergyCloud
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-green-100">
-            Have questions about renewable energy investment? Need technical support? 
-            Want to explore partnership opportunities? Our expert team is ready to assist you.
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+            Ready to transform your renewable energy investments? Our team is here to help you 
+            get started with AI-powered investment intelligence.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Badge className="bg-white text-green-600 text-lg py-2 px-4">
-              <Clock className="w-4 h-4 mr-2" />
-              24/7 Support
-            </Badge>
-            <Badge className="bg-green-100 text-green-800 text-lg py-2 px-4">
-              <Users className="w-4 h-4 mr-2" />
-              Expert Team
-            </Badge>
-            <Badge className="bg-blue-100 text-blue-800 text-lg py-2 px-4">
-              <Globe className="w-4 h-4 mr-2" />
-              Global Reach
-            </Badge>
+          <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-sm">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              Free demo available
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              No commitment required
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              Expert guidance included
+            </div>
           </div>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <Card className="shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <MessageSquare className="w-6 h-6 text-green-600" />
-                  Send us a Message
-                </CardTitle>
-                <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you within 24 hours.
-                </p>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="John Doe"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="john@company.com"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="company">Company/Organization</Label>
-                      <Input
-                        id="company"
-                        name="company"
-                        type="text"
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        placeholder="Your Company Name"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="inquiryType">Inquiry Type</Label>
-                      <select
-                        id="inquiryType"
-                        name="inquiryType"
-                        value={formData.inquiryType}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                      >
-                        {inquiryTypes.map((type) => (
-                          <option key={type.value} value={type.value}>
-                            {type.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="subject">Subject *</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      placeholder="Brief description of your inquiry"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Please provide details about your inquiry..."
-                      rows={6}
-                      required
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-green-600 hover:bg-green-700 text-lg py-3"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Sending...
-                      </div>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="w-4 h-4 ml-2" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+      {/* Contact Methods */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="bg-blue-100 text-blue-800 px-4 py-2 text-sm font-medium mb-4">
+              Contact Methods
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              How Can We Help You?
+            </h2>
+            <p className="text-xl text-gray-600">
+              Choose the best way to reach our team based on your needs
+            </p>
           </div>
-
-          {/* Contact Information */}
-          <div className="space-y-6">
-            {/* Contact Details */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {contactInfo.map((info, index) => {
-                  const Icon = info.icon;
-                  return (
-                    <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                      <Icon className="w-5 h-5 text-green-600 mt-1" />
-                      <div>
-                        <h4 className="font-semibold text-gray-900">{info.title}</h4>
-                        <p className="text-gray-700 font-medium">{info.details}</p>
-                        <p className="text-sm text-gray-600">{info.description}</p>
-                        <Badge variant="outline" className="text-xs mt-1">
-                          {info.available}
-                        </Badge>
-                      </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {contactMethods.map((method, index) => {
+              const Icon = method.icon;
+              return (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md text-center">
+                  <CardContent className="p-8">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${method.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-8 h-8 text-white" />
                     </div>
-                  );
-                })}
-              </CardContent>
-            </Card>
-
-            {/* Quick Actions */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Button className="w-full justify-start bg-blue-600 hover:bg-blue-700">
-                  <Headphones className="w-4 h-4 mr-2" />
-                  Schedule a Demo Call
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <MessageSquare className="w-4 h-4 mr-2" />
-                  Live Chat Support
-                </Button>
-                <Link href="/?platform=mobile">
-                  <Button variant="outline" className="w-full justify-start">
-                    <Smartphone className="w-4 h-4 mr-2" />
-                    Try Mobile App
-                  </Button>
-                </Link>
-                <Button variant="outline" className="w-full justify-start">
-                  <Users className="w-4 h-4 mr-2" />
-                  Partner with Us
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Office Hours */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Support Hours</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span>Email Support:</span>
-                    <Badge className="bg-green-100 text-green-800">24/7</Badge>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Phone Support:</span>
-                    <span className="text-gray-600">Mon-Fri 9AM-6PM UTC</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Live Chat:</span>
-                    <span className="text-gray-600">Mon-Fri 8AM-8PM UTC</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Response Time:</span>
-                    <span className="text-gray-600">Within 24 hours</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{method.title}</h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">{method.description}</p>
+                    <div className="text-lg font-medium text-blue-600 mb-6">{method.contact}</div>
+                    <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
+                      {method.action}
+                      <Send className="w-4 h-4 ml-2" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
+      </section>
 
-        {/* FAQ Section */}
-        <section className="mt-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Frequently Asked Questions
+      {/* Contact Form */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-4">
+              Send us a Message
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Get Started Today
+            </h2>
+            <p className="text-xl text-gray-600">
+              Fill out the form below and we'll get back to you within 24 hours
+            </p>
+          </div>
+          
+          <Card className="border-0 shadow-xl">
+            <CardContent className="p-8">
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name</Label>
+                    <Input id="firstName" placeholder="Your first name" className="mt-1" />
+                  </div>
+                  <div>
+                    <Label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name</Label>
+                    <Input id="lastName" placeholder="Your last name" className="mt-1" />
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address</Label>
+                    <Input id="email" type="email" placeholder="your.email@company.com" className="mt-1" />
+                  </div>
+                  <div>
+                    <Label htmlFor="company" className="text-sm font-medium text-gray-700">Company</Label>
+                    <Input id="company" placeholder="Your company name" className="mt-1" />
+                  </div>
+                </div>
+                
+                <div>
+                  <Label htmlFor="subject" className="text-sm font-medium text-gray-700">Subject</Label>
+                  <Input id="subject" placeholder="What can we help you with?" className="mt-1" />
+                </div>
+                
+                <div>
+                  <Label htmlFor="message" className="text-sm font-medium text-gray-700">Message</Label>
+                  <Textarea 
+                    id="message" 
+                    placeholder="Tell us more about your renewable energy investment needs..."
+                    className="mt-1 min-h-[120px]"
+                  />
+                </div>
+                
+                <div className="text-center">
+                  <Button size="lg" className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 px-12 py-4">
+                    Send Message
+                    <Send className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Office Information */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="bg-blue-100 text-blue-800 px-4 py-2 text-sm font-medium mb-4">
+              Office Information
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Global Presence
+            </h2>
+            <p className="text-xl text-gray-600">
+              Headquartered in the UK with a focus on emerging markets worldwide
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {officeInfo.map((info, index) => {
+              const Icon = info.icon;
+              return (
+                <Card key={index} className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
+                    <div className="space-y-2">
+                      {info.details.map((detail, idx) => (
+                        <div key={idx} className="text-gray-600">{detail}</div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Support Options */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-4">
+              Additional Support
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              More Ways to Get Help
+            </h2>
+            <p className="text-xl text-gray-600">
+              Explore our comprehensive support resources and training options
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {supportOptions.map((option, index) => {
+              const Icon = option.icon;
+              return (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md text-center">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">{option.title}</h3>
+                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">{option.description}</p>
+                    <Button variant="outline" size="sm" className="text-blue-600 border-blue-600 hover:bg-blue-50">
+                      {option.action}
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Get Started?
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                    {faq.question}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <p className="text-xl mb-8 text-green-100">
+            Join thousands of investors using FinergyCloud's AI-powered platform for renewable energy investments.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/login">
+              <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 shadow-lg">
+                Start Free Trial
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/?platform=mobile">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 shadow-lg">
+                Try Mobile App
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
-        </section>
-
-        {/* Connect & Platform Section */}
-        <section className="mt-16 py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 rounded-xl">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Connect with FinergyCloud
-              </h2>
-              <p className="text-gray-600">
-                Follow us for updates and access our platform from anywhere
-              </p>
-            </div>
-            
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Social Connect */}
-              <div className="text-center lg:text-left">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Follow Our Journey
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Stay connected with FinergyCloud across social platforms for insights, updates, and community discussions
-                </p>
-                <SocialLinks showLabels />
-              </div>
-
-              {/* Newsletter Signup */}
-              <div className="text-center lg:text-left">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Stay Updated
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Get the latest insights on renewable energy investments and platform updates delivered to your inbox
-                </p>
-                <Button className="bg-green-600 hover:bg-green-700">
-                  Subscribe to Newsletter
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </div>
+          
+          {/* Social Links */}
+          <div className="mt-12 pt-8 border-t border-green-500">
+            <p className="text-green-100 mb-6">Follow us for updates and insights</p>
+            <SocialLinks variant="footer" />
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
