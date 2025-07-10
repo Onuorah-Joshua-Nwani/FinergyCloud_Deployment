@@ -63,11 +63,11 @@ export default function Navigation() {
     <Link href={path}>
       <span
         className={`nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer ${
-          location === path || (path === "/dashboard" && location === "/")
+          location === path || (path === "/" && location === "/" && !isMobileApp) || (path === "/dashboard" && location === "/" && isMobileApp)
             ? "bg-gray-100 text-primary border-b-2 border-primary"
             : "text-gray-600 hover:text-primary hover:bg-gray-50"
         } ${isMobile ? "mobile-menu-item text-base py-3 border-b border-gray-100" : ""} ${className} ${
-          location === path || (path === "/dashboard" && location === "/") ? "active" : ""
+          location === path || (path === "/" && location === "/" && !isMobileApp) || (path === "/dashboard" && location === "/" && isMobileApp) ? "active" : ""
         }`}
       >
         {isMobile && Icon && (

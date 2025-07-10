@@ -309,7 +309,7 @@ export default function About() {
             {/* Social Connect */}
             <div className="text-center lg:text-left">
               <h3 className="text-2xl font-bold mb-4">
-                Connect with O.J. Nwani
+                Connect to Our Socials
               </h3>
               <p className="text-gray-300 mb-6">
                 Follow the journey and insights from FinergyCloud's founder across social platforms

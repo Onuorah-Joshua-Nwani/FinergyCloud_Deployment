@@ -92,6 +92,12 @@ export default function Blog() {
     { name: "Risk Management", count: 9, icon: Globe }
   ];
 
+  const handleReadMore = (postTitle: string) => {
+    // Simulate navigation to full blog post
+    console.log(`Navigate to full post: ${postTitle}`);
+    // In a real app, this would navigate to /blog/[slug]
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb Navigation */}
@@ -184,7 +190,10 @@ export default function Blog() {
                       </Badge>
                     ))}
                   </div>
-                  <Button className="bg-green-600 hover:bg-green-700">
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700"
+                    onClick={() => handleReadMore(featuredPost.title)}
+                  >
                     Read Full Article
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -236,7 +245,11 @@ export default function Blog() {
                           </Badge>
                         ))}
                       </div>
-                      <Button variant="outline" className="text-green-600 border-green-600 hover:bg-green-50">
+                      <Button 
+                        variant="outline" 
+                        className="text-green-600 border-green-600 hover:bg-green-50"
+                        onClick={() => handleReadMore(post.title)}
+                      >
                         Read More
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>

@@ -192,15 +192,15 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Mobile App Section */}
+      {/* Platform Features Showcase */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Available on All Your Devices
+              Comprehensive Investment Intelligence
             </h2>
             <p className="text-xl text-gray-300">
-              Access your investment intelligence from web browser or mobile device - fully synchronized
+              Everything you need to make informed renewable energy investment decisions
             </p>
           </div>
 
@@ -208,20 +208,20 @@ export default function Landing() {
             <div>
               <div className="bg-gray-800 p-8 rounded-xl">
                 <Globe className="w-12 h-12 text-blue-400 mb-4" />
-                <h3 className="text-2xl font-bold mb-4">Web Platform</h3>
+                <h3 className="text-2xl font-bold mb-4">Advanced Analytics Suite</h3>
                 <p className="text-gray-300 mb-6">
-                  Full-featured desktop experience with advanced analytics, comprehensive dashboards, 
-                  and detailed project management tools.
+                  Leverage our comprehensive analytics tools for deep market insights 
+                  and data-driven investment strategies.
                 </p>
                 <ul className="text-gray-300 space-y-2 mb-6">
-                  <li>• Advanced AI predictions and modeling</li>
-                  <li>• Comprehensive ESG scoring dashboards</li>
-                  <li>• Multi-currency IRR calculator</li>
-                  <li>• Detailed project analytics</li>
+                  <li>• AI-powered predictions with 94% accuracy</li>
+                  <li>• Comprehensive ESG scoring system</li>
+                  <li>• Multi-currency financial modeling</li>
+                  <li>• Real-time market intelligence</li>
                 </ul>
-                <Link href="/login">
+                <Link href="/solutions">
                   <Button className="bg-blue-600 hover:bg-blue-700">
-                    Access Web Platform
+                    Explore Our Solutions
                   </Button>
                 </Link>
               </div>
@@ -232,20 +232,20 @@ export default function Landing() {
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
                   <Zap className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Mobile App</h3>
+                <h3 className="text-2xl font-bold mb-4">Mobile Companion App</h3>
                 <p className="text-gray-300 mb-6">
-                  On-the-go access with push notifications, offline capabilities, 
-                  and seamless sync with your web platform data.
+                  Stay connected to your investments on-the-go with our mobile app 
+                  featuring real-time monitoring and instant alerts.
                 </p>
                 <ul className="text-gray-300 space-y-2 mb-6">
                   <li>• Real-time portfolio monitoring</li>
-                  <li>• Push notifications for alerts</li>
-                  <li>• Quick project insights</li>
-                  <li>• Offline data access</li>
+                  <li>• Push notifications for market changes</li>
+                  <li>• Quick project insights and analytics</li>
+                  <li>• Synchronized with web platform</li>
                 </ul>
                 <a href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-green-600 hover:bg-green-700">
-                    Open Mobile App
+                    Try Mobile App
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
