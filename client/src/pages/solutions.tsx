@@ -24,6 +24,7 @@ import {
 export default function Solutions() {
   const breadcrumbs = [
     { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
     { label: "Solutions", path: "/solutions" }
   ];
   const solutions = [

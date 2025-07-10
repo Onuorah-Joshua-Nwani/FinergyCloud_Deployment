@@ -13,7 +13,7 @@ import type { EsgMetrics } from "@shared/schema";
 export default function ESGScoring() {
   const breadcrumbs = [
     { label: "Home", path: "/" },
-    { label: "Dashboard", path: "/dashboard" },
+    { label: "About", path: "/about" },
     { label: "ESG Scoring", path: "/esg-scoring" }
   ];
   const { data: esgMetrics, isLoading } = useQuery<EsgMetrics[]>({

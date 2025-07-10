@@ -82,7 +82,7 @@ const PROJECT_TYPE_CONFIG = {
 export default function KPIDashboard() {
   const breadcrumbs = [
     { label: "Home", path: "/" },
-    { label: "Dashboard", path: "/dashboard" },
+    { label: "About", path: "/about" },
     { label: "KPI Analytics", path: "/kpi" }
   ];
   

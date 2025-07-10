@@ -28,6 +28,7 @@ import {
 export default function Contact() {
   const breadcrumbs = [
     { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" }
   ];
   const [formData, setFormData] = useState({
