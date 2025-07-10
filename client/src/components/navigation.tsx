@@ -100,7 +100,7 @@ export default function Navigation() {
         </div>
       )}
       
-      <nav className="nav-glass nav-blur shadow-sm sticky top-0 z-40">
+      <nav className={`${actuallyMobileApp ? 'bg-white border-b border-gray-200' : 'nav-glass nav-blur'} shadow-sm sticky top-0 z-40`}>
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="flex justify-between items-center h-14 sm:h-16">
           
