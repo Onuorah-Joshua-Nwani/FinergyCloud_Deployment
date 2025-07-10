@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description"
+        content="FinergyCloud - AI-driven risk intelligence platform for renewable energy investors. Advanced IRR simulation, ESG scoring, and AI risk profiling for emerging markets."/>
+    <meta name="keywords"
+        content="FinergyCloud, renewable energy investment, AI risk intelligence, ESG scoring, IRR simulation, emerging markets, sustainable finance"/>
+    <meta name="author" content="O.J. Nwani"/>
+    <meta property="og:title" content="FinergyCloud - AI Risk Intelligence for Renewable Energy Investors"/>
+    <meta property="og:description"
+        content="Transform renewable energy investment decisions with AI-powered analytics. IRR simulation, ESG scoring, and risk profiling for emerging markets."/>
+    <meta property="og:image" content="https://finergycloud.com/assets/images/finergycloud-logo.png"/>
+    <meta property="og:url" content="https://finergycloud.com"/>
+    
+    <!-- Favicon Configuration - Fixed paths -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="assets/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/android-chrome-192x192.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#004d40">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>FinergyCloud - AI Risk Intelligence for Renewable Energy Investors</title>
+</head>

@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { CurrencyProvider } from "./lib/currency-context";
 import { useAuth } from "@/hooks/useAuth";
 import Navigation from "@/components/navigation";
+import SEOHead from "@/components/seo-head";
 import Dashboard from "@/pages/dashboard";
 import AIModel from "@/pages/ai-model";
 import ESGScoring from "@/pages/esg-scoring";
@@ -71,6 +72,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <CurrencyProvider>
         <TooltipProvider>
+          <SEOHead />
           <Toaster />
           <Router />
         </TooltipProvider>
