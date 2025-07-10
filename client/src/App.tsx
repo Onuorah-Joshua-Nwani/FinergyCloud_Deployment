@@ -29,94 +29,72 @@ import NotFound from "@/pages/not-found";
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
   
-  // Detect if we're on mobile app URL or using mobile platform parameter
-  const isMobileApp = typeof window !== 'undefined' && (() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const platformParam = urlParams.get('platform');
-    if (platformParam === 'mobile') {
-      return true;
-    } else if (platformParam === 'web') {
-      return false;
-    }
-    // Default to mobile app for the base URL
-    return true;
-  })();
+  // Check if we're specifically requesting the mobile app platform
+  const urlParams = new URLSearchParams(window.location.search);
+  const platformParam = urlParams.get('platform');
+  const isMobileApp = platformParam === 'mobile';
 
-  return (
-    <Switch>
-      {/* Direct access to platform - Root path shows platform */}
-      <Route path="/login" component={Login} />
-      
-      {/* Public Pages - Only available on website, not mobile app */}
-      {!isMobileApp && (
-        <>
-          <Route path="/solutions" component={Solutions} />
-          <Route path="/about" component={About} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/contact" component={Contact} />
-        </>
-      )}
-      
-      {/* Main Platform Routes */}
-      <Route path="*">
-        {!isMobileApp ? (
-          // Website Mode - Show marketing pages with optional authentication for platform access
-          <div className="min-h-screen bg-gray-50">
-            <Navigation />
-            <Switch>
-              <Route path="/" component={Landing} />
-              <Route path="/about" component={About} />
-              <Route path="/solutions" component={Solutions} />
-              <Route path="/blog" component={Blog} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/login" component={Login} />
-              {isAuthenticated && (
-                <>
-                  <Route path="/dashboard" component={Dashboard} />
-                  <Route path="/kpi" component={KPIDashboard} />
-                  <Route path="/advanced-features" component={AdvancedFeatures} />
-                  <Route path="/rewards" component={RewardsPage} />
-                  <Route path="/ai-model" component={AIModel} />
-                  <Route path="/esg-scoring" component={ESGScoring} />
-                  <Route path="/irr-calculator" component={IRRCalculator} />
-                  <Route path="/projects" component={ProjectManagement} />
-                  <Route path="/market-insights" component={MarketInsights} />
-                  <Route path="/subscribe" component={Subscribe} />
-                </>
-              )}
-              <Route component={NotFound} />
-            </Switch>
-          </div>
+  // If mobile platform is explicitly requested, show mobile app
+  if (isMobileApp) {
+    return (
+      <Switch>
+        <Route path="/login" component={Login} />
+        {isLoading || !isAuthenticated ? (
+          <>
+            <Route path="/" component={MarketingLanding} />
+            <Route path="*" component={MarketingLanding} />
+          </>
         ) : (
-          // Mobile App Mode - Functional app only
-          isLoading || !isAuthenticated ? (
-            <Switch>
-              <Route path="/login" component={Login} />
-              <Route path="/" component={Landing} />
-              <Route path="*" component={Landing} />
-            </Switch>
-          ) : (
-            <div className="min-h-screen bg-gray-50">
-              <Navigation />
-              <Switch>
-                <Route path="/" component={Dashboard} />
-                <Route path="/dashboard" component={Dashboard} />
-                <Route path="/kpi" component={KPIDashboard} />
-                <Route path="/advanced-features" component={AdvancedFeatures} />
-                <Route path="/rewards" component={RewardsPage} />
-                <Route path="/ai-model" component={AIModel} />
-                <Route path="/esg-scoring" component={ESGScoring} />
-                <Route path="/irr-calculator" component={IRRCalculator} />
-                <Route path="/projects" component={ProjectManagement} />
-                <Route path="/market-insights" component={MarketInsights} />
-                <Route path="/subscribe" component={Subscribe} />
-                <Route component={NotFound} />
-              </Switch>
-            </div>
-          )
+          <>
+            <Route path="/" component={Dashboard} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/kpi" component={KPIDashboard} />
+            <Route path="/advanced-features" component={AdvancedFeatures} />
+            <Route path="/rewards" component={RewardsPage} />
+            <Route path="/ai-model" component={AIModel} />
+            <Route path="/esg-scoring" component={ESGScoring} />
+            <Route path="/irr-calculator" component={IRRCalculator} />
+            <Route path="/projects" component={ProjectManagement} />
+            <Route path="/market-insights" component={MarketInsights} />
+            <Route path="/subscribe" component={Subscribe} />
+            <Route component={NotFound} />
+          </>
         )}
-      </Route>
-    </Switch>
+      </Switch>
+    );
+  }
+
+  // Default: Show website pages (public website)
+  return (
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <Switch>
+        <Route path="/" component={Landing} />
+        <Route path="/about" component={About} />
+        <Route path="/solutions" component={Solutions} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/login" component={Login} />
+        
+        {/* Authenticated platform routes available on website too */}
+        {isAuthenticated && (
+          <>
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/kpi" component={KPIDashboard} />
+            <Route path="/advanced-features" component={AdvancedFeatures} />
+            <Route path="/rewards" component={RewardsPage} />
+            <Route path="/ai-model" component={AIModel} />
+            <Route path="/esg-scoring" component={ESGScoring} />
+            <Route path="/irr-calculator" component={IRRCalculator} />
+            <Route path="/projects" component={ProjectManagement} />
+            <Route path="/market-insights" component={MarketInsights} />
+            <Route path="/subscribe" component={Subscribe} />
+          </>
+        )}
+        
+        <Route component={NotFound} />
+      </Switch>
+    </div>
   );
 }
 
