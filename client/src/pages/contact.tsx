@@ -137,10 +137,115 @@ export default function Contact() {
               FinergyCloud
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
             Ready to transform your renewable energy investments? Our team is here to help you 
             get started with AI-powered investment intelligence.
           </p>
+          
+          {/* Contact Page Illustration */}
+          <div className="flex justify-center mb-12">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 300" className="w-full h-auto">
+                <defs>
+                  <linearGradient id="contactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#4CAF50" />
+                    <stop offset="50%" stopColor="#2196F3" />
+                    <stop offset="100%" stopColor="#9C27B0" />
+                  </linearGradient>
+                  <radialGradient id="connectionGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#FFD700" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#FFD700" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
+                
+                {/* Background */}
+                <rect width="600" height="300" fill="rgba(76, 175, 80, 0.05)" rx="15" />
+                
+                {/* Global communication network */}
+                <g transform="translate(300,150)">
+                  <circle cx="0" cy="0" r="80" fill="url(#connectionGlow)" />
+                  <circle cx="0" cy="0" r="50" fill="url(#contactGradient)" opacity="0.9" />
+                  <circle cx="0" cy="0" r="35" fill="rgba(255,255,255,0.2)" />
+                  
+                  {/* Communication icons in center */}
+                  <g opacity="0.9">
+                    <circle cx="-15" cy="-10" r="8" fill="white" />
+                    <path d="M-19,-10 L-11,-10 M-15,-14 L-15,-6" stroke="#4CAF50" strokeWidth="2" />
+                    
+                    <circle cx="15" cy="-10" r="8" fill="white" />
+                    <rect x="11" y="-14" width="8" height="8" fill="#2196F3" rx="1" />
+                    
+                    <circle cx="0" cy="15" r="8" fill="white" />
+                    <path d="M-4,11 L4,11 L4,15 L0,19 L-4,15 Z" fill="#9C27B0" />
+                  </g>
+                  
+                  <text x="0" y="75" textAnchor="middle" fontSize="14" fill="#4CAF50" fontWeight="bold">Global Support</text>
+                </g>
+                
+                {/* Contact points around the globe */}
+                <g transform="translate(150,80)">
+                  <circle cx="0" cy="0" r="25" fill="#4CAF50" opacity="0.8" />
+                  <path d="M-8,-8 L8,8 M8,-8 L-8,8" stroke="white" strokeWidth="2" />
+                  <circle cx="0" cy="0" r="5" fill="white" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="#4CAF50" fontWeight="bold">UK Office</text>
+                </g>
+                
+                <g transform="translate(450,80)">
+                  <circle cx="0" cy="0" r="25" fill="#2196F3" opacity="0.8" />
+                  <rect x="-8" y="-8" width="16" height="16" fill="white" rx="2" />
+                  <circle cx="0" cy="0" r="3" fill="#2196F3" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="#2196F3" fontWeight="bold">Digital Hub</text>
+                </g>
+                
+                <g transform="translate(100,220)">
+                  <circle cx="0" cy="0" r="25" fill="#FF9800" opacity="0.8" />
+                  <path d="M-10,-5 L10,-5 L5,5 L-5,5 Z" fill="white" />
+                  <circle cx="0" cy="0" r="3" fill="#FF9800" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="#FF9800" fontWeight="bold">Support</text>
+                </g>
+                
+                <g transform="translate(500,220)">
+                  <circle cx="0" cy="0" r="25" fill="#9C27B0" opacity="0.8" />
+                  <circle cx="0" cy="0" r="12" fill="white" />
+                  <circle cx="0" cy="0" r="6" fill="#9C27B0" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="#9C27B0" fontWeight="bold">Research</text>
+                </g>
+                
+                {/* Communication lines */}
+                <g opacity="0.6">
+                  <path d="M220,150 L175,105" stroke="#4CAF50" strokeWidth="2" fill="none" />
+                  <path d="M380,150 L425,105" stroke="#2196F3" strokeWidth="2" fill="none" />
+                  <path d="M220,150 L125,195" stroke="#FF9800" strokeWidth="2" fill="none" />
+                  <path d="M380,150 L475,195" stroke="#9C27B0" strokeWidth="2" fill="none" />
+                </g>
+                
+                {/* Data flow animation */}
+                <g opacity="0.8">
+                  <circle cx="200" cy="130" r="3" fill="#4CAF50">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="400" cy="130" r="3" fill="#2196F3">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="200" cy="170" r="3" fill="#FF9800">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="400" cy="170" r="3" fill="#9C27B0">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+                
+                {/* Contact methods indicator */}
+                <g transform="translate(50,50)">
+                  <rect x="0" y="0" width="120" height="40" fill="rgba(255,255,255,0.9)" rx="8" />
+                  <text x="60" y="15" textAnchor="middle" fontSize="10" fill="#4CAF50" fontWeight="bold">Multiple Channels</text>
+                  <text x="60" y="28" textAnchor="middle" fontSize="8" fill="#666">Email • Video • Chat</text>
+                  <text x="60" y="38" textAnchor="middle" fontSize="8" fill="#666">24/7 Support Available</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          
           <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-sm">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-600" />

@@ -181,6 +181,104 @@ export default function Solutions() {
             Leverage AI-driven insights, comprehensive ESG scoring, and advanced financial modeling 
             to maximize returns in the renewable energy sector
           </p>
+          
+          {/* Solutions Page Illustration */}
+          <div className="flex justify-center mb-12">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 350" className="w-full h-auto">
+                <defs>
+                  <linearGradient id="solutionsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFD700" />
+                    <stop offset="50%" stopColor="#4CAF50" />
+                    <stop offset="100%" stopColor="#2196F3" />
+                  </linearGradient>
+                  <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#9C27B0" />
+                    <stop offset="100%" stopColor="#3F51B5" />
+                  </linearGradient>
+                </defs>
+                
+                {/* Background */}
+                <rect width="600" height="350" fill="rgba(255,255,255,0.1)" rx="20" />
+                
+                {/* Central hub (AI brain) */}
+                <g transform="translate(300,175)">
+                  <circle cx="0" cy="0" r="50" fill="url(#techGradient)" opacity="0.9" />
+                  <circle cx="0" cy="0" r="35" fill="rgba(255,255,255,0.2)" />
+                  <text x="0" y="5" textAnchor="middle" fontSize="16" fill="white" fontWeight="bold">AI</text>
+                  <text x="0" y="-15" textAnchor="middle" fontSize="10" fill="white">CORE</text>
+                </g>
+                
+                {/* Solution nodes around the hub */}
+                <g transform="translate(150,100)">
+                  <circle cx="0" cy="0" r="25" fill="#FFD700" />
+                  <path d="M-10,-10 L10,10 M10,-10 L-10,10" stroke="white" strokeWidth="3" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">Solar AI</text>
+                </g>
+                
+                <g transform="translate(450,100)">
+                  <circle cx="0" cy="0" r="25" fill="#4CAF50" />
+                  <path d="M0,0 L0,-15 L8,-12 Z" fill="white" />
+                  <path d="M0,0 L12,8 L6,12 Z" fill="white" />
+                  <path d="M0,0 L-12,8 L-6,12 Z" fill="white" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">Wind AI</text>
+                </g>
+                
+                <g transform="translate(150,250)">
+                  <circle cx="0" cy="0" r="25" fill="#2196F3" />
+                  <rect x="-8" y="-8" width="16" height="16" fill="white" rx="2" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">ESG Score</text>
+                </g>
+                
+                <g transform="translate(450,250)">
+                  <circle cx="0" cy="0" r="25" fill="#FF9800" />
+                  <path d="M-10,-5 L-5,-10 L5,-10 L10,-5 L10,5 L5,10 L-5,10 L-10,5 Z" fill="white" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">Portfolio</text>
+                </g>
+                
+                <g transform="translate(300,75)">
+                  <circle cx="0" cy="0" r="25" fill="#9C27B0" />
+                  <rect x="-10" y="-10" width="20" height="20" fill="white" rx="3" />
+                  <rect x="-6" y="-6" width="3" height="12" fill="#9C27B0" />
+                  <rect x="-1" y="-6" width="3" height="8" fill="#9C27B0" />
+                  <rect x="4" y="-6" width="3" height="10" fill="#9C27B0" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">Analytics</text>
+                </g>
+                
+                <g transform="translate(300,275)">
+                  <circle cx="0" cy="0" r="25" fill="#E91E63" />
+                  <circle cx="0" cy="0" r="12" fill="white" />
+                  <circle cx="0" cy="0" r="6" fill="#E91E63" />
+                  <text x="0" y="40" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">Risk Mgmt</text>
+                </g>
+                
+                {/* Connections */}
+                <path d="M250,175 L175,125" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
+                <path d="M350,175 L425,125" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
+                <path d="M250,175 L175,225" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
+                <path d="M350,175 L425,225" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
+                <path d="M300,125 L300,100" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
+                <path d="M300,225 L300,250" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
+                
+                {/* Data flow indicators */}
+                <g opacity="0.7">
+                  <circle cx="220" cy="140" r="2" fill="white">
+                    <animate attributeName="opacity" values="1;0;1" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="380" cy="140" r="2" fill="white">
+                    <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="220" cy="210" r="2" fill="white">
+                    <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="380" cy="210" r="2" fill="white">
+                    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+              </svg>
+            </div>
+          </div>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8 py-4 bg-white text-green-600 hover:bg-green-50">
               Start Free Trial

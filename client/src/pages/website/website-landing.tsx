@@ -108,6 +108,81 @@ export default function WebsiteLanding() {
             and sophisticated portfolio management. Make smarter, data-driven sustainable investment decisions.
           </p>
           
+          {/* Hero Illustration */}
+          <div className="flex justify-center mb-8 sm:mb-12">
+            <div className="w-full max-w-2xl">
+              <svg viewBox="0 0 600 400" className="w-full h-auto">
+                {/* Background */}
+                <defs>
+                  <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#87CEEB" />
+                    <stop offset="100%" stopColor="#E0F6FF" />
+                  </linearGradient>
+                  <linearGradient id="solarGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#FFD700" />
+                    <stop offset="100%" stopColor="#FFA500" />
+                  </linearGradient>
+                  <linearGradient id="windGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#4CAF50" />
+                    <stop offset="100%" stopColor="#2E7D32" />
+                  </linearGradient>
+                </defs>
+                
+                {/* Sky background */}
+                <rect width="600" height="280" fill="url(#skyGradient)" />
+                
+                {/* Ground */}
+                <rect x="0" y="280" width="600" height="120" fill="#8BC34A" />
+                
+                {/* Sun */}
+                <circle cx="500" cy="80" r="40" fill="#FFD700" />
+                
+                {/* Solar panels */}
+                <rect x="100" y="240" width="80" height="40" fill="url(#solarGradient)" rx="5" />
+                <rect x="200" y="235" width="80" height="40" fill="url(#solarGradient)" rx="5" />
+                <rect x="300" y="245" width="80" height="40" fill="url(#solarGradient)" rx="5" />
+                
+                {/* Wind turbines */}
+                <g transform="translate(450,200)">
+                  <rect x="-2" y="0" width="4" height="80" fill="#E0E0E0" />
+                  <circle cx="0" cy="0" r="3" fill="#666" />
+                  <path d="M0,0 L0,-25 L15,-20 Z" fill="url(#windGradient)" />
+                  <path d="M0,0 L20,15 L10,25 Z" fill="url(#windGradient)" />
+                  <path d="M0,0 L-20,10 L-25,-10 Z" fill="url(#windGradient)" />
+                </g>
+                
+                <g transform="translate(380,210)">
+                  <rect x="-2" y="0" width="4" height="70" fill="#E0E0E0" />
+                  <circle cx="0" cy="0" r="3" fill="#666" />
+                  <path d="M0,0 L0,-20 L12,-16 Z" fill="url(#windGradient)" />
+                  <path d="M0,0 L16,12 L8,20 Z" fill="url(#windGradient)" />
+                  <path d="M0,0 L-16,8 L-20,-8 Z" fill="url(#windGradient)" />
+                </g>
+                
+                {/* AI Brain overlay */}
+                <g transform="translate(50,50)" opacity="0.8">
+                  <circle cx="50" cy="50" r="45" fill="#3B82F6" fillOpacity="0.2" stroke="#3B82F6" strokeWidth="2" />
+                  <path d="M25,40 Q30,25 50,30 Q70,25 75,40 Q70,55 50,50 Q30,55 25,40 Z" fill="#3B82F6" fillOpacity="0.3" />
+                  <circle cx="35" cy="45" r="3" fill="#3B82F6" />
+                  <circle cx="50" cy="40" r="3" fill="#3B82F6" />
+                  <circle cx="65" cy="45" r="3" fill="#3B82F6" />
+                  <path d="M35,45 L50,40 L65,45" stroke="#3B82F6" strokeWidth="2" fill="none" />
+                  <text x="50" y="75" textAnchor="middle" fontSize="12" fill="#3B82F6" fontWeight="bold">AI</text>
+                </g>
+                
+                {/* Data visualization */}
+                <g transform="translate(480,320)">
+                  <rect x="0" y="0" width="100" height="60" fill="white" fillOpacity="0.9" rx="8" stroke="#E0E0E0" />
+                  <text x="50" y="15" textAnchor="middle" fontSize="10" fill="#666" fontWeight="bold">94% Accuracy</text>
+                  <rect x="10" y="20" width="15" height="25" fill="#4CAF50" />
+                  <rect x="30" y="15" width="15" height="30" fill="#2196F3" />
+                  <rect x="50" y="25" width="15" height="20" fill="#FF9800" />
+                  <rect x="70" y="10" width="15" height="35" fill="#9C27B0" />
+                </g>
+              </svg>
+            </div>
+          </div>
+          
           {/* Mobile-First Button Layout */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 px-4 sm:px-0">
             <Link href="/login" className="w-full sm:w-auto">
