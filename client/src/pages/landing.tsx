@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import PlatformSwitcher from "@/components/platform-switcher";
+import { Badge } from "@/components/ui/badge";
 import SocialLinks from "@/components/social-links";
 import { 
   Zap, 
@@ -13,81 +13,158 @@ import {
   BarChart3,
   Calculator,
   Globe,
-  Smartphone
+  Smartphone,
+  CheckCircle,
+  Star,
+  Users,
+  Target,
+  Award,
+  PlayCircle,
+  ChevronRight
 } from "lucide-react";
 
 export default function Landing() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
-      {/* Hero Section with integrated nav links */}
+  const features = [
+    {
+      icon: Brain,
+      title: "AI-Powered Predictions",
+      description: "Advanced XGBoost machine learning models with 94% accuracy in renewable energy project success predictions.",
+      gradient: "from-blue-500 to-purple-600"
+    },
+    {
+      icon: Leaf,
+      title: "ESG Scoring",
+      description: "Comprehensive Environmental, Social, and Governance assessment with detailed impact metrics.",
+      gradient: "from-green-500 to-emerald-600"
+    },
+    {
+      icon: Calculator,
+      title: "IRR Calculator",
+      description: "Multi-currency financial modeling with real-time exchange rates for NGN, GBP, and EUR.",
+      gradient: "from-yellow-500 to-orange-600"
+    },
+    {
+      icon: BarChart3,
+      title: "Portfolio Analytics",
+      description: "Real-time performance tracking and investment portfolio optimization with interactive dashboards.",
+      gradient: "from-red-500 to-pink-600"
+    },
+    {
+      icon: Shield,
+      title: "Risk Management",
+      description: "Comprehensive risk assessment and mitigation strategies for renewable energy investments.",
+      gradient: "from-indigo-500 to-blue-600"
+    },
+    {
+      icon: TrendingUp,
+      title: "Market Intelligence",
+      description: "Industry insights, regulatory updates, and market trend analysis for informed decision-making.",
+      gradient: "from-purple-500 to-violet-600"
+    }
+  ];
 
+  const stats = [
+    { value: "5,000+", label: "Projects Analyzed", icon: Target },
+    { value: "50+", label: "Countries Served", icon: Globe },
+    { value: "94%", label: "Prediction Accuracy", icon: Brain },
+    { value: "$2.5B", label: "Investment Value", icon: Award }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Chen",
+      role: "Investment Director",
+      company: "Green Capital Partners",
+      content: "FinergyCloud's AI predictions have transformed our investment strategy. The 94% accuracy rate speaks for itself.",
+      rating: 5
+    },
+    {
+      name: "Michael Rodriguez",
+      role: "Portfolio Manager",
+      company: "Sustainable Ventures",
+      content: "The ESG scoring system is incredibly comprehensive. It helps us make decisions that align with our sustainability goals.",
+      rating: 5
+    },
+    {
+      name: "Dr. Amara Okafor",
+      role: "Research Analyst",
+      company: "African Energy Fund",
+      content: "The multi-currency IRR calculator has been invaluable for our cross-border renewable energy investments.",
+      rating: 5
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex justify-center items-center gap-4 mb-6">
-            <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-              Renewable Energy
-            </div>
-            <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-              Investment Intelligence
-            </div>
-            <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
-              AI-Powered
-            </div>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23059669' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Ccircle cx='53' cy='53' r='5'/%3E%3Ccircle cx='53' cy='7' r='5'/%3E%3Ccircle cx='7' cy='53' r='5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }} />
+        </div>
+        
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <div className="flex justify-center items-center gap-3 mb-8">
+            <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium">
+              🌱 Renewable Energy
+            </Badge>
+            <Badge className="bg-blue-100 text-blue-800 px-4 py-2 text-sm font-medium">
+              🤖 AI-Powered
+            </Badge>
+            <Badge className="bg-purple-100 text-purple-800 px-4 py-2 text-sm font-medium">
+              📊 Investment Intelligence
+            </Badge>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            FinergyCloud
-            <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-              Renewable Energy Investment Intelligence
+          
+          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            <span className="block">FinergyCloud</span>
+            <span className="block bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Renewable Energy Intelligence
             </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Advanced renewable energy investment intelligence platform. Powerful AI predictions, comprehensive ESG scoring, 
-            and sophisticated portfolio management. Make smarter sustainable investment decisions.
+          
+          <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+            Transform your renewable energy investments with advanced AI predictions, comprehensive ESG scoring, 
+            and sophisticated portfolio management. Make smarter, data-driven sustainable investment decisions.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link href="/login">
-              <Button size="lg" className="text-lg px-8 py-4 bg-green-600 hover:bg-green-700">
-                Get Started
+              <Button size="lg" className="text-lg px-10 py-5 bg-green-600 hover:bg-green-700 shadow-lg">
+                Start Free Trial
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <Link href="/?platform=mobile">
-              <Button size="lg" className="text-lg px-8 py-4 bg-blue-600 hover:bg-blue-700">
+              <Button size="lg" className="text-lg px-10 py-5 bg-blue-600 hover:bg-blue-700 shadow-lg">
+                <Smartphone className="w-5 h-5 mr-2" />
                 Mobile App
-                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <Link href="/about">
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-gray-600 text-gray-600 hover:bg-gray-50">
-                Learn More
-                <ArrowRight className="w-5 h-5 ml-2" />
+              <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 border-gray-300 hover:bg-gray-50 shadow-lg">
+                <PlayCircle className="w-5 h-5 mr-2" />
+                Watch Demo
               </Button>
             </Link>
           </div>
           
-          {/* Quick Navigation Links */}
-          <div className="mt-12 flex flex-wrap justify-center gap-6 text-gray-600">
-            <Link href="/about" className="hover:text-green-600 transition-colors flex items-center gap-2">
-              <Globe className="w-4 h-4" />
-              About FinergyCloud
-            </Link>
-            <Link href="/solutions" className="hover:text-green-600 transition-colors flex items-center gap-2">
-              <Zap className="w-4 h-4" />
-              Our Solutions
-            </Link>
-            <Link href="/blog" className="hover:text-green-600 transition-colors flex items-center gap-2">
-              <BarChart3 className="w-4 h-4" />
-              Insights & Research
-            </Link>
-            <Link href="/?platform=mobile" className="hover:text-blue-600 transition-colors flex items-center gap-2">
-              <Smartphone className="w-4 h-4" />
-              Mobile App
-            </Link>
-            <Link href="/contact" className="hover:text-green-600 transition-colors flex items-center gap-2">
-              <ArrowRight className="w-4 h-4" />
-              Get in Touch
-            </Link>
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-sm">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              No Credit Card Required
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              14-Day Free Trial
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              Enterprise Security
+            </div>
           </div>
         </div>
       </section>
