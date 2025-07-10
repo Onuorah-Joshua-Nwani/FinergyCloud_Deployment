@@ -110,7 +110,7 @@ export default function Navigation() {
               <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
             </div>
             <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              {actuallyMobileApp ? "Renewable Energy App" : "FinergyCloud"}
+              {actuallyMobileApp ? "FinergyCloud App" : "FinergyCloud"}
             </span>
           </Link>
 
