@@ -192,15 +192,19 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
   );
 }
 
-export function MobileMenuButton({ onClick }: { onClick: () => void }) {
+export function MobileMenuButton({ onClick, isOpen = false }: { onClick: () => void; isOpen?: boolean }) {
   return (
     <button
       id="mobile-menu-button"
       onClick={onClick}
       className="flex items-center justify-center w-11 h-11 bg-white border-2 border-green-600 rounded-lg shadow-lg hover:bg-green-50 active:bg-green-100 transition-all duration-200 hover:scale-105"
-      aria-label="Open navigation menu"
+      aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
     >
-      <Menu className="w-6 h-6 text-green-600" />
+      {isOpen ? (
+        <X className="w-6 h-6 text-green-600" />
+      ) : (
+        <Menu className="w-6 h-6 text-green-600" />
+      )}
     </button>
   );
 }
