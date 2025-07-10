@@ -40,6 +40,16 @@ export default function Navigation() {
   ];
 
   const navItems = isMobileApp ? mobileAppNavItems : websiteNavItems;
+  
+  // Debug logging
+  console.log('Navigation Debug:', {
+    url: window.location.href,
+    search: window.location.search,
+    pathname: window.location.pathname,
+    platformParam: urlParams.get('platform'),
+    isMobileApp,
+    navItems: navItems.map(item => item.label)
+  });
 
   const NavLink = ({ path, label, icon: Icon, className = "", isMobile = false }: { 
     path: string; 
@@ -50,8 +60,11 @@ export default function Navigation() {
   }) => {
     const isActive = location === path || (path === "/" && (location === "/" || location === "/dashboard"));
     
+    // Preserve platform parameter for mobile app navigation
+    const linkPath = isMobileApp ? `${path}?platform=mobile` : path;
+    
     return (
-      <Link href={path}>
+      <Link href={linkPath}>
         <span
           className={`nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer ${
             isActive
