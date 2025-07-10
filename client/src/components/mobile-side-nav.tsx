@@ -197,13 +197,13 @@ export function MobileMenuButton({ onClick, isOpen = false }: { onClick: () => v
     <button
       id="mobile-menu-button"
       onClick={onClick}
-      className="flex items-center justify-center w-11 h-11 bg-white border-2 border-green-600 rounded-lg shadow-lg hover:bg-green-50 active:bg-green-100 transition-all duration-200 hover:scale-105"
+      className="flex items-center justify-center w-10 h-10 bg-white border-2 border-green-600 rounded-lg shadow-md hover:bg-green-50 active:bg-green-100 transition-all duration-200 hover:scale-105"
       aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
     >
       {isOpen ? (
-        <X className="w-6 h-6 text-green-600" />
+        <X className="w-5 h-5 text-green-600" />
       ) : (
-        <Menu className="w-6 h-6 text-green-600" />
+        <Menu className="w-5 h-5 text-green-600" />
       )}
     </button>
   );

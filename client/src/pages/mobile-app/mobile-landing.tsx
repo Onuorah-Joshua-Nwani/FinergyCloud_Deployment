@@ -26,7 +26,7 @@ export default function MobileLanding() {
                 Login to App
               </Button>
             </Link>
-            <Button variant="outline" size="lg" onClick={() => window.location.href = '/'}>
+            <Button variant="outline" size="lg" onClick={() => window.open('/', '_blank')}>
               Visit Website
             </Button>
           </div>

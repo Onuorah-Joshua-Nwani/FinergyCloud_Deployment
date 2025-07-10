@@ -95,23 +95,23 @@ export default function Navigation() {
     <>
       {/* Fixed Hamburger Menu for Mobile App - Always visible */}
       {actuallyMobileApp && (
-        <div className="fixed top-4 left-4 z-[55] md:hidden">
+        <div className="fixed top-3 left-3 z-[55] md:hidden">
           <MobileMenuButton onClick={() => setSideNavOpen(!sideNavOpen)} isOpen={sideNavOpen} />
         </div>
       )}
       
       <nav className={`${actuallyMobileApp ? 'bg-white border-b border-gray-200' : 'nav-glass nav-blur'} shadow-sm sticky top-0 z-40`}>
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
-          <div className="flex justify-between items-center h-14 sm:h-16">
+          <div className="flex justify-between items-center h-12 sm:h-14">
           
           {/* Left Side - Brand */}
-          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <div className={`flex items-center space-x-2 sm:space-x-3 flex-shrink-0 ${actuallyMobileApp ? 'ml-16' : ''}`}>
             {/* Brand */}
             <Link href={actuallyMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
-                <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+              <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
+                <Leaf className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
               </div>
-              <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <span className="text-base sm:text-lg font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 {actuallyMobileApp ? "FinergyCloud App" : "FinergyCloud"}
               </span>
             </Link>
@@ -161,10 +161,10 @@ export default function Navigation() {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="border-primary text-primary hover:bg-primary hover:text-white"
+                className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white text-xs px-2 py-1 h-8"
                 onClick={() => window.open('/', '_blank')}
               >
-                <Info className="w-4 h-4 mr-2" />
+                <Info className="w-3 h-3 mr-1" />
                 Website
               </Button>
             )}
