@@ -1,0 +1,147 @@
+Onuorah-Joshua-Nwani
+Onuorah-Joshua-Nwani
+This adds the complete web platform for FinergyCloud
+5d536cb
+ · 
+10 minutes ago
+.devcontainer
+Fix Python _socket module error in Docker
+yesterday
+.theia
+changes in the theia folder
+2 years ago
+assets
+Updated index.html
+yesterday
+dashboard-integration
+Implement Manual Power BI Dashboard Integration
+2 days ago
+documentation
+Delete documentation/update-amiresponsive-guide.md
+2 weeks ago
+mobile-app
+Added settings.json
+9 hours ago
+technical-documentation
+Implement Manual Power BI Dashboard Integration
+2 days ago
+.env.example
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+.gitignore
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+.replit
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+BRANCH_SEPARATION_GUIDE.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+CLEAN_BRANCH_SETUP.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+CNAME
+Updated index.html
+yesterday
+DEPLOYMENT_GUIDE.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+DEPLOYMENT_STATUS.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+DOMAIN_DEPLOYMENT_GUIDE.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+ECOSYSTEM_INTEGRATION_GUIDE.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+FINAL_GITHUB_SETUP.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+FinergyCloud-Pitch-Deck.md
+Update founder name and remove repetitions
+last week
+GITHUB_SETUP.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+GIT_COMMANDS.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+LICENSE
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+PATH_BASED_DEPLOYMENT.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+PLATFORM.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+README.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+UNIFIED_PLATFORM_GUIDE.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+about.html
+Update Favicon for Website and Mobile App
+2 days ago
+blog.html
+Update Favicon for Website and Mobile App
+2 days ago
+components.json
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+contact.html
+Update Favicon for Website and Mobile App
+2 days ago
+drizzle.config.ts
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+favicon.ico
+Update Favicon for Website and Mobile App
+2 days ago
+index.html
+Updated index.html
+yesterday
+logo-usage-guide.html
+FinergyCloud Professional Logo Design
+2 weeks ago
+package-lock.json
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+package.json
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+postcss.config.js
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+privacy.html
+Update Favicon for Website and Mobile App
+2 days ago
+replit.md
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+security.html
+Update Favicon for Website and Mobile App
+2 days ago
+services.html
+Implement Power BI Dashboards
+yesterday
+site.webmanifest
+Update Favicon for Website and Mobile App
+2 days ago
+tailwind.config.ts
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+terms.html
+Update Favicon for Website and Mobile App
+2 days ago
+tsconfig.json
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+vite.config.ts
+This adds the complete web platform for FinergyCloud
+10 minutes ago
+xgboost-model.html
+Implement Integrated Dashboard and XGBoost Model
+2 days ago
