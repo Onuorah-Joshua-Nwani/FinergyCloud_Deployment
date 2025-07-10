@@ -26,9 +26,9 @@ export default function Navigation() {
     { path: "/contact", label: "Contact" },
   ];
 
-  // Mobile app navigation items (functional app only)
+  // Mobile app navigation items (clean simplified list)
   const mobileAppNavItems = [
-    { path: "/dashboard", label: "Dashboard", icon: BarChart3 },
+    { path: "/", label: "Dashboard", icon: BarChart3 },
     { path: "/projects", label: "Projects", icon: FolderOpen },
     { path: "/rewards", label: "Rewards", icon: Gift },
     { path: "/kpi", label: "Analytics", icon: TrendingUp },
@@ -47,22 +47,26 @@ export default function Navigation() {
     icon?: any;
     className?: string;
     isMobile?: boolean;
-  }) => (
-    <Link href={path}>
-      <span
-        className={`nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer ${
-          location === path || (path === "/" && location === "/")
-            ? "bg-gray-100 text-primary border-b-2 border-primary"
-            : "text-gray-600 hover:text-primary hover:bg-gray-50"
-        } ${isMobile ? "mobile-menu-item text-base py-3 border-b border-gray-100" : ""} ${className}`}
-      >
-        {isMobile && Icon && (
-          <Icon className="w-5 h-5 mr-3 flex-shrink-0" />
-        )}
-        {label}
-      </span>
-    </Link>
-  );
+  }) => {
+    const isActive = location === path || (path === "/" && (location === "/" || location === "/dashboard"));
+    
+    return (
+      <Link href={path}>
+        <span
+          className={`nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer ${
+            isActive
+              ? "bg-primary text-white"
+              : "text-gray-600 hover:text-primary hover:bg-gray-50"
+          } ${isMobile ? "text-base py-3 flex items-center" : ""} ${className}`}
+        >
+          {isMobile && Icon && (
+            <Icon className="w-5 h-5 mr-3 flex-shrink-0" />
+          )}
+          {label}
+        </span>
+      </Link>
+    );
+  };
 
   const handleLogout = async () => {
     try {
@@ -88,12 +92,14 @@ export default function Navigation() {
             </span>
           </Link>
 
-          {/* Center - Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
-            {navItems.map(item => (
-              <NavLink key={item.path} {...item} />
-            ))}
-          </div>
+          {/* Center - Desktop Navigation (Mobile App Only) */}
+          {isMobileApp && (
+            <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
+              {navItems.map(item => (
+                <NavLink key={item.path} {...item} />
+              ))}
+            </div>
+          )}
 
           {/* Right Side - Actions */}
           <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
@@ -210,15 +216,10 @@ export default function Navigation() {
                     </div>
                   )}
 
-                  {/* Mobile Currency Selector */}
-                  <div className="py-3 border-b border-gray-100 sm:hidden">
-                    <div className="px-2">
-                      <CurrencySelector />
-                    </div>
-                  </div>
+
 
                   {/* Mobile Navigation Links */}
-                  <div className="flex-1 py-4 space-y-4 overflow-y-auto min-h-0">
+                  <div className="flex-1 py-3 overflow-y-auto min-h-0">
                     {!isMobileApp ? (
                       // Website Navigation
                       <>
@@ -245,23 +246,19 @@ export default function Navigation() {
                     ) : (
                       // Mobile App Navigation - Only show app features
                       <>
-                        <div>
-                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Investment Tools</h3>
-                          <div className="space-y-1">
-                            {mobileAppNavItems.map(item => (
-                              <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                            ))}
-                          </div>
+                        <div className="space-y-1">
+                          {mobileAppNavItems.map(item => (
+                            <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
+                          ))}
                         </div>
                       </>
                     )}
                     
-                    {/* Extra spacing at bottom to prevent overlap */}
-                    <div className="h-32"></div>
+
                   </div>
 
-                  {/* Mobile Footer Actions - Fixed at bottom */}
-                  <div className="flex-shrink-0 pt-4 border-t border-gray-200 space-y-3">
+                  {/* Mobile Footer Actions */}
+                  <div className="flex-shrink-0 pt-3 border-t border-gray-200">
                     {/* Social Links - Only show for website, not mobile app */}
                     {!isMobileApp && (
                       <div>
@@ -301,15 +298,15 @@ export default function Navigation() {
               <div className="flex space-x-1 max-w-sm w-full justify-between">
                 {mobileAppNavItems.slice(0, 4).map(item => {
                   const Icon = item.icon;
-                  const isActive = location === item.path || (item.path === "/dashboard" && location === "/");
+                  const isActive = location === item.path || (item.path === "/" && (location === "/" || location === "/dashboard"));
                   return (
                     <Link key={item.path} href={item.path} className="flex-1">
                       <div
-                        className={`mobile-nav-item flex flex-col items-center py-2 px-1 rounded-md transition-all duration-200 ${
-                          isActive ? "active text-primary" : "text-gray-500 hover:text-primary hover:bg-gray-50"
+                        className={`flex flex-col items-center py-2 px-1 rounded-md transition-all duration-200 ${
+                          isActive ? "text-primary bg-primary/10" : "text-gray-500 hover:text-primary hover:bg-gray-50"
                         }`}
                       >
-                        <Icon className={`w-4 h-4 mb-1 ${isActive ? "text-primary" : "text-gray-500"}`} />
+                        <Icon className={`w-4 h-4 mb-1`} />
                         <span className="text-xs font-medium text-center leading-tight">
                           {item.label}
                         </span>
