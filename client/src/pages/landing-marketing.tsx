@@ -57,15 +57,14 @@ export default function MarketingLanding() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <Zap className="h-8 w-8 text-green-600" />
-            <span className="text-2xl font-bold text-gray-900">FinergyCloud</span>
+            <span className="text-2xl font-bold text-gray-900">FinergyCloud Mobile App</span>
           </div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-green-600 transition-colors">Features</a>
-            <a href="#about" className="text-gray-600 hover:text-green-600 transition-colors">About</a>
-            <a href="#contact" className="text-gray-600 hover:text-green-600 transition-colors">Contact</a>
+            <a href="/" className="text-gray-600 hover:text-green-600 transition-colors">Visit Website</a>
+            <a href="/login" className="text-gray-600 hover:text-green-600 transition-colors">Login</a>
           </nav>
           <Button asChild>
-            <a href="/app">Launch Platform</a>
+            <a href="/">Visit Website</a>
           </Button>
         </div>
       </header>
@@ -84,13 +83,12 @@ export default function MarketingLanding() {
           </Badge>
         </div>
         <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-          AI-Driven Risk Intelligence for{" "}
-          <span className="text-green-600">Renewable Energy</span> Investors
+          FinergyCloud{" "}
+          <span className="text-green-600">Mobile Platform</span>
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto">
-          Transform your renewable energy investment decisions with our AI-powered platform. 
-          Advanced IRR simulation, ESG scoring, and risk profiling specifically designed for 
-          emerging market opportunities.
+          Access your renewable energy investment portfolio, AI predictions, and ESG analytics 
+          on the go. Full-featured mobile experience for professional investors.
         </p>
         
         {/* Key Metrics */}
@@ -111,12 +109,25 @@ export default function MarketingLanding() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" asChild className="bg-green-600 hover:bg-green-700">
-            <a href="/app" className="flex items-center">
-              Explore MVP <ArrowRight className="ml-2 h-4 w-4" />
+            <a href="/login" className="flex items-center">
+              Login to Mobile App <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="https://www.youtube.com/@FinergyCloud_official" target="_blank">Watch Videos</a>
+            <a href="/" className="flex items-center">
+              Visit FinergyCloud Website <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+        
+        <div className="mt-8 p-6 bg-white/50 backdrop-blur-sm rounded-xl border border-blue-200">
+          <p className="text-sm text-gray-600 mb-4">
+            <strong>New to FinergyCloud?</strong> Explore our comprehensive website first to learn about our mission, solutions, and latest insights.
+          </p>
+          <Button variant="outline" size="sm" asChild>
+            <a href="/" className="text-blue-600 border-blue-600 hover:bg-blue-50">
+              Explore FinergyCloud Website →
+            </a>
           </Button>
         </div>
       </section>
@@ -394,19 +405,20 @@ export default function MarketingLanding() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">Website Pages</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/about" className="hover:text-white">About</a></li>
-                <li><a href="/contact" className="hover:text-white">Contact</a></li>
-                <li><a href="/privacy" className="hover:text-white">Privacy</a></li>
-                <li><a href="/security" className="hover:text-white">Security</a></li>
+                <li><a href="/about" className="hover:text-white">About FinergyCloud</a></li>
+                <li><a href="/solutions" className="hover:text-white">Solutions</a></li>
+                <li><a href="/blog" className="hover:text-white">Blog & Insights</a></li>
+                <li><a href="/contact" className="hover:text-white">Contact Us</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h4 className="font-semibold mb-4">Platform Access</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/blog" className="hover:text-white">Blog</a></li>
-                <li><a href="https://www.finergycloud.com" className="hover:text-white">Website</a></li>
+                <li><a href="/" className="hover:text-white text-green-400">🌐 Visit Main Website</a></li>
+                <li><a href="/login" className="hover:text-white">📱 Login to Mobile App</a></li>
+                <li><a href="https://github.com/onuorah-joshua-nwani/ojn-msp-1-finergycloud" target="_blank" className="hover:text-white">💻 View Source Code</a></li>
               </ul>
             </div>
           </div>

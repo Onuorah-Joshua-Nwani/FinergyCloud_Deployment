@@ -34,33 +34,36 @@ function Router() {
   const platformParam = urlParams.get('platform');
   const isMobileApp = platformParam === 'mobile';
 
-  // If mobile platform is explicitly requested, show mobile app
+  // If mobile platform is explicitly requested, show mobile app only
   if (isMobileApp) {
     return (
-      <Switch>
-        <Route path="/login" component={Login} />
-        {isLoading || !isAuthenticated ? (
-          <>
-            <Route path="/" component={MarketingLanding} />
-            <Route path="*" component={MarketingLanding} />
-          </>
-        ) : (
-          <>
-            <Route path="/" component={Dashboard} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/kpi" component={KPIDashboard} />
-            <Route path="/advanced-features" component={AdvancedFeatures} />
-            <Route path="/rewards" component={RewardsPage} />
-            <Route path="/ai-model" component={AIModel} />
-            <Route path="/esg-scoring" component={ESGScoring} />
-            <Route path="/irr-calculator" component={IRRCalculator} />
-            <Route path="/projects" component={ProjectManagement} />
-            <Route path="/market-insights" component={MarketInsights} />
-            <Route path="/subscribe" component={Subscribe} />
-            <Route component={NotFound} />
-          </>
-        )}
-      </Switch>
+      <div className="min-h-screen bg-gray-50">
+        <Navigation />
+        <Switch>
+          <Route path="/login" component={Login} />
+          {isLoading || !isAuthenticated ? (
+            <>
+              <Route path="/" component={MarketingLanding} />
+              <Route path="*" component={MarketingLanding} />
+            </>
+          ) : (
+            <>
+              <Route path="/" component={Dashboard} />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/kpi" component={KPIDashboard} />
+              <Route path="/advanced-features" component={AdvancedFeatures} />
+              <Route path="/rewards" component={RewardsPage} />
+              <Route path="/ai-model" component={AIModel} />
+              <Route path="/esg-scoring" component={ESGScoring} />
+              <Route path="/irr-calculator" component={IRRCalculator} />
+              <Route path="/projects" component={ProjectManagement} />
+              <Route path="/market-insights" component={MarketInsights} />
+              <Route path="/subscribe" component={Subscribe} />
+              <Route component={NotFound} />
+            </>
+          )}
+        </Switch>
+      </div>
     );
   }
 
@@ -75,22 +78,6 @@ function Router() {
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
-        
-        {/* Authenticated platform routes available on website too */}
-        {isAuthenticated && (
-          <>
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/kpi" component={KPIDashboard} />
-            <Route path="/advanced-features" component={AdvancedFeatures} />
-            <Route path="/rewards" component={RewardsPage} />
-            <Route path="/ai-model" component={AIModel} />
-            <Route path="/esg-scoring" component={ESGScoring} />
-            <Route path="/irr-calculator" component={IRRCalculator} />
-            <Route path="/projects" component={ProjectManagement} />
-            <Route path="/market-insights" component={MarketInsights} />
-            <Route path="/subscribe" component={Subscribe} />
-          </>
-        )}
         
         <Route component={NotFound} />
       </Switch>
