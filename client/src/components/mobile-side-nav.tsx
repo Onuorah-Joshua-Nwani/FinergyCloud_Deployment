@@ -14,7 +14,8 @@ import {
   Menu,
   Info,
   LogOut,
-  User
+  User,
+  Leaf
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -114,21 +115,14 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
         }`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-3 border-b border-gray-200 bg-gradient-to-r from-green-50 to-blue-50">
-          <div className="flex items-center space-x-2">
-            <div className="w-7 h-7 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xs">FC</span>
+        <div className="flex items-center p-4 border-b border-gray-200 bg-gradient-to-r from-green-50 to-blue-50">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+              <Leaf className="w-4 h-4 text-white" />
             </div>
-            <span className="text-base font-bold text-gray-900">FinergyCloud App</span>
+            <span className="text-lg font-bold text-gray-900">FinergyCloud App</span>
           </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={onClose}
-            className="hover:bg-gray-100 p-1.5"
-          >
-            <X className="w-4 h-4" />
-          </Button>
+          {/* Remove close button - hamburger menu handles all toggle functionality */}
         </div>
 
         {/* User Profile Section */}
