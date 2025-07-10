@@ -203,10 +203,10 @@ export default function Navigation() {
               </div>
             )}
             
-            {/* Mobile Navigation */}
+            {/* Mobile Navigation - Always show on mobile app */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="h-8 w-8 lg:hidden border-gray-300 hover:bg-gray-50">
+                <Button variant="outline" size="icon" className={`h-8 w-8 border-gray-300 hover:bg-gray-50 ${isMobileApp ? 'block' : 'lg:hidden'}`}>
                   <Menu className="h-4 w-4" />
                   <span className="sr-only">Open navigation menu</span>
                 </Button>
