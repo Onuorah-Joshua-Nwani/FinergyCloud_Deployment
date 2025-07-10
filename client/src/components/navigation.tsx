@@ -110,12 +110,15 @@ export default function Navigation() {
             
             {/* Website Button for mobile app - Always visible */}
             {isMobileApp && (
-              <Link href="/">
-                <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
-                  <Info className="w-4 h-4 mr-2" />
-                  Website
-                </Button>
-              </Link>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="border-primary text-primary hover:bg-primary hover:text-white"
+                onClick={() => window.location.href = '/'}
+              >
+                <Info className="w-4 h-4 mr-2" />
+                Website
+              </Button>
             )}
             
             {/* Currency Selector - Hidden on small mobile */}

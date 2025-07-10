@@ -34,6 +34,17 @@ function Router() {
   const urlParams = new URLSearchParams(window.location.search);
   const platformParam = urlParams.get('platform');
   const isMobileApp = platformParam === 'mobile';
+  
+  // Debug logging
+  console.log('Router Debug:', {
+    url: window.location.href,
+    search: window.location.search,
+    pathname: window.location.pathname,
+    platformParam,
+    isMobileApp,
+    isAuthenticated,
+    isLoading
+  });
 
   // MOBILE APP PLATFORM
   if (isMobileApp) {
