@@ -1,20 +1,35 @@
-# FinergyCloud - Renewable Energy Investment Platform
+# FinergyCloud - Complete Energy Investment Platform
 
-**Developed by O.J. Nwani**
+**Independently Developed by Onuorah Joshua Nwani**
 
-A comprehensive renewable energy investment platform that provides intelligent project management, advanced financial analysis, and data-driven insights for sustainable investments.
+A comprehensive renewable energy investment platform featuring both web and mobile applications, with AI-powered predictions, ESG scoring, and advanced portfolio management capabilities.
 
-> **Note**: This is the web platform component of FinergyCloud. The mobile app can be found in the `main` branch under the `mobile-app/` directory.
+> **Complete Platform**: This repository contains the full FinergyCloud ecosystem - both web platform and mobile app in one unified codebase.
 
-## Features
+## 🌟 Platform Overview
 
-- **AI-Powered Analytics**: XGBoost machine learning models for project success predictions
-- **ESG Scoring**: Comprehensive Environmental, Social, and Governance assessment
-- **IRR Calculator**: Advanced financial modeling with multi-currency support
-- **Portfolio Management**: Real-time project tracking and performance analytics
-- **Market Insights**: Industry trends and regulatory updates
-- **Risk Assessment**: Comprehensive risk analysis and mitigation strategies
-- **Subscription Model**: Flexible pricing plans for different user needs
+FinergyCloud offers a complete ecosystem for renewable energy investment management:
+
+- **Web Platform**: Full-featured desktop experience with advanced analytics
+- **Mobile App**: Touch-optimized mobile interface with streamlined navigation  
+- **Unified Backend**: Shared infrastructure powering both platforms
+- **Cross-Platform Integration**: Seamless switching between web and mobile experiences
+
+## 🚀 Key Features
+
+### Core Investment Tools
+- **AI-Powered Predictions**: XGBoost machine learning models with 94% accuracy
+- **ESG Scoring**: Comprehensive Environmental, Social & Governance assessment
+- **IRR Calculator**: Multi-currency financial modeling (NGN, GBP, EUR)
+- **Portfolio Analytics**: Real-time performance tracking and risk assessment
+- **Project Management**: Full CRUD operations for renewable energy projects
+
+### Advanced Features
+- **Market Insights**: Industry intelligence with trend analysis
+- **Rewards System**: Gamification with sustainability points and achievements
+- **Risk Heat Maps**: Visual risk assessment across portfolios
+- **Voice Insights**: AI-powered commentary on portfolio performance
+- **Currency Conversion**: Real-time exchange rates and formatting
 
 ## Technology Stack
 
@@ -203,12 +218,21 @@ Popular deployment options include:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Support
+## 🌍 Social Media & Community
 
-For support and questions:
-- Create an issue in the GitHub repository
-- Check the documentation in `PLATFORM.md` for detailed implementation notes
+- **GitHub**: [Project Repository](https://github.com/onuorah-joshua-nwani/ojn-msp-1-finergycloud)
+- **LinkedIn**: [FinergyCloud Company](https://www.linkedin.com/company/finergycloud)
+- **YouTube**: [FinergyCloud Official](https://www.youtube.com/@FinergyCloud_official)
+- **Facebook**: [Onuorah Joshua Nwani](https://www.facebook.com/onuorah.joshua.nwani)
+- **Medium**: [Blog Articles](https://medium.com/@onuorahani)
+
+## 📞 Support & Contact
+
+- **Email**: onuorahani@gmail.com
+- **Issues**: [GitHub Issues](https://github.com/onuorah-joshua-nwani/ojn-msp-1-finergycloud/issues)
+- **LinkedIn**: [Professional Profile](https://www.linkedin.com/in/onuorah-joshua-nwani)
 
 ---
 
-**FinergyCloud** - Powering the future of renewable energy investment analysis
+**FinergyCloud Platform** - Independently owned and operated renewable energy investment platform.
+*Building the future of sustainable energy investment through innovative technology.*
