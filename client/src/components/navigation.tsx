@@ -108,10 +108,12 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-14 sm:h-16">
           
           {/* Left Side - Mobile Menu + Brand */}
-          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-            {/* Mobile App Hamburger Menu - Only for mobile app */}
+          <div className="flex items-center space-x-1 sm:space-x-3 flex-shrink-0">
+            {/* Mobile App Hamburger Menu - Always visible on mobile app */}
             {actuallyMobileApp && (
-              <MobileMenuButton onClick={() => setSideNavOpen(true)} />
+              <div className="mr-2">
+                <MobileMenuButton onClick={() => setSideNavOpen(true)} />
+              </div>
             )}
             
             {/* Brand */}

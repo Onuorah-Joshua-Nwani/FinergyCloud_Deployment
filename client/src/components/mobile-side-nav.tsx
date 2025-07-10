@@ -191,14 +191,13 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
 
 export function MobileMenuButton({ onClick }: { onClick: () => void }) {
   return (
-    <Button
+    <button
       id="mobile-menu-button"
-      variant="ghost"
-      size="sm"
       onClick={onClick}
-      className="flex lg:hidden p-2 hover:bg-gray-100 rounded-md"
+      className="flex items-center justify-center w-10 h-10 bg-white border-2 border-green-600 rounded-lg shadow-sm hover:bg-green-50 active:bg-green-100 transition-colors"
+      aria-label="Open navigation menu"
     >
-      <Menu className="w-6 h-6 text-gray-700" />
-    </Button>
+      <Menu className="w-6 h-6 text-green-600" />
+    </button>
   );
 }
