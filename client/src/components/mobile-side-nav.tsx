@@ -71,7 +71,7 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
       await fetch('/api/auth/logout', { method: 'POST' });
       window.location.href = '/?platform=mobile';
     } catch (error) {
-      console.error('Logout failed:', error);
+      // Logout failed - redirect anyway for better UX
     }
   };
 

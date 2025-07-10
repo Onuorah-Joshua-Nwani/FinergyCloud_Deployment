@@ -238,7 +238,7 @@ export default function VoiceInsightsNarrator() {
   };
 
   const handleVoiceCommand = (command: string) => {
-    console.log('Voice command:', command);
+    // Voice command processed
     
     if (command.includes('play') || command.includes('start')) {
       const nextInsight = getNextUnspokenInsight();

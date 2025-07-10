@@ -50,18 +50,7 @@ export default function Navigation() {
   const actuallyMobileApp = isMobileApp || shouldForceMobile;
   const navItems = actuallyMobileApp ? mobileAppNavItems : websiteNavItems;
   
-  // Debug logging
-  console.log('Navigation Debug:', {
-    url: window.location.href,
-    search: window.location.search,
-    pathname: window.location.pathname,
-    platformParam,
-    isMobileApp,
-    shouldForceMobile,
-    actuallyMobileApp,
-    actualPlatform: actuallyMobileApp ? 'mobile' : 'website',
-    navItems: navItems.map(item => item.label)
-  });
+  // Debug logging - removed for production
 
   const NavLink = ({ path, label, icon: Icon, className = "", isMobile = false }: { 
     path: string; 
@@ -98,7 +87,7 @@ export default function Navigation() {
       await fetch('/api/auth/logout', { method: 'POST' });
       window.location.href = actuallyMobileApp ? '/?platform=mobile' : '/';
     } catch (error) {
-      console.error('Logout failed:', error);
+      // Logout failed - redirect anyway for better UX
     }
   };
 
@@ -115,15 +104,8 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="flex justify-between items-center h-14 sm:h-16">
           
-          {/* Left Side - Mobile Menu + Brand */}
-          <div className="flex items-center space-x-1 sm:space-x-3 flex-shrink-0">
-            {/* Mobile App Hamburger Menu - Always visible on mobile app */}
-            {actuallyMobileApp && (
-              <div className="mr-2">
-                <MobileMenuButton onClick={() => setSideNavOpen(true)} />
-              </div>
-            )}
-            
+          {/* Left Side - Brand */}
+          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
             {/* Brand */}
             <Link href={actuallyMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3">
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">

@@ -38,17 +38,7 @@ function Router() {
   // Also check if URL suggests mobile app
   const shouldForceMobile = window.location.href.includes('platform=mobile');
   
-  // Debug logging
-  console.log('Router Debug:', {
-    url: window.location.href,
-    search: window.location.search,
-    pathname: window.location.pathname,
-    platformParam,
-    isMobileApp,
-    shouldForceMobile,
-    isAuthenticated,
-    isLoading
-  });
+  // Debug logging - removed for production
   
   // If there's a URL encoding issue, try to handle it
   if (window.location.pathname.includes('%3F')) {
