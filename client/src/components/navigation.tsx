@@ -209,7 +209,7 @@ export default function Navigation() {
                   </div>
 
                   {/* Mobile Navigation Links */}
-                  <div className="flex-1 py-4 space-y-4 overflow-y-auto">
+                  <div className="flex-1 py-4 space-y-4 overflow-y-auto min-h-0">
                     {!isMobileApp ? (
                       // Website Navigation
                       <>
@@ -268,10 +268,13 @@ export default function Navigation() {
                         </div>
                       </>
                     )}
+                    
+                    {/* Extra spacing at bottom to prevent overlap */}
+                    <div className="h-32"></div>
                   </div>
 
-                  {/* Mobile Footer Actions */}
-                  <div className="pt-4 border-t border-gray-200 space-y-4">
+                  {/* Mobile Footer Actions - Fixed at bottom */}
+                  <div className="flex-shrink-0 pt-4 border-t border-gray-200 space-y-3">
                     {/* Social Links */}
                     <div>
                       <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-2">Connect</h4>
