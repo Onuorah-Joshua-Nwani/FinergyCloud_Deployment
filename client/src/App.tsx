@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -25,14 +25,19 @@ import Login from "@/pages/login";
 import Landing from "@/pages/landing";
 import MarketingLanding from "@/pages/landing-marketing";
 import NotFound from "@/pages/not-found";
+import { useEffect, useState } from "react";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
+  const [location] = useLocation();
+  const [isMobileApp, setIsMobileApp] = useState(false);
   
-  // Check if we're specifically requesting the mobile app platform
-  const urlParams = new URLSearchParams(window.location.search);
-  const platformParam = urlParams.get('platform');
-  const isMobileApp = platformParam === 'mobile';
+  // Check URL parameters on mount and when location changes
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const platformParam = urlParams.get('platform');
+    setIsMobileApp(platformParam === 'mobile');
+  }, [location]);
 
   // If mobile platform is explicitly requested, show mobile app only
   if (isMobileApp) {
