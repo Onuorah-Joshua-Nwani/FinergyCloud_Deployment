@@ -1,68 +1,41 @@
-# Railway Deployment - Simple Fix Guide
+# Railway Deployment Simple Fix
 
-## Where to Find Build Settings in Railway
+## Problem
+Railway build fails with "Could not resolve entry module 'client/index.html'" error.
 
-### Step 1: Navigate to Build Settings
-1. Go to your Railway project dashboard
-2. Click on your service (the main app, not database)
-3. Look for these tabs at the top: **Deployments | Settings | Variables | Metrics**
-4. Click on **Settings** tab
+## Solution
+Created a `nixpacks.toml` configuration file that tells Railway exactly how to build the project:
 
-### Step 2: Find Build & Deploy Section
-In the Settings page, scroll down to find:
-- **Build Command** field
-- **Start Command** field
+```toml
+[phases.setup]
+nixPkgs = ["nodejs-20_x", "npm-10_x"]
 
-### Step 3: Update Commands
+[phases.build]
+cmds = ["npm install", "npm run build"]
 
-Since you already have `railway.json` file (I created it above), Railway should automatically use it. But if it doesn't:
-
-#### Option A: Manual Settings (if railway.json is ignored)
-In the **Build Command** field, paste this:
-```
-npm install && npx vite build --config vite.config.production.ts && npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[start]
+cmd = "npm start"
 ```
 
-In the **Start Command** field, paste this:
-```
-npm start
-```
+## What This Does
+1. **Setup Phase**: Ensures Node.js 20 and npm 10 are available
+2. **Build Phase**: Runs standard npm install and build commands
+3. **Start Command**: Uses npm start to run the production server
 
-#### Option B: Let railway.json Handle It
-Just make sure:
-1. Commit and push the `railway.json` file to GitHub
-2. Railway will automatically detect and use it
+## Files Modified
+- Created `nixpacks.toml` - Railway's build configuration
+- Updated `railway.json` - Simplified to use npm run build
+- Fixed `vite.config.production.ts` - Added proper __dirname handling for ES modules
 
-### Step 4: Add Environment Variables
-1. Click on **Variables** tab
-2. Add these:
-   - `NODE_ENV` = `production`
-   - `SESSION_SECRET` = `any-long-random-string-here-make-it-secure`
-   - Railway automatically adds `PORT` and `DATABASE_URL`
+## Environment Variables Needed
+In Railway Service settings, add:
+- `NODE_ENV=production`
+- `SESSION_SECRET=your-secret-key-here`
+- `DATABASE_URL` (if using PostgreSQL)
 
-### Step 5: Redeploy
-1. After making changes, click **Deploy** button
-2. Or push a new commit to trigger automatic deployment
+## Deployment Steps
+1. Push all changes to GitHub
+2. Click "Redeploy" in Railway
+3. Railway will use nixpacks.toml to build correctly
 
-## Quick Checklist
-✓ `vite.config.production.ts` exists (I created it)
-✓ `railway.json` exists (I created it)
-✓ Environment variables set
-✓ PostgreSQL database added (if not, add it from Railway dashboard)
-
-## Still Can't Find Settings?
-
-Railway UI might have changed. Look for:
-- **"Deploy"** section
-- **"Build & Deploy"** settings
-- **"Configure"** button
-- Gear icon (⚙️) next to your service
-
-The build command field might also be called:
-- "Build Command"
-- "Custom Build Command"
-- "Build Script"
-
----
-
-**Note**: The key is to use `vite.config.production.ts` instead of the regular `vite.config.ts` to avoid Replit plugin errors.
+The build should now succeed!
