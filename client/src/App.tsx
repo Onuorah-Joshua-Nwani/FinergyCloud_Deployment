@@ -46,12 +46,22 @@ function Router() {
 
   // If mobile platform is explicitly requested, show mobile app only
   if (isMobileApp) {
+    console.log('Rendering mobile app routes, isAuthenticated:', isAuthenticated, 'isLoading:', isLoading);
+    
+    if (isLoading) {
+      return (
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div>Loading...</div>
+        </div>
+      );
+    }
+    
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
         <Switch>
           <Route path="/login" component={Login} />
-          {isLoading || !isAuthenticated ? (
+          {!isAuthenticated ? (
             <>
               <Route path="/" component={MarketingLanding} />
               <Route path="*" component={MarketingLanding} />
