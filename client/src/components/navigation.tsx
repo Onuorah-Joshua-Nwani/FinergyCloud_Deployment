@@ -21,8 +21,8 @@ export default function Navigation() {
   const platformParam = urlParams.get('platform');
   const isMobileApp = platformParam === 'mobile';
   
-  // Debug: Force mobile app if URL suggests it should be mobile
-  const shouldForceMobile = window.location.href.includes('platform=mobile') || window.location.search.includes('platform=mobile');
+  // More comprehensive mobile detection that checks both URL and location
+  const shouldForceMobile = isMobileApp || window.location.href.includes('platform=mobile') || window.location.search.includes('platform=mobile');
 
   // Website navigation items (Clean FinergyCloud website)
   const websiteNavItems = [

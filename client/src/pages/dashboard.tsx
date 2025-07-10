@@ -61,7 +61,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="grid grid-cols-2 gap-2 md:gap-3 lg:grid-cols-3">
-                <Link href="/kpi">
+                <Link href="/kpi?platform=mobile">
                   <Button 
                     variant="outline" 
                     className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
@@ -74,7 +74,7 @@ export default function Dashboard() {
                   </Button>
                 </Link>
 
-                <Link href="/irr-calculator">
+                <Link href="/irr-calculator?platform=mobile">
                   <Button 
                     variant="outline" 
                     className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
@@ -87,7 +87,7 @@ export default function Dashboard() {
                   </Button>
                 </Link>
 
-                <Link href="/projects">
+                <Link href="/projects?platform=mobile">
                   <Button 
                     variant="outline" 
                     className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
@@ -100,7 +100,7 @@ export default function Dashboard() {
                   </Button>
                 </Link>
 
-                <Link href="/market-insights">
+                <Link href="/market-insights?platform=mobile">
                   <Button 
                     variant="outline" 
                     className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
@@ -113,7 +113,7 @@ export default function Dashboard() {
                   </Button>
                 </Link>
 
-                <Link href="/esg-scoring">
+                <Link href="/esg-scoring?platform=mobile">
                   <Button 
                     variant="outline" 
                     className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
@@ -126,7 +126,7 @@ export default function Dashboard() {
                   </Button>
                 </Link>
 
-                <Link href="/rewards">
+                <Link href="/rewards?platform=mobile">
                   <Button 
                     variant="outline" 
                     className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
@@ -139,7 +139,7 @@ export default function Dashboard() {
                   </Button>
                 </Link>
 
-                <Link href="/advanced-features">
+                <Link href="/advanced-features?platform=mobile">
                   <Button 
                     variant="outline" 
                     className="h-auto p-2 md:p-3 lg:p-4 flex flex-col items-start text-left w-full hover:border-primary hover:bg-primary/5 transition-all"
@@ -160,7 +160,7 @@ export default function Dashboard() {
             <CardHeader className="pb-3 md:pb-6">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg md:text-xl">Recent Projects</CardTitle>
-                <Link href="/projects">
+                <Link href="/projects?platform=mobile">
                   <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 text-xs md:text-sm">
                     View All <ArrowRight className="w-3 h-3 md:w-4 md:h-4 ml-1" />
                   </Button>
