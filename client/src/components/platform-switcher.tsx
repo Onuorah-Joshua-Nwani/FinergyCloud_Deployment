@@ -32,7 +32,9 @@ export default function PlatformSwitcher({
     web: {
       name: "FinergyCloud Website",
       icon: Monitor,
-      url: typeof window !== 'undefined' ? window.location.origin : "https://www.finergycloud.com",
+      url: typeof window !== 'undefined' && window.location.href.includes('spock.replit.dev') 
+        ? window.location.origin.replace('7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev', '5000-7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev')
+        : (typeof window !== 'undefined' ? window.location.origin : "https://www.finergycloud.com"),
       description: "Official FinergyCloud company website with full platform access",
       features: ["Company Information", "Full Web Platform", "Advanced Analytics", "Portfolio Management"],
       badge: "Official Website"

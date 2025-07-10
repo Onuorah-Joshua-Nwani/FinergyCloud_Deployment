@@ -28,27 +28,40 @@ import NotFound from "@/pages/not-found";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
+  
+  // Detect if we're on mobile app URL
+  const isMobileApp = typeof window !== 'undefined' && 
+    (window.location.href.includes('7dd13212-e6ad-4c47-be70-2f844171b442') || 
+     window.location.href.includes('spock.replit.dev'));
 
   return (
     <Switch>
       {/* Direct access to platform - Root path shows platform */}
       <Route path="/login" component={Login} />
       
-      {/* Public Pages */}
-      <Route path="/solutions" component={Solutions} />
-      <Route path="/about" component={About} />
-      <Route path="/blog" component={Blog} />
-      <Route path="/contact" component={Contact} />
+      {/* Public Pages - Only available on website, not mobile app */}
+      {!isMobileApp && (
+        <>
+          <Route path="/solutions" component={Solutions} />
+          <Route path="/about" component={About} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/contact" component={Contact} />
+        </>
+      )}
       
       {/* Main Platform Routes */}
       <Route path="*">
         {isLoading || !isAuthenticated ? (
           <Switch>
             <Route path="/login" component={Login} />
-            <Route path="/solutions" component={Solutions} />
-            <Route path="/about" component={About} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/contact" component={Contact} />
+            {!isMobileApp && (
+              <>
+                <Route path="/solutions" component={Solutions} />
+                <Route path="/about" component={About} />
+                <Route path="/blog" component={Blog} />
+                <Route path="/contact" component={Contact} />
+              </>
+            )}
             <Route path="/" component={Landing} />
             <Route path="*" component={Landing} />
           </Switch>
@@ -67,10 +80,14 @@ function Router() {
               <Route path="/projects" component={ProjectManagement} />
               <Route path="/market-insights" component={MarketInsights} />
               <Route path="/subscribe" component={Subscribe} />
-              <Route path="/solutions" component={Solutions} />
-              <Route path="/about" component={About} />
-              <Route path="/blog" component={Blog} />
-              <Route path="/contact" component={Contact} />
+              {!isMobileApp && (
+                <>
+                  <Route path="/solutions" component={Solutions} />
+                  <Route path="/about" component={About} />
+                  <Route path="/blog" component={Blog} />
+                  <Route path="/contact" component={Contact} />
+                </>
+              )}
               <Route component={NotFound} />
             </Switch>
           </div>
