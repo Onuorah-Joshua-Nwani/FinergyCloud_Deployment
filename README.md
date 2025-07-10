@@ -205,7 +205,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support and questions:
 - Create an issue in the GitHub repository
-- Check the documentation in `replit.md` for detailed implementation notes
+- Check the documentation in `PLATFORM.md` for detailed implementation notes
 
 ---
 

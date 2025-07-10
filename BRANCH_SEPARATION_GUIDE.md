@@ -31,7 +31,7 @@ If reverting doesn't work, manually remove these web platform files from main br
 - `drizzle.config.ts`
 - `components.json`
 - `postcss.config.js`
-- `replit.md`
+- `PLATFORM.md`
 - `DEPLOYMENT_GUIDE.md`
 - `GIT_COMMANDS.md`
 

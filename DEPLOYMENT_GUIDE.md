@@ -1,14 +1,13 @@
 # FinergyCloud Web Platform Deployment Guide
 
 ## Current Situation
-You have a complete web platform ready for deployment, but git operations are restricted in this Replit environment.
+You have a complete web platform ready for deployment.
 
 ## Recommended Solution: Direct GitHub Upload
 
-### Step 1: Download Project Files
-1. In the Replit file explorer, click the three dots menu (⋮)
-2. Select "Download as zip"
-3. Extract the files on your local computer
+### Step 1: Prepare Project Files
+1. Ensure all project files are properly organized in your local development environment
+2. Verify all dependencies and configurations are complete
 
 ### Step 2: Upload to Your GitHub Repository
 
@@ -71,7 +70,7 @@ All necessary files are prepared:
 - ✅ Documentation and setup guides
 
 ## Next Steps
-1. Download the project files from Replit
+1. Ensure all project files are properly organized
 2. Upload to your GitHub repository
 3. Deploy to your preferred platform
 4. Configure environment variables

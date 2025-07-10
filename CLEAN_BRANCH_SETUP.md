@@ -12,11 +12,10 @@
 3. Find the merge commit that added web platform files
 4. Click "Revert" to remove the web platform files from main branch
 
-## Step 3: Download Fresh Web Platform Files
-1. Come back to this Replit environment
-2. Click three dots (⋮) in file explorer
-3. Select "Download as zip"
-4. Extract the files on your computer
+## Step 3: Prepare Fresh Web Platform Files
+1. Ensure you have the latest web platform files in your development environment
+2. Organize all project files properly
+3. Verify all configurations are complete
 
 ## Step 4: Create New Web Platform Branch
 1. Go back to your GitHub repository
