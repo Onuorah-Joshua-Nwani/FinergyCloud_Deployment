@@ -119,7 +119,7 @@ export default function Navigation() {
                   <NavLink key={item.path} {...item} />
                 ))}
                 <button
-                  onClick={() => window.location.href = '/?platform=mobile'}
+                  onClick={() => window.open('/?platform=mobile', '_blank')}
                   className="nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer text-gray-600 hover:text-primary hover:bg-gray-50"
                 >
                   Mobile App
@@ -137,7 +137,7 @@ export default function Navigation() {
                 variant="outline" 
                 size="sm" 
                 className="hidden sm:flex border-primary text-primary hover:bg-primary hover:text-white"
-                onClick={() => window.location.href = '/?platform=mobile'}
+                onClick={() => window.open('/?platform=mobile', '_blank')}
               >
                 <Smartphone className="w-4 h-4 mr-2" />
                 Mobile App
@@ -150,7 +150,7 @@ export default function Navigation() {
                 variant="outline" 
                 size="sm" 
                 className="border-primary text-primary hover:bg-primary hover:text-white"
-                onClick={() => window.location.href = '/'}
+                onClick={() => window.open('/', '_blank')}
               >
                 <Info className="w-4 h-4 mr-2" />
                 Website
