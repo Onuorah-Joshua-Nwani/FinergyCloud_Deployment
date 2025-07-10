@@ -196,9 +196,9 @@ export function MobileMenuButton({ onClick }: { onClick: () => void }) {
       variant="ghost"
       size="sm"
       onClick={onClick}
-      className="lg:hidden hover:bg-gray-100"
+      className="flex lg:hidden p-2 hover:bg-gray-100 rounded-md"
     >
-      <Menu className="w-5 h-5" />
+      <Menu className="w-6 h-6 text-gray-700" />
     </Button>
   );
 }

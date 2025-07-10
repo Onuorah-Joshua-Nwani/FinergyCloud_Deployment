@@ -107,20 +107,23 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-14 sm:h-16">
           
-          {/* Mobile App Hamburger Menu - Only for mobile app */}
-          {actuallyMobileApp && (
-            <MobileMenuButton onClick={() => setSideNavOpen(true)} />
-          )}
-          
-          {/* Brand - Left Side */}
-          <Link href={actuallyMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
-              <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-            </div>
-            <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              {actuallyMobileApp ? "FinergyCloud App" : "FinergyCloud"}
-            </span>
-          </Link>
+          {/* Left Side - Mobile Menu + Brand */}
+          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+            {/* Mobile App Hamburger Menu - Only for mobile app */}
+            {actuallyMobileApp && (
+              <MobileMenuButton onClick={() => setSideNavOpen(true)} />
+            )}
+            
+            {/* Brand */}
+            <Link href={actuallyMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
+                <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+              </div>
+              <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                {actuallyMobileApp ? "FinergyCloud App" : "FinergyCloud"}
+              </span>
+            </Link>
+          </div>
 
           {/* Center - Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
