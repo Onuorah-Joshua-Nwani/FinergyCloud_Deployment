@@ -92,14 +92,28 @@ export default function Navigation() {
             </span>
           </Link>
 
-          {/* Center - Desktop Navigation (Mobile App Only) */}
-          {isMobileApp && (
-            <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
-              {navItems.map(item => (
+          {/* Center - Desktop Navigation */}
+          <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
+            {isMobileApp ? (
+              // Mobile App Navigation
+              navItems.map(item => (
                 <NavLink key={item.path} {...item} />
-              ))}
-            </div>
-          )}
+              ))
+            ) : (
+              // Website Navigation with Mobile App Link
+              <>
+                {websiteNavItems.map(item => (
+                  <NavLink key={item.path} {...item} />
+                ))}
+                <button
+                  onClick={() => window.open('/?platform=mobile', '_blank')}
+                  className="nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer text-gray-600 hover:text-primary hover:bg-gray-50"
+                >
+                  Mobile App
+                </button>
+              </>
+            )}
+          </div>
 
           {/* Right Side - Actions */}
           <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
