@@ -150,7 +150,7 @@ export default function Navigation() {
                 variant="outline" 
                 size="sm" 
                 className="border-primary text-primary hover:bg-primary hover:text-white"
-                onClick={() => window.open('/', '_blank')}
+                onClick={() => window.location.href = '/'}
               >
                 <Info className="w-4 h-4 mr-2" />
                 Website
@@ -203,10 +203,10 @@ export default function Navigation() {
               </div>
             )}
             
-            {/* Mobile Navigation - Always show on mobile app */}
+            {/* Mobile Navigation - Always visible on small screens */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className={`h-8 w-8 border-gray-300 hover:bg-gray-50 ${isMobileApp ? 'block' : 'lg:hidden'}`}>
+                <Button variant="outline" size="icon" className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden">
                   <Menu className="h-4 w-4" />
                   <span className="sr-only">Open navigation menu</span>
                 </Button>
