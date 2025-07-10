@@ -82,14 +82,14 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
     return (
       <Link href={linkPath} onClick={onClose}>
         <div
-          className={`flex items-center px-4 py-3 text-base font-medium rounded-lg mx-2 mb-1 transition-all duration-200 cursor-pointer ${
+          className={`flex items-center px-3 py-2.5 text-sm font-medium rounded-md mx-2 mb-0.5 transition-all duration-200 cursor-pointer ${
             isActive
-              ? "bg-green-600 text-white shadow-lg"
+              ? "bg-green-600 text-white shadow-md"
               : "text-gray-700 hover:bg-gray-100 hover:text-green-600"
           }`}
         >
-          <Icon className="w-5 h-5 mr-4 flex-shrink-0" />
-          {label}
+          <Icon className="w-4 h-4 mr-3 flex-shrink-0" />
+          <span className="truncate">{label}</span>
         </div>
       </Link>
     );
@@ -97,62 +97,63 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
 
   return (
     <>
-      {/* Overlay */}
+      {/* Backdrop Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-[60] transition-opacity duration-300"
+          className="fixed inset-0 bg-black/60 z-[60] transition-opacity duration-300"
           onClick={onClose}
+          style={{ touchAction: 'none' }}
         />
       )}
       
       {/* Side Navigation */}
       <div
         id="mobile-side-nav"
-        className={`fixed top-0 left-0 h-full w-72 max-w-[85vw] bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-64 max-w-[80vw] bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-green-50 to-blue-50">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">FC</span>
+        <div className="flex items-center justify-between p-3 border-b border-gray-200 bg-gradient-to-r from-green-50 to-blue-50">
+          <div className="flex items-center space-x-2">
+            <div className="w-7 h-7 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xs">FC</span>
             </div>
-            <span className="text-lg font-bold text-gray-900">FinergyCloud App</span>
+            <span className="text-base font-bold text-gray-900">FinergyCloud App</span>
           </div>
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="hover:bg-gray-100"
+            className="hover:bg-gray-100 p-1.5"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </Button>
         </div>
 
         {/* User Profile Section */}
         {user && (
-          <div className="p-4 border-b border-gray-200 bg-gray-50">
-            <div className="flex items-center space-x-3">
-              <Avatar className="h-12 w-12">
+          <div className="p-3 border-b border-gray-200 bg-gray-50">
+            <div className="flex items-center space-x-2">
+              <Avatar className="h-10 w-10">
                 <AvatarImage src={user?.profileImageUrl || ''} alt={user?.firstName || 'User'} />
-                <AvatarFallback className="bg-green-100 text-green-600 font-medium text-lg">
+                <AvatarFallback className="bg-green-100 text-green-600 font-medium text-sm">
                   {user?.firstName?.[0] || 'U'}
                 </AvatarFallback>
               </Avatar>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900 truncate">
+                <p className="text-xs font-medium text-gray-900 truncate">
                   {user?.firstName} {user?.lastName}
                 </p>
-                <p className="text-sm text-gray-500 truncate">{user?.email}</p>
+                <p className="text-xs text-gray-500 truncate">{user?.email}</p>
               </div>
             </div>
           </div>
         )}
 
         {/* Navigation Items */}
-        <div className="flex-1 py-4 overflow-y-auto">
-          <nav className="space-y-1">
+        <div className="flex-1 py-3 overflow-y-auto">
+          <nav className="space-y-0.5">
             {mobileAppNavItems.map((item) => (
               <NavItem key={item.path} {...item} />
             ))}
@@ -160,26 +161,28 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
         </div>
 
         {/* Footer Actions */}
-        <div className="border-t border-gray-200 p-4 space-y-2">
+        <div className="border-t border-gray-200 p-3 space-y-2">
           <Button
             variant="default"
-            className="w-full justify-start bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-lg"
+            size="sm"
+            className="w-full justify-start bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-md text-xs"
             onClick={() => {
               window.open('/', '_blank');
               onClose();
             }}
           >
-            <Info className="w-4 h-4 mr-3" />
-            Visit FinergyCloud Website
+            <Info className="w-3 h-3 mr-2" />
+            Visit Website
           </Button>
           
           {user && (
             <Button
               variant="outline"
-              className="w-full justify-start border-red-200 text-red-600 hover:bg-red-50"
+              size="sm"
+              className="w-full justify-start border-red-200 text-red-600 hover:bg-red-50 text-xs"
               onClick={handleLogout}
             >
-              <LogOut className="w-4 h-4 mr-3" />
+              <LogOut className="w-3 h-3 mr-2" />
               Sign Out
             </Button>
           )}
