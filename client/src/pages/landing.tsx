@@ -24,25 +24,25 @@ export default function Landing() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex justify-center items-center gap-4 mb-6">
-            <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-              Web Platform
-            </div>
             <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-              Mobile App
+              Renewable Energy
+            </div>
+            <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+              Investment Intelligence
             </div>
             <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
               AI-Powered
             </div>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            FinergyCloud Intelligence
+            FinergyCloud
             <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-              Platform & Mobile App
+              Renewable Energy Investment Intelligence
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Unified renewable energy investment platform. Access powerful AI predictions, ESG scoring, 
-            and portfolio management from web or mobile. Your investment intelligence, anywhere.
+            Advanced renewable energy investment intelligence platform. Powerful AI predictions, comprehensive ESG scoring, 
+            and sophisticated portfolio management. Make smarter sustainable investment decisions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
@@ -51,12 +51,12 @@ export default function Landing() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <a href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" target="_blank" rel="noopener noreferrer">
+            <Link href="/about">
               <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-blue-600 text-blue-600 hover:bg-blue-50">
-                Open Mobile App
+                Learn More
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </a>
+            </Link>
           </div>
           
           {/* Quick Navigation Links */}

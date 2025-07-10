@@ -254,12 +254,6 @@ export default function Navigation() {
 
                   {/* Mobile Footer Actions */}
                   <div className="pt-4 border-t border-gray-200 space-y-4">
-                    {/* Platform Switcher */}
-                    <div>
-                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-2">Switch Platform</h4>
-                      <PlatformSwitcher variant="menu" />
-                    </div>
-
                     {/* Social Links */}
                     <div>
                       <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-2">Connect</h4>

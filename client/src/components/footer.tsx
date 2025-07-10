@@ -78,27 +78,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Platform Switcher */}
+          {/* Quick Actions */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Access FinergyCloud</h4>
+            <h4 className="text-sm font-semibold mb-4">Quick Actions</h4>
             <div className="space-y-3">
               <div>
                 <a 
                   href="/login" 
                   className="block text-sm text-gray-400 hover:text-white transition-colors mb-2"
                 >
-                  🌐 Web Platform
+                  🚀 Get Started
                 </a>
-                <p className="text-xs text-gray-500">Full desktop experience</p>
+                <p className="text-xs text-gray-500">Start investing today</p>
               </div>
               <div>
                 <a 
-                  href="#" 
+                  href="/contact" 
                   className="block text-sm text-gray-400 hover:text-white transition-colors mb-2"
                 >
-                  📱 Mobile App
+                  📞 Contact Support
                 </a>
-                <p className="text-xs text-gray-500">iOS & Android</p>
+                <p className="text-xs text-gray-500">Expert assistance</p>
               </div>
             </div>
           </div>

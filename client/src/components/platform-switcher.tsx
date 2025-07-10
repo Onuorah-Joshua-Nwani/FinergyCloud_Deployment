@@ -69,7 +69,7 @@ export default function PlatformSwitcher({
           <Button size="sm" className="bg-green-600 hover:bg-green-700" asChild>
             <a href={platform.url} target="_blank" rel="noopener noreferrer">
               {otherPlatform === "mobile" ? <Download className="w-4 h-4 mr-1" /> : <Globe className="w-4 h-4 mr-1" />}
-              {otherPlatform === "mobile" ? "Open App" : "Visit Website"}
+              {otherPlatform === "mobile" ? "Launch App" : "Visit Website"}
             </a>
           </Button>
         </div>
@@ -123,12 +123,12 @@ export default function PlatformSwitcher({
             {otherPlatform === "mobile" ? (
               <>
                 <Download className="w-4 h-4 mr-2" />
-                Open Mobile App
+                Launch Mobile App
               </>
             ) : (
               <>
                 <Globe className="w-4 h-4 mr-2" />
-                Visit FinergyCloud Website
+                Visit Website
               </>
             )}
             <ArrowRight className="w-4 h-4 ml-2" />
