@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,7 +15,9 @@ import {
   Shield,
   ArrowRight,
   CheckCircle,
-  Quote
+  Quote,
+  Home,
+  ChevronRight
 } from "lucide-react";
 
 export default function About() {
@@ -87,6 +90,20 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600">
+            <Link href="/" className="hover:text-green-600 transition-colors flex items-center">
+              <Home className="w-4 h-4 mr-1" />
+              Home
+            </Link>
+            <ChevronRight className="w-4 h-4" />
+            <span className="text-gray-900 font-medium">About FinergyCloud</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-600 to-blue-600 text-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -246,16 +263,55 @@ export default function About() {
         </div>
       </section>
 
+      {/* Call to Action Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Experience the Future of Renewable Energy Investment
+          </h2>
+          <p className="text-xl mb-8 text-green-100">
+            Ready to join the thousands of investors already using our AI-powered platform? Start your journey today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/login">
+              <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4">
+                Start Your Investment Journey
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/solutions">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4">
+                Explore Our Solutions
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+          </div>
+          
+          {/* Quick Links */}
+          <div className="mt-12 flex flex-wrap justify-center gap-8 text-green-100">
+            <Link href="/" className="hover:text-white transition-colors">
+              Back to Home
+            </Link>
+            <Link href="/blog" className="hover:text-white transition-colors">
+              Read Our Blog
+            </Link>
+            <Link href="/contact" className="hover:text-white transition-colors">
+              Contact Support
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Connect & Platform Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Social Connect */}
             <div className="text-center lg:text-left">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold mb-4">
                 Connect with O.J. Nwani
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Follow the journey and insights from FinergyCloud's founder across social platforms
               </p>
               <SocialLinks showLabels />
@@ -263,14 +319,25 @@ export default function About() {
 
             {/* Platform Access */}
             <div className="text-center lg:text-left">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold mb-4">
                 Experience FinergyCloud
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Access our platform from web or mobile to start your renewable energy investment journey
               </p>
-              <PlatformSwitcher variant="banner" />
+              <div className="flex gap-4">
+                <a href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-green-600 hover:bg-green-700">
+                    Mobile App
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+              </div>
             </div>
+          </div>
+          
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 FinergyCloud. All rights reserved.</p>
           </div>
         </div>
       </section>
