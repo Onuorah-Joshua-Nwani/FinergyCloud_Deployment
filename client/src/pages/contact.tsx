@@ -132,7 +132,7 @@ export default function Contact() {
             Get in Touch
           </Badge>
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Contact 
+            Contact
             <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
               FinergyCloud
             </span>
