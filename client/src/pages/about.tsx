@@ -8,6 +8,7 @@ import {
   Target, 
   Globe, 
   Users, 
+  User,
   Award,
   TrendingUp,
   Lightbulb,
