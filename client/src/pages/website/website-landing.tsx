@@ -113,12 +113,14 @@ export default function WebsiteLanding() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <Link href="/?platform=mobile">
-              <Button size="lg" className="text-lg px-10 py-5 bg-blue-600 hover:bg-blue-700 shadow-lg">
-                <Smartphone className="w-5 h-5 mr-2" />
-                Mobile App
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              className="text-lg px-10 py-5 bg-blue-600 hover:bg-blue-700 shadow-lg"
+              onClick={() => window.open('/?platform=mobile', '_blank')}
+            >
+              <Smartphone className="w-5 h-5 mr-2" />
+              Mobile App
+            </Button>
             <Link href="/about">
               <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 border-gray-300 hover:bg-gray-50 shadow-lg">
                 <PlayCircle className="w-5 h-5 mr-2" />
@@ -195,12 +197,15 @@ export default function WebsiteLanding() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <Link href="/?platform=mobile">
-              <Button size="lg" variant="outline" className="text-lg px-10 py-5 border-2 border-white text-white hover:bg-white hover:text-green-600 shadow-lg">
-                <Smartphone className="w-5 h-5 mr-2" />
-                Try Mobile App
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-lg px-10 py-5 border-2 border-white text-white hover:bg-white hover:text-green-600 shadow-lg"
+              onClick={() => window.open('/?platform=mobile', '_blank')}
+            >
+              <Smartphone className="w-5 h-5 mr-2" />
+              Try Mobile App
+            </Button>
           </div>
         </div>
       </section>

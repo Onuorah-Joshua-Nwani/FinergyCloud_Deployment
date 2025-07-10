@@ -36,10 +36,13 @@ export default function MobileLanding() {
               Login to Mobile App <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" asChild>
-            <a href="/" className="flex items-center">
-              Visit FinergyCloud Website <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
+          <Button 
+            size="lg" 
+            variant="outline"
+            onClick={() => window.open('/', '_blank')}
+            className="flex items-center"
+          >
+            Visit FinergyCloud Website <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
         
@@ -47,10 +50,13 @@ export default function MobileLanding() {
           <p className="text-sm text-gray-600 mb-4">
             <strong>New to FinergyCloud?</strong> Explore our comprehensive website first to learn about our mission, solutions, and latest insights.
           </p>
-          <Button variant="outline" size="sm" asChild>
-            <a href="/" className="text-blue-600 border-blue-600 hover:bg-blue-50">
-              Explore FinergyCloud Website →
-            </a>
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={() => window.open('/', '_blank')}
+            className="text-blue-600 border-blue-600 hover:bg-blue-50"
+          >
+            Explore FinergyCloud Website →
           </Button>
         </div>
       </section>

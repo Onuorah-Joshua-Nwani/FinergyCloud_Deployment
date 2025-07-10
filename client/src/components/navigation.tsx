@@ -100,12 +100,15 @@ export default function Navigation() {
             
             {/* Mobile App Button for website */}
             {!isMobileApp && (
-              <Link href="/?platform=mobile">
-                <Button variant="outline" size="sm" className="hidden sm:flex border-primary text-primary hover:bg-primary hover:text-white">
-                  <Smartphone className="w-4 h-4 mr-2" />
-                  Mobile App
-                </Button>
-              </Link>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="hidden sm:flex border-primary text-primary hover:bg-primary hover:text-white"
+                onClick={() => window.open('/?platform=mobile', '_blank')}
+              >
+                <Smartphone className="w-4 h-4 mr-2" />
+                Mobile App
+              </Button>
             )}
             
             {/* Website Button for mobile app - Always visible */}
@@ -114,7 +117,7 @@ export default function Navigation() {
                 variant="outline" 
                 size="sm" 
                 className="border-primary text-primary hover:bg-primary hover:text-white"
-                onClick={() => window.location.href = '/'}
+                onClick={() => window.open('/', '_blank')}
               >
                 <Info className="w-4 h-4 mr-2" />
                 Website
@@ -152,11 +155,9 @@ export default function Navigation() {
                       <Settings className="mr-2 h-4 w-4" />
                       <span>Settings</span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href={isMobileApp ? "/?platform=web" : "/?platform=mobile"}>
-                        {isMobileApp ? <Info className="mr-2 h-4 w-4" /> : <Smartphone className="mr-2 h-4 w-4" />}
-                        <span>{isMobileApp ? "FinergyCloud Website" : "Mobile App"}</span>
-                      </Link>
+                    <DropdownMenuItem onClick={() => window.open(isMobileApp ? "/" : "/?platform=mobile", '_blank')}>
+                      {isMobileApp ? <Info className="mr-2 h-4 w-4" /> : <Smartphone className="mr-2 h-4 w-4" />}
+                      <span>{isMobileApp ? "FinergyCloud Website" : "Mobile App"}</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={handleLogout}>
                       <LogOut className="mr-2 h-4 w-4" />

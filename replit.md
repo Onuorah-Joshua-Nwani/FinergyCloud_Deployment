@@ -142,9 +142,10 @@ The platform maintains a unified presence across multiple channels:
 - **Medium Blog**: https://medium.com/@onuorahani
 
 ### Cross-Platform Experience
-- **Platform Separation**: Web and mobile app maintained as separate but connected experiences
-- **Cross-Platform Navigation**: Users can seamlessly switch between web platform and mobile app
+- **Complete Platform Separation**: Web and mobile app maintained as entirely separate experiences
+- **External Platform Navigation**: Cross-platform links open in new tabs/windows for complete separation
+- **Dedicated Folder Structure**: `/mobile-app/` and `/website/` folders for clean content organization
+- **Independent User Flows**: Each platform operates independently without shared navigation elements
 - **Unified Branding**: Consistent FinergyCloud identity across all platforms and social channels
-- **Social Integration**: Social media links embedded throughout the platform for community engagement
 
 The platform is designed to integrate seamlessly with the existing mobile application, sharing backend infrastructure while providing enhanced desktop and tablet experiences for renewable energy investment management.
