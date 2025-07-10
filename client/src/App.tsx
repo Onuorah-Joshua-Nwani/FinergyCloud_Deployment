@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -25,19 +25,15 @@ import Login from "@/pages/login";
 import Landing from "@/pages/landing";
 import MarketingLanding from "@/pages/landing-marketing";
 import NotFound from "@/pages/not-found";
-import { useEffect, useState } from "react";
+
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
-  const [location] = useLocation();
-  const [isMobileApp, setIsMobileApp] = useState(false);
   
-  // Check URL parameters on mount and when location changes
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const platformParam = urlParams.get('platform');
-    setIsMobileApp(platformParam === 'mobile');
-  }, [location]);
+  // Check URL parameters directly - simpler approach
+  const urlParams = new URLSearchParams(window.location.search);
+  const platformParam = urlParams.get('platform');
+  const isMobileApp = platformParam === 'mobile';
 
   // If mobile platform is explicitly requested, show mobile app only
   if (isMobileApp) {
@@ -64,7 +60,7 @@ function Router() {
               <Route path="/projects" component={ProjectManagement} />
               <Route path="/market-insights" component={MarketInsights} />
               <Route path="/subscribe" component={Subscribe} />
-              <Route component={NotFound} />
+              <Route path="*" component={NotFound} />
             </>
           )}
         </Switch>
@@ -84,7 +80,7 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         
-        <Route component={NotFound} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </div>
   );
