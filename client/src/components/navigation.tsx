@@ -13,46 +13,33 @@ export default function Navigation() {
   const [location] = useLocation();
   const { user, isAuthenticated } = useAuth();
   
-  // Detect platform mode
-  const isMobileApp = typeof window !== 'undefined' && (() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const platformParam = urlParams.get('platform');
-    if (platformParam === 'mobile') {
-      return true;
-    } else if (platformParam === 'web') {
-      return false;
-    }
-    return false; // Default to website
-  })();
+  // Check if we're on mobile app platform
+  const urlParams = new URLSearchParams(window.location.search);
+  const isMobileApp = urlParams.get('platform') === 'mobile';
 
-  // Website navigation items (for FinergyCloud website)
+  // Website navigation items (Clean FinergyCloud website)
   const websiteNavItems = [
-    { path: "/", label: "Home", icon: BarChart3, priority: 1 },
-    { path: "/about", label: "About", icon: Info, priority: 2 },
-    { path: "/solutions", label: "Solutions", icon: Wrench, priority: 3 },
-    { path: "/blog", label: "Blog", icon: BookOpen, priority: 4 },
-    { path: "/contact", label: "Contact", icon: Phone, priority: 5 },
-    { path: "/?platform=mobile", label: "Mobile App", icon: Smartphone, priority: 6 },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/solutions", label: "Solutions" },
+    { path: "/blog", label: "Blog" },
+    { path: "/contact", label: "Contact" },
   ];
 
   // Mobile app navigation items (functional app only)
-  const coreNavItems = [
-    { path: "/dashboard", label: "Dashboard", icon: BarChart3, priority: 1 },
-    { path: "/projects", label: "Projects", icon: FolderOpen, priority: 2 },
-    { path: "/rewards", label: "Rewards", icon: Gift, priority: 3 },
-    { path: "/kpi", label: "Analytics", icon: TrendingUp, priority: 4 },
+  const mobileAppNavItems = [
+    { path: "/dashboard", label: "Dashboard", icon: BarChart3 },
+    { path: "/projects", label: "Projects", icon: FolderOpen },
+    { path: "/rewards", label: "Rewards", icon: Gift },
+    { path: "/kpi", label: "Analytics", icon: TrendingUp },
+    { path: "/ai-model", label: "AI Model", icon: Brain },
+    { path: "/market-insights", label: "Market Insights", icon: Newspaper },
+    { path: "/irr-calculator", label: "IRR Calculator", icon: Calculator },
+    { path: "/esg-scoring", label: "ESG Scoring", icon: TreePine },
+    { path: "/advanced-features", label: "Advanced Features", icon: Settings },
   ];
 
-  // Extended navigation items - for authenticated users
-  const extendedNavItems = [
-    { path: "/ai-model", label: "AI Model", icon: Brain, priority: 5 },
-    { path: "/market-insights", label: "Market Insights", icon: Newspaper, priority: 6 },
-    { path: "/irr-calculator", label: "IRR Calculator", icon: Calculator, priority: 7 },
-    { path: "/esg-scoring", label: "ESG Scoring", icon: TreePine, priority: 8 },
-    { path: "/advanced-features", label: "Advanced Features", icon: Settings, priority: 9 },
-  ];
-
-  const allNavItems = isMobileApp ? [...coreNavItems, ...extendedNavItems] : [...websiteNavItems, ...(isAuthenticated ? [...coreNavItems, ...extendedNavItems] : [])];
+  const navItems = isMobileApp ? mobileAppNavItems : websiteNavItems;
 
   const NavLink = ({ path, label, icon: Icon, className = "", isMobile = false }: { 
     path: string; 
@@ -64,12 +51,10 @@ export default function Navigation() {
     <Link href={path}>
       <span
         className={`nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer ${
-          location === path || (path === "/" && location === "/" && !isMobileApp) || (path === "/dashboard" && location === "/" && isMobileApp)
+          location === path || (path === "/" && location === "/")
             ? "bg-gray-100 text-primary border-b-2 border-primary"
             : "text-gray-600 hover:text-primary hover:bg-gray-50"
-        } ${isMobile ? "mobile-menu-item text-base py-3 border-b border-gray-100" : ""} ${className} ${
-          location === path || (path === "/" && location === "/" && !isMobileApp) || (path === "/dashboard" && location === "/" && isMobileApp) ? "active" : ""
-        }`}
+        } ${isMobile ? "mobile-menu-item text-base py-3 border-b border-gray-100" : ""} ${className}`}
       >
         {isMobile && Icon && (
           <Icon className="w-5 h-5 mr-3 flex-shrink-0" />
@@ -105,13 +90,33 @@ export default function Navigation() {
 
           {/* Center - Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center space-x-1 flex-1 max-w-2xl mx-8">
-            {(isMobileApp ? coreNavItems : websiteNavItems).map(item => (
+            {navItems.map(item => (
               <NavLink key={item.path} {...item} />
             ))}
           </div>
 
           {/* Right Side - Actions */}
           <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+            
+            {/* Mobile App Button for website */}
+            {!isMobileApp && (
+              <Link href="/?platform=mobile">
+                <Button variant="outline" size="sm" className="hidden sm:flex border-primary text-primary hover:bg-primary hover:text-white">
+                  <Smartphone className="w-4 h-4 mr-2" />
+                  Mobile App
+                </Button>
+              </Link>
+            )}
+            
+            {/* Website Button for mobile app */}
+            {isMobileApp && (
+              <Link href="/">
+                <Button variant="outline" size="sm" className="hidden sm:flex border-primary text-primary hover:bg-primary hover:text-white">
+                  <Info className="w-4 h-4 mr-2" />
+                  Website
+                </Button>
+              </Link>
+            )}
             
             {/* Currency Selector - Hidden on small mobile */}
             <div className="hidden sm:block">
@@ -226,7 +231,7 @@ export default function Navigation() {
                           <div>
                             <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Platform Tools</h3>
                             <div className="space-y-1">
-                              {[...coreNavItems, ...extendedNavItems].map(item => (
+                              {mobileAppNavItems.map(item => (
                                 <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
                               ))}
                             </div>
@@ -237,18 +242,9 @@ export default function Navigation() {
                       // Mobile App Navigation
                       <>
                         <div>
-                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Dashboard</h3>
+                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Mobile App</h3>
                           <div className="space-y-1">
-                            {coreNavItems.map(item => (
-                              <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Tools</h3>
-                          <div className="space-y-1">
-                            {extendedNavItems.map(item => (
+                            {mobileAppNavItems.map(item => (
                               <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
                             ))}
                           </div>
@@ -305,31 +301,33 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Bottom Navigation Bar - Core Actions Only */}
-        <div className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
-          <div className="flex justify-center items-center px-2 py-1">
-            <div className="flex space-x-1 max-w-sm w-full justify-between">
-              {coreNavItems.map(item => {
-                const Icon = item.icon;
-                const isActive = location === item.path || (item.path === "/dashboard" && location === "/");
-                return (
-                  <Link key={item.path} href={item.path} className="flex-1">
-                    <div
-                      className={`mobile-nav-item flex flex-col items-center py-2 px-1 rounded-md transition-all duration-200 ${
-                        isActive ? "active text-primary" : "text-gray-500 hover:text-primary hover:bg-gray-50"
-                      }`}
-                    >
-                      <Icon className={`w-4 h-4 mb-1 ${isActive ? "text-primary" : "text-gray-500"}`} />
-                      <span className="text-xs font-medium text-center leading-tight">
-                        {item.label}
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })}
+        {/* Mobile Bottom Navigation Bar - Only for mobile app */}
+        {isMobileApp && (
+          <div className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
+            <div className="flex justify-center items-center px-2 py-1">
+              <div className="flex space-x-1 max-w-sm w-full justify-between">
+                {mobileAppNavItems.slice(0, 4).map(item => {
+                  const Icon = item.icon;
+                  const isActive = location === item.path || (item.path === "/dashboard" && location === "/");
+                  return (
+                    <Link key={item.path} href={item.path} className="flex-1">
+                      <div
+                        className={`mobile-nav-item flex flex-col items-center py-2 px-1 rounded-md transition-all duration-200 ${
+                          isActive ? "active text-primary" : "text-gray-500 hover:text-primary hover:bg-gray-50"
+                        }`}
+                      >
+                        <Icon className={`w-4 h-4 mb-1 ${isActive ? "text-primary" : "text-gray-500"}`} />
+                        <span className="text-xs font-medium text-center leading-tight">
+                          {item.label}
+                        </span>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
