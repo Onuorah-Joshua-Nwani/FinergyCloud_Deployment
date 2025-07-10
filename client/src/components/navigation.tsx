@@ -80,13 +80,13 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-14 sm:h-16">
           
-          {/* Brand/Logo - Left Side */}
+          {/* App Brand - Left Side (Mobile App Only) */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-sm">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
               <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
             </div>
             <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              FinergyCloud
+              Renewable Energy App
             </span>
           </Link>
 
@@ -157,12 +157,15 @@ export default function Navigation() {
               <SheetContent side="right" className="w-80 sm:w-96">
                 <div className="flex flex-col h-full">
                   
-                  {/* Mobile Header */}
+                  {/* Mobile App Header */}
                   <div className="flex items-center space-x-3 pb-6 border-b border-gray-200">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
                       <Leaf className="w-5 h-5 text-white" />
                     </div>
-                    <span className="text-xl font-bold text-gray-900">FinergyCloud</span>
+                    <div className="flex flex-col">
+                      <span className="text-lg font-bold text-gray-900">Renewable Energy</span>
+                      <span className="text-sm text-gray-500">Investment App</span>
+                    </div>
                   </div>
 
                   {/* Mobile User Profile */}
