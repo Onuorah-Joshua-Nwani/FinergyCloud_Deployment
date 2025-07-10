@@ -47,7 +47,7 @@ export default function Landing() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
               <Button size="lg" className="text-lg px-8 py-4 bg-green-600 hover:bg-green-700">
-                Access Web Platform
+                Get Started
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
