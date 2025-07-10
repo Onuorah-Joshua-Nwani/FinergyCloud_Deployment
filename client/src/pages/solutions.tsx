@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import SocialLinks from "@/components/social-links";
+import PlatformSwitcher from "@/components/platform-switcher";
 import { 
   Brain, 
   Leaf, 
@@ -239,10 +241,46 @@ export default function Solutions() {
           <p className="text-xl mb-8 text-green-100">
             Join leading investors who use FinergyCloud to make smarter renewable energy investments
           </p>
-          <Button size="lg" className="text-lg px-8 py-4 bg-white text-green-600 hover:bg-green-50">
-            Get Started Today
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="text-lg px-8 py-4 bg-white text-green-600 hover:bg-green-50">
+              Start Free Trial
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-green-600">
+              Schedule Demo
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Access */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Access FinergyCloud Solutions
+            </h2>
+            <p className="text-gray-600">
+              Choose your preferred platform to get started with intelligent renewable energy investment
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <PlatformSwitcher currentPlatform="mobile" />
+            <PlatformSwitcher currentPlatform="web" />
+          </div>
+        </div>
+      </section>
+
+      {/* Connect Section */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">
+            Stay Connected
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Follow FinergyCloud for the latest updates and insights
+          </p>
+          <SocialLinks showLabels className="justify-center" />
         </div>
       </section>
     </div>

@@ -1,10 +1,12 @@
 import { Link, useLocation } from "wouter";
-import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard, Info, Wrench, BookOpen } from "lucide-react";
+import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard, Info, Wrench, BookOpen, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import CurrencySelector from "./currency-selector";
+import SocialLinks from "./social-links";
+import PlatformSwitcher from "./platform-switcher";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function Navigation() {
@@ -129,6 +131,12 @@ export default function Navigation() {
                       <Settings className="mr-2 h-4 w-4" />
                       <span>Settings</span>
                     </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        <Smartphone className="mr-2 h-4 w-4" />
+                        <span>Mobile App</span>
+                      </a>
+                    </DropdownMenuItem>
                     <DropdownMenuItem onClick={handleLogout}>
                       <LogOut className="mr-2 h-4 w-4" />
                       <span>Log out</span>
@@ -211,22 +219,37 @@ export default function Navigation() {
                   </div>
 
                   {/* Mobile Footer Actions */}
-                  {isAuthenticated && (
-                    <div className="pt-4 border-t border-gray-200 space-y-2">
-                      <Button variant="ghost" className="w-full justify-start text-gray-700 hover:text-gray-900">
-                        <Settings className="mr-3 h-4 w-4" />
-                        Settings
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50"
-                        onClick={handleLogout}
-                      >
-                        <LogOut className="mr-3 h-4 w-4" />
-                        Log out
-                      </Button>
+                  <div className="pt-4 border-t border-gray-200 space-y-4">
+                    {/* Platform Switcher */}
+                    <div>
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-2">Switch Platform</h4>
+                      <PlatformSwitcher variant="menu" currentPlatform="web" />
                     </div>
-                  )}
+
+                    {/* Social Links */}
+                    <div>
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-2">Connect</h4>
+                      <SocialLinks variant="sidebar" />
+                    </div>
+
+                    {/* User Actions */}
+                    {isAuthenticated && (
+                      <div className="space-y-2">
+                        <Button variant="ghost" className="w-full justify-start text-gray-700 hover:text-gray-900">
+                          <Settings className="mr-3 h-4 w-4" />
+                          Settings
+                        </Button>
+                        <Button 
+                          variant="ghost" 
+                          className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50"
+                          onClick={handleLogout}
+                        >
+                          <LogOut className="mr-3 h-4 w-4" />
+                          Log out
+                        </Button>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

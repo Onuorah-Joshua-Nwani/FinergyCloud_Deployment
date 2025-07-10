@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import SocialLinks from "@/components/social-links";
+import PlatformSwitcher from "@/components/platform-switcher";
 import { 
   Mail,
   Phone,
@@ -373,6 +375,44 @@ export default function Contact() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </section>
+
+        {/* Connect & Platform Section */}
+        <section className="mt-16 py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 rounded-xl">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Connect with FinergyCloud
+              </h2>
+              <p className="text-gray-600">
+                Follow us for updates and access our platform from anywhere
+              </p>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Social Connect */}
+              <div className="text-center lg:text-left">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Follow Our Journey
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Stay connected with FinergyCloud across social platforms for insights, updates, and community discussions
+                </p>
+                <SocialLinks showLabels />
+              </div>
+
+              {/* Platform Access */}
+              <div className="text-center lg:text-left">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Try FinergyCloud Platform
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Experience our renewable energy investment platform on web or mobile
+                </p>
+                <PlatformSwitcher variant="banner" currentPlatform="web" />
+              </div>
+            </div>
           </div>
         </section>
       </div>

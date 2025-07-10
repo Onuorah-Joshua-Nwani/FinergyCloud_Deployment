@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import SocialLinks from "@/components/social-links";
+import PlatformSwitcher from "@/components/platform-switcher";
 import { 
   Calendar,
   User,
@@ -288,6 +290,28 @@ export default function Blog() {
           </div>
         </div>
       </div>
+
+      {/* Connect & Subscribe Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Stay Updated with FinergyCloud
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Follow our latest insights and join the renewable energy investment community
+          </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Social Media</h3>
+              <SocialLinks showLabels className="justify-center" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Access Platform</h3>
+              <PlatformSwitcher variant="banner" currentPlatform="web" />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

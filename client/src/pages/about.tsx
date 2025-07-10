@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import SocialLinks from "@/components/social-links";
+import PlatformSwitcher from "@/components/platform-switcher";
 import { 
   Target, 
   Globe, 
@@ -241,6 +243,35 @@ export default function About() {
             Join Our Mission
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
+        </div>
+      </section>
+
+      {/* Connect & Platform Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Social Connect */}
+            <div className="text-center lg:text-left">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Connect with O.J. Nwani
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Follow the journey and insights from FinergyCloud's founder across social platforms
+              </p>
+              <SocialLinks showLabels />
+            </div>
+
+            {/* Platform Access */}
+            <div className="text-center lg:text-left">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Experience FinergyCloud
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Access our platform from web or mobile to start your renewable energy investment journey
+              </p>
+              <PlatformSwitcher variant="banner" currentPlatform="web" />
+            </div>
+          </div>
         </div>
       </section>
     </div>

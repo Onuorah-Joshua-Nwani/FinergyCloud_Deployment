@@ -60,6 +60,8 @@ PostgreSQL database with Drizzle ORM providing:
 - **Risk Heat Maps**: Real-time risk visualization across project portfolios
 - **Project Recommendation Engine**: ML-powered investment opportunity suggestions
 - **Multi-currency Support**: Real-time conversion between NGN, GBP, and EUR
+- **Cross-Platform Navigation**: Seamless switching between web platform and mobile app
+- **Social Media Integration**: Connected presence across GitHub, LinkedIn, YouTube, Facebook, and Medium
 
 ## Data Flow
 
@@ -130,5 +132,19 @@ The application is designed to deploy on:
 - **Main Branch**: Contains mobile app and static website files
 - **Web Platform Branch**: Complete web application (current codebase)
 - **Production Ready**: All necessary configuration files and documentation included
+
+### Social Media & Platform Integration
+The platform maintains a unified presence across multiple channels:
+- **GitHub Repository**: https://github.com/onuorah-joshua-nwani/ojn-msp-1-finergycloud
+- **LinkedIn Company**: https://www.linkedin.com/company/finergycloud
+- **YouTube Channel**: https://www.youtube.com/@FinergyCloud_official
+- **Facebook Profile**: https://www.facebook.com/onuorah.joshua.nwani
+- **Medium Blog**: https://medium.com/@onuorahani
+
+### Cross-Platform Experience
+- **Platform Separation**: Web and mobile app maintained as separate but connected experiences
+- **Cross-Platform Navigation**: Users can seamlessly switch between web platform and mobile app
+- **Unified Branding**: Consistent FinergyCloud identity across all platforms and social channels
+- **Social Integration**: Social media links embedded throughout the platform for community engagement
 
 The platform is designed to integrate seamlessly with the existing mobile application, sharing backend infrastructure while providing enhanced desktop and tablet experiences for renewable energy investment management.

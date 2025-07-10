@@ -1,6 +1,8 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import PlatformSwitcher from "@/components/platform-switcher";
+import SocialLinks from "@/components/social-links";
 import { 
   Zap, 
   Shield, 
@@ -272,6 +274,38 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Platform Access Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Choose Your Experience
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Access FinergyCloud's powerful renewable energy investment tools from any device
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <PlatformSwitcher currentPlatform="mobile" />
+            <PlatformSwitcher currentPlatform="web" />
+          </div>
+        </div>
+      </section>
+
+      {/* Connect Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Connect with FinergyCloud
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Follow our journey in renewable energy innovation and stay updated with the latest insights
+          </p>
+          <SocialLinks showLabels className="justify-center" />
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
@@ -282,8 +316,11 @@ export default function Landing() {
             <span className="text-xl font-bold text-white">FinergyCloud</span>
           </div>
           <p className="text-gray-400 mb-4">
-            Powering the future of renewable energy investment analysis
+            Developed by O.J. Nwani • Powering the future of renewable energy investment analysis
           </p>
+          <div className="mb-4">
+            <SocialLinks variant="footer" className="justify-center" />
+          </div>
           <p className="text-sm text-gray-500">
             © 2025 FinergyCloud. All rights reserved.
           </p>
