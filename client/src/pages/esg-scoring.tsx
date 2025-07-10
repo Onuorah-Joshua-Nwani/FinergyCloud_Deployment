@@ -58,22 +58,22 @@ export default function ESGScoring() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <section className="py-8 bg-gray-50">
+      <section className="py-4 md:py-8 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">ESG Scoring</h1>
-          <p className="text-gray-600">Environmental, Social & Governance assessment</p>
+          <div className="mb-6 md:mb-8">
+          <h1 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">ESG Scoring</h1>
+          <p className="text-sm md:text-base text-gray-600">Environmental, Social & Governance assessment</p>
         </div>
 
         {/* ESG Score Overview */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
           <div className="lg:col-span-2">
             <Card>
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle>Current ESG Assessment</CardTitle>
+              <CardHeader className="pb-3 md:pb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <CardTitle className="text-base md:text-lg">Current ESG Assessment</CardTitle>
                   <Select defaultValue="all">
-                    <SelectTrigger className="w-48">
+                    <SelectTrigger className="w-full sm:w-48">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -92,10 +92,10 @@ export default function ESGScoring() {
           </div>
 
           {/* ESG Metrics */}
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <Card>
-              <CardHeader>
-                <CardTitle>Environmental Impact</CardTitle>
+              <CardHeader className="pb-3 md:pb-6">
+                <CardTitle className="text-base md:text-lg">Environmental Impact</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">

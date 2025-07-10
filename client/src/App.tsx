@@ -62,7 +62,8 @@ function Router() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
-        <Switch>
+        <div className="pb-16 lg:pb-0">
+          <Switch>
           <Route path="/login" component={Login} />
           {!isAuthenticated ? (
             <>
@@ -85,7 +86,8 @@ function Router() {
               <Route path="*" component={NotFound} />
             </>
           )}
-        </Switch>
+          </Switch>
+        </div>
       </div>
     );
   }

@@ -204,26 +204,26 @@ export default function RewardsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-4">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-3 md:p-4">
+      <div className="max-w-7xl mx-auto space-y-4 md:space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
             Sustainability Rewards
           </h1>
-          <p className="text-gray-600">
+          <p className="text-sm md:text-base text-gray-600">
             Earn points and unlock achievements for your sustainable investment choices
           </p>
         </div>
 
         {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium opacity-90">
+            <CardHeader className="pb-2 p-3 md:p-6">
+              <CardTitle className="text-xs md:text-sm font-medium opacity-90">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4" />
-                  Sustainability Points
+                  <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
+                  <span className="line-clamp-1">Sustainability Points</span>
                 </div>
               </CardTitle>
             </CardHeader>

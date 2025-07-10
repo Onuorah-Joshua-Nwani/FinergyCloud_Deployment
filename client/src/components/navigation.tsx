@@ -324,14 +324,15 @@ export default function Navigation() {
 
         {/* Mobile Bottom Navigation Bar - Only for mobile app */}
         {isMobileApp && (
-          <div className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
-            <div className="flex justify-center items-center px-2 py-1">
+          <div className="lg:hidden fixed bottom-0 left-0 right-0 border-t border-gray-200 bg-white/95 backdrop-blur-md z-40 safe-area-pb">
+            <div className="flex justify-center items-center px-2 py-1.5">
               <div className="flex space-x-1 max-w-sm w-full justify-between">
                 {mobileAppNavItems.slice(0, 4).map(item => {
                   const Icon = item.icon;
                   const isActive = location === item.path || (item.path === "/" && (location === "/" || location === "/dashboard"));
+                  const linkPath = `${item.path}?platform=mobile`;
                   return (
-                    <Link key={item.path} href={item.path} className="flex-1">
+                    <Link key={item.path} href={linkPath} className="flex-1">
                       <div
                         className={`flex flex-col items-center py-2 px-1 rounded-md transition-all duration-200 ${
                           isActive ? "text-primary bg-primary/10" : "text-gray-500 hover:text-primary hover:bg-gray-50"

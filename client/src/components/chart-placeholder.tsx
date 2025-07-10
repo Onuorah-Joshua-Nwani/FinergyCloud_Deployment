@@ -31,15 +31,15 @@ export default function ChartPlaceholder({
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
+      <CardHeader className="pb-3 md:pb-6">
+        <CardTitle className="text-base md:text-lg">{title}</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="h-64 flex items-center justify-center bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-          <div className="text-center">
-            <Icon className="w-16 h-16 text-gray-400 mb-4 mx-auto" />
-            <p className="text-gray-500 font-medium">{title}</p>
-            <p className="text-sm text-gray-400">{description}</p>
+      <CardContent className="p-3 md:p-6">
+        <div className="h-48 md:h-64 flex items-center justify-center bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
+          <div className="text-center px-4">
+            <Icon className="w-12 h-12 md:w-16 md:h-16 text-gray-400 mb-2 md:mb-4 mx-auto" />
+            <p className="text-sm md:text-base text-gray-500 font-medium line-clamp-1">{title}</p>
+            <p className="text-xs md:text-sm text-gray-400 line-clamp-2">{description}</p>
           </div>
         </div>
       </CardContent>
