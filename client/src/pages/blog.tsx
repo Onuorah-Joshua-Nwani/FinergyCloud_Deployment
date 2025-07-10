@@ -93,9 +93,8 @@ export default function Blog() {
   ];
 
   const handleReadMore = (postTitle: string) => {
-    // Simulate navigation to full blog post
-    console.log(`Navigate to full post: ${postTitle}`);
-    // In a real app, this would navigate to /blog/[slug]
+    // Create a modal or expanded view for the blog post
+    alert(`Reading: ${postTitle}\n\nThis would open the full article in a real blog system. For now, this demonstrates the blog functionality is working.`);
   };
 
   return (

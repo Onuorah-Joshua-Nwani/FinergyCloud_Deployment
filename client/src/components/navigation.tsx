@@ -22,7 +22,7 @@ export default function Navigation() {
     } else if (platformParam === 'web') {
       return false;
     }
-    return true; // Default to mobile
+    return false; // Default to website
   })();
 
   // Website navigation items (for FinergyCloud website)
