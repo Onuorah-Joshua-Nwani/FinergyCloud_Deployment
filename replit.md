@@ -157,5 +157,6 @@ The platform maintains a unified presence across multiple channels:
 - **Mobile UX Optimization**: Added proper padding, responsive breakpoints, and touch-friendly interface elements
 - **Code Ownership**: Removed all external platform references to ensure 100% independent codebase ownership
 - **Hamburger Menu Fix**: Implemented proper toggle functionality and removed duplicate navigation elements
+- **Hamburger Menu Visibility**: Fixed hamburger menu disappearing on tablets by changing visibility from `md:hidden` to `lg:hidden`, ensuring consistent navigation across all mobile app pages including IRR Calculator
 
 The platform is designed to integrate seamlessly with the existing mobile application, sharing backend infrastructure while providing enhanced desktop and tablet experiences for renewable energy investment management.
