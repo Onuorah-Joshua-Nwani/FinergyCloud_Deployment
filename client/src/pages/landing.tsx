@@ -12,7 +12,8 @@ import {
   Brain,
   BarChart3,
   Calculator,
-  Globe
+  Globe,
+  Smartphone
 } from "lucide-react";
 
 export default function Landing() {
@@ -51,8 +52,14 @@ export default function Landing() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
+            <Link href="/?platform=mobile">
+              <Button size="lg" className="text-lg px-8 py-4 bg-blue-600 hover:bg-blue-700">
+                Mobile App
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
             <Link href="/about">
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-blue-600 text-blue-600 hover:bg-blue-50">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-gray-600 text-gray-600 hover:bg-gray-50">
                 Learn More
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -72,6 +79,10 @@ export default function Landing() {
             <Link href="/blog" className="hover:text-green-600 transition-colors flex items-center gap-2">
               <BarChart3 className="w-4 h-4" />
               Insights & Research
+            </Link>
+            <Link href="/?platform=mobile" className="hover:text-blue-600 transition-colors flex items-center gap-2">
+              <Smartphone className="w-4 h-4" />
+              Mobile App
             </Link>
             <Link href="/contact" className="hover:text-green-600 transition-colors flex items-center gap-2">
               <ArrowRight className="w-4 h-4" />

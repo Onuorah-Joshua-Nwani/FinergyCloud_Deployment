@@ -32,6 +32,7 @@ export default function Navigation() {
     { path: "/solutions", label: "Solutions", icon: Wrench, priority: 3 },
     { path: "/blog", label: "Blog", icon: BookOpen, priority: 4 },
     { path: "/contact", label: "Contact", icon: Phone, priority: 5 },
+    { path: "/?platform=mobile", label: "Mobile App", icon: Smartphone, priority: 6 },
   ];
 
   // Mobile app navigation items (functional app only)
@@ -144,10 +145,10 @@ export default function Navigation() {
                       <span>Settings</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <a href="#" target="_blank" rel="noopener noreferrer">
+                      <Link href="/?platform=mobile">
                         <Smartphone className="mr-2 h-4 w-4" />
                         <span>Mobile App</span>
-                      </a>
+                      </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={handleLogout}>
                       <LogOut className="mr-2 h-4 w-4" />

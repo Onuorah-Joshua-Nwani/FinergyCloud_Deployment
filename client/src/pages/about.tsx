@@ -309,6 +309,9 @@ export default function About() {
             <Link href="/contact" className="hover:text-white transition-colors">
               Contact Support
             </Link>
+            <Link href="/?platform=mobile" className="hover:text-white transition-colors">
+              Mobile App
+            </Link>
           </div>
         </div>
       </section>
@@ -337,12 +340,12 @@ export default function About() {
                 Access our platform from web or mobile to start your renewable energy investment journey
               </p>
               <div className="flex gap-4">
-                <a href="https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev/?platform=mobile" target="_blank" rel="noopener noreferrer">
+                <Link href="/?platform=mobile">
                   <Button className="bg-green-600 hover:bg-green-700">
                     Mobile App
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -22,7 +22,8 @@ import {
   CheckCircle,
   ArrowRight,
   Home,
-  ChevronRight
+  ChevronRight,
+  Smartphone
 } from "lucide-react";
 
 export default function Contact() {
@@ -349,6 +350,12 @@ export default function Contact() {
                   <MessageSquare className="w-4 h-4 mr-2" />
                   Live Chat Support
                 </Button>
+                <Link href="/?platform=mobile">
+                  <Button variant="outline" className="w-full justify-start">
+                    <Smartphone className="w-4 h-4 mr-2" />
+                    Try Mobile App
+                  </Button>
+                </Link>
                 <Button variant="outline" className="w-full justify-start">
                   <Users className="w-4 h-4 mr-2" />
                   Partner with Us
