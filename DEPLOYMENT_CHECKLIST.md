@@ -34,7 +34,7 @@
 ### Documentation:
 - `README.md` - Platform documentation
 - `PLATFORM.md` - Technical details
-- `replit.md` - Project context
+- `development environment.md` - Project context
 
 ## Files to REMOVE from Your Branch:
 
