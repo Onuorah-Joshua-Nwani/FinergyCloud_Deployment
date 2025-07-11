@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+import { execSync } from 'child_process';
+import { existsSync } from 'fs';
+
+console.log('Railway Build Script Starting...');
+
+// Check if client/index.html exists
+if (!existsSync('./client/index.html')) {
+  console.error('ERROR: client/index.html not found!');
+  console.log('Current directory:', process.cwd());
+  console.log('Directory contents:');
+  execSync('ls -la', { stdio: 'inherit' });
+  console.log('\nClient directory contents:');
+  execSync('ls -la client/', { stdio: 'inherit' });
+  process.exit(1);
+}
+
+try {
+  // Build using the production config
+  console.log('Building client with vite...');
+  execSync('npx vite build --config vite.config.production.ts', { stdio: 'inherit' });
+  
+  console.log('Building server with esbuild...');
+  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist', { stdio: 'inherit' });
+  
+  console.log('Build completed successfully!');
+} catch (error) {
+  console.error('Build failed:', error.message);
+  process.exit(1);
+}
