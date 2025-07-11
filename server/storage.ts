@@ -104,10 +104,24 @@ export interface IStorage {
 }
 
 export class DatabaseStorage implements IStorage {
+  constructor() {
+    // Only seed data if database is available
+    if (db) {
+      this.seedData().catch(err => console.log('Seed data failed:', err.message));
+      this.seedRewardData().catch(err => console.log('Seed reward data failed:', err.message));
+    }
+  }
+
   // User operations
   async getUser(id: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user;
+    if (!db) return undefined;
+    try {
+      const [user] = await db.select().from(users).where(eq(users.id, id));
+      return user;
+    } catch (error) {
+      console.log('Database query failed:', error.message);
+      return undefined;
+    }
   }
 
   async getUserByEmail(email: string): Promise<User | undefined> {
@@ -164,10 +178,15 @@ export class DatabaseStorage implements IStorage {
     return user;
   }
   async seedData() {
-    // Check if data already exists
-    const existingProjects = await db.select().from(projects);
-    if (existingProjects.length > 0) {
-      return; // Data already seeded
+    try {
+      // Check if data already exists
+      const existingProjects = await db.select().from(projects);
+      if (existingProjects.length > 0) {
+        return; // Data already seeded
+      }
+    } catch (error) {
+      console.log('Database not available, skipping seed data');
+      return;
     }
 
     // Seed projects

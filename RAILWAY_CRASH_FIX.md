@@ -1,67 +1,55 @@
-# Railway Crash Fix Guide
+# Railway Crash Fix - Critical Environment Variables
 
-## Common Crash Causes and Solutions
+Railway is crashing because of missing environment variables and database configuration. Here's what you need to set in Railway dashboard:
 
-### 1. Port Configuration (FIXED)
-Updated `server/index.ts` to use Railway's PORT environment variable:
-```javascript
-const port = process.env.PORT || 5000;
+## Required Environment Variables
+
+### 1. SESSION_SECRET (CRITICAL)
+```
+SESSION_SECRET=your-super-secret-session-key-here-make-it-long-and-random
+```
+**Without this, the app will crash immediately**
+
+### 2. NODE_ENV
+```
+NODE_ENV=production
 ```
 
-### 2. Required Environment Variables
-In Railway Service Settings > Variables, add:
-- `NODE_ENV=production`
-- `SESSION_SECRET=your-random-secret-key-here` (generate a random string)
-- `DATABASE_URL` (if using PostgreSQL - Railway can provide this)
-
-### 3. Session Store Configuration
-The app uses express-session which needs proper configuration in production.
-
-### 4. Health Check Configuration
-Railway needs a health check endpoint to know if your app is running.
-
-## Permanent Fix Steps
-
-1. **Add Environment Variables in Railway:**
-   - Go to your service in Railway
-   - Click on "Variables" tab
-   - Add:
-     ```
-     NODE_ENV=production
-     SESSION_SECRET=generate-a-random-string-here
-     ```
-
-2. **Enable Railway's Health Checks:**
-   - In Railway service settings
-   - Go to "Settings" > "Health Checks"
-   - Enable health checks
-   - Set path to `/` or `/api/health`
-
-3. **Check Logs:**
-   - Click on "Logs" tab in Railway
-   - Look for any error messages
-   - Common issues:
-     - Missing environment variables
-     - Database connection errors
-     - Memory limits
-
-## Creating a Health Check Endpoint
-
-Add this to your `server/routes.ts`:
-```typescript
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
-});
+### 3. PORT (Optional - Railway sets automatically)
+```
+PORT=3000
 ```
 
-## Restart Policy
-Railway.json already has restart policy configured:
-- `restartPolicyType: "ON_FAILURE"`
-- `restartPolicyMaxRetries: 10`
+## Database Configuration (Optional)
 
-This means Railway will automatically restart your app if it crashes, up to 10 times.
+If you want database functionality:
+```
+DATABASE_URL=postgresql://username:password@host:port/database
+```
 
-## Next Steps
-1. Add the required environment variables
-2. Monitor the logs for specific error messages
-3. The app should run stably without manual intervention
+**Note: The app can run WITHOUT a database (uses memory storage)**
+
+## How to Set Environment Variables in Railway
+
+1. Go to your Railway project dashboard
+2. Click on your service
+3. Go to "Variables" tab
+4. Add these environment variables:
+   - `SESSION_SECRET` = `finergycloud-super-secret-session-key-2025-railway-deployment`
+   - `NODE_ENV` = `production`
+
+## Quick Fix Steps
+
+1. **Set SESSION_SECRET** - This is the most critical fix
+2. **Redeploy** - Railway will automatically redeploy with new variables
+3. **Check logs** - Should show "Database not available, running without database" instead of crashing
+
+## Expected Behavior After Fix
+
+✅ App starts successfully  
+✅ Serves website on Railway domain  
+✅ Uses memory storage (no database needed)  
+✅ Session management works  
+✅ All pages load correctly  
+
+The app is designed to work perfectly without a database for the static website experience.
