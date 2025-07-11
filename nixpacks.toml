@@ -2,13 +2,19 @@
 cmds = [
   "rm -rf node_modules package-lock.json",
   "npm cache clean --force",
-  "npm install --legacy-peer-deps"
+  "npm install --legacy-peer-deps",
+  "echo 'Install phase completed successfully'"
 ]
 
 [phases.build]
 cmds = [
+  "echo 'Starting build phase...'",
   "npm run build",
-  "npx esbuild server/minimal.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/minimal.js"
+  "echo 'Frontend build completed'",
+  "npx esbuild server/minimal.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/minimal.js",
+  "echo 'Server build completed'",
+  "ls -la dist/",
+  "echo 'Build phase completed successfully'"
 ]
 
 [start]
@@ -16,3 +22,4 @@ cmd = "node dist/minimal.js"
 
 [variables]
 NODE_ENV = "production"
+PORT = "3000"
