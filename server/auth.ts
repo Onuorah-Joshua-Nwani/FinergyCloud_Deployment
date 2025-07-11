@@ -7,17 +7,23 @@ export function getSession() {
   const sessionTtl = 7 * 24 * 60 * 60 * 1000; // 1 week
   
   let sessionStore;
-  if (process.env.DATABASE_URL) {
-    // Use PostgreSQL if available
-    const pgStore = connectPg(session);
-    sessionStore = new pgStore({
-      conString: process.env.DATABASE_URL,
-      createTableIfMissing: false,
-      ttl: sessionTtl,
-      tableName: "sessions",
-    });
-  } else {
-    // Fallback to memory store if no database
+  try {
+    if (process.env.DATABASE_URL) {
+      // Use PostgreSQL if available
+      const pgStore = connectPg(session);
+      sessionStore = new pgStore({
+        conString: process.env.DATABASE_URL,
+        createTableIfMissing: false,
+        ttl: sessionTtl,
+        tableName: "sessions",
+      });
+      console.log('Using PostgreSQL session store');
+    } else {
+      throw new Error('No DATABASE_URL, using memory store');
+    }
+  } catch (error) {
+    // Always fallback to memory store on any database error
+    console.log('Using memory session store:', error.message);
     const MemoryStore = memorystore(session);
     sessionStore = new MemoryStore({
       checkPeriod: 86400000 // prune expired entries every 24h
