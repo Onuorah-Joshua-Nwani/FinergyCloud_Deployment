@@ -4,12 +4,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Production builds
-/dist
-/build
-.next/
-out/
-
 # Environment variables
 .env
 .env.local
@@ -17,7 +11,84 @@ out/
 .env.test.local
 .env.production.local
 
-# IDE/Editor files
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
 .vscode/
 .idea/
 *.swp
@@ -33,26 +104,20 @@ out/
 ehthumbs.db
 Thumbs.db
 
-# Logs
-logs
-*.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-
 # Database
 *.db
 *.sqlite
 
-# Temporary folders
-tmp/
-temp/
+# Deployment
+.vercel
+.railway
 
-# Drizzle
-drizzle/
+# Debug and development files
+debug_files/
+attached_assets/
+*.debug.js
+
+# Professional repository - exclude development platform files
+.replit
+replit.nix
+replit.md
