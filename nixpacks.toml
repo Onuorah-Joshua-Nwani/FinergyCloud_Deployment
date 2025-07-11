@@ -8,7 +8,7 @@ cmds = [
 [phases.build]
 cmds = [
   "npm run build",
-  "npx esbuild server/minimal.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --outfile=dist/minimal.js"
+  "npx esbuild server/minimal.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/minimal.js"
 ]
 
 [start]

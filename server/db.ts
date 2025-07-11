@@ -5,11 +5,12 @@ import * as schema from "@shared/schema";
 
 neonConfig.webSocketConstructor = ws;
 
-// Allow running without database in production deployments
+// Disable database connection in development to prevent errors
 let pool: Pool | null = null;
 let db: any = null;
 
-if (process.env.DATABASE_URL) {
+// Only attempt database connection in production with valid URL
+if (process.env.NODE_ENV === 'production' && process.env.DATABASE_URL && !process.env.DATABASE_URL.includes('disabled')) {
   try {
     pool = new Pool({ connectionString: process.env.DATABASE_URL });
     db = drizzle({ client: pool, schema });
@@ -18,7 +19,7 @@ if (process.env.DATABASE_URL) {
     console.log('Database connection failed, running without database:', error.message);
   }
 } else {
-  console.log('No DATABASE_URL provided, running without database');
+  console.log('Database disabled - running in development mode without database');
 }
 
 export { pool, db };
