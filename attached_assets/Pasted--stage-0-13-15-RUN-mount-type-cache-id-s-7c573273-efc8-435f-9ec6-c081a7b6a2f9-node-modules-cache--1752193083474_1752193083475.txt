@@ -1,0 +1,52 @@
+[stage-0 13/15] RUN --mount=type=cache,id=s/7c573273-efc8-435f-9ec6-c081a7b6a2f9-node_modules/cache,target=/app/node_modules/.cache npm install && node build-railway.mjs
+"npm install && node build-railway.mjs" did not complete successfully: exit code: 1
+
+View in context
+
+npm warn config production Use `--omit=dev` instead.
+
+up to date, audited 519 packages in 2s
+
+67 packages are looking for funding
+  run `npm fund` for details
+
+9 vulnerabilities (1 low, 8 moderate)
+To address issues that do not require attention, run:
+  npm audit fix
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+Run `npm audit` for details.
+
+Railway Build Script Starting...
+
+Found index.html in root, setting up client directory...
+
+Copied index.html to client directory
+
+Building client with vite...
+
+npm warn config production Use `--omit=dev` instead.
+
+vite v5.4.19 building for production...
+
+transforming...
+
+✓ 2 modules transformed.
+
+x Build failed in 367ms
+
+error during build:
+[vite]: Rollup failed to resolve import "/src/main.tsx" from "/app/client/index.html".
+This is most likely unintended because it can break your application at runtime.
+If you do want to externalize this module explicitly add it to
+`build.rollupOptions.external`
+    at viteWarn (file:///app/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:65839:17)
+    at onwarn (file:///app/node_modules/@vitejs/plugin-react/dist/index.mjs:280:9)
+    at onRollupWarning (file:///app/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:65869:5)
+    at onwarn (file:///app/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:65534:7)
+    at file:///app/node_modules/rollup/dist/es/shared/node-entry.js:19452:13
+    at Object.logger [as onLog] (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:21178:9)
+    at ModuleLoader.handleInvalidResolvedId (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:20067:26)
+    at file:///app/node_modules/rollup/dist/es/shared/node-entry.js:20025:26
+
+Build failed: Command failed: npx vite build --config vite.config.production.ts
