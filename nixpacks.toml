@@ -1,8 +1,17 @@
-[phases.setup]
-nixPkgs = ["nodejs-20_x", "npm-10_x"]
+[phases.install]
+cmds = [
+  "rm -rf node_modules package-lock.json",
+  "npm cache clean --force",
+  "npm install --legacy-peer-deps"
+]
 
 [phases.build]
-cmds = ["npm install", "npm run build"]
+cmds = [
+  "npm run build"
+]
 
 [start]
 cmd = "npm start"
+
+[variables]
+NODE_ENV = "production"
