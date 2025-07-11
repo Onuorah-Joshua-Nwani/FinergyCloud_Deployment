@@ -7,11 +7,12 @@ cmds = [
 
 [phases.build]
 cmds = [
-  "npm run build"
+  "npm run build",
+  "npx esbuild server/minimal.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --outfile=dist/minimal.js"
 ]
 
 [start]
-cmd = "npm start"
+cmd = "node dist/minimal.js"
 
 [variables]
 NODE_ENV = "production"
