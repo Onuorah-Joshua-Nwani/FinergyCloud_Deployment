@@ -1,4 +1,6 @@
-# Ignore Replit-specific files
-.replit
-replit.nix
+# Ignore development files
 .config/
+.env.local
+.env.development
+node_modules/
+*.log

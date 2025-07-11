@@ -1,7 +1,7 @@
 # Railway Deployment Fix for FinergyCloud
 
 ## The Problem
-Your deployment is failing because vite.config.ts contains Replit-specific plugins that don't exist on Railway.
+Your deployment is failing because vite.config.ts contains development-specific plugins that don't exist on Railway.
 
 ## Solution Steps
 
@@ -61,7 +61,7 @@ If you haven't already:
 
 ### 5. Common Error Messages and Fixes
 
-#### "Cannot find module '@replit/vite-plugin-runtime-error-modal'"
+#### "Cannot find module" errors for development plugins
 - Use the production vite config as shown above
 
 #### "Error: SESSION_SECRET is required"
