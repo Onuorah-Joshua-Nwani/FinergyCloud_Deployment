@@ -16,6 +16,17 @@ if (!existsSync('./client/index.html')) {
 }
 
 try {
+  // Clean npm cache to avoid version conflicts
+  console.log('Cleaning npm cache...');
+  execSync('npm cache clean --force || true', { stdio: 'inherit' });
+  
+  // Remove any existing lock files that might have version conflicts
+  execSync('rm -f package-lock.json || true', { stdio: 'inherit' });
+  
+  // Install fresh dependencies
+  console.log('Installing dependencies with clean slate...');
+  execSync('npm install --legacy-peer-deps', { stdio: 'inherit' });
+  
   // Build using the production config
   console.log('Building client with vite...');
   execSync('npx vite build --config vite.config.production.ts', { stdio: 'inherit' });

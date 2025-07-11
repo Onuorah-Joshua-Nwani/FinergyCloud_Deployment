@@ -1,0 +1,54 @@
+Build failed with 1 error
+[stage-0 11/15] RUN --mount=type=cache,id=s/7c573273-efc8-435f-9ec6-c081a7b6a2f9-/root/npm,target=/root/.npm npm ci
+"npm ci" did not complete successfully: exit code: 1
+
+View in context
+
+npm warn config production Use `--omit=dev` instead.
+
+npm warn ERESOLVE overriding peer dependency
+
+npm warn While resolving: rest-express@1.0.0
+npm warn Found: postcss@8.4.47
+npm warn node_modules/postcss
+npm warn   dev postcss@"^8.5.8" from the root project
+npm warn   7 more (autoprefixer, postcss-import, postcss-js, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer postcss@"^8.1.0" from autoprefixer@10.4.20
+npm warn node_modules/autoprefixer
+npm warn   dev autoprefixer@"^10.4.20" from the root project
+
+npm warn ERESOLVE overriding peer dependency
+
+npm warn While resolving: rest-express@1.0.0
+npm warn Found: tailwindcss@3.4.17
+npm warn node_modules/tailwindcss
+npm warn   dev tailwindcss@"^3.5.3" from the root project
+npm warn   2 more (@tailwindcss/typography, tailwindcss-animate)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer tailwindcss@">=3.0.0 || insiders || >=4.0.0-alpha.20" from @tailwindcss/typography@0.5.15
+npm warn node_modules/@tailwindcss/typography
+npm warn   dev @tailwindcss/typography@"^0.5.15" from the root project
+
+npm warn ERESOLVE overriding peer dependency
+
+npm warn While resolving: rest-express@1.0.0
+npm warn Found: tailwindcss@3.4.17
+npm warn node_modules/tailwindcss
+npm warn   dev tailwindcss@"^3.5.3" from the root project
+npm warn   2 more (@tailwindcss/typography, tailwindcss-animate)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer tailwindcss@">=3.0.0 || insiders" from tailwindcss-animate@1.0.7
+npm warn node_modules/tailwindcss-animate
+npm warn   tailwindcss-animate@"^1.0.7" from the root project
+
+npm error code ETARGET
+
+npm error notarget No matching version found for tailwindcss@^3.5.3.
+npm error notarget In most cases you or one of your dependencies are requesting
+npm error notarget a package version that doesn't exist.
+
+npm error A complete log of this run can be found in: /root/.npm/_logs/2025-07-11T07_54_41_249Z-debug-0.log
