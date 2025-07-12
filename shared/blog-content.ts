@@ -1128,7 +1128,7 @@ Our financial modeling system processes multiple data streams:
 Our IRR calculation engine handles multiple complexities simultaneously:
 
 **Multi-Currency Cash Flow Modeling**:
-```
+\`\`\`
 Year 1-5: Development and construction phase
 - CapEx payments in multiple currencies
 - Development costs and local expenses
@@ -1139,7 +1139,7 @@ Year 6-25: Operational phase
 - O&M costs with local and international components
 - Debt service across different currency obligations
 - Tax implications of multi-currency operations
-```
+\`\`\`
 
 **Currency Hedging Analysis**:
 - Forward contract evaluation for major exposures
@@ -1688,6 +1688,10 @@ The future of renewable energy investment is being written in the sky. We're bui
 *The FinergyCloud Future Technology Team is actively developing satellite integration capabilities. For partnership opportunities or early access to beta testing programs, connect with our team on LinkedIn or contact us through our technology partnership program.*
     `
   },
+  {
+    id: "xgboost-backtesting-validation",
+    title: "XGBoost Backtesting: Validating 94% Accuracy with Historical Data",
+    excerpt: "Inside our three-year validation process using historical data from hundreds of renewable energy projects to test, refine, and validate our prediction algorithms before building our MVP platform.",
     author: "FinergyCloud AI Team",
     date: "January 8, 2025",
     readTime: "12 min read",
