@@ -1095,7 +1095,12 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// Use MemStorage in development when database is not available
+export const storage = process.env.DATABASE_URL && process.env.NODE_ENV === 'production' 
+  ? new DatabaseStorage() 
+  : new MemStorage();
 
-// Initialize database with seed data
-storage.seedData().catch(console.error);
+// Initialize with seed data
+if (storage instanceof DatabaseStorage) {
+  storage.seedData().catch(console.error);
+}
