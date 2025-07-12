@@ -120,7 +120,7 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
             <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
               <Leaf className="w-4 h-4 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">FinergyCloud App</span>
+            <span className="text-lg font-bold text-gray-900">FinergyCloud Studio</span>
           </div>
           {/* Remove close button - hamburger menu handles all toggle functionality */}
         </div>

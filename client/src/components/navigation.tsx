@@ -112,7 +112,7 @@ export default function Navigation() {
                 <Leaf className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
               </div>
               <span className="text-base sm:text-lg font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                {actuallyMobileApp ? "FinergyCloud Experience" : "FinergyCloud"}
+                {actuallyMobileApp ? "FinergyCloud Studio" : "FinergyCloud"}
               </span>
             </Link>
           </div>
