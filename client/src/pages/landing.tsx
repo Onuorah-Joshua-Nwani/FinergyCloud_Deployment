@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import SocialLinks from "@/components/social-links";
+import Footer from "@/components/footer";
 import { 
   Zap, 
   Shield, 
@@ -382,12 +382,12 @@ export default function Landing() {
             Ready to Transform Your Renewable Energy Investments?
           </h2>
           <p className="text-xl mb-8 text-green-100">
-            Join thousands of investors already using FinergyCloud's AI-powered platform to maximize their renewable energy investment returns.
+            Join our pilot program and be among the first to experience AI-powered renewable energy investment intelligence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
               <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 shadow-lg">
-                Start Your Investment Journey
+                Join Pilot Program
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -418,62 +418,7 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold">FinergyCloud</span>
-              </div>
-              <p className="text-gray-300 mb-6">
-                Empowering renewable energy investment through AI-powered analytics and comprehensive market intelligence.
-              </p>
-              <SocialLinks variant="footer" />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Explore</h3>
-              <div className="space-y-3">
-                <Link href="/about" className="block text-gray-300 hover:text-white transition-colors">
-                  About FinergyCloud
-                </Link>
-                <Link href="/solutions" className="block text-gray-300 hover:text-white transition-colors">
-                  Our Solutions
-                </Link>
-                <Link href="/blog" className="block text-gray-300 hover:text-white transition-colors">
-                  Blog & Insights
-                </Link>
-                <Link href="/contact" className="block text-gray-300 hover:text-white transition-colors">
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Get Started</h3>
-              <div className="space-y-3">
-                <Link href="/login">
-                  <Button className="w-full bg-green-600 hover:bg-green-700">
-                    Start Free Trial
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button variant="outline" className="w-full text-white border-white hover:bg-white hover:text-gray-900">
-                    Request Demo
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 FinergyCloud. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

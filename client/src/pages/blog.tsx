@@ -2,8 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import SocialLinks from "@/components/social-links";
-import PlatformSwitcher from "@/components/platform-switcher";
+
 import Footer from "@/components/footer";
 import { 
   Calendar,
@@ -389,7 +388,7 @@ export default function Blog() {
           </div>
           
           <div className="text-sm text-gray-400">
-            Join 2,500+ renewable energy professionals. Unsubscribe anytime.
+            Join our early subscriber list. Unsubscribe anytime.
           </div>
         </div>
       </section>
@@ -401,7 +400,7 @@ export default function Blog() {
             Ready to Experience FinergyCloud?
           </h2>
           <p className="text-xl mb-8 text-green-100">
-            Join the renewable energy investment revolution with AI-powered intelligence and comprehensive market insights.
+            Join our pilot program and be among the first to experience AI-powered renewable energy investment intelligence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
@@ -412,7 +411,7 @@ export default function Blog() {
             </Link>
             <Link href="/?platform=mobile">
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 shadow-lg">
-                Try Mobile Platform
+                Try Mobile Experience
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>

@@ -2,8 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import SocialLinks from "@/components/social-links";
-import PlatformSwitcher from "@/components/platform-switcher";
+
 import Footer from "@/components/footer";
 import { 
   Target, 

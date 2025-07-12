@@ -352,7 +352,7 @@ export default function Contact() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 text-green-100">
-            Join thousands of investors using FinergyCloud's AI-powered platform for renewable energy investments.
+            Join our pilot program and be among the first to experience AI-powered renewable energy investment intelligence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
@@ -363,7 +363,7 @@ export default function Contact() {
             </Link>
             <Link href="/?platform=mobile">
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 shadow-lg">
-                Try Mobile App
+                Try Mobile Experience
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>

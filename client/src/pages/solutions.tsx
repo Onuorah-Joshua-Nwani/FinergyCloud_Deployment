@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import PlatformSwitcher from "@/components/platform-switcher";
+
 import Footer from "@/components/footer";
 import { 
   Brain, 
@@ -387,7 +387,7 @@ export default function Solutions() {
             </Link>
             <Link href="/?platform=mobile">
               <Button size="lg" className="text-lg px-8 py-4 bg-blue-600 hover:bg-blue-700">
-                Try Mobile App
+                Try Mobile Experience
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -398,25 +398,7 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* Platform Access */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Access FinergyCloud Solutions
-            </h2>
-            <p className="text-gray-600">
-              Experience FinergyCloud on mobile for investment tracking on the go
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <div className="max-w-md">
-              <h3 className="text-lg font-semibold text-center mb-4">Try FinergyCloud on Mobile</h3>
-              <PlatformSwitcher currentPlatform="web" />
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <Footer />
     </div>
