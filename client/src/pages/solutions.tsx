@@ -281,7 +281,7 @@ export default function Solutions() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8 py-4 bg-white text-green-600 hover:bg-green-50">
-              Start Free Trial
+              Join Pilot Program
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-green-600">
@@ -376,12 +376,12 @@ export default function Solutions() {
             Ready to Transform Your Investment Strategy?
           </h2>
           <p className="text-xl mb-8 text-green-100">
-            Join leading investors who use FinergyCloud to make smarter renewable energy investments
+            Be among the first to experience next-generation renewable energy investment analysis
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
               <Button size="lg" className="text-lg px-8 py-4 bg-white text-green-600 hover:bg-green-50">
-                Start Free Trial
+                Join Pilot Program
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -415,7 +415,7 @@ export default function Solutions() {
               <PlatformSwitcher currentPlatform="web" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-center mb-4">Mobile App</h3>
+              <h3 className="text-lg font-semibold text-center mb-4">Mobile Experience</h3>
               <PlatformSwitcher currentPlatform="mobile" />
             </div>
           </div>

@@ -42,12 +42,12 @@ export default function PlatformSwitcher({
       badge: "Official Website"
     },
     mobile: {
-      name: "Mobile Investment App",
+      name: "FinergyCloud Mobile App",
       icon: Smartphone,
       url: "/?platform=mobile",
-      description: "Dedicated mobile app for renewable energy investment tracking",
+      description: "Mobile experience for renewable energy investment management on the go",
       features: ["Portfolio Tracking", "Real-time Notifications", "Quick Actions", "Offline Access"],
-      badge: "Mobile App"
+      badge: "Mobile Experience"
     }
   };
 
@@ -122,8 +122,8 @@ export default function PlatformSwitcher({
           <a href={displayPlatform.url} target="_blank" rel="noopener noreferrer">
             {otherPlatform === "mobile" ? (
               <>
-                <Download className="w-4 h-4 mr-2" />
-                Launch Mobile App
+                <Smartphone className="w-4 h-4 mr-2" />
+                Try Mobile Experience
               </>
             ) : (
               <>
