@@ -53,7 +53,9 @@ export default function Blog() {
   const handleShare = (article: BlogArticle, platform: 'linkedin' | 'medium') => {
     const url = platform === 'linkedin' ? article.linkedinUrl : article.mediumUrl;
     if (url) {
-      window.open(url, '_blank');
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      console.warn(`No ${platform} URL found for article: ${article.title}`);
     }
   };
 
@@ -208,7 +210,8 @@ export default function Blog() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md cursor-pointer h-full">
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md cursor-pointer h-full"
+                    onClick={() => handleReadMore(post)}>
                 <CardContent className="p-0">
                   <div className="bg-gradient-to-br from-green-500 to-blue-600 p-8 text-white text-center">
                     <div className="text-4xl mb-2">{post.image}</div>
@@ -255,7 +258,10 @@ export default function Blog() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Button 
-                          onClick={() => handleReadMore(post)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleReadMore(post);
+                          }}
                           variant="ghost" 
                           size="sm" 
                           className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -263,7 +269,10 @@ export default function Blog() {
                           <ArrowRight className="w-4 h-4" />
                         </Button>
                         <Button 
-                          onClick={() => handleShare(post, 'linkedin')}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleShare(post, 'linkedin');
+                          }}
                           variant="ghost" 
                           size="sm" 
                           className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-blue-600"
@@ -282,12 +291,12 @@ export default function Blog() {
 
       {/* Blog Reading Modal */}
       <Dialog open={isReading} onOpenChange={handleCloseReader}>
-        <DialogContent className="max-w-4xl max-h-[90vh] p-0">
-          <DialogHeader className="p-6 border-b">
+        <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden">
+          <DialogHeader className="p-6 border-b shrink-0">
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <DialogTitle className="text-2xl font-bold mb-2">
-                  {selectedArticle?.title}
+                  {selectedArticle?.title || "Blog Article"}
                 </DialogTitle>
                 <DialogDescription className="flex items-center gap-4 text-sm text-gray-600">
                   <span>By {selectedArticle?.author}</span>
@@ -300,7 +309,7 @@ export default function Blog() {
                   variant="ghost"
                   size="sm"
                   onClick={() => selectedArticle && handleShare(selectedArticle, 'linkedin')}
-                  className="text-blue-600"
+                  className="text-blue-600 hover:text-blue-800"
                 >
                   <Share2 className="w-4 h-4 mr-1" />
                   LinkedIn
@@ -309,7 +318,7 @@ export default function Blog() {
                   variant="ghost"
                   size="sm"
                   onClick={() => selectedArticle && handleShare(selectedArticle, 'medium')}
-                  className="text-green-600"
+                  className="text-green-600 hover:text-green-800"
                 >
                   <ExternalLink className="w-4 h-4 mr-1" />
                   Medium
@@ -318,7 +327,7 @@ export default function Blog() {
             </div>
           </DialogHeader>
           
-          <ScrollArea className="flex-1 p-6">
+          <ScrollArea className="h-[70vh] p-6">
             <div className="prose prose-lg max-w-none">
               <div className="mb-6">
                 <Badge className="mb-4">{selectedArticle?.category}</Badge>
@@ -336,7 +345,23 @@ export default function Blog() {
               </div>
               
               <div className="whitespace-pre-wrap text-gray-800 leading-relaxed">
-                {selectedArticle?.content}
+                <style dangerouslySetInnerHTML={{
+                  __html: `
+                    .blog-content h1 { font-size: 2rem; font-weight: bold; margin: 1.5rem 0 1rem 0; color: #1f2937; }
+                    .blog-content h2 { font-size: 1.5rem; font-weight: bold; margin: 1.25rem 0 0.75rem 0; color: #1f2937; }
+                    .blog-content h3 { font-size: 1.25rem; font-weight: bold; margin: 1rem 0 0.5rem 0; color: #1f2937; }
+                    .blog-content p { margin-bottom: 1rem; line-height: 1.6; }
+                    .blog-content ul { margin-bottom: 1rem; padding-left: 1.5rem; }
+                    .blog-content li { margin-bottom: 0.5rem; }
+                    .blog-content strong { font-weight: bold; color: #1f2937; }
+                    .blog-content em { font-style: italic; }
+                    .blog-content code { background-color: #f3f4f6; padding: 0.125rem 0.25rem; border-radius: 0.25rem; }
+                    .blog-content pre { background-color: #f3f4f6; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 1rem 0; }
+                  `
+                }} />
+                <div className="blog-content">
+                  {selectedArticle?.content}
+                </div>
               </div>
               
               <div className="mt-12 pt-8 border-t">
