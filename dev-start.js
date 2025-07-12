@@ -2,29 +2,31 @@
 
 /**
  * Development startup script for FinergyCloud
- * Ensures proper environment setup and error handling
+ * This script bypasses npm and directly starts the TypeScript server
+ * Optimized for Replit Run Button compatibility
  */
 
-import { spawn } from 'child_process';
+import { exec } from 'child_process';
 import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-console.log('🚀 Starting FinergyCloud development server...');
-
-// Set environment
+// Set environment for development
 process.env.NODE_ENV = 'development';
 process.env.PORT = process.env.PORT || '5000';
 
-console.log(`📊 Environment: ${process.env.NODE_ENV}`);
+console.log('🚀 FinergyCloud Development Server');
+console.log(`📍 Environment: ${process.env.NODE_ENV}`);
 console.log(`🌐 Port: ${process.env.PORT}`);
 
-// Start the server with proper error handling
-const serverProcess = spawn('npx', ['tsx', 'server/index.ts'], {
-  stdio: 'inherit',
-  shell: true,
+// Direct TypeScript execution for maximum compatibility
+const startCommand = 'npx tsx server/index.ts';
+
+console.log('⚡ Starting TypeScript server directly...');
+
+const child = exec(startCommand, {
   cwd: __dirname,
   env: {
     ...process.env,
@@ -33,28 +35,34 @@ const serverProcess = spawn('npx', ['tsx', 'server/index.ts'], {
   }
 });
 
-serverProcess.on('error', (error) => {
-  console.error('❌ Failed to start development server:', error);
+// Pipe all output to console
+child.stdout?.on('data', (data) => {
+  process.stdout.write(data);
+});
+
+child.stderr?.on('data', (data) => {
+  process.stderr.write(data);
+});
+
+child.on('error', (error) => {
+  console.error('❌ Server startup failed:', error.message);
   process.exit(1);
 });
 
-serverProcess.on('exit', (code, signal) => {
+child.on('exit', (code, signal) => {
   if (code !== 0) {
-    console.error(`❌ Development server exited with code ${code} (signal: ${signal})`);
+    console.error(`❌ Server exited with code ${code} (signal: ${signal})`);
     process.exit(code || 1);
   }
-  console.log('✅ Development server stopped gracefully');
+  console.log('✅ Server stopped gracefully');
 });
 
-// Handle graceful shutdown
-process.on('SIGTERM', () => {
-  console.log('🛑 SIGTERM received, stopping development server...');
-  serverProcess.kill('SIGTERM');
+// Graceful shutdown handling
+['SIGTERM', 'SIGINT', 'SIGQUIT'].forEach(signal => {
+  process.on(signal, () => {
+    console.log(`🛑 ${signal} received, shutting down...`);
+    child.kill(signal);
+  });
 });
 
-process.on('SIGINT', () => {
-  console.log('🛑 SIGINT received, stopping development server...');
-  serverProcess.kill('SIGINT');
-});
-
-console.log('✅ Development server starting...');
+console.log('✅ Server initialization complete');
