@@ -528,7 +528,7 @@
     }
   }
 
-  /* Enhanced touch gesture support for pinch-to-zoom */
+  /* Best practice touch gesture support for invisible pinch-to-zoom */
   .touch-zoom {
     touch-action: none;
     user-select: none;
@@ -538,21 +538,29 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Zoom container with enhanced touch handling */
+  /* Zoom container optimized for hand gestures */
   .zoom-container {
     transform-origin: center center;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-out;
     touch-action: none;
-    overflow: hidden;
     position: relative;
+    overflow: visible;
   }
 
-  /* Prevent text selection during zoom */
+  /* Allow text selection but prevent during zoom gestures */
   .zoom-container * {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Enhanced pinch-to-zoom responsiveness */
+  @media (hover: none) and (pointer: coarse) {
+    .touch-zoom {
+      touch-action: manipulation;
+    }
+    
+    .zoom-container {
+      -webkit-overflow-scrolling: touch;
+    }
   }
 
   /* Hide zoom controls on desktop */

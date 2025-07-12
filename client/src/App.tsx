@@ -28,7 +28,7 @@ import Login from "@/pages/login";
 import WebsiteLanding from "@/pages/website/website-landing";
 import MobileLanding from "@/pages/mobile-app/mobile-landing";
 import NotFound from "@/pages/not-found";
-import ZoomControls from "@/components/zoom-controls";
+import ZoomControls from "@/components/zoom-controls-invisible";
 
 
 function Router() {
