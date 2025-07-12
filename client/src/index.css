@@ -156,6 +156,18 @@
     padding-right: env(safe-area-inset-right);
   }
   
+  /* Currency selector mobile optimizations */
+  .currency-selector-mobile {
+    min-width: auto;
+    padding: 0.375rem 0.5rem;
+  }
+  
+  .currency-dropdown-mobile {
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
   /* Prevent mobile zoom on input focus */
   @media screen and (max-width: 768px) {
     input[type="text"],
@@ -164,6 +176,12 @@
     textarea,
     select {
       font-size: 16px !important;
+      transform: translateZ(0);
+    }
+    
+    /* Currency selector specific mobile styling */
+    [data-radix-dropdown-content] {
+      max-width: 90vw;
       transform: translateZ(0);
     }
   }

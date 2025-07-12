@@ -169,8 +169,8 @@ export default function Navigation() {
               </Button>
             )}
             
-            {/* Currency Selector - Hidden on small mobile */}
-            <div className="hidden sm:block">
+            {/* Currency Selector - Always visible */}
+            <div className="block">
               <CurrencySelector />
             </div>
             
@@ -310,7 +310,13 @@ export default function Navigation() {
                   </div>
 
                   {/* Mobile Footer Actions */}
-                  <div className="flex-shrink-0 pt-3 border-t border-gray-200">
+                  <div className="flex-shrink-0 pt-3 border-t border-gray-200 space-y-3">
+                    {/* Currency Selector for Mobile */}
+                    <div className="px-2">
+                      <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">Currency</label>
+                      <CurrencySelector />
+                    </div>
+                    
                     {/* User Actions */}
                     {isAuthenticated && (
                       <div className="space-y-2">

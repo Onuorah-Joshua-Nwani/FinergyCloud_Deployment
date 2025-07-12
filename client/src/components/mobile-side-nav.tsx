@@ -20,6 +20,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useQuery } from '@tanstack/react-query';
+import CurrencySelector from './currency-selector';
 
 interface SideNavProps {
   isOpen: boolean;
@@ -152,31 +153,39 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
         </div>
 
         {/* Footer Actions */}
-        <div className="border-t border-gray-200 p-3 space-y-2">
-          <Button
-            variant="default"
-            size="sm"
-            className="w-full justify-start bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-md text-xs"
-            onClick={() => {
-              window.open('/', '_blank');
-              onClose();
-            }}
-          >
-            <Info className="w-3 h-3 mr-2" />
-            Visit Website
-          </Button>
+        <div className="border-t border-gray-200 p-3 space-y-3">
+          {/* Currency Selector */}
+          <div>
+            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">Currency</label>
+            <CurrencySelector />
+          </div>
           
-          {user && (
+          <div className="space-y-2">
             <Button
-              variant="outline"
+              variant="default"
               size="sm"
-              className="w-full justify-start border-red-200 text-red-600 hover:bg-red-50 text-xs"
-              onClick={handleLogout}
+              className="w-full justify-start bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-md text-xs"
+              onClick={() => {
+                window.open('/', '_blank');
+                onClose();
+              }}
             >
-              <LogOut className="w-3 h-3 mr-2" />
-              Sign Out
+              <Info className="w-3 h-3 mr-2" />
+              Visit Website
             </Button>
-          )}
+            
+            {user && (
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full justify-start border-red-200 text-red-600 hover:bg-red-50 text-xs"
+                onClick={handleLogout}
+              >
+                <LogOut className="w-3 h-3 mr-2" />
+                Sign Out
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </>
