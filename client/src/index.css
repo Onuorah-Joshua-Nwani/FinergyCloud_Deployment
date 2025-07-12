@@ -201,26 +201,7 @@
     @apply gap-3 sm:gap-4 lg:gap-6;
   }
   
-  /* Mobile text sizing */
-  .mobile-text-sm {
-    @apply text-xs sm:text-sm;
-  }
-  
-  .mobile-text-base {
-    @apply text-sm sm:text-base;
-  }
-  
-  .mobile-text-lg {
-    @apply text-base sm:text-lg;
-  }
-  
-  .mobile-text-xl {
-    @apply text-lg sm:text-xl;
-  }
-  
-  .mobile-text-2xl {
-    @apply text-xl sm:text-2xl;
-  }
+
   
   /* Chart card mobile adjustments */
   .chart-card {

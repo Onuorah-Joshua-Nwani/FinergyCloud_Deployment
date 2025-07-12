@@ -23,7 +23,7 @@ export default function MobileLanding() {
           </div>
           
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            FinergyCloud Mobile App
+            FinergyCloud Mobile Experience
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Be among the first to experience our AI-powered renewable energy investment platform. Join our pilot program for early access to cutting-edge analytics.
