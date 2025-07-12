@@ -16,23 +16,23 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
 ## 📱 Platform Screenshots
 
 ### Desktop Dashboard - Investment Analytics
-![FinergyCloud Desktop Dashboard](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/assets/dashboard-desktop.png)
+![FinergyCloud Desktop Dashboard](./assets/dashboard-desktop.svg)
 *Professional desktop interface showcasing AI-powered investment analytics and portfolio management*
 
 ### Mobile Responsive Design
-![FinergyCloud Mobile Interface](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/assets/mobile-responsive.png)
+![FinergyCloud Mobile Interface](./assets/mobile-responsive.svg)
 *Fully responsive mobile design with touch-friendly navigation and optimized layouts*
 
 ### AI-Powered ESG Scoring
-![ESG Scoring Interface](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/assets/esg-scoring.png)
+![ESG Scoring Interface](./assets/esg-scoring.svg)
 *Advanced ESG assessment with real-time environmental impact calculations*
 
 ### Multi-Currency Investment Platform
-![Multi-Currency Support](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/assets/currency-platform.png)
+![Multi-Currency Support](./assets/currency-platform.svg)
 *Global platform supporting NGN, GBP, and EUR with real-time conversion*
 
 ### Real-Time Analytics Dashboard
-![Analytics Dashboard](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/assets/analytics-dashboard.png)
+![Analytics Dashboard](./assets/analytics-dashboard.svg)
 *Professional analytics interface with interactive charts and performance metrics*
 
 ### 🎯 Key Innovation Areas
@@ -84,11 +84,11 @@ The renewable energy sector lacks accessible, data-driven investment platforms t
 ## 🎮 Interactive Features Demo
 
 ### Cross-Platform Navigation
-![Cross-Platform Features](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/assets/cross-platform.png)
+![Cross-Platform Features](./assets/cross-platform.svg)
 *Seamless switching between web platform and mobile app experiences*
 
 ### Gamified Sustainability Rewards
-![Rewards System](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/assets/rewards-system.png)
+![Rewards System](./assets/rewards-system.svg)
 *Innovative gamification encouraging sustainable investment behaviors*
 
 ## 🛠️ Technology Stack
