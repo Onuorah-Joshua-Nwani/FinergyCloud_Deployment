@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, Minus, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useHandGesture } from '@/hooks/useHandGesture';
 
 interface ZoomControlsProps {
   onZoomChange?: (scale: number) => void;
@@ -17,6 +18,18 @@ export default function ZoomControls({
 }: ZoomControlsProps) {
   const [zoom, setZoom] = useState(1.0);
   const [isVisible, setIsVisible] = useState(false);
+
+  // Hand gesture support for pinch-to-zoom
+  const { setZoom: setGestureZoom } = useHandGesture({
+    onZoomChange: (newZoom) => {
+      setZoom(newZoom);
+      applyZoom(newZoom);
+      onZoomChange?.(newZoom);
+    },
+    minZoom,
+    maxZoom,
+    initialZoom: zoom
+  });
 
   // Show zoom controls only on mobile devices
   useEffect(() => {
@@ -61,14 +74,17 @@ export default function ZoomControls({
     }
   };
 
-  // Touch gesture handling for pinch-to-zoom
+  // Enhanced touch gesture handling for pinch-to-zoom
   useEffect(() => {
     let initialDistance = 0;
     let initialZoom = zoom;
+    let isZooming = false;
 
     const handleTouchStart = (e: TouchEvent) => {
       if (e.touches.length === 2) {
         e.preventDefault();
+        e.stopPropagation();
+        isZooming = true;
         const touch1 = e.touches[0];
         const touch2 = e.touches[1];
         initialDistance = Math.hypot(
@@ -80,8 +96,9 @@ export default function ZoomControls({
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length === 2) {
+      if (e.touches.length === 2 && isZooming) {
         e.preventDefault();
+        e.stopPropagation();
         const touch1 = e.touches[0];
         const touch2 = e.touches[1];
         const currentDistance = Math.hypot(
@@ -102,19 +119,34 @@ export default function ZoomControls({
     const handleTouchEnd = (e: TouchEvent) => {
       if (e.touches.length < 2) {
         initialDistance = 0;
+        isZooming = false;
       }
     };
 
+    // Prevent default touch behavior on the zoom container
+    const handleTouchCancel = () => {
+      initialDistance = 0;
+      isZooming = false;
+    };
+
     if (isVisible) {
-      document.addEventListener('touchstart', handleTouchStart, { passive: false });
-      document.addEventListener('touchmove', handleTouchMove, { passive: false });
-      document.addEventListener('touchend', handleTouchEnd, { passive: false });
+      const zoomContainer = document.querySelector('.zoom-container');
+      if (zoomContainer) {
+        zoomContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
+        zoomContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+        zoomContainer.addEventListener('touchend', handleTouchEnd, { passive: false });
+        zoomContainer.addEventListener('touchcancel', handleTouchCancel, { passive: false });
+      }
     }
 
     return () => {
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchmove', handleTouchMove);
-      document.removeEventListener('touchend', handleTouchEnd);
+      const zoomContainer = document.querySelector('.zoom-container');
+      if (zoomContainer) {
+        zoomContainer.removeEventListener('touchstart', handleTouchStart);
+        zoomContainer.removeEventListener('touchmove', handleTouchMove);
+        zoomContainer.removeEventListener('touchend', handleTouchEnd);
+        zoomContainer.removeEventListener('touchcancel', handleTouchCancel);
+      }
     };
   }, [isVisible, zoom, minZoom, maxZoom, onZoomChange]);
 
