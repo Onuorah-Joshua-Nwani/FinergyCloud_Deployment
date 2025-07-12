@@ -528,21 +528,18 @@
     }
   }
 
-  /* Best practice touch gesture support for invisible pinch-to-zoom */
+  /* Optimized touch gesture support allowing scrolling + pinch-to-zoom */
   .touch-zoom {
-    touch-action: none;
-    user-select: none;
-    -webkit-user-select: none;
+    touch-action: pan-y pinch-zoom;
     -webkit-touch-callout: none;
-    -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Zoom container optimized for hand gestures */
+  /* Zoom container optimized for gestures + scrolling */
   .zoom-container {
     transform-origin: center center;
     transition: transform 0.2s ease-out;
-    touch-action: none;
+    touch-action: pan-y pinch-zoom;
     position: relative;
     overflow: visible;
   }
@@ -552,13 +549,14 @@
     -webkit-touch-callout: none;
   }
 
-  /* Enhanced pinch-to-zoom responsiveness */
+  /* Enhanced mobile touch responsiveness */
   @media (hover: none) and (pointer: coarse) {
-    .touch-zoom {
-      touch-action: manipulation;
+    html, body {
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
     }
     
-    .zoom-container {
+    .touch-zoom, .zoom-container {
       -webkit-overflow-scrolling: touch;
     }
   }

@@ -49,8 +49,8 @@ export default function ZoomControls({
 
     const handleTouchStart = (e: TouchEvent) => {
       if (e.touches.length === 2) {
+        // Only prevent default for two-finger gestures (pinch-to-zoom)
         e.preventDefault();
-        e.stopPropagation();
         isZooming = true;
         const touch1 = e.touches[0];
         const touch2 = e.touches[1];
@@ -64,8 +64,8 @@ export default function ZoomControls({
 
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches.length === 2 && isZooming) {
+        // Only prevent default for pinch gestures, allow scrolling for single finger
         e.preventDefault();
-        e.stopPropagation();
         const touch1 = e.touches[0];
         const touch2 = e.touches[1];
         const currentDistance = Math.hypot(
