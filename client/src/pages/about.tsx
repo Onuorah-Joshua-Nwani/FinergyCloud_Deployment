@@ -124,13 +124,12 @@ export default function About() {
             <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-8">
               🇬🇧 UK Registered • 🤖 AI-Powered • 🌍 Africa-Focused
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-              About 
-              <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mt-2">
-                FinergyCloud
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
+              <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                Our Story
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-16">
+            <p className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-20">
               An innovative startup developing AI-powered renewable energy investment analysis. 
               Our MVP platform features IRR simulation, ESG scoring, and risk profiling designed 
               specifically for emerging market opportunities.

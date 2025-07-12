@@ -118,14 +118,14 @@ export default function Landing() {
             </Badge>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-            <span className="block mb-2">FinergyCloud</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 leading-tight">
+            <span className="block mb-4">FinergyCloud</span>
             <span className="block bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
               Renewable Energy Intelligence
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-gray-600 mb-16 max-w-4xl mx-auto leading-relaxed">
             Transform your renewable energy investments with advanced AI predictions, comprehensive ESG scoring, and sophisticated portfolio management. Make smarter, data-driven sustainable investment decisions.
           </p>
           
