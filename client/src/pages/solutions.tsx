@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import SocialLinks from "@/components/social-links";
 import PlatformSwitcher from "@/components/platform-switcher";
+import Footer from "@/components/footer";
 import { 
   Brain, 
   Leaf, 
@@ -430,6 +431,8 @@ export default function Solutions() {
           <SocialLinks showLabels className="justify-center" />
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

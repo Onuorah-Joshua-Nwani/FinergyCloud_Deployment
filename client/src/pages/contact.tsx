@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import SocialLinks from "@/components/social-links";
+import Footer from "@/components/footer";
 import { 
   Mail, 
   Phone, 
@@ -483,7 +484,7 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
               <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 shadow-lg">
-                Start Free Trial
+                Join Pilot Program
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -502,6 +503,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

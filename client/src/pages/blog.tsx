@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import SocialLinks from "@/components/social-links";
 import PlatformSwitcher from "@/components/platform-switcher";
+import Footer from "@/components/footer";
 import { 
   Calendar,
   User,
@@ -487,7 +488,7 @@ export default function Blog() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
               <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 shadow-lg">
-                Start Free Trial
+                Join Pilot Program
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -500,6 +501,8 @@ export default function Blog() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

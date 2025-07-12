@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import SocialLinks from "@/components/social-links";
+import Footer from "@/components/footer";
 import { 
   Zap, 
   Shield, 
@@ -290,71 +291,7 @@ export default function WebsiteLanding() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-            
-            {/* Company Info */}
-            <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-              <div className="flex items-center space-x-3 mb-4 sm:mb-6">
-                <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-                  <Leaf className="w-4 h-4 text-white" />
-                </div>
-                <span className="text-lg sm:text-xl font-bold">FinergyCloud</span>
-              </div>
-              <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                Transforming renewable energy investments through artificial intelligence 
-                and comprehensive ESG analysis.
-              </p>
-              <SocialLinks />
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Platform</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                <li><Link href="/about" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/solutions" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Solutions</Link></li>
-                <li><Link href="/blog" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Blog</Link></li>
-                <li><Link href="/contact" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-
-            {/* Resources */}
-            <div>
-              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Resources</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                <li><button onClick={() => window.open('/?platform=mobile', '_blank')} className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors text-left">Mobile App</button></li>
-                <li><Link href="/login" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Sign In</Link></li>
-                <li><a href="#" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Support</a></li>
-                <li><a href="#" className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Documentation</a></li>
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Contact</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                <li className="text-sm sm:text-base text-gray-300">United Kingdom</li>
-                <li className="text-sm sm:text-base text-gray-300">info@finergycloud.com</li>
-                <li className="text-sm sm:text-base text-gray-300">+44 (0) 20 7946 0958</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-0">
-              © 2025 FinergyCloud. All rights reserved.
-            </p>
-            <div className="flex space-x-4 sm:space-x-6">
-              <a href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
