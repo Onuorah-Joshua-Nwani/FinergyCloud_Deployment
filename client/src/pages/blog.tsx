@@ -291,47 +291,47 @@ export default function Blog() {
 
       {/* Blog Reading Modal */}
       <Dialog open={isReading} onOpenChange={handleCloseReader}>
-        <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden">
-          <DialogHeader className="p-6 border-b shrink-0">
-            <div className="flex items-center justify-between">
+        <DialogContent className="w-[95vw] max-w-4xl h-[95vh] max-h-[95vh] p-0 overflow-hidden">
+          <DialogHeader className="p-4 sm:p-6 border-b shrink-0">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex-1">
-                <DialogTitle className="text-2xl font-bold mb-2">
+                <DialogTitle className="text-lg sm:text-2xl font-bold mb-2 pr-8 sm:pr-0">
                   {selectedArticle?.title || "Blog Article"}
                 </DialogTitle>
-                <DialogDescription className="flex items-center gap-4 text-sm text-gray-600">
+                <DialogDescription className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-600">
                   <span>By {selectedArticle?.author}</span>
                   <span>{selectedArticle?.date}</span>
                   <span>{selectedArticle?.readTime}</span>
                 </DialogDescription>
               </div>
-              <div className="flex items-center gap-2 ml-4">
+              <div className="flex items-center gap-2">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => selectedArticle && handleShare(selectedArticle, 'linkedin')}
-                  className="text-blue-600 hover:text-blue-800"
+                  className="text-blue-600 hover:text-blue-800 text-xs sm:text-sm"
                 >
                   <Share2 className="w-4 h-4 mr-1" />
-                  LinkedIn
+                  <span className="hidden sm:inline">LinkedIn</span>
                 </Button>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => selectedArticle && handleShare(selectedArticle, 'medium')}
-                  className="text-green-600 hover:text-green-800"
+                  className="text-green-600 hover:text-green-800 text-xs sm:text-sm"
                 >
                   <ExternalLink className="w-4 h-4 mr-1" />
-                  Medium
+                  <span className="hidden sm:inline">Medium</span>
                 </Button>
               </div>
             </div>
           </DialogHeader>
           
-          <ScrollArea className="h-[70vh] p-6">
-            <div className="prose prose-lg max-w-none">
+          <ScrollArea className="flex-1 p-4 sm:p-6">
+            <div className="prose prose-sm sm:prose-lg max-w-none">
               <div className="mb-6">
                 <Badge className="mb-4">{selectedArticle?.category}</Badge>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
                   {selectedArticle?.excerpt}
                 </p>
               </div>
@@ -347,16 +347,27 @@ export default function Blog() {
               <div className="whitespace-pre-wrap text-gray-800 leading-relaxed">
                 <style dangerouslySetInnerHTML={{
                   __html: `
-                    .blog-content h1 { font-size: 2rem; font-weight: bold; margin: 1.5rem 0 1rem 0; color: #1f2937; }
-                    .blog-content h2 { font-size: 1.5rem; font-weight: bold; margin: 1.25rem 0 0.75rem 0; color: #1f2937; }
-                    .blog-content h3 { font-size: 1.25rem; font-weight: bold; margin: 1rem 0 0.5rem 0; color: #1f2937; }
+                    .blog-content h1 { font-size: 1.5rem; font-weight: bold; margin: 1.5rem 0 1rem 0; color: #1f2937; }
+                    .blog-content h2 { font-size: 1.25rem; font-weight: bold; margin: 1.25rem 0 0.75rem 0; color: #1f2937; }
+                    .blog-content h3 { font-size: 1.125rem; font-weight: bold; margin: 1rem 0 0.5rem 0; color: #1f2937; }
                     .blog-content p { margin-bottom: 1rem; line-height: 1.6; }
                     .blog-content ul { margin-bottom: 1rem; padding-left: 1.5rem; }
                     .blog-content li { margin-bottom: 0.5rem; }
                     .blog-content strong { font-weight: bold; color: #1f2937; }
                     .blog-content em { font-style: italic; }
-                    .blog-content code { background-color: #f3f4f6; padding: 0.125rem 0.25rem; border-radius: 0.25rem; }
-                    .blog-content pre { background-color: #f3f4f6; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 1rem 0; }
+                    .blog-content code { background-color: #f3f4f6; padding: 0.125rem 0.25rem; border-radius: 0.25rem; font-size: 0.875rem; }
+                    .blog-content pre { background-color: #f3f4f6; padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto; margin: 1rem 0; font-size: 0.875rem; }
+                    
+                    @media (max-width: 640px) {
+                      .blog-content h1 { font-size: 1.25rem; margin: 1rem 0 0.75rem 0; }
+                      .blog-content h2 { font-size: 1.125rem; margin: 1rem 0 0.5rem 0; }
+                      .blog-content h3 { font-size: 1rem; margin: 0.75rem 0 0.5rem 0; }
+                      .blog-content p { font-size: 0.875rem; line-height: 1.5; }
+                      .blog-content ul { padding-left: 1rem; }
+                      .blog-content li { font-size: 0.875rem; }
+                      .blog-content code { font-size: 0.75rem; }
+                      .blog-content pre { font-size: 0.75rem; padding: 0.5rem; }
+                    }
                   `
                 }} />
                 <div className="blog-content">
@@ -364,23 +375,23 @@ export default function Blog() {
                 </div>
               </div>
               
-              <div className="mt-12 pt-8 border-t">
-                <div className="flex items-center justify-between">
+              <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Share this article</h4>
                     <p className="text-sm text-gray-600">Help others discover valuable insights about renewable energy investment</p>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
                     <Button
                       onClick={() => selectedArticle && handleShare(selectedArticle, 'linkedin')}
-                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      className="bg-blue-600 hover:bg-blue-700 text-white text-sm"
                     >
                       <Share2 className="w-4 h-4 mr-2" />
                       Share on LinkedIn
                     </Button>
                     <Button
                       onClick={() => selectedArticle && handleShare(selectedArticle, 'medium')}
-                      className="bg-green-600 hover:bg-green-700 text-white"
+                      className="bg-green-600 hover:bg-green-700 text-white text-sm"
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Read on Medium
