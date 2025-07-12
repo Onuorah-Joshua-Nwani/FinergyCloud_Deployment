@@ -95,12 +95,12 @@ export default function Navigation() {
     <div className="navigation-container">
       {/* Fixed Hamburger Menu for Mobile App - Always visible */}
       {actuallyMobileApp && (
-        <div className="lg:hidden">
+        <div className="lg:hidden fixed top-2 left-2 z-[60]">
           <MobileMenuButton onClick={() => setSideNavOpen(!sideNavOpen)} isOpen={sideNavOpen} />
         </div>
       )}
       
-      <nav className={`${actuallyMobileApp ? 'bg-white border-b border-gray-200' : 'nav-glass nav-blur'} shadow-sm sticky top-0 z-40`}>
+      <nav className={`${actuallyMobileApp ? 'bg-white border-b border-gray-200' : 'nav-glass nav-blur'} shadow-sm fixed top-0 left-0 right-0 z-50`}>
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="flex justify-between items-center h-12 sm:h-14">
           

@@ -63,6 +63,7 @@
     @apply font-sans antialiased;
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    padding-top: 56px; /* Account for fixed navigation bar */
   }
 }
 
