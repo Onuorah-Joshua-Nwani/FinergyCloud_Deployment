@@ -197,8 +197,11 @@ export default function RewardsPage() {
 
   if (!rewardStats) {
     return (
-      <div className="h-screen flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center p-4">
+        <div className="text-center">
+          <div className="animate-spin w-8 h-8 border-4 border-green-500 border-t-transparent rounded-full mx-auto mb-4" />
+          <p className="text-gray-600 text-sm">Loading rewards...</p>
+        </div>
       </div>
     );
   }
@@ -217,69 +220,69 @@ export default function RewardsPage() {
         </div>
 
         {/* Stats Overview */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
           <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
-            <CardHeader className="pb-2 p-3 md:p-6">
-              <CardTitle className="text-xs md:text-sm font-medium opacity-90">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
-                  <span className="line-clamp-1">Sustainability Points</span>
+            <CardHeader className="pb-1 p-2 sm:p-3 md:p-6">
+              <CardTitle className="text-xs font-medium opacity-90">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <Sparkles className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate text-xs sm:text-sm">Points</span>
                 </div>
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold">{rewardStats.sustainabilityPoints.toLocaleString()}</div>
+            <CardContent className="p-2 sm:p-3 md:p-6 pt-0">
+              <div className="text-lg sm:text-2xl md:text-3xl font-bold">{rewardStats.sustainabilityPoints.toLocaleString()}</div>
               <p className="text-xs opacity-90">Total earned</p>
             </CardContent>
           </Card>
 
           <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium opacity-90">
-                <div className="flex items-center gap-2">
-                  <Crown className="h-4 w-4" />
-                  Level
+            <CardHeader className="pb-1 p-2 sm:p-3 md:p-6">
+              <CardTitle className="text-xs font-medium opacity-90">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <Crown className="h-3 w-3 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">Level</span>
                 </div>
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold">{rewardStats.level}</div>
+            <CardContent className="p-2 sm:p-3 md:p-6 pt-0">
+              <div className="text-lg sm:text-2xl md:text-3xl font-bold">{rewardStats.level}</div>
               <Progress 
                 value={getXpProgress(rewardStats.xp)} 
-                className="h-2 bg-blue-400"
+                className="h-1 sm:h-2 bg-blue-400 my-1"
               />
-              <p className="text-xs opacity-90 mt-1">
-                {getXpToNextLevel(rewardStats.xp, rewardStats.level)} XP to next level
+              <p className="text-xs opacity-90">
+                {getXpToNextLevel(rewardStats.xp, rewardStats.level)} XP to next
               </p>
             </CardContent>
           </Card>
 
           <Card className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium opacity-90">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  Streak
+            <CardHeader className="pb-1 p-2 sm:p-3 md:p-6">
+              <CardTitle className="text-xs font-medium opacity-90">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <Calendar className="h-3 w-3 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">Streak</span>
                 </div>
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold">{rewardStats.streak}</div>
+            <CardContent className="p-2 sm:p-3 md:p-6 pt-0">
+              <div className="text-lg sm:text-2xl md:text-3xl font-bold">{rewardStats.streak}</div>
               <p className="text-xs opacity-90">Days active</p>
             </CardContent>
           </Card>
 
           <Card className="bg-gradient-to-r from-purple-500 to-purple-600 text-white">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium opacity-90">
-                <div className="flex items-center gap-2">
-                  <Leaf className="h-4 w-4" />
-                  CO₂ Saved
+            <CardHeader className="pb-1 p-2 sm:p-3 md:p-6">
+              <CardTitle className="text-xs font-medium opacity-90">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <Leaf className="h-3 w-3 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">CO₂ Saved</span>
                 </div>
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold">{rewardStats.totalCo2Saved.toLocaleString()}</div>
+            <CardContent className="p-2 sm:p-3 md:p-6 pt-0">
+              <div className="text-lg sm:text-2xl md:text-3xl font-bold">{rewardStats.totalCo2Saved.toLocaleString()}</div>
               <p className="text-xs opacity-90">Tons of CO₂</p>
             </CardContent>
           </Card>
@@ -287,14 +290,20 @@ export default function RewardsPage() {
 
         {/* Main Content */}
         <Tabs defaultValue="activities" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="activities">Recent Activities</TabsTrigger>
-            <TabsTrigger value="challenges">Challenges</TabsTrigger>
-            <TabsTrigger value="achievements">Achievements</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 h-auto">
+            <TabsTrigger value="activities" className="text-xs sm:text-sm px-2 py-2">
+              <span className="hidden sm:inline">Recent </span>Activities
+            </TabsTrigger>
+            <TabsTrigger value="challenges" className="text-xs sm:text-sm px-2 py-2">
+              Challenges
+            </TabsTrigger>
+            <TabsTrigger value="achievements" className="text-xs sm:text-sm px-2 py-2">
+              Achievements
+            </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="activities" className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <TabsContent value="activities" className="space-y-3 md:space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
               {/* Quick Actions */}
               <Card>
                 <CardHeader>
@@ -303,38 +312,38 @@ export default function RewardsPage() {
                     Quick Actions
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
+                <CardContent className="space-y-2 sm:space-y-3">
                   <Button 
                     onClick={() => simulateActivity('green_investment')}
-                    className="w-full justify-start"
+                    className="w-full justify-start text-xs sm:text-sm py-2 sm:py-3"
                     variant="outline"
                   >
-                    <TrendingUp className="h-4 w-4 mr-2" />
-                    Record Green Investment (+50 pts)
+                    <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">Green Investment (+50)</span>
                   </Button>
                   <Button 
                     onClick={() => simulateActivity('esg_analysis')}
-                    className="w-full justify-start"
+                    className="w-full justify-start text-xs sm:text-sm py-2 sm:py-3"
                     variant="outline"
                   >
-                    <Target className="h-4 w-4 mr-2" />
-                    Complete ESG Analysis (+25 pts)
+                    <Target className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">ESG Analysis (+25)</span>
                   </Button>
                   <Button 
                     onClick={() => simulateActivity('daily_login')}
-                    className="w-full justify-start"
+                    className="w-full justify-start text-xs sm:text-sm py-2 sm:py-3"
                     variant="outline"
                   >
-                    <Calendar className="h-4 w-4 mr-2" />
-                    Daily Check-in (+10 pts)
+                    <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">Daily Check-in (+10)</span>
                   </Button>
                   <Button 
                     onClick={() => simulateActivity('portfolio_review')}
-                    className="w-full justify-start"
+                    className="w-full justify-start text-xs sm:text-sm py-2 sm:py-3"
                     variant="outline"
                   >
-                    <Activity className="h-4 w-4 mr-2" />
-                    Portfolio Review (+15 pts)
+                    <Activity className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">Portfolio Review (+15)</span>
                   </Button>
                 </CardContent>
               </Card>
