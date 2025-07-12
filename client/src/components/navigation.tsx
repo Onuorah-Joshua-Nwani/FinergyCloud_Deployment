@@ -92,7 +92,7 @@ export default function Navigation() {
   };
 
   return (
-    <>
+    <div className="navigation-container">
       {/* Fixed Hamburger Menu for Mobile App - Always visible */}
       {actuallyMobileApp && (
         <div className="lg:hidden">
@@ -219,13 +219,17 @@ export default function Navigation() {
             {!actuallyMobileApp && (
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button variant="outline" size="icon" className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden">
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden mobile-nav-trigger relative"
+                  >
                     <Menu className="h-4 w-4" />
                     <span className="sr-only">Open navigation menu</span>
                   </Button>
                 </SheetTrigger>
-              <SheetContent side="right" className="w-80 sm:w-96">
-                <div className="flex flex-col h-full">
+                <SheetContent side="right" className="w-[320px] max-w-[75vw] z-40 border-l border-gray-200 shadow-2xl overflow-hidden p-0">
+                <div className="flex flex-col h-full p-6">
                   
                   {/* Mobile Header */}
                   <div className="flex items-center space-x-3 pb-6 border-b border-gray-200">
@@ -381,6 +385,6 @@ export default function Navigation() {
         />
       )}
     </nav>
-    </>
+    </div>
   );
 }

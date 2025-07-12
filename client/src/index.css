@@ -73,70 +73,38 @@
     color: hsl(var(--warning));
   }
   
-  /* Mobile navigation fixes */
-  .mobile-nav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 75;
-    touch-action: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
+  /* Mobile navigation z-index management */
+  .mobile-nav-trigger {
+    z-index: 30 !important;
+    position: relative;
   }
   
-  .mobile-nav-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    height: 100dvh; /* Use dynamic viewport height for mobile */
-    width: 280px;
-    max-width: 85vw;
-    background: white;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    z-index: 76;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+  /* Sheet component mobile optimizations */
+  .sheet-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 35;
   }
   
-  .mobile-nav-sidebar.open {
-    transform: translateX(0);
+  .sheet-content {
+    z-index: 40;
+    max-width: 320px;
+    width: 80vw;
+    border-left: 1px solid rgb(229, 231, 235);
+    box-shadow: -10px 0 25px -5px rgba(0, 0, 0, 0.1);
   }
   
-  .mobile-hamburger {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 80;
-    width: 3rem;
-    height: 3rem;
-    background: white;
-    border: 2px solid rgb(34 197 94);
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    transition: all 0.2s ease;
+  /* Ensure navigation overlay doesn't interfere with content */
+  .navigation-container {
+    position: relative;
+    z-index: 20;
   }
   
-  .mobile-hamburger:hover {
-    background: rgb(240 253 244);
-    transform: scale(1.05);
-  }
-  
-  .mobile-hamburger:active {
-    background: rgb(220 252 231);
-    transform: scale(0.95);
+  /* Fix mobile sheet width constraints */
+  @media screen and (max-width: 640px) {
+    [data-radix-dialog-content] {
+      width: 75vw !important;
+      max-width: 300px !important;
+    }
   }
   
   /* Safe area adjustments for mobile devices */
@@ -183,6 +151,44 @@
     [data-radix-dropdown-content] {
       max-width: 90vw;
       transform: translateZ(0);
+    }
+    
+    /* Fix Sheet component covering entire mobile interface */
+    [data-radix-dialog-overlay] {
+      z-index: 35 !important;
+      background-color: rgba(0, 0, 0, 0.4) !important;
+      backdrop-filter: blur(2px);
+    }
+    
+    [data-radix-dialog-content] {
+      z-index: 40 !important;
+      max-width: 320px !important;
+      width: 80vw !important;
+      position: fixed !important;
+      right: 0 !important;
+      top: 0 !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      border-radius: 0 !important;
+      border-left: 1px solid rgb(229, 231, 235) !important;
+      box-shadow: -10px 0 25px -5px rgba(0, 0, 0, 0.15) !important;
+      transform: translateX(0) !important;
+    }
+    
+    /* Ensure mobile navigation doesn't break on very small screens */
+    @media screen and (max-width: 400px) {
+      [data-radix-dialog-content] {
+        width: 70vw !important;
+        max-width: 260px !important;
+      }
+    }
+    
+    /* Additional mobile sheet constraints to prevent full coverage */
+    [data-radix-dialog-content][data-side="right"] {
+      left: auto !important;
+      right: 0 !important;
+      width: min(320px, 75vw) !important;
+      max-width: 320px !important;
     }
   }
   
