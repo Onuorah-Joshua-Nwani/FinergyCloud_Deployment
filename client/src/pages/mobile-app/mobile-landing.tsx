@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Leaf, TrendingUp, Globe, Shield } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Leaf, TrendingUp, Globe, Shield, Smartphone, Star } from "lucide-react";
 import { Link } from "wouter";
 
 export default function MobileLanding() {
@@ -11,19 +12,27 @@ export default function MobileLanding() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <div className="w-20 h-20 bg-gradient-to-br from-green-600 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-            <Leaf className="w-10 h-10 text-white" />
+            <Smartphone className="w-10 h-10 text-white" />
           </div>
+          
+          <div className="flex justify-center mb-4">
+            <Badge className="bg-orange-100 text-orange-800 px-4 py-2 text-sm font-medium">
+              <Star className="w-3 h-3 mr-1" />
+              Pilot Program - Early Access
+            </Badge>
+          </div>
+          
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             FinergyCloud Mobile App
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Access your renewable energy investment portfolio on the go. Monitor projects, track ESG scores, and make data-driven decisions anywhere.
+            Be among the first to experience our AI-powered renewable energy investment platform. Join our pilot program for early access to cutting-edge analytics.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login?platform=mobile">
               <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                Login to App
+                Join Pilot Program
               </Button>
             </Link>
             <Button variant="outline" size="lg" onClick={() => window.open('/', '_blank')}>
@@ -80,11 +89,11 @@ export default function MobileLanding() {
         {/* App Info */}
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Mobile-Optimized Experience
+            Early Access Program
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Our mobile app is designed specifically for renewable energy investors who need quick access to their portfolio data, 
-            market insights, and project analytics while on the move.
+            Join our exclusive pilot program to test our revolutionary AI-powered platform before launch. 
+            Shape the future of renewable energy investing with your feedback and insights.
           </p>
         </div>
       </div>
