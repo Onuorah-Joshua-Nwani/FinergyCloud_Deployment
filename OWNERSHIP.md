@@ -7,7 +7,7 @@
 ### Ownership Details
 - **Owner**: Onuorah Joshua Nwani
 - **Company**: FinergyCloud
-- **Repository**: https://github.com/Onuorah-Joshua-Nwani/ojn-msp-1-finergycloud
+- **Repository**: https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/tree/Onuorah-Joshua-Nwani-finergyapp-platform-standalone
 - **Independence Status**: 100% - Zero external platform dependencies
 
 ### Independence Verification Checklist
