@@ -132,9 +132,8 @@ export default function Contact() {
             Get in Touch
           </Badge>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
-            <span className="block mb-4">Contact</span>
             <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-              FinergyCloud
+              Let's Connect
             </span>
           </h1>
           <p className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-20">
