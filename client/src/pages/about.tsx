@@ -28,10 +28,10 @@ export default function About() {
   ];
   
   const stats = [
-    { value: "15,000+", label: "Investment Simulations", icon: Target, subtext: "With 87% prediction accuracy" },
-    { value: "₦120M+", label: "Analyzed Investment Value", icon: Award, subtext: "Across 12 solar projects" },
-    { value: "50+", label: "Countries Served", icon: Globe, subtext: "Emerging markets focus" },
-    { value: "3", label: "Strategic Partnerships", icon: Users, subtext: "In Nigeria and Kenya" }
+    { value: "MVP", label: "Platform Status", icon: Target, subtext: "AI-powered prototype complete" },
+    { value: "94%", label: "AI Model Accuracy", icon: Award, subtext: "XGBoost algorithm validated" },
+    { value: "3", label: "Core Features", icon: Globe, subtext: "IRR, ESG, Risk Analysis" },
+    { value: "2025", label: "Launch Year", icon: Users, subtext: "Seeking initial funding" }
   ];
 
   const values = [
@@ -65,32 +65,32 @@ export default function About() {
     {
       year: "2022",
       title: "Foundation & Vision",
-      description: "FinergyCloud was conceived during academic research into sustainable finance, identifying the need for AI-powered renewable energy investment intelligence."
+      description: "FinergyCloud was conceived during MBA research into sustainable finance, identifying the critical gap in AI-powered renewable energy investment analysis for emerging markets."
     },
     {
       year: "2023",
-      title: "AI Development",
-      description: "Developed proprietary XGBoost algorithms achieving 94% accuracy in renewable energy project success prediction, validated through extensive backtesting."
-    },
-    {
-      year: "2023",
-      title: "MVP & Recognition",
-      description: "Launched MVP with IRR simulation engine and ESG scoring framework. Received recognition for exceptional work combining financial modeling with sustainable investment principles."
+      title: "Research & Development",
+      description: "Developed core AI algorithms and financial modeling framework. Conducted extensive research into renewable energy investment patterns and ESG scoring methodologies."
     },
     {
       year: "2024",
-      title: "Platform Expansion",
-      description: "Expanded platform capabilities with multi-currency support, comprehensive ESG scoring, and emerging market focus. Achieved quantifiable impact across African markets."
-    },
-    {
-      year: "2024",
-      title: "Mobile Innovation",
-      description: "Introduced mobile platform and gamification features. Secured ₦120M+ in analyzed investment value and formed strategic partnerships in Nigeria and Kenya."
+      title: "Platform Development",
+      description: "Built full-stack MVP with React frontend and Node.js backend. Implemented XGBoost machine learning models achieving 94% prediction accuracy in backtesting scenarios."
     },
     {
       year: "2025",
-      title: "UK Registration & Global Vision",
-      description: "Officially registered in the UK to scale mission of unlocking sustainable energy financing using artificial intelligence. Expanding collaboration with UK-based investors and researchers."
+      title: "UK Registration & Launch",
+      description: "Officially registered FinergyCloud in the UK. Completed MVP development with IRR simulation, ESG scoring, and multi-currency support. Now seeking initial funding and pilot customers."
+    },
+    {
+      year: "2025-2026",
+      title: "Market Entry Phase",
+      description: "Target: Secure seed funding, onboard first 10 pilot customers, validate product-market fit in Nigerian and Kenyan renewable energy markets."
+    },
+    {
+      year: "2026-2027",
+      title: "Scale & Expansion",
+      description: "Plan: Expand across West and East Africa, develop strategic partnerships with development finance institutions, achieve break-even with 100+ active users."
     }
   ];
 
@@ -130,9 +130,9 @@ export default function About() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
-              Transforming renewable energy investment decisions with AI-powered platform. 
-              Advanced IRR simulation, ESG scoring, and risk profiling specifically designed 
-              for emerging market opportunities.
+              An innovative startup developing AI-powered renewable energy investment analysis. 
+              Our MVP platform features IRR simulation, ESG scoring, and risk profiling designed 
+              specifically for emerging market opportunities.
             </p>
             
             {/* About Page Illustration */}
@@ -256,9 +256,9 @@ export default function About() {
                   to scale its mission of unlocking sustainable energy financing in Africa using artificial intelligence.
                 </p>
                 <p>
-                  Now headquartered in the UK, FinergyCloud plans to collaborate with UK-based clean energy 
-                  investors and climate tech researchers to expand the platform's reach and impact across 
-                  global renewable energy markets.
+                  As an early-stage startup now based in the UK, FinergyCloud is actively seeking initial 
+                  funding and pilot customers. We aim to collaborate with UK-based clean energy investors 
+                  and climate tech researchers to validate our MVP and prepare for commercial launch.
                 </p>
                 <div className="flex items-center pt-6 border-t border-gray-200">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
@@ -299,13 +299,13 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-4">
-              Market Validation & Traction
+              Current Development Status
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Quantifiable Impact Across Multiple African Markets
+              Early-Stage Innovation Ready for Market
             </h2>
             <p className="text-xl text-gray-600">
-              Proven results and growing traction in renewable energy investment intelligence
+              Technical achievements and development milestones toward commercial launch
             </p>
           </div>
           
@@ -376,7 +376,7 @@ export default function About() {
               From Vision to Reality
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              The evolution of FinergyCloud from academic research to market-leading AI platform
+              The journey from academic research to AI-powered startup ready for market entry
             </p>
           </div>
           
@@ -405,7 +405,7 @@ export default function About() {
             Ready to Experience FinergyCloud?
           </h2>
           <p className="text-xl mb-8 text-green-100">
-            Join forward-thinking investors using AI-powered intelligence for renewable energy investments.
+            Be among the first to experience next-generation renewable energy investment analysis.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/solutions">
