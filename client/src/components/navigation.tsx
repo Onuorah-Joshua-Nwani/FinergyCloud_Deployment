@@ -228,7 +228,7 @@ export default function Navigation() {
                     <span className="sr-only">Open navigation menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[320px] max-w-[75vw] z-40 border-l border-gray-200 shadow-2xl overflow-hidden p-0">
+                <SheetContent side="right" className="!w-[280px] !max-w-[70vw] z-40 border-l border-gray-200 shadow-2xl overflow-hidden p-0">
                 <div className="flex flex-col h-full p-6">
                   
                   {/* Mobile Header */}

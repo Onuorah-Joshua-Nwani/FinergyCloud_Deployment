@@ -153,7 +153,7 @@
       transform: translateZ(0);
     }
     
-    /* Fix Sheet component covering entire mobile interface */
+    /* CRITICAL: Fix Sheet component covering entire mobile interface */
     [data-radix-dialog-overlay] {
       z-index: 35 !important;
       background-color: rgba(0, 0, 0, 0.4) !important;
@@ -162,17 +162,20 @@
     
     [data-radix-dialog-content] {
       z-index: 40 !important;
-      max-width: 320px !important;
-      width: 80vw !important;
+      max-width: 280px !important;
+      width: 70vw !important;
+      min-width: 250px !important;
       position: fixed !important;
       right: 0 !important;
       top: 0 !important;
+      left: auto !important;
       height: 100vh !important;
       height: 100dvh !important;
       border-radius: 0 !important;
       border-left: 1px solid rgb(229, 231, 235) !important;
       box-shadow: -10px 0 25px -5px rgba(0, 0, 0, 0.15) !important;
       transform: translateX(0) !important;
+      margin: 0 !important;
     }
     
     /* Ensure mobile navigation doesn't break on very small screens */
@@ -187,9 +190,34 @@
     [data-radix-dialog-content][data-side="right"] {
       left: auto !important;
       right: 0 !important;
-      width: min(320px, 75vw) !important;
-      max-width: 320px !important;
+      width: min(280px, 70vw) !important;
+      max-width: 280px !important;
+      margin-left: auto !important;
     }
+    
+    /* Force mobile sheet to never exceed viewport width */
+    @media screen and (max-width: 480px) {
+      [data-radix-dialog-content] {
+        width: 65vw !important;
+        max-width: 260px !important;
+      }
+    }
+  }
+  
+  /* GLOBAL: Force sheet width constraint outside media query */
+  [data-radix-dialog-content] {
+    width: min(280px, 70vw) !important;
+    max-width: 280px !important;
+    min-width: 240px !important;
+  }
+  
+  /* Override any conflicting Tailwind classes */
+  [data-radix-dialog-content].w-80,
+  [data-radix-dialog-content].w-96,
+  [data-radix-dialog-content].max-w-lg,
+  [data-radix-dialog-content].max-w-xl {
+    width: min(280px, 70vw) !important;
+    max-width: 280px !important;
   }
   
   .text-error {
