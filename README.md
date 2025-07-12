@@ -13,15 +13,19 @@ FinergyCloud represents the next generation of renewable energy investment platf
 
 FinergyCloud is a comprehensive full-stack renewable energy investment platform that leverages cutting-edge technology to provide AI-powered investment predictions, ESG scoring, and portfolio management for clean energy projects. The platform addresses critical gaps in sustainable finance by making renewable energy investments accessible, transparent, and data-driven.
 
-## 📱 Platform Screenshots
+## 📱 Cross-Platform Experience
 
-### Desktop Dashboard - Investment Analytics
-![FinergyCloud Desktop Dashboard](./assets/dashboard-desktop.svg)
+### 🌐 Website Platform - Professional Investment Interface
+![FinergyCloud Website Dashboard](./assets/dashboard-desktop.svg)
 *Professional desktop interface showcasing AI-powered investment analytics and portfolio management*
 
-### Mobile Responsive Design
-![FinergyCloud Mobile Interface](./assets/mobile-responsive.svg)
-*Fully responsive mobile design with touch-friendly navigation and optimized layouts*
+### 📱 FinergyCloud Studio - Mobile App Experience  
+![FinergyCloud Studio Mobile App](./assets/mobile-app-studio.svg)
+*Dedicated mobile app platform "FinergyCloud Studio" with touch-optimized navigation and mobile-first design*
+
+### 🔄 Cross-Platform Navigation
+![Cross-Platform Integration](./assets/cross-platform-nav.svg)
+*Seamless switching between website platform and FinergyCloud Studio mobile app*
 
 ### AI-Powered ESG Scoring
 ![ESG Scoring Interface](./assets/esg-scoring.svg)
@@ -41,7 +45,7 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
 - **Comprehensive ESG Scoring**: Detailed Environmental, Social, and Governance impact assessments
 - **Multi-Currency Global Platform**: Supporting NGN, GBP, and EUR with real-time conversion
 - **Gamified Sustainability**: Reward systems encouraging sustainable investment behaviors
-- **Cross-Platform Architecture**: Seamless web and mobile experiences
+- **Cross-Platform Architecture**: Professional website + FinergyCloud Studio mobile app
 
 ## 🏗️ Technical Architecture
 
@@ -83,9 +87,9 @@ The renewable energy sector lacks accessible, data-driven investment platforms t
 
 ## 🎮 Interactive Features Demo
 
-### Cross-Platform Navigation
-![Cross-Platform Features](./assets/cross-platform.svg)
-*Seamless switching between web platform and mobile app experiences*
+### FinergyCloud Studio Mobile App
+![FinergyCloud Studio App](./assets/mobile-studio-app.svg)
+*Dedicated "FinergyCloud Studio" mobile application with fixed navigation and touch-optimized interface*
 
 ### Gamified Sustainability Rewards
 ![Rewards System](./assets/rewards-system.svg)
