@@ -63,22 +63,22 @@ export default function About() {
 
   const timeline = [
     {
-      year: "2020",
+      year: "2022",
       title: "Foundation & Vision",
       description: "FinergyCloud was conceived during academic research into sustainable finance, identifying the need for AI-powered renewable energy investment intelligence."
     },
     {
-      year: "2021",
+      year: "2023",
       title: "AI Development",
       description: "Developed proprietary XGBoost algorithms achieving 94% accuracy in renewable energy project success prediction, validated through extensive backtesting."
     },
     {
-      year: "2022",
+      year: "2023",
       title: "MVP & Recognition",
       description: "Launched MVP with IRR simulation engine and ESG scoring framework. Received recognition for exceptional work combining financial modeling with sustainable investment principles."
     },
     {
-      year: "2023",
+      year: "2024",
       title: "Platform Expansion",
       description: "Expanded platform capabilities with multi-currency support, comprehensive ESG scoring, and emerging market focus. Achieved quantifiable impact across African markets."
     },
