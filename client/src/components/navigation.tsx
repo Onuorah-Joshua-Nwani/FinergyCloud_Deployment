@@ -222,13 +222,15 @@ export default function Navigation() {
                   <Button 
                     variant="outline" 
                     size="icon" 
-                    className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden mobile-nav-trigger relative"
+                    className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden mobile-nav-trigger relative z-50"
                   >
                     <Menu className="h-4 w-4" />
                     <span className="sr-only">Open navigation menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="!w-[280px] !max-w-[70vw] z-40 border-l border-gray-200 shadow-2xl overflow-hidden p-0">
+                <SheetContent side="right" className="!w-[280px] !max-w-[70vw] z-[999] border-l border-gray-200 shadow-2xl overflow-hidden p-0" aria-describedby="nav-description">
+                  <h2 className="sr-only" id="nav-title">Navigation Menu</h2>
+                  <p className="sr-only" id="nav-description">Main navigation menu for FinergyCloud platform</p>
                 <div className="flex flex-col h-full p-6">
                   
                   {/* Mobile Header */}

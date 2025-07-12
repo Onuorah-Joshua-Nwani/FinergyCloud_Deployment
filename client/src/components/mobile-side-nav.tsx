@@ -104,6 +104,7 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
         <div 
           className="mobile-nav-overlay"
           onClick={onClose}
+          style={{ pointerEvents: 'auto', zIndex: 999 }}
         />
       )}
       
@@ -111,6 +112,7 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
       <div
         id="mobile-side-nav"
         className={`mobile-nav-sidebar ${isOpen ? 'open' : ''}`}
+        style={{ pointerEvents: 'auto', zIndex: 1000 }}
       >
         {/* Header */}
         <div className="flex items-center p-4 border-b border-gray-200 bg-gradient-to-r from-green-50 to-blue-50">
