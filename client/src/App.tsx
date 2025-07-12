@@ -21,6 +21,9 @@ import Contact from "@/pages/contact";
 import Solutions from "@/pages/solutions";
 import About from "@/pages/about";
 import Blog from "@/pages/blog";
+import Privacy from "@/pages/privacy";
+import Terms from "@/pages/terms";
+import Cookies from "@/pages/cookies";
 import Login from "@/pages/login";
 import WebsiteLanding from "@/pages/website/website-landing";
 import MobileLanding from "@/pages/mobile-app/mobile-landing";
@@ -77,6 +80,9 @@ function Router() {
               <Route path="/projects" component={ProjectManagement} />
               <Route path="/market-insights" component={MarketInsights} />
               <Route path="/subscribe" component={Subscribe} />
+              <Route path="/privacy" component={Privacy} />
+              <Route path="/terms" component={Terms} />
+              <Route path="/cookies" component={Cookies} />
               <Route path="*" component={NotFound} />
             </>
           )}
@@ -96,6 +102,9 @@ function Router() {
         <Route path="/solutions" component={Solutions} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/cookies" component={Cookies} />
         <Route path="/login" component={Login} />
         <Route path="*" component={NotFound} />
       </Switch>

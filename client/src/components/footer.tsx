@@ -143,14 +143,12 @@ export default function Footer() {
               {legalLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="flex items-center gap-2 text-xs text-gray-400 hover:text-white transition-colors p-2 rounded hover:bg-gray-800"
-                  >
-                    <IconComponent className="w-3 h-3" />
-                    {link.name}
-                  </a>
+                  <Link key={link.name} href={link.href}>
+                    <span className="flex items-center gap-2 text-xs text-gray-400 hover:text-white transition-colors p-2 rounded hover:bg-gray-800 cursor-pointer">
+                      <IconComponent className="w-3 h-3" />
+                      {link.name}
+                    </span>
+                  </Link>
                 );
               })}
             </div>
