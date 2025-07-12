@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
 import { Link } from "wouter";
 import { 
   Plus, 
@@ -254,6 +254,9 @@ export default function ProjectManagement() {
               </div>
               {selectedProject.name}
             </DialogTitle>
+            <DialogDescription>
+              View detailed information and analytics for this renewable energy project
+            </DialogDescription>
           </DialogHeader>
           
           <div className="space-y-6">
@@ -377,6 +380,9 @@ export default function ProjectManagement() {
             <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>Create New Project</DialogTitle>
+                <DialogDescription>
+                  Add a new renewable energy project to your portfolio
+                </DialogDescription>
               </DialogHeader>
               
               <Form {...form}>
