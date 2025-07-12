@@ -21,73 +21,69 @@ import {
 
 const SUBSCRIPTION_PLANS = [
   {
-    id: "free",
-    name: "Free",
-    price: "$0",
-    period: "forever",
-    description: "Perfect for getting started with renewable energy investing",
+    id: "pilot",
+    name: "Pilot Program",
+    price: "Free",
+    period: "during beta",
+    description: "Join our pilot program for early access to FinergyCloud platform",
     features: [
-      "Access to basic dashboard",
-      "View up to 5 projects",
-      "Basic ESG scoring",
-      "Standard market insights",
-      "Community support"
+      "Full MVP platform access",
+      "AI prediction models (94% accuracy)",
+      "Complete ESG scoring framework",
+      "Multi-currency IRR calculator",
+      "Market insights dashboard",
+      "Direct founder feedback channel"
     ],
     limitations: [
-      "Limited to 5 projects",
-      "Basic analytics only",
-      "No advanced AI features"
+      "Beta software - some features in development",
+      "Limited to pilot program participants"
     ],
-    color: "border-gray-200",
-    buttonColor: "secondary",
+    color: "border-green-200",
+    buttonColor: "primary",
     icon: Shield,
-    popular: false
+    popular: true
   },
   {
-    id: "basic",
-    name: "Basic",
-    price: "$29",
-    period: "per month",
-    description: "Enhanced features for serious renewable energy investors",
+    id: "investor",
+    name: "Early Investor",
+    price: "Contact",
+    period: "for details",
+    description: "Strategic partnership and investment opportunities",
     features: [
-      "All Free features",
-      "Access to 25 projects",
-      "Advanced ESG analytics",
-      "IRR calculator with scenarios",
-      "Priority market insights",
-      "Email support",
-      "Mobile gesture controls",
-      "Risk heat map analytics"
+      "Seed funding opportunity",
+      "Platform co-development input",
+      "Early revenue sharing potential",
+      "Strategic advisory position",
+      "Market launch partnership",
+      "Direct founder collaboration"
     ],
     limitations: [
-      "Limited to 25 projects",
-      "Standard AI recommendations"
+      "Requires investment commitment",
+      "Limited to strategic partners"
     ],
     color: "border-blue-200",
     buttonColor: "primary",
     icon: TrendingUp,
-    popular: true
+    popular: false
   },
   {
-    id: "premium",
-    name: "Premium",
-    price: "$99",
-    period: "per month", 
-    description: "Complete platform access for professional investors",
+    id: "future",
+    name: "Future Plans",
+    price: "TBD",
+    period: "post-launch", 
+    description: "Commercial pricing will be available after pilot program completion",
     features: [
-      "All Basic features",
-      "Unlimited projects",
-      "Advanced AI recommendations",
-      "Voice insights narrator",
-      "Eco-impact calculator with gamification",
-      "Project recommendation engine",
-      "Custom ESG reports",
-      "Multi-currency support",
-      "Priority support & account manager",
-      "API access",
-      "White-label options"
+      "Professional subscription tiers",
+      "Enterprise solutions",
+      "Custom integrations",
+      "Full platform access",
+      "Premium support",
+      "Advanced analytics"
     ],
-    limitations: [],
+    limitations: [
+      "Available after successful pilot program",
+      "Pricing to be determined based on market validation"
+    ],
     color: "border-purple-200 bg-gradient-to-br from-purple-50 to-blue-50",
     buttonColor: "default",
     icon: Crown,

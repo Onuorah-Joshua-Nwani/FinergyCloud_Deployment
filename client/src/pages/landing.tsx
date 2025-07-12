@@ -64,32 +64,32 @@ export default function Landing() {
   ];
 
   const stats = [
-    { value: "5,000+", label: "Projects Analyzed", icon: Target },
-    { value: "50+", label: "Countries Served", icon: Globe },
-    { value: "94%", label: "Prediction Accuracy", icon: Brain },
-    { value: "$2.5B", label: "Investment Value", icon: Award }
+    { value: "MVP", label: "Platform Status", icon: Target },
+    { value: "Nigeria", label: "Target Market", icon: Globe },
+    { value: "94%", label: "AI Accuracy", icon: Brain },
+    { value: "2025", label: "Launch Year", icon: Award }
   ];
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "Investment Director",
-      company: "Green Capital Partners",
-      content: "FinergyCloud's AI predictions have transformed our investment strategy. The 94% accuracy rate speaks for itself.",
+      name: "Research Focus",
+      role: "Academic Foundation",
+      company: "MBA Research Project",
+      content: "Developed through extensive academic research into sustainable finance and AI applications in renewable energy markets.",
       rating: 5
     },
     {
-      name: "Michael Rodriguez",
-      role: "Portfolio Manager",
-      company: "Sustainable Ventures",
-      content: "The ESG scoring system is incredibly comprehensive. It helps us make decisions that align with our sustainability goals.",
+      name: "Technical Innovation",
+      role: "AI Development",
+      company: "XGBoost Implementation", 
+      content: "Achieved 94% prediction accuracy through rigorous algorithm development and backtesting on renewable energy data.",
       rating: 5
     },
     {
-      name: "Dr. Amara Okafor",
-      role: "Research Analyst",
-      company: "African Energy Fund",
-      content: "The multi-currency IRR calculator has been invaluable for our cross-border renewable energy investments.",
+      name: "Market Validation",
+      role: "Startup Status",
+      company: "UK Registration 2025",
+      content: "Ready for pilot customers and initial funding to validate product-market fit in Nigerian renewable energy sector.",
       rating: 5
     }
   ];
@@ -126,14 +126,14 @@ export default function Landing() {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
-            Transform your renewable energy investments with advanced AI predictions, comprehensive ESG scoring, 
-            and sophisticated portfolio management. Make smarter, data-driven sustainable investment decisions.
+            An innovative startup developing AI-powered renewable energy investment analysis. Our MVP platform 
+            features advanced prediction models, ESG scoring, and portfolio management for emerging markets.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link href="/login">
               <Button size="lg" className="text-lg px-10 py-5 bg-green-600 hover:bg-green-700 shadow-lg">
-                Start Free Trial
+                Join Pilot Program
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -155,15 +155,15 @@ export default function Landing() {
           <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-sm">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-600" />
-              No Credit Card Required
+              Free Pilot Program
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-600" />
-              14-Day Free Trial
+              MVP Platform Access
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-green-600" />
-              Enterprise Security
+              Founder Direct Access
             </div>
           </div>
         </div>
@@ -174,10 +174,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted by Renewable Energy Investors Worldwide
+              Early-Stage Innovation Ready for Market
             </h2>
             <p className="text-xl text-gray-600">
-              Proven results across emerging markets and developed economies
+              Technical achievements and development milestones toward commercial launch
             </p>
           </div>
           

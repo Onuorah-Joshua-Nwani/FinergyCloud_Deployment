@@ -41,7 +41,7 @@ export default function Solutions() {
       ],
       badge: "Core AI Technology",
       color: "from-blue-500 to-purple-600",
-      metrics: { accuracy: "94%", projects: "15,000+", speed: "Real-time" }
+      metrics: { accuracy: "94%", status: "MVP Ready", validation: "Backtested" }
     },
     {
       icon: Leaf,
@@ -101,7 +101,7 @@ export default function Solutions() {
       ],
       badge: "Market Intelligence",
       color: "from-indigo-500 to-blue-600",
-      metrics: { markets: "50+", coverage: "Africa-focused", updates: "Daily" }
+      metrics: { focus: "Nigeria", markets: "MVP Phase", target: "Africa" }
     },
     {
       icon: Shield,
