@@ -7,29 +7,29 @@ interface ESGScoreDisplayProps {
 
 export default function ESGScoreDisplay({ metrics }: ESGScoreDisplayProps) {
   const CircularProgress = ({ value, label, color }: { value: number; label: string; color: string }) => {
-    const circumference = 2 * Math.PI * 36;
+    const circumference = 2 * Math.PI * 30; // Reduced radius for better mobile fit
     const strokeDasharray = circumference;
     const strokeDashoffset = circumference - (value / 10) * circumference;
 
     return (
-      <div className="text-center">
-        <div className="relative w-24 h-24 mx-auto mb-4">
-          <svg className="w-24 h-24 transform -rotate-90" viewBox="0 0 80 80">
+      <div className="text-center flex flex-col items-center">
+        <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-2 sm:mb-3 md:mb-4">
+          <svg className="w-full h-full transform -rotate-90" viewBox="0 0 68 68">
             <circle
-              cx="40"
-              cy="40"
-              r="36"
+              cx="34"
+              cy="34"
+              r="30"
               stroke="currentColor"
-              strokeWidth="8"
+              strokeWidth="6"
               fill="transparent"
               className="text-gray-200"
             />
             <circle
-              cx="40"
-              cy="40"
-              r="36"
+              cx="34"
+              cy="34"
+              r="30"
               stroke="currentColor"
-              strokeWidth="8"
+              strokeWidth="6"
               fill="transparent"
               strokeDasharray={strokeDasharray}
               strokeDashoffset={strokeDashoffset}
@@ -38,10 +38,12 @@ export default function ESGScoreDisplay({ metrics }: ESGScoreDisplayProps) {
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-xl font-bold text-gray-900">{value}</span>
+            <span className="text-sm sm:text-lg md:text-xl font-bold text-gray-900">{value}</span>
           </div>
         </div>
-        <h3 className="font-medium text-gray-900">{label}</h3>
+        <h3 className="text-xs sm:text-sm md:text-base font-medium text-gray-900 text-center leading-tight">
+          {label}
+        </h3>
       </div>
     );
   };
@@ -53,28 +55,28 @@ export default function ESGScoreDisplay({ metrics }: ESGScoreDisplayProps) {
           <CardTitle>ESG Score Breakdown</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 mb-6 sm:mb-8 px-2 sm:px-0">
             <CircularProgress 
               value={metrics.environmental} 
               label="Environmental" 
-              color="text-secondary" 
+              color="text-green-500" 
             />
             <CircularProgress 
               value={metrics.social} 
               label="Social" 
-              color="text-primary" 
+              color="text-blue-500" 
             />
             <CircularProgress 
               value={metrics.governance} 
               label="Governance" 
-              color="text-accent" 
+              color="text-orange-500" 
             />
           </div>
 
-          <div className="bg-gradient-to-r from-secondary/5 to-secondary/10 rounded-lg p-6 text-center border border-secondary/20">
-            <div className="text-4xl font-bold text-secondary mb-2">{metrics.overall}</div>
-            <h3 className="text-lg font-medium text-gray-900 mb-1">Overall ESG Score</h3>
-            <p className="text-sm text-gray-600">Excellent sustainability rating</p>
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 sm:p-6 text-center border border-green-200">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-600 mb-2">{metrics.overall}</div>
+            <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-900 mb-1">Overall ESG Score</h3>
+            <p className="text-xs sm:text-sm text-gray-600">Excellent sustainability rating</p>
           </div>
         </CardContent>
       </Card>
