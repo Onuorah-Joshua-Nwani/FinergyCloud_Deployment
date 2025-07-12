@@ -2,7 +2,6 @@ import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import SocialLinks from "@/components/social-links";
 import PlatformSwitcher from "@/components/platform-switcher";
 import Footer from "@/components/footer";
 import { 
@@ -416,19 +415,6 @@ export default function Solutions() {
               <PlatformSwitcher currentPlatform="web" />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Connect Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">
-            Stay Connected
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Follow FinergyCloud for the latest updates and insights
-          </p>
-          <SocialLinks showLabels className="justify-center" />
         </div>
       </section>
 

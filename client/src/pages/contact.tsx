@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import SocialLinks from "@/components/social-links";
 import Footer from "@/components/footer";
 import { 
   Mail, 
@@ -494,12 +493,6 @@ export default function Contact() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-          </div>
-          
-          {/* Social Links */}
-          <div className="mt-12 pt-8 border-t border-green-500">
-            <p className="text-green-100 mb-6">Follow us for updates and insights</p>
-            <SocialLinks variant="footer" />
           </div>
         </div>
       </section>
