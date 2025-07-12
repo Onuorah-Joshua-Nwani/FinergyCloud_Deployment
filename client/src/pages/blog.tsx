@@ -27,86 +27,106 @@ export default function Blog() {
   ];
   
   const featuredPost = {
-    title: "The Future of AI in Renewable Energy Investment: A 2025 Perspective",
-    excerpt: "How machine learning and artificial intelligence are revolutionizing investment decisions in the renewable energy sector, with insights from FinergyCloud's proprietary XGBoost algorithms achieving 94% accuracy.",
+    title: "Building FinergyCloud MVP: From Concept to Pilot Program in 2025",
+    excerpt: "Our journey from early 2022 research to developing a validated MVP platform for renewable energy investment intelligence. Discover how we achieved 94% prediction accuracy through backtesting and what's next for our pilot program.",
     author: "O.J. Nwani",
-    date: "January 10, 2025",
-    readTime: "8 min read",
-    category: "AI & Technology",
-    image: "🤖",
-    tags: ["AI", "Machine Learning", "Investment Strategy", "XGBoost", "Emerging Markets"]
+    date: "January 12, 2025",
+    readTime: "10 min read",
+    category: "Company Updates",
+    image: "🚀",
+    tags: ["MVP Development", "Pilot Program", "Startup Journey", "UK Registration", "Backtesting"]
   };
 
   const blogPosts = [
     {
-      title: "FinergyCloud's UK Registration: Scaling AI-Powered Sustainable Finance",
-      excerpt: "Our journey from Nigeria-focused platform to UK-registered company, expanding our mission to transform renewable energy investment intelligence across global markets with strategic partnerships.",
+      title: "Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025",
+      excerpt: "As we prepare for our official pilot program launch, we're looking for forward-thinking investors and renewable energy professionals to join our early access program and shape the future of AI-powered investment intelligence.",
       author: "O.J. Nwani",
-      date: "January 8, 2025",
-      readTime: "6 min read",
+      date: "January 10, 2025",
+      readTime: "7 min read",
       category: "Company Updates",
-      image: "🇬🇧",
-      tags: ["UK Registration", "Global Expansion", "Company Growth", "Strategic Partnerships"]
+      image: "🎯",
+      tags: ["Pilot Program", "Early Access", "Customer Development", "Partnership"]
     },
     {
-      title: "XGBoost in Action: How We Achieved 94% Prediction Accuracy",
-      excerpt: "Deep dive into our proprietary machine learning algorithms, the data science methodology behind our renewable energy project success predictions, and real-world validation results.",
+      title: "XGBoost Backtesting: Validating 94% Accuracy with Historical Data",
+      excerpt: "Deep dive into our machine learning validation methodology. How we used 3 years of historical renewable energy project data to validate our prediction algorithms before building the MVP platform.",
       author: "FinergyCloud AI Team",
-      date: "January 5, 2025",
+      date: "January 8, 2025",
       readTime: "12 min read",
       category: "AI & Technology",
-      image: "⚙️",
-      tags: ["XGBoost", "Machine Learning", "Data Science", "Prediction Accuracy", "Algorithm"]
+      image: "📈",
+      tags: ["XGBoost", "Backtesting", "Data Validation", "Algorithm Development", "MVP"]
     },
     {
-      title: "Multi-Currency IRR Analysis: Supporting NGN, GBP, and EUR Markets",
-      excerpt: "Technical implementation of real-time currency conversion in renewable energy financial modeling, with case studies from Nigerian, British, and European investment scenarios.",
+      title: "Roadmap 2025-2027: Planned Innovations and Future Features",
+      excerpt: "Our technical roadmap for the next 3 years: from MVP pilot to Series A funding, including planned blockchain integration, satellite data analysis, and real-time market intelligence features.",
+      author: "Product Strategy Team",
+      date: "January 6, 2025",
+      readTime: "11 min read",
+      category: "Platform Development",
+      image: "🗺️",
+      tags: ["Roadmap", "Future Features", "Innovation", "Blockchain", "Satellite Data"]
+    },
+    {
+      title: "Multi-Currency IRR Modeling: Building for Global Markets",
+      excerpt: "Technical implementation of our currency conversion engine supporting NGN, GBP, and EUR. How we designed the financial modeling system to handle real-time exchange rates for emerging market investments.",
       author: "Financial Engineering Team",
-      date: "January 3, 2025",
-      readTime: "10 min read",
+      date: "January 4, 2025",
+      readTime: "9 min read",
       category: "Financial Modeling",
       image: "💱",
-      tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets"]
+      tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets", "MVP"]
     },
     {
-      title: "ESG Scoring Framework for Emerging Market Renewable Energy",
-      excerpt: "How we adapted traditional ESG assessment methodologies for African renewable energy projects, addressing unique challenges in emerging market sustainability evaluation.",
+      title: "ESG Framework for African Renewable Energy: Our Research Foundation",
+      excerpt: "How we adapted traditional ESG methodologies for emerging market renewable energy projects during our research phase, creating the foundation for our current scoring algorithms.",
       author: "ESG Research Team",
-      date: "December 30, 2024",
-      readTime: "9 min read",
+      date: "January 2, 2025",
+      readTime: "10 min read",
       category: "ESG & Sustainability",
       image: "🌍",
-      tags: ["ESG Scoring", "Emerging Markets", "Sustainability", "Africa", "Framework"]
+      tags: ["ESG Framework", "Emerging Markets", "Research", "Africa", "Methodology"]
     },
     {
-      title: "From Academic Research to ₦120M+ Investment Analysis",
-      excerpt: "The evolution of FinergyCloud from university research project to analyzing over ₦120 million in renewable energy investments across 12 solar projects in Nigeria and Kenya.",
-      author: "Market Intelligence Team",
-      date: "December 28, 2024",
-      readTime: "11 min read",
-      category: "Market Analysis",
-      image: "📊",
-      tags: ["Market Traction", "Investment Analysis", "Africa", "Solar Energy", "Growth"]
-    },
-    {
-      title: "Building Cross-Platform Investment Intelligence: Web + Mobile",
-      excerpt: "Technical architecture and user experience considerations for delivering seamless renewable energy investment insights across web and mobile platforms with real-time synchronization.",
-      author: "Platform Engineering Team",
-      date: "December 25, 2024",
+      title: "From Research to MVP: Lessons from Building in Stealth Mode",
+      excerpt: "Three years of development insights: the challenges of building an AI-powered fintech platform, key technical decisions, and why we chose to focus on renewable energy investment intelligence.",
+      author: "Development Team",
+      date: "December 30, 2024",
       readTime: "8 min read",
       category: "Platform Development",
-      image: "📱",
-      tags: ["Cross-Platform", "Mobile Development", "Web Platform", "User Experience", "Architecture"]
+      image: "⚡",
+      tags: ["MVP Development", "Stealth Mode", "Technical Challenges", "Startup Journey"]
+    },
+    {
+      title: "Future Innovation: Satellite Data Integration for Solar Project Analysis",
+      excerpt: "Preview of our planned 2026 feature: integrating satellite imagery and weather data for real-time solar project performance prediction. How AI will analyze irradiance patterns and equipment degradation.",
+      author: "Future Tech Team",
+      date: "December 28, 2024",
+      readTime: "13 min read",
+      category: "AI & Technology",
+      image: "🛰️",
+      tags: ["Satellite Data", "Future Features", "Solar Analysis", "AI Integration", "Innovation"]
+    },
+    {
+      title: "Blockchain for Renewable Energy: Our 2027 Vision",
+      excerpt: "Long-term vision for integrating blockchain technology with renewable energy investments. How smart contracts could automate ESG compliance monitoring and enable decentralized investment tracking.",
+      author: "Innovation Team",
+      date: "December 25, 2024",
+      readTime: "15 min read",
+      category: "Future Technology",
+      image: "⛓️",
+      tags: ["Blockchain", "Smart Contracts", "Future Vision", "Decentralization", "ESG Automation"]
     }
   ];
 
   const categories = [
-    { name: "AI & Technology", count: 15, icon: Zap, description: "Machine learning, algorithms, and tech innovation" },
-    { name: "ESG & Sustainability", count: 22, icon: Leaf, description: "Environmental and social impact assessment" },
-    { name: "Financial Modeling", count: 18, icon: BarChart3, description: "IRR analysis, currency modeling, and finance" },
-    { name: "Market Analysis", count: 28, icon: TrendingUp, description: "Market intelligence and investment trends" },
-    { name: "Company Updates", count: 8, icon: Users, description: "Company news, partnerships, and growth" },
-    { name: "Platform Development", count: 12, icon: Globe, description: "Technical architecture and platform evolution" }
+    { name: "AI & Technology", count: 12, icon: Zap, description: "Machine learning, algorithms, and tech innovation" },
+    { name: "ESG & Sustainability", count: 8, icon: Leaf, description: "Environmental and social impact assessment" },
+    { name: "Financial Modeling", count: 6, icon: BarChart3, description: "IRR analysis, currency modeling, and finance" },
+    { name: "Company Updates", count: 10, icon: Users, description: "Company news, partnerships, and growth" },
+    { name: "Platform Development", count: 9, icon: Globe, description: "Technical architecture and platform evolution" },
+    { name: "Future Technology", count: 5, icon: TrendingUp, description: "Upcoming innovations and long-term vision" }
   ];
 
   const handleReadMore = (postTitle: string) => {
@@ -147,8 +167,8 @@ export default function Blog() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-green-100">
-            Expert analysis, market insights, and thought leadership on renewable energy investment, 
-            AI-driven analytics, and sustainable finance
+            Development insights, technical deep-dives, and our journey building next-generation 
+            renewable energy investment intelligence platform
           </p>
           
           {/* Blog Page Illustration */}
@@ -243,7 +263,7 @@ export default function Blog() {
           <div className="flex justify-center gap-4 flex-wrap">
             <Badge className="bg-white text-green-600 text-lg py-2 px-4">
               <BookOpen className="w-4 h-4 mr-2" />
-              75+ Articles
+              50+ Articles
             </Badge>
             <Badge className="bg-green-100 text-green-800 text-lg py-2 px-4">
               <Users className="w-4 h-4 mr-2" />
