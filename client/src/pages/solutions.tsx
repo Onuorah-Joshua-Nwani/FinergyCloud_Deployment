@@ -406,17 +406,13 @@ export default function Solutions() {
               Access FinergyCloud Solutions
             </h2>
             <p className="text-gray-600">
-              Choose your preferred platform to get started with intelligent renewable energy investment
+              Experience FinergyCloud on mobile for investment tracking on the go
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-semibold text-center mb-4">Web Platform</h3>
+          <div className="flex justify-center">
+            <div className="max-w-md">
+              <h3 className="text-lg font-semibold text-center mb-4">Try FinergyCloud on Mobile</h3>
               <PlatformSwitcher currentPlatform="web" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-center mb-4">Mobile Experience</h3>
-              <PlatformSwitcher currentPlatform="mobile" />
             </div>
           </div>
         </div>
