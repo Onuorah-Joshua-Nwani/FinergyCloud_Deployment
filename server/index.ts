@@ -38,6 +38,11 @@ app.use((req, res, next) => {
 
 (async () => {
   try {
+    // Set default environment if not specified
+    if (!process.env.NODE_ENV) {
+      process.env.NODE_ENV = 'development';
+    }
+    
     console.log('Starting FinergyCloud server...');
     console.log('Environment:', process.env.NODE_ENV);
     console.log('SESSION_SECRET available:', !!process.env.SESSION_SECRET);
@@ -71,6 +76,24 @@ app.use((req, res, next) => {
     }, () => {
       log(`FinergyCloud serving on port ${port}`);
       console.log('Server started successfully');
+      console.log(`Access the application at: http://localhost:${port}`);
+    });
+
+    // Handle graceful shutdown
+    process.on('SIGTERM', () => {
+      console.log('SIGTERM received, shutting down gracefully');
+      server.close(() => {
+        console.log('Server closed');
+        process.exit(0);
+      });
+    });
+
+    process.on('SIGINT', () => {
+      console.log('SIGINT received, shutting down gracefully');
+      server.close(() => {
+        console.log('Server closed');
+        process.exit(0);
+      });
     });
     
     // Handle server errors
@@ -81,6 +104,17 @@ app.use((req, res, next) => {
     
   } catch (error) {
     console.error('Failed to start server:', error);
+    console.error('Error stack:', error.stack);
+    
+    // Don't exit immediately, try to provide some debugging info
+    if (error.message.includes('Cannot resolve module')) {
+      console.error('Module resolution error - check imports and dependencies');
+    }
+    if (error.message.includes('TypeScript')) {
+      console.error('TypeScript compilation error - check syntax');
+    }
+    
+    console.error('Server startup failed, exiting...');
     process.exit(1);
   }
 })();
