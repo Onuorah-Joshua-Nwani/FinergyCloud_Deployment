@@ -53,39 +53,28 @@ function Router() {
 
   // MOBILE APP PLATFORM
   if (isMobileApp || shouldForceMobile) {
-    // Skip loading state for mobile app - show content immediately
-    const mobileAppAuthenticated = isAuthenticated || !isLoading;
-
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
         <div className="pb-16 lg:pb-0">
           <Switch>
-          <Route path="/login" component={Login} />
-          {!mobileAppAuthenticated ? (
-            <>
-              <Route path="/" component={MobileLanding} />
-              <Route path="*" component={MobileLanding} />
-            </>
-          ) : (
-            <>
-              <Route path="/" component={Dashboard} />
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/kpi" component={KPIDashboard} />
-              <Route path="/advanced-features" component={AdvancedFeatures} />
-              <Route path="/rewards" component={RewardsPage} />
-              <Route path="/ai-model" component={AIModel} />
-              <Route path="/esg-scoring" component={ESGScoring} />
-              <Route path="/irr-calculator" component={IRRCalculator} />
-              <Route path="/projects" component={ProjectManagement} />
-              <Route path="/market-insights" component={MarketInsights} />
-              <Route path="/subscribe" component={Subscribe} />
-              <Route path="/privacy" component={Privacy} />
-              <Route path="/terms" component={Terms} />
-              <Route path="/cookies" component={Cookies} />
-              <Route path="*" component={NotFound} />
-            </>
-          )}
+            <Route path="/login" component={Login} />
+            {/* For mobile app, always show functionality - pilot program access */}
+            <Route path="/" component={isAuthenticated ? Dashboard : MobileLanding} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/kpi" component={KPIDashboard} />
+            <Route path="/advanced-features" component={AdvancedFeatures} />
+            <Route path="/rewards" component={RewardsPage} />
+            <Route path="/ai-model" component={AIModel} />
+            <Route path="/esg-scoring" component={ESGScoring} />
+            <Route path="/irr-calculator" component={IRRCalculator} />
+            <Route path="/projects" component={ProjectManagement} />
+            <Route path="/market-insights" component={MarketInsights} />
+            <Route path="/subscribe" component={Subscribe} />
+            <Route path="/privacy" component={Privacy} />
+            <Route path="/terms" component={Terms} />
+            <Route path="/cookies" component={Cookies} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </div>
       </div>
