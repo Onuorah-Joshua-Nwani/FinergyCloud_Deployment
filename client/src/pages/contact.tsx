@@ -131,13 +131,13 @@ export default function Contact() {
           <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-6">
             Get in Touch
           </Badge>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             Contact
-            <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mt-2">
               FinergyCloud
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
+          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-16">
             Ready to transform your renewable energy investments? Our team is here to help you 
             get started with AI-powered investment intelligence.
           </p>

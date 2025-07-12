@@ -171,13 +171,13 @@ export default function Solutions() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-600 to-blue-600 text-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8">
             Intelligent Solutions for
-            <span className="block bg-gradient-to-r from-yellow-300 to-green-300 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-yellow-300 to-green-300 bg-clip-text text-transparent mt-2">
               Renewable Energy Investment
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-green-100">
+          <p className="text-lg md:text-xl mb-12 max-w-4xl mx-auto text-green-100 leading-relaxed">
             Leverage AI-driven insights, comprehensive ESG scoring, and advanced financial modeling 
             to maximize returns in the renewable energy sector
           </p>
