@@ -25,8 +25,8 @@ import {
   Share2,
   ExternalLink
 } from "lucide-react";
-import { blogArticles, blogCategories, getFeaturedArticle } from '@/shared/blog-content';
-import type { BlogArticle } from '@/shared/blog-content';
+import { blogArticles, blogCategories, getFeaturedArticle } from '@shared/blog-content';
+import type { BlogArticle } from '@shared/blog-content';
 
 export default function Blog() {
   const [selectedArticle, setSelectedArticle] = useState<BlogArticle | null>(null);

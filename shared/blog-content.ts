@@ -1040,19 +1040,19 @@ Rather than assuming fixed exchange rates over project lifetimes, our models inc
 ### Currency Data Architecture
 Our currency system is built around a central currency service that manages exchange rates, conversion calculations, and historical data:
 
-```typescript
+\`\`\`typescript
 interface CurrencyService {
   getCurrentRate(from: Currency, to: Currency): Promise<number>;
   getHistoricalRates(from: Currency, to: Currency, period: DateRange): Promise<ExchangeRateHistory>;
   convertAmount(amount: number, from: Currency, to: Currency, date?: Date): Promise<number>;
   getVolatilityMetrics(currencyPair: string, period: number): Promise<VolatilityMetrics>;
 }
-```
+\`\`\`
 
 ### Cash Flow Modeling
 Each project cash flow is modeled as a time series with explicit currency attribution:
 
-```typescript
+\`\`\`typescript
 interface CashFlow {
   date: Date;
   amount: number;
@@ -1061,7 +1061,7 @@ interface CashFlow {
   category: string;
   confidence: number; // uncertainty score for the cash flow
 }
-```
+\`\`\`
 
 This granular approach allows us to apply different conversion strategies, hedging assumptions, and risk adjustments to different types of cash flows.
 
