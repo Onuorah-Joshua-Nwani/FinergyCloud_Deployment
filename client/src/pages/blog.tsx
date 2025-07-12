@@ -34,7 +34,22 @@ export default function Blog() {
     readTime: "10 min read",
     category: "Company Updates",
     image: "🚀",
-    tags: ["MVP Development", "Pilot Program", "Startup Journey", "UK Registration", "Backtesting"]
+    tags: ["MVP Development", "Pilot Program", "Startup Journey", "UK Registration", "Backtesting"],
+    content: `Three years ago, I was sitting in a small office in London, frustrated by a simple yet complex problem: why was it so difficult to make informed decisions about renewable energy investments in emerging markets?
+
+The data was scattered, the risk assessment tools were outdated, and traditional financial models simply weren't designed for the unique challenges of solar farms in Nigeria or wind projects in Kenya. That frustration became the seed for what is now FinergyCloud.
+
+## The Early Days: Research and Reality Checks
+
+Back in early 2022, we weren't building a platform – we were asking questions. Hard questions about why renewable energy projects succeeded or failed, what factors truly mattered for ROI in emerging markets, and whether artificial intelligence could actually help investors make better decisions.
+
+We spent months collecting data. Not just financial data, but real-world information about grid stability in different regions, community engagement levels, regulatory environments, and even weather patterns. Our team traveled to project sites, spoke with local engineers, and interviewed investors who had both succeeded and failed in this space.
+
+The reality check came quickly: existing investment tools were built for mature markets. They assumed stable grids, predictable regulatory environments, and easily accessible project data. None of these assumptions held true for the markets we wanted to serve.
+
+*Continue reading this full article on Medium and LinkedIn to learn about our three-year development journey, 94% AI prediction accuracy, and upcoming pilot program launch...*`,
+    mediumUrl: "https://medium.com/@finergycloud/building-finergycloud-mvp-2025",
+    linkedinUrl: "https://linkedin.com/pulse/building-finergycloud-mvp-2025-oj-nwani"
   };
 
   const blogPosts = [
@@ -46,7 +61,18 @@ export default function Blog() {
       readTime: "7 min read",
       category: "Company Updates",
       image: "🎯",
-      tags: ["Pilot Program", "Early Access", "Customer Development", "Partnership"]
+      tags: ["Pilot Program", "Early Access", "Customer Development", "Partnership"],
+      content: `After three years of development in stealth mode, we're ready to open our doors. But we're not doing a traditional product launch with flashy marketing campaigns and broad public availability. Instead, we're taking a deliberate, partnership-focused approach that puts our first customers at the center of everything we do.
+
+## Why a Pilot Program Approach?
+
+The renewable energy investment landscape is complex, and every investor has different needs, constraints, and objectives. A one-size-fits-all platform simply won't work in this space.
+
+By launching with a carefully selected group of pilot customers, we can learn from real use cases, refine our algorithms with actual investment decisions, and build features that matter based on genuine user needs rather than assumptions.
+
+*Read the complete article on Medium and LinkedIn to learn about our pilot selection process, what partners receive, and how to apply...*`,
+      mediumUrl: "https://medium.com/@finergycloud/seeking-pilot-customers-2025",
+      linkedinUrl: "https://linkedin.com/pulse/seeking-pilot-customers-finergycloud-launch-oj-nwani"
     },
     {
       title: "XGBoost Backtesting: Validating 94% Accuracy with Historical Data",
@@ -56,7 +82,16 @@ export default function Blog() {
       readTime: "12 min read",
       category: "AI & Technology",
       image: "📈",
-      tags: ["XGBoost", "Backtesting", "Data Validation", "Algorithm Development", "MVP"]
+      tags: ["XGBoost", "Backtesting", "Data Validation", "Algorithm Development", "MVP"],
+      content: `When we tell people that our AI model achieves 94% accuracy in predicting renewable energy project success, the first question is always: "How do you know?"
+
+It's a fair question. In an industry where bold claims about AI capabilities often exceed actual performance, rigorous validation isn't just important – it's essential for building the trust that investment decisions require.
+
+This article takes you inside our three-year validation process, explaining how we used historical data from hundreds of renewable energy projects to test, refine, and validate our prediction algorithms.
+
+*Read the full technical deep-dive on Medium and LinkedIn to understand our methodology, data sources, and validation results...*`,
+      mediumUrl: "https://medium.com/@finergycloud/xgboost-backtesting-validation-2025",
+      linkedinUrl: "https://linkedin.com/pulse/xgboost-backtesting-94-accuracy-finergycloud-ai-team"
     },
     {
       title: "Roadmap 2025-2027: Planned Innovations and Future Features",
@@ -66,7 +101,23 @@ export default function Blog() {
       readTime: "11 min read",
       category: "Platform Development",
       image: "🗺️",
-      tags: ["Roadmap", "Future Features", "Innovation", "Blockchain", "Satellite Data"]
+      tags: ["Roadmap", "Future Features", "Innovation", "Blockchain", "Satellite Data"],
+      content: `Building a startup in the renewable energy investment space means thinking both tactically about immediate needs and strategically about where the market is heading. Our three-year roadmap balances delivering immediate value to our pilot customers with preparing for the technological advances that will reshape this industry.
+
+## 2025: Foundation Year - Pilot to Product-Market Fit
+
+### Q1 2025: Pilot Program Launch
+We're validating product-market fit with 15 carefully selected pilot customers, focusing on real-world validation of our 94% prediction accuracy with live investment decisions.
+
+### Q2 2025: Feature Refinement and Expansion
+Building the features most requested by pilot customers, including advanced scenario modeling with Monte Carlo simulation and custom ESG weighting systems.
+
+### Q3-Q4 2025: Scale Preparation and Series A
+Expanding to 50+ active customers and completing Series A funding ($5-8M target) for team expansion and market growth.
+
+*Read the complete roadmap on Medium and LinkedIn to learn about our satellite data integration plans, blockchain vision, and long-term market strategy...*`,
+      mediumUrl: "https://medium.com/@finergycloud/roadmap-2025-2027-innovations",
+      linkedinUrl: "https://linkedin.com/pulse/finergycloud-roadmap-2025-2027-product-strategy-team"
     },
     {
       title: "Multi-Currency IRR Modeling: Building for Global Markets",
@@ -76,7 +127,22 @@ export default function Blog() {
       readTime: "9 min read",
       category: "Financial Modeling",
       image: "💱",
-      tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets", "MVP"]
+      tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets", "MVP"],
+      content: `When we started building FinergyCloud, one of the first technical challenges we encountered was seemingly simple: how do you calculate meaningful financial returns for renewable energy investments when projects are in Nigeria, investors are in London, and financing comes from multiple currencies?
+
+Traditional IRR calculators assume a single currency and stable exchange rates. But emerging market renewable energy investments often involve complex currency dynamics that can make or break investment returns.
+
+## The Challenge: Why Single-Currency Models Don't Work
+
+Most financial modeling tools were built for developed markets where currency volatility is relatively low and most transactions happen in a single currency. These assumptions break down quickly in emerging market renewable energy.
+
+## Our Solution: Dynamic Multi-Currency Modeling
+
+We built our IRR calculator around three core principles: currency-native cash flow modeling, real-time exchange rate integration, and volatility-aware projections.
+
+*Read the complete technical article on Medium and LinkedIn to understand our multi-currency modeling approach, real-world case studies, and implementation details...*`,
+      mediumUrl: "https://medium.com/@finergycloud/multi-currency-irr-modeling-global-markets",
+      linkedinUrl: "https://linkedin.com/pulse/multi-currency-irr-modeling-global-markets-financial-engineering"
     },
     {
       title: "ESG Framework for African Renewable Energy: Our Research Foundation",
@@ -86,7 +152,20 @@ export default function Blog() {
       readTime: "10 min read",
       category: "ESG & Sustainability",
       image: "🌍",
-      tags: ["ESG Framework", "Emerging Markets", "Research", "Africa", "Methodology"]
+      tags: ["ESG Framework", "Emerging Markets", "Research", "Africa", "Methodology"],
+      content: `Traditional ESG frameworks were developed primarily for evaluating companies in mature markets with established regulatory systems, standardized reporting practices, and relatively stable institutional environments. When we began researching renewable energy investments in African markets, we quickly discovered that applying these frameworks without adaptation would miss the most important factors that determine project success and impact.
+
+## The Problem with Standard ESG Frameworks
+
+Most established ESG rating systems focus on corporate behavior within existing institutional frameworks. They assume established regulatory environments, standardized reporting, mature stakeholder systems, and binary compliance thinking.
+
+## Our Research Methodology: Building from the Ground Up
+
+Rather than simply adapting existing frameworks, we decided to build our ESG methodology based on extensive field research across African renewable energy markets. We conducted over 200 interviews across five countries and detailed case studies of 15 renewable energy projects.
+
+*Read the complete research methodology and framework details on Medium and LinkedIn to understand our adapted ESG approach for African renewable energy markets...*`,
+      mediumUrl: "https://medium.com/@finergycloud/esg-framework-african-renewable-energy",
+      linkedinUrl: "https://linkedin.com/pulse/esg-framework-african-renewable-energy-research-team"
     },
     {
       title: "From Research to MVP: Lessons from Building in Stealth Mode",
@@ -96,7 +175,20 @@ export default function Blog() {
       readTime: "8 min read",
       category: "Platform Development",
       image: "⚡",
-      tags: ["MVP Development", "Stealth Mode", "Technical Challenges", "Startup Journey"]
+      tags: ["MVP Development", "Stealth Mode", "Technical Challenges", "Startup Journey"],
+      content: `While other fintech startups were raising millions and making headlines, we made a deliberate choice to build in stealth mode. We wanted to validate our assumptions with real data before making any grand claims.
+
+This meant three years of intensive development work without the pressure of public scrutiny or investor demands for rapid growth. It meant we could focus on getting the fundamentals right: the machine learning algorithms, the data collection methods, and the user experience that would actually help investors make better decisions.
+
+## Key Lessons from Three Years in Stealth
+
+**Technology alone isn't enough.** The best algorithms in the world are useless if they don't solve real problems for real people. We spent as much time understanding our users' workflows as we did optimizing our machine learning models.
+
+**Data quality matters more than data quantity.** We turned down partnerships that would have given us more data but lower quality insights.
+
+*Read the complete development story on Medium and LinkedIn to learn about our technical decisions, challenges overcome, and lessons learned building an AI-powered fintech platform...*`,
+      mediumUrl: "https://medium.com/@finergycloud/mvp-lessons-stealth-mode-development",
+      linkedinUrl: "https://linkedin.com/pulse/research-mvp-lessons-stealth-mode-development-team"
     },
     {
       title: "Future Innovation: Satellite Data Integration for Solar Project Analysis",
@@ -106,7 +198,20 @@ export default function Blog() {
       readTime: "13 min read",
       category: "AI & Technology",
       image: "🛰️",
-      tags: ["Satellite Data", "Future Features", "Solar Analysis", "AI Integration", "Innovation"]
+      tags: ["Satellite Data", "Future Features", "Solar Analysis", "AI Integration", "Innovation"],
+      content: `One of our most ambitious technical developments planned for 2026 is the integration of satellite imagery and weather data to enable real-time monitoring of project performance and predictive maintenance. By integrating satellite data, we'll revolutionize how investors monitor and analyze renewable energy projects.
+
+## Technical Implementation Vision
+
+Our satellite integration will include partnership with satellite data providers for high-resolution imagery, computer vision algorithms for solar panel and wind turbine condition assessment, weather pattern analysis for performance prediction, and automated alert systems for performance anomalies.
+
+## Customer Value Proposition
+
+This advancement will provide real-time project health monitoring without site visits, predictive maintenance alerts reducing downtime by an estimated 25%, performance validation for insurance and financing requirements, and enhanced due diligence capabilities for acquisition opportunities.
+
+*Read the complete technical roadmap on Medium and LinkedIn to understand our satellite data integration strategy, AI capabilities, and timeline for deployment...*`,
+      mediumUrl: "https://medium.com/@finergycloud/satellite-data-integration-solar-analysis",
+      linkedinUrl: "https://linkedin.com/pulse/future-innovation-satellite-data-solar-analysis-future-tech"
     },
     {
       title: "Blockchain for Renewable Energy: Our 2027 Vision",
@@ -116,7 +221,24 @@ export default function Blog() {
       readTime: "15 min read",
       category: "Future Technology",
       image: "⛓️",
-      tags: ["Blockchain", "Smart Contracts", "Future Vision", "Decentralization", "ESG Automation"]
+      tags: ["Blockchain", "Smart Contracts", "Future Vision", "Decentralization", "ESG Automation"],
+      content: `Our 2027 vision includes pioneering blockchain-based transparency and automation in renewable energy investment. This development addresses the growing demand for transparent, verifiable ESG impact reporting and automated compliance monitoring.
+
+## Technical Architecture Vision
+
+We're planning smart contracts for automated ESG milestone verification, blockchain-based carbon credit tracking and verification, decentralized impact reporting with immutable audit trails, and token-based incentive systems for community engagement in projects.
+
+## Use Cases and Applications
+
+The blockchain integration will enable automated impact verification for ESG-linked financing, transparent community benefit distribution for local stakeholders, real-time carbon credit generation and trading, and decentralized due diligence with community-verified project data.
+
+## Market Positioning
+
+This positions us as the first platform to offer blockchain-verified ESG compliance, creates partnership opportunities with carbon credit marketplaces, and enables integration with decentralized finance protocols for project financing.
+
+*Read the complete blockchain vision on Medium and LinkedIn to understand our long-term technology strategy, implementation timeline, and market opportunities...*`,
+      mediumUrl: "https://medium.com/@finergycloud/blockchain-renewable-energy-2027-vision",
+      linkedinUrl: "https://linkedin.com/pulse/blockchain-renewable-energy-2027-vision-innovation-team"
     }
   ];
 
@@ -129,9 +251,42 @@ export default function Blog() {
     { name: "Future Technology", count: 5, icon: TrendingUp, description: "Upcoming innovations and long-term vision" }
   ];
 
-  const handleReadMore = (postTitle: string) => {
-    // Create a modal or expanded view for the blog post
-    alert(`Reading: ${postTitle}\n\nThis would open the full article in a real blog system. For now, this demonstrates the blog functionality is working.`);
+  const handleReadMore = (post: any) => {
+    // Show options for reading on different platforms
+    const readOptions = [];
+    if (post.mediumUrl) readOptions.push(`Medium: ${post.mediumUrl}`);
+    if (post.linkedinUrl) readOptions.push(`LinkedIn: ${post.linkedinUrl}`);
+    
+    if (readOptions.length > 0) {
+      const message = `📖 Read "${post.title}" on:\n\n${readOptions.join('\n\n')}\n\nFull articles with detailed content, real-world examples, and technical insights are available on these platforms. Perfect for sharing with your network!`;
+      alert(message);
+    } else {
+      alert(`📝 "${post.title}"\n\nThis article will be published soon on Medium and LinkedIn. Our comprehensive blog content includes detailed technical analysis, case studies, and actionable insights for renewable energy investment professionals.`);
+    }
+  };
+
+  const handleShare = (post: any, platform: string) => {
+    let shareUrl = '';
+    const text = `${post.title} - ${post.excerpt}`;
+    
+    switch(platform) {
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(post.linkedinUrl || window.location.href)}`;
+        break;
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(post.mediumUrl || window.location.href)}`;
+        break;
+      case 'medium':
+        if (post.mediumUrl) {
+          window.open(post.mediumUrl, '_blank');
+          return;
+        }
+        break;
+    }
+    
+    if (shareUrl) {
+      window.open(shareUrl, '_blank');
+    }
   };
 
   return (
@@ -240,13 +395,34 @@ export default function Blog() {
                 ))}
               </div>
               
-              <Button 
-                onClick={() => handleReadMore(featuredPost.title)}
-                className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
-              >
-                Read Full Article
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <div className="flex items-center gap-4">
+                <Button 
+                  onClick={() => handleReadMore(featuredPost)}
+                  className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700"
+                >
+                  Read Full Article
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-600 text-sm">Share:</span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleShare(featuredPost, 'linkedin')}
+                    className="text-blue-600 hover:text-blue-700"
+                  >
+                    LinkedIn
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleShare(featuredPost, 'medium')}
+                    className="text-green-600 hover:text-green-700"
+                  >
+                    Medium
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </Card>
@@ -305,14 +481,24 @@ export default function Blog() {
                       <div className="text-xs text-gray-500">
                         By {post.author}
                       </div>
-                      <Button 
-                        onClick={() => handleReadMore(post.title)}
-                        variant="ghost" 
-                        size="sm" 
-                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      >
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
+                      <div className="flex items-center gap-2">
+                        <Button 
+                          onClick={() => handleReadMore(post)}
+                          variant="ghost" 
+                          size="sm" 
+                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                          <ArrowRight className="w-4 h-4" />
+                        </Button>
+                        <Button 
+                          onClick={() => handleShare(post, 'linkedin')}
+                          variant="ghost" 
+                          size="sm" 
+                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-blue-600"
+                        >
+                          Share
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
