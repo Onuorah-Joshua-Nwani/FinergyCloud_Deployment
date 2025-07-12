@@ -105,7 +105,7 @@ export default function Navigation() {
           <div className="flex justify-between items-center h-12 sm:h-14">
           
           {/* Left Side - Brand */}
-          <div className={`flex items-center space-x-2 sm:space-x-3 flex-shrink-0 ${actuallyMobileApp ? 'ml-16 lg:ml-0' : ''}`}>
+          <div className={`flex items-center space-x-2 sm:space-x-3 flex-shrink-0 ${actuallyMobileApp ? 'ml-12 lg:ml-0' : ''}`}>
             {/* Brand */}
             <Link href={actuallyMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3">
               <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
@@ -141,7 +141,7 @@ export default function Navigation() {
           </div>
 
           {/* Right Side - Actions */}
-          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <div className={`flex items-center space-x-2 sm:space-x-3 flex-shrink-0 ${actuallyMobileApp ? 'mr-2' : ''}`}>
             
             {/* Mobile App Button for website */}
             {!actuallyMobileApp && (
