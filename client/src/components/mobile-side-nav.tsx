@@ -101,18 +101,15 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
       {/* Backdrop Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 z-[60] transition-opacity duration-300"
+          className="mobile-nav-overlay"
           onClick={onClose}
-          style={{ touchAction: 'none' }}
         />
       )}
       
       {/* Side Navigation */}
       <div
         id="mobile-side-nav"
-        className={`fixed top-0 left-0 h-full w-64 max-w-[80vw] bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`mobile-nav-sidebar ${isOpen ? 'open' : ''}`}
       >
         {/* Header */}
         <div className="flex items-center p-4 border-b border-gray-200 bg-gradient-to-r from-green-50 to-blue-50">
@@ -191,13 +188,13 @@ export function MobileMenuButton({ onClick, isOpen = false }: { onClick: () => v
     <button
       id="mobile-menu-button"
       onClick={onClick}
-      className="flex items-center justify-center w-10 h-10 bg-white border-2 border-green-600 rounded-lg shadow-md hover:bg-green-50 active:bg-green-100 transition-all duration-200 hover:scale-105"
+      className="mobile-hamburger"
       aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
     >
       {isOpen ? (
-        <X className="w-5 h-5 text-green-600" />
+        <X className="w-6 h-6 text-green-600 font-bold" />
       ) : (
-        <Menu className="w-5 h-5 text-green-600" />
+        <Menu className="w-6 h-6 text-green-600 font-bold" />
       )}
     </button>
   );

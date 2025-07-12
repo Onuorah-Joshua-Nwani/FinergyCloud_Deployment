@@ -95,7 +95,7 @@ export default function Navigation() {
     <>
       {/* Fixed Hamburger Menu for Mobile App - Always visible */}
       {actuallyMobileApp && (
-        <div className="fixed top-3 left-3 z-[55] lg:hidden">
+        <div className="lg:hidden">
           <MobileMenuButton onClick={() => setSideNavOpen(!sideNavOpen)} isOpen={sideNavOpen} />
         </div>
       )}
@@ -105,7 +105,7 @@ export default function Navigation() {
           <div className="flex justify-between items-center h-12 sm:h-14">
           
           {/* Left Side - Brand */}
-          <div className={`flex items-center space-x-2 sm:space-x-3 flex-shrink-0 ${actuallyMobileApp ? 'ml-16' : ''}`}>
+          <div className={`flex items-center space-x-2 sm:space-x-3 flex-shrink-0 ${actuallyMobileApp ? 'ml-16 lg:ml-0' : ''}`}>
             {/* Brand */}
             <Link href={actuallyMobileApp ? "/?platform=mobile" : "/"} className="flex items-center space-x-2 sm:space-x-3">
               <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-sm">
