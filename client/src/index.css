@@ -506,4 +506,38 @@
     @apply absolute right-4 top-1/2 transform -translate-y-1/2 w-1 h-6 rounded-full;
     background-color: hsl(var(--primary));
   }
+
+  /* Mobile Zoom Controls */
+  .zoom-controls {
+    @apply fixed bottom-20 right-4 z-40 flex flex-col space-y-2;
+  }
+
+  .zoom-button {
+    @apply w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-green-600 hover:border-green-300 transition-all duration-200;
+  }
+
+  .zoom-button:active {
+    @apply scale-95 bg-gray-50;
+  }
+
+  /* Zoom container for mobile content */
+  .zoom-container {
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Touch gesture support */
+  .touch-zoom {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Hide zoom controls on desktop */
+  @media (min-width: 1024px) {
+    .zoom-controls {
+      @apply hidden;
+    }
+  }
 }

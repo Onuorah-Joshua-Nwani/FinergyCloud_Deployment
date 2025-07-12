@@ -28,6 +28,7 @@ import Login from "@/pages/login";
 import WebsiteLanding from "@/pages/website/website-landing";
 import MobileLanding from "@/pages/mobile-app/mobile-landing";
 import NotFound from "@/pages/not-found";
+import ZoomControls from "@/components/zoom-controls";
 
 
 function Router() {
@@ -54,9 +55,9 @@ function Router() {
   // MOBILE APP PLATFORM
   if (isMobileApp || shouldForceMobile) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 touch-zoom">
         <Navigation />
-        <div className="pb-16 lg:pb-0">
+        <main className="pb-16 lg:pb-0 zoom-container">
           <Switch>
             <Route path="/login" component={Login} />
             {/* For mobile app, always show functionality - pilot program access */}
@@ -76,16 +77,18 @@ function Router() {
             <Route path="/cookies" component={Cookies} />
             <Route path="*" component={NotFound} />
           </Switch>
-        </div>
+        </main>
+        <ZoomControls />
       </div>
     );
   }
 
   // WEBSITE PLATFORM (Default)
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white touch-zoom">
       <Navigation />
-      <Switch>
+      <main className="zoom-container">
+        <Switch>
         <Route path="/" component={WebsiteLanding} />
         <Route path="/about" component={About} />
         <Route path="/solutions" component={Solutions} />
@@ -97,6 +100,8 @@ function Router() {
         <Route path="/login" component={Login} />
         <Route path="*" component={NotFound} />
       </Switch>
+      </main>
+      <ZoomControls />
     </div>
   );
 }
