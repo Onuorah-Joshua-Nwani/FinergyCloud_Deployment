@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
-import { Leaf, Users, Shield, Eye, Lightbulb, Heart } from "lucide-react";
+import { Leaf, Users, Shield, Eye, Lightbulb, Heart, TrendingUp, TrendingDown } from "lucide-react";
 
 const esgData = [
   { 
@@ -161,93 +160,60 @@ export default function ESGComponentBreakdownChart() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">ESG Performance Radar</h4>
-            <ResponsiveContainer width="100%" height={380}>
-              <RadarChart data={esgData} margin={{ top: 25, right: 25, bottom: 25, left: 25 }}>
-                <PolarGrid stroke="#d1fae5" strokeWidth={1.5} />
-                <PolarAngleAxis 
-                  dataKey="subject" 
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  tickFormatter={(value) => value.length > 12 ? value.substring(0, 12) + '...' : value}
-                />
-                <PolarRadiusAxis 
-                  angle={90} 
-                  domain={[0, 10]} 
-                  tick={{ fontSize: 10, fill: '#6b7280' }}
-                  tickFormatter={(value) => Number(value).toFixed(0)}
-                  axisLine={false}
-                />
-                <Radar
-                  name="Our Score"
-                  dataKey="score"
-                  stroke="#22c55e"
-                  fill="#22c55e"
-                  fillOpacity={0.25}
-                  strokeWidth={3}
-                  dot={{ fill: '#22c55e', strokeWidth: 2, r: 4 }}
-                />
-                <Radar
-                  name="Industry Benchmark"
-                  dataKey="benchmark"
-                  stroke="#94a3b8"
-                  fill="transparent"
-                  strokeWidth={2}
-                  strokeDasharray="5 5"
-                  dot={{ fill: '#94a3b8', strokeWidth: 2, r: 3 }}
-                />
-                <Tooltip content={<CustomTooltip />} />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
+        <div className="space-y-6 mb-8">
+          {/* Mobile-Friendly Comparison Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {esgData.map((item, index) => (
+              <div key={index} className="bg-white p-4 rounded-lg border shadow-sm">
+                <h5 className="font-medium text-gray-900 text-sm mb-3">{item.subject}</h5>
+                
+                <div className="space-y-3">
+                  <div>
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-xs text-gray-600">Our Score</span>
+                      <span className="text-sm font-bold text-green-600">{item.score}</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div 
+                        className="bg-green-500 h-2 rounded-full transition-all duration-500" 
+                        style={{ width: `${(item.score / 10) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-xs text-gray-600">Benchmark</span>
+                      <span className="text-sm font-medium text-gray-500">{item.benchmark}</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div 
+                        className="bg-gray-400 h-2 rounded-full transition-all duration-500" 
+                        style={{ width: `${(item.benchmark / 10) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
 
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">Performance vs Benchmark</h4>
-            <ResponsiveContainer width="100%" height={400}>
-              <BarChart data={esgData} margin={{ top: 20, right: 40, left: 60, bottom: 80 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis 
-                  dataKey="subject" 
-                  tick={{ fontSize: 12, fill: '#374151' }}
-                  tickLine={{ stroke: '#d1d5db' }}
-                  angle={-30}
-                  textAnchor="end"
-                  height={60}
-                  interval={0}
-                />
-                <YAxis 
-                  domain={[6, 10]}
-                  tick={{ fontSize: 12, fill: '#374151' }}
-                  tickLine={{ stroke: '#d1d5db' }}
-                  tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px' } }}
-                  width={50}
-                />
-                <Tooltip 
-                  content={<CustomTooltip />} 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
-                    border: '1px solid #e2e8f0', 
-                    borderRadius: '8px', 
-                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
-                    fontSize: '13px'
-                  }}
-                />
-                <Bar 
-                  dataKey="benchmark" 
-                  fill="#cbd5e1" 
-                  name="Industry Benchmark"
-                  radius={[3, 3, 0, 0]}
-                />
-                <Bar 
-                  dataKey="score" 
-                  fill="#10b981" 
-                  name="Our Score"
-                  radius={[3, 3, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
+                  <div className="pt-2 border-t">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-500">Performance</span>
+                      <div className="flex items-center gap-1">
+                        {item.score > item.benchmark ? (
+                          <TrendingUp className="w-3 h-3 text-green-500" />
+                        ) : (
+                          <TrendingDown className="w-3 h-3 text-red-500" />
+                        )}
+                        <span className={`text-xs font-medium ${
+                          item.score > item.benchmark ? 'text-green-600' : 'text-red-600'
+                        }`}>
+                          {item.score > item.benchmark ? 'Above' : 'Below'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from "recharts";
+
 import { Users, Trophy, TrendingUp, Crown, Target } from "lucide-react";
 
 const peerData = [
@@ -174,113 +174,55 @@ export default function PeerComparisonChart() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">ESG Component Comparison</h4>
-            <ResponsiveContainer width="100%" height={400}>
-              <BarChart 
-                data={peerData} 
-                margin={{ top: 20, right: 40, left: 60, bottom: 80 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis 
-                  dataKey="company" 
-                  tick={{ fontSize: 12, fill: '#374151' }}
-                  angle={-30}
-                  textAnchor="end"
-                  height={60}
-                  interval={0}
-                  tickLine={{ stroke: '#d1d5db' }}
-                />
-                <YAxis 
-                  domain={[6, 10]}
-                  tick={{ fontSize: 12, fill: '#374151' }}
-                  tickLine={{ stroke: '#d1d5db' }}
-                  tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px' } }}
-                  width={50}
-                />
-                <Tooltip 
-                  content={<CustomTooltip />} 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
-                    border: '1px solid #e2e8f0', 
-                    borderRadius: '8px', 
-                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
-                    fontSize: '13px'
-                  }}
-                />
-                <Legend 
-                  wrapperStyle={{ 
-                    paddingTop: '20px', 
-                    fontSize: '13px', 
-                    fontWeight: 500,
-                    color: '#374151'
-                  }}
-                />
-                <Bar 
-                  dataKey="environmental" 
-                  fill="#10b981" 
-                  name="Environmental"
-                  radius={[2, 2, 0, 0]}
-                />
-                <Bar 
-                  dataKey="social" 
-                  fill="#3b82f6" 
-                  name="Social"
-                  radius={[2, 2, 0, 0]}
-                />
-                <Bar 
-                  dataKey="governance" 
-                  fill="#8b5cf6" 
-                  name="Governance"
-                  radius={[2, 2, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">Overall ESG Performance</h4>
-            <ResponsiveContainer width="100%" height={400}>
-              <BarChart 
-                data={peerData.sort((a, b) => b.overall - a.overall)} 
-                margin={{ top: 20, right: 40, left: 60, bottom: 80 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis 
-                  dataKey="company" 
-                  tick={{ fontSize: 12, fill: '#374151' }}
-                  angle={-30}
-                  textAnchor="end"
-                  height={60}
-                  interval={0}
-                  tickLine={{ stroke: '#d1d5db' }}
-                />
-                <YAxis 
-                  domain={[7.5, 8.8]}
-                  tick={{ fontSize: 12, fill: '#374151' }}
-                  tickLine={{ stroke: '#d1d5db' }}
-                  tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'Overall Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px', textAnchor: 'middle' } }}
-                  width={50}
-                />
-                <Tooltip 
-                  formatter={(value: number, name: string) => [value, 'Overall ESG Score']}
-                  labelStyle={{ color: '#374151' }}
-                  contentStyle={{ 
-                    backgroundColor: 'white', 
-                    border: '1px solid #d1d5db', 
-                    borderRadius: '8px' 
-                  }}
-                />
-                <Bar 
-                  dataKey="overall" 
-                  fill="#f59e0b"
-                  radius={[4, 4, 0, 0]}
-                />
-            </BarChart>
-            </ResponsiveContainer>
+        <div className="space-y-6 mb-8">
+          {/* Mobile-Friendly Company Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {peerData.map((company, index) => (
+              <div key={index} className="bg-white p-4 rounded-lg border shadow-sm">
+                <div className="flex items-center justify-between mb-3">
+                  <h5 className="font-medium text-gray-900 text-sm truncate">{company.company}</h5>
+                  <div className="text-right">
+                    <div className="text-lg font-bold text-gray-800">{company.overall}</div>
+                    <div className="text-xs text-gray-500">Overall</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-600">Environmental</span>
+                    <span className="text-sm font-medium text-green-600">{company.environmental}</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5">
+                    <div 
+                      className="bg-green-500 h-1.5 rounded-full transition-all duration-500" 
+                      style={{ width: `${(company.environmental / 10) * 100}%` }}
+                    ></div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-600">Social</span>
+                    <span className="text-sm font-medium text-blue-600">{company.social}</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5">
+                    <div 
+                      className="bg-blue-500 h-1.5 rounded-full transition-all duration-500" 
+                      style={{ width: `${(company.social / 10) * 100}%` }}
+                    ></div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-600">Governance</span>
+                    <span className="text-sm font-medium text-purple-600">{company.governance}</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5">
+                    <div 
+                      className="bg-purple-500 h-1.5 rounded-full transition-all duration-500" 
+                      style={{ width: `${(company.governance / 10) * 100}%` }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

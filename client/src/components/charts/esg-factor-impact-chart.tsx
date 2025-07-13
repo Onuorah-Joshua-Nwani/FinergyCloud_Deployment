@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from "recharts";
+
 import { Zap, TreePine, Users, Shield, Eye, Target, TrendingUp, AlertTriangle } from "lucide-react";
 
 const impactData = [
@@ -183,122 +183,47 @@ export default function ESGFactorImpactChart() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">Current vs Potential Performance</h4>
-            <ResponsiveContainer width="100%" height={400}>
-              <AreaChart data={impactData} margin={{ top: 20, right: 40, left: 60, bottom: 80 }}>
-                <defs>
-                  <linearGradient id="currentGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4}/>
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.1}/>
-                  </linearGradient>
-                  <linearGradient id="potentialGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.4}/>
-                    <stop offset="95%" stopColor="#10b981" stopOpacity={0.1}/>
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="2 4" stroke="#e0e7ff" strokeOpacity={0.6} />
-                <XAxis 
-                  dataKey="factor" 
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  angle={-25}
-                  textAnchor="end"
-                  height={75}
-                  interval={0}
-                />
-                <YAxis 
-                  domain={[7, 10]}
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '13px', fontWeight: 600, fill: '#374151', textAnchor: 'middle' } }}
-                  width={45}
-                />
-                <Tooltip 
-                  content={<CustomTooltip />} 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
-                    border: '1px solid #e2e8f0', 
-                    borderRadius: '8px', 
-                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
-                    fontSize: '13px'
-                  }}
-                />
-                <Legend 
-                  wrapperStyle={{ 
-                    paddingTop: '20px', 
-                    fontSize: '13px', 
-                    fontWeight: 500,
-                    color: '#374151'
-                  }}
-                />
-                <Area 
-                  type="monotone" 
-                  dataKey="current" 
-                  stroke="#3b82f6" 
-                  fill="url(#currentGradient)"
-                  strokeWidth={3}
-                  name="Current Score"
-                />
-                <Area 
-                  type="monotone" 
-                  dataKey="potential" 
-                  stroke="#10b981" 
-                  fill="url(#potentialGradient)"
-                  strokeWidth={3}
-                  strokeDasharray="6 3"
-                  name="Potential Score"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+        <div className="space-y-6 mb-8">
+          {/* Mobile-Friendly Performance Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {impactData.map((item, index) => (
+              <div key={index} className="bg-white p-4 rounded-lg border shadow-sm">
+                <h5 className="font-medium text-gray-900 text-sm mb-3">{item.factor}</h5>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Current</div>
+                    <div className="text-xl font-bold text-blue-600 mb-2">{item.current}</div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div 
+                        className="bg-blue-500 h-2 rounded-full transition-all duration-500" 
+                        style={{ width: `${(item.current / 10) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Potential</div>
+                    <div className="text-xl font-bold text-green-600 mb-2">{item.potential}</div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div 
+                        className="bg-green-500 h-2 rounded-full transition-all duration-500" 
+                        style={{ width: `${(item.potential / 10) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
 
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">Investment vs Impact Analysis</h4>
-            <ResponsiveContainer width="100%" height={400}>
-              <BarChart data={impactData} margin={{ top: 20, right: 40, left: 60, bottom: 80 }}>
-                <CartesianGrid strokeDasharray="2 4" stroke="#f3e8ff" strokeOpacity={0.6} />
-                <XAxis 
-                  dataKey="factor" 
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  angle={-25}
-                  textAnchor="end"
-                  height={75}
-                  interval={0}
-                />
-                <YAxis 
-                  tick={{ fontSize: 8 }}
-                  tickLine={{ stroke: '#d1d5db' }}
-                  tickFormatter={(value) => `₦${value}M`}
-                  label={{ value: 'Investment', angle: -90, position: 'insideLeft', style: { fontSize: '8px', textAnchor: 'middle' } }}
-                  width={55}
-                />
-                <Tooltip 
-                  formatter={(value: number, name: string) => [
-                    name === 'investment' ? `₦${value}M` : value, 
-                    name === 'investment' ? 'Investment Required' : 'Impact Score'
-                  ]}
-                  labelStyle={{ color: '#374151' }}
-                  contentStyle={{ 
-                    backgroundColor: 'white', 
-                    border: '1px solid #d1d5db', 
-                    borderRadius: '8px' 
-                  }}
-                />
-                <Bar 
-                  dataKey="investment" 
-                  fill="#8b5cf6" 
-                  name="investment"
-                  radius={[4, 4, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
+                <div className="mt-4 pt-3 border-t">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-500">Improvement Gap</span>
+                    <span className="text-sm font-medium text-orange-600">
+                      +{(item.potential - item.current).toFixed(1)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -95,99 +95,81 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
             `Monitor ${selectedProject?.type || 'project'} ESG performance trends to identify improvement areas and sustainability progress.`
           }
         </div>
-        <div className="chart-container">
-          <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={data} margin={{ top: 20, right: 40, left: 60, bottom: 80 }}>
-              <defs>
-                <linearGradient id="environmentalGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0.05}/>
-                </linearGradient>
-                <linearGradient id="socialGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.05}/>
-                </linearGradient>
-                <linearGradient id="governanceGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0.05}/>
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis 
-                dataKey="month" 
-                tick={{ fontSize: 12, fill: '#374151' }}
-                tickLine={{ stroke: '#d1d5db' }}
-                interval={0}
-                angle={-30}
-                textAnchor="end"
-                height={60}
-              />
-              <YAxis 
-                domain={[6, 10]} 
-                tick={{ fontSize: 12, fill: '#374151' }}
-                tickLine={{ stroke: '#d1d5db' }}
-                tickFormatter={(value) => Number(value).toFixed(1)}
-                label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px', textAnchor: 'middle' } }}
-                width={50}
-              />
-            <Tooltip 
-              content={<CustomTooltip />} 
-              contentStyle={{ 
-                backgroundColor: 'rgba(255, 255, 255, 0.95)', 
-                border: '1px solid #e2e8f0', 
-                borderRadius: '8px', 
-                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
-                fontSize: '13px'
-              }}
-            />
-            <Legend 
-              wrapperStyle={{ 
-                paddingTop: '25px', 
-                fontSize: '13px', 
-                fontWeight: 500,
-                color: '#374151'
-              }}
-              iconType="circle"
-            />
-            <Line 
-              type="monotone" 
-              dataKey="environmental" 
-              stroke="#10b981" 
-              strokeWidth={3.5}
-              name="Environmental"
-              dot={{ fill: '#ffffff', stroke: '#10b981', strokeWidth: 3, r: 5 }}
-              activeDot={{ r: 7, stroke: '#10b981', strokeWidth: 3, fill: '#10b981' }}
-            />
-            <Line 
-              type="monotone" 
-              dataKey="social" 
-              stroke="#3b82f6" 
-              strokeWidth={3.5}
-              name="Social"
-              dot={{ fill: '#ffffff', stroke: '#3b82f6', strokeWidth: 3, r: 5 }}
-              activeDot={{ r: 7, stroke: '#3b82f6', strokeWidth: 3, fill: '#3b82f6' }}
-            />
-            <Line 
-              type="monotone" 
-              dataKey="governance" 
-              stroke="#8b5cf6" 
-              strokeWidth={3.5}
-              name="Governance"
-              dot={{ fill: '#ffffff', stroke: '#8b5cf6', strokeWidth: 3, r: 5 }}
-              activeDot={{ r: 7, stroke: '#8b5cf6', strokeWidth: 3, fill: '#8b5cf6' }}
-            />
-            <Line 
-              type="monotone" 
-              dataKey="overall" 
-              stroke="#1e293b" 
-              strokeWidth={4}
-              strokeDasharray="8 4"
-              name="Overall ESG"
-              dot={{ fill: '#ffffff', stroke: '#1e293b', strokeWidth: 3, r: 6 }}
-              activeDot={{ r: 8, stroke: '#1e293b', strokeWidth: 3, fill: '#1e293b' }}
-            />
-            </LineChart>
-          </ResponsiveContainer>
+        <div className="space-y-6">
+          {/* Simple Progress Bars for Mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white p-4 rounded-lg border">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm font-medium text-gray-700">Environmental</span>
+                <span className="text-lg font-bold text-green-600">{data[data.length - 1]?.environmental}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-green-500 h-3 rounded-full transition-all duration-500" 
+                  style={{ width: `${(data[data.length - 1]?.environmental / 10) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg border">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm font-medium text-gray-700">Social</span>
+                <span className="text-lg font-bold text-blue-600">{data[data.length - 1]?.social}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-blue-500 h-3 rounded-full transition-all duration-500" 
+                  style={{ width: `${(data[data.length - 1]?.social / 10) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg border">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm font-medium text-gray-700">Governance</span>
+                <span className="text-lg font-bold text-purple-600">{data[data.length - 1]?.governance}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-purple-500 h-3 rounded-full transition-all duration-500" 
+                  style={{ width: `${(data[data.length - 1]?.governance / 10) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg border">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm font-medium text-gray-700">Overall ESG</span>
+                <span className="text-lg font-bold text-gray-800">{data[data.length - 1]?.overall}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                  className="bg-gray-600 h-3 rounded-full transition-all duration-500" 
+                  style={{ width: `${(data[data.length - 1]?.overall / 10) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Trend Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {data.slice(-4).map((item, index) => (
+              <div key={index} className="bg-gray-50 p-3 rounded-lg">
+                <div className="text-xs text-gray-500 mb-1">{item.month}</div>
+                <div className="space-y-1">
+                  <div className="flex justify-between text-xs">
+                    <span>E:</span><span className="font-medium text-green-600">{item.environmental}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span>S:</span><span className="font-medium text-blue-600">{item.social}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span>G:</span><span className="font-medium text-purple-600">{item.governance}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </CardContent>
     </Card>
