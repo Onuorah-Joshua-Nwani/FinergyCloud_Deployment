@@ -105,6 +105,9 @@ interface CashFlow {
 }
 
 export default function IRRCalculator() {
+  // Check if this is mobile app platform
+  const urlParams = new URLSearchParams(window.location.search);
+  const isMobileApp = urlParams.get('platform') === 'mobile';
 
   const { convertAndFormat, convert } = useCurrencyFormat();
   const { selectedCurrency, setSelectedCurrency } = useCurrency();
@@ -265,8 +268,15 @@ export default function IRRCalculator() {
           <div className="flex items-center gap-3 mb-4">
             <Calculator className="w-8 h-8 text-blue-600" />
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">CAPEX/OPEX Analysis</h1>
-              <p className="text-gray-600">Django-powered IRR analysis with West African market intelligence and developer track record scoring</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                {isMobileApp ? "CAPEX/OPEX Mobile" : "CAPEX/OPEX Analysis"}
+              </h1>
+              <p className="text-gray-600">
+                {isMobileApp 
+                  ? "Mobile Django-powered IRR calculator for Nigeria & Ghana renewable energy developers"
+                  : "Django-powered IRR analysis with West African market intelligence and developer track record scoring"
+                }
+              </p>
             </div>
           </div>
         </div>

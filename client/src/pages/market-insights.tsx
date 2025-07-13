@@ -100,6 +100,9 @@ const getTimeAgo = (date: string) => {
 };
 
 export default function MarketInsights() {
+  // Check if this is mobile app platform
+  const urlParams = new URLSearchParams(window.location.search);
+  const isMobileApp = urlParams.get('platform') === 'mobile';
 
   const { convertAndFormat } = useCurrencyFormat();
   const queryClient = useQueryClient();
@@ -278,8 +281,15 @@ export default function MarketInsights() {
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Market Insights</h1>
-            <p className="text-gray-600 mt-2">Stay updated with renewable energy market trends and analysis</p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              {isMobileApp ? "West Africa Intel" : "Market Insights"}
+            </h1>
+            <p className="text-gray-600 mt-2">
+              {isMobileApp 
+                ? "Nigeria & Ghana renewable energy market intelligence for mobile developers"
+                : "Stay updated with renewable energy market trends and analysis"
+              }
+            </p>
           </div>
           
           <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>

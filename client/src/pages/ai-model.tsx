@@ -8,6 +8,10 @@ import { Brain, Zap } from "lucide-react";
 
 export default function AIModel() {
   const [selectedProjectType, setSelectedProjectType] = useState<string>("solar");
+  
+  // Check if this is mobile app platform
+  const urlParams = new URLSearchParams(window.location.search);
+  const isMobileApp = urlParams.get('platform') === 'mobile';
 
   return (
     <section className="py-4 md:py-8 bg-white">
@@ -16,8 +20,15 @@ export default function AIModel() {
           <div className="flex items-start md:items-center gap-3 mb-4">
             <Brain className="w-6 h-6 md:w-8 md:h-8 text-blue-600 mt-1 md:mt-0 flex-shrink-0" />
             <div>
-              <h1 className="text-xl md:text-3xl font-bold text-gray-900">Django XGBoost Risk Engine</h1>
-              <p className="text-sm md:text-base text-gray-600 line-clamp-2">94% accuracy Python-based risk intelligence for West African renewable energy projects</p>
+              <h1 className="text-xl md:text-3xl font-bold text-gray-900">
+                {isMobileApp ? "XGBoost Risk Engine" : "Django XGBoost Risk Engine"}
+              </h1>
+              <p className="text-sm md:text-base text-gray-600 line-clamp-2">
+                {isMobileApp 
+                  ? "Mobile access to 94% accuracy Python-based risk intelligence for Nigeria & Ghana renewable projects"
+                  : "94% accuracy Python-based risk intelligence for West African renewable energy projects"
+                }
+              </p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">

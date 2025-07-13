@@ -243,7 +243,7 @@ export default function Navigation() {
                         {actuallyMobileApp ? "FinergyCloud" : "FinergyCloud"}
                       </span>
                       <span className="text-sm text-gray-500">
-                        {actuallyMobileApp ? "Studio - Beta Users: 10" : "Official Website"}
+                        {actuallyMobileApp ? "Studio - Beta: 10 Users" : "Official Website"}
                       </span>
                     </div>
                   </div>

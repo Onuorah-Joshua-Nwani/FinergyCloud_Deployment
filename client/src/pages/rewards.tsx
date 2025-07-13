@@ -77,6 +77,10 @@ interface Challenge {
 }
 
 export default function RewardsPage() {
+  // Check if this is mobile app platform
+  const urlParams = new URLSearchParams(window.location.search);
+  const isMobileApp = urlParams.get('platform') === 'mobile';
+  
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [selectedActivity, setSelectedActivity] = useState<RewardActivity | null>(null);
@@ -220,10 +224,13 @@ export default function RewardsPage() {
         {/* Header */}
         <div className="text-center space-y-2">
           <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-            Beta Program Engagement
+            {isMobileApp ? "Beta Program Mobile" : "Beta Program Engagement"}
           </h1>
           <p className="text-sm md:text-base text-gray-600">
-            Exclusive pilot program features for our 10 beta users across Nigeria and West Africa
+            {isMobileApp 
+              ? "Mobile access for our 10 beta users: project developers, NGO finance teams, climate consultants"
+              : "Exclusive pilot program features for our 10 beta users across Nigeria and West Africa"
+            }
           </p>
         </div>
 

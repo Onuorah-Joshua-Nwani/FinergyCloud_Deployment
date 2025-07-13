@@ -20,6 +20,10 @@ import {
 } from 'lucide-react';
 
 export default function AdvancedFeatures() {
+  // Check if this is mobile app platform
+  const urlParams = new URLSearchParams(window.location.search);
+  const isMobileApp = urlParams.get('platform') === 'mobile';
+  
   const [activeFeature, setActiveFeature] = useState<string>('gestures');
 
   const features = [
@@ -79,10 +83,15 @@ export default function AdvancedFeatures() {
         <div className="mb-6 md:mb-8">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="w-6 h-6 text-primary" />
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Advanced Features</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+              {isMobileApp ? "Power BI Mobile" : "Advanced Features"}
+            </h1>
           </div>
           <p className="text-sm md:text-base text-gray-600">
-            Experience next-generation investment tools powered by AI and machine learning
+            {isMobileApp 
+              ? "Mobile access to Django-powered Power BI integration for West Africa renewable energy risk intelligence"
+              : "Experience next-generation investment tools powered by AI and machine learning"
+            }
           </p>
         </div>
 
