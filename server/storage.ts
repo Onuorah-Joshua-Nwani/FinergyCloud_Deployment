@@ -921,12 +921,14 @@ export class MemStorage implements IStorage {
     this.predictions = new Map();
     this.esgMetrics = new Map();
     this.marketInsights = new Map();
+    this.projectTypeTemplates = new Map();
     this.currentProjectId = 1;
     this.currentPredictionId = 1;
     this.currentEsgId = 1;
     this.currentInsightId = 1;
     
     this.seedData();
+    this.seedEsgTemplates();
   }
 
   private seedData() {
@@ -1002,6 +1004,104 @@ export class MemStorage implements IStorage {
 
     this.marketInsights.set(insight1.id, insight1);
     this.marketInsights.set(insight2.id, insight2);
+  }
+
+  private seedEsgTemplates() {
+    // Solar project template
+    const solarTemplate: ProjectTypeEsgTemplate = {
+      id: 1,
+      projectType: "solar",
+      environmental: 9.2,
+      social: 8.5,
+      governance: 8.8,
+      overall: 8.8,
+      co2Reduction: 3200,
+      cleanEnergyGenerated: 15.2,
+      waterSaved: 1200000,
+      jobsCreated: 185,
+      communitiesServed: 12,
+      educationPrograms: 6,
+      riskCategory: "low",
+      createdAt: new Date()
+    };
+
+    // Wind project template
+    const windTemplate: ProjectTypeEsgTemplate = {
+      id: 2,
+      projectType: "wind",
+      environmental: 8.9,
+      social: 7.8,
+      governance: 8.2,
+      overall: 8.3,
+      co2Reduction: 2800,
+      cleanEnergyGenerated: 18.5,
+      waterSaved: 450000,
+      jobsCreated: 145,
+      communitiesServed: 8,
+      educationPrograms: 4,
+      riskCategory: "medium",
+      createdAt: new Date()
+    };
+
+    // Hydro project template
+    const hydroTemplate: ProjectTypeEsgTemplate = {
+      id: 3,
+      projectType: "hydro",
+      environmental: 9.5,
+      social: 9.1,
+      governance: 9.2,
+      overall: 9.3,
+      co2Reduction: 4200,
+      cleanEnergyGenerated: 25.8,
+      waterSaved: 2500000,
+      jobsCreated: 220,
+      communitiesServed: 15,
+      educationPrograms: 8,
+      riskCategory: "low",
+      createdAt: new Date()
+    };
+
+    // Biomass project template
+    const biomassTemplate: ProjectTypeEsgTemplate = {
+      id: 4,
+      projectType: "biomass",
+      environmental: 7.8,
+      social: 8.9,
+      governance: 7.5,
+      overall: 8.1,
+      co2Reduction: 2100,
+      cleanEnergyGenerated: 12.3,
+      waterSaved: 350000,
+      jobsCreated: 280,
+      communitiesServed: 22,
+      educationPrograms: 12,
+      riskCategory: "medium",
+      createdAt: new Date()
+    };
+
+    // Geothermal project template
+    const geothermalTemplate: ProjectTypeEsgTemplate = {
+      id: 5,
+      projectType: "geothermal",
+      environmental: 9.0,
+      social: 8.2,
+      governance: 8.5,
+      overall: 8.6,
+      co2Reduction: 3500,
+      cleanEnergyGenerated: 20.1,
+      waterSaved: 800000,
+      jobsCreated: 165,
+      communitiesServed: 10,
+      educationPrograms: 5,
+      riskCategory: "medium",
+      createdAt: new Date()
+    };
+
+    this.projectTypeTemplates.set("solar", solarTemplate);
+    this.projectTypeTemplates.set("wind", windTemplate);
+    this.projectTypeTemplates.set("hydro", hydroTemplate);
+    this.projectTypeTemplates.set("biomass", biomassTemplate);
+    this.projectTypeTemplates.set("geothermal", geothermalTemplate);
   }
 
   async getProjects(): Promise<Project[]> {
@@ -1139,12 +1239,14 @@ export class MemStorage implements IStorage {
     return insight;
   }
 
+  private projectTypeTemplates: Map<string, ProjectTypeEsgTemplate> = new Map();
+
   async getProjectTypeEsgTemplates(): Promise<ProjectTypeEsgTemplate[]> {
-    return [];
+    return Array.from(this.projectTypeTemplates.values());
   }
 
   async getProjectTypeEsgTemplate(projectType: string): Promise<ProjectTypeEsgTemplate | undefined> {
-    return undefined;
+    return this.projectTypeTemplates.get(projectType);
   }
 
   async createProjectTypeEsgTemplate(insertTemplate: InsertProjectTypeEsgTemplate): Promise<ProjectTypeEsgTemplate> {
