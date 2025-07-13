@@ -29,6 +29,7 @@ export default function Navigation() {
     { path: "/", label: "Home", icon: BookOpen },
     { path: "/about", label: "About", icon: Info },
     { path: "/platform", label: "Platform", icon: Wrench },
+    { path: "/blog", label: "Blog", icon: Newspaper },
     { path: "/beta", label: "Beta Program", icon: Users },
     { path: "/contact", label: "Contact", icon: Phone },
   ];
