@@ -177,28 +177,28 @@ export default function PeerComparisonChart() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="chart-container">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Component Comparison</h4>
-            <ResponsiveContainer width="100%" height={450} className="sm:h-[500px] lg:h-[520px]">
-            <BarChart 
-              data={peerData} 
-              margin={{ top: 40, right: 60, left: 80, bottom: 120 }}
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart 
+                data={peerData} 
+                margin={{ top: 20, right: 30, left: 50, bottom: 90 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="company" 
-                  tick={{ fontSize: 13, fill: '#374151' }}
-                  angle={-20}
+                  tick={{ fontSize: 11, fill: '#374151' }}
+                  angle={-30}
                   textAnchor="end"
-                  height={100}
+                  height={70}
                   interval={0}
                   tickLine={{ stroke: '#d1d5db' }}
                 />
                 <YAxis 
                   domain={[6, 10]}
-                  tick={{ fontSize: 12, fill: '#374151' }}
+                  tick={{ fontSize: 11, fill: '#374151' }}
                   tickLine={{ stroke: '#d1d5db' }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px' } }}
-                  width={60}
+                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '11px' } }}
+                  width={40}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />
@@ -220,34 +220,34 @@ export default function PeerComparisonChart() {
                   name="Governance"
                   radius={[1, 1, 0, 0]}
                 />
-            </BarChart>
+              </BarChart>
             </ResponsiveContainer>
           </div>
 
           <div className="chart-container">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Overall ESG Performance</h4>
-            <ResponsiveContainer width="100%" height={450} className="sm:h-[500px] lg:h-[520px]">
-            <BarChart 
-              data={peerData.sort((a, b) => b.overall - a.overall)} 
-              margin={{ top: 40, right: 60, left: 80, bottom: 120 }}
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart 
+                data={peerData.sort((a, b) => b.overall - a.overall)} 
+                margin={{ top: 20, right: 30, left: 50, bottom: 90 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="company" 
-                  tick={{ fontSize: 13, fill: '#374151' }}
-                  angle={-20}
+                  tick={{ fontSize: 11, fill: '#374151' }}
+                  angle={-30}
                   textAnchor="end"
-                  height={100}
+                  height={70}
                   interval={0}
                   tickLine={{ stroke: '#d1d5db' }}
                 />
                 <YAxis 
                   domain={[7.5, 8.8]}
-                  tick={{ fontSize: 12, fill: '#374151' }}
+                  tick={{ fontSize: 11, fill: '#374151' }}
                   tickLine={{ stroke: '#d1d5db' }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'Overall Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px', textAnchor: 'middle' } }}
-                  width={60}
+                  label={{ value: 'Overall Score', angle: -90, position: 'insideLeft', style: { fontSize: '11px', textAnchor: 'middle' } }}
+                  width={40}
                 />
                 <Tooltip 
                   formatter={(value: number, name: string) => [value, 'Overall ESG Score']}

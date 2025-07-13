@@ -96,26 +96,26 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
           }
         </div>
         <div className="chart-container">
-          <ResponsiveContainer width="100%" height={450} className="sm:h-[500px] lg:h-[550px]">
-          <LineChart data={data} margin={{ top: 40, right: 60, left: 80, bottom: 120 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis 
-              dataKey="month" 
-              tick={{ fontSize: 13, fill: '#374151' }}
-              tickLine={{ stroke: '#d1d5db' }}
-              interval={0}
-              angle={-20}
-              textAnchor="end"
-              height={100}
-            />
-            <YAxis 
-              domain={[6, 10]} 
-              tick={{ fontSize: 12, fill: '#374151' }}
-              tickLine={{ stroke: '#d1d5db' }}
-              tickFormatter={(value) => Number(value).toFixed(1)}
-              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px', textAnchor: 'middle' } }}
-              width={50}
-            />
+          <ResponsiveContainer width="100%" height={400}>
+            <LineChart data={data} margin={{ top: 20, right: 30, left: 60, bottom: 90 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <XAxis 
+                dataKey="month" 
+                tick={{ fontSize: 11, fill: '#374151' }}
+                tickLine={{ stroke: '#d1d5db' }}
+                interval={0}
+                angle={-30}
+                textAnchor="end"
+                height={70}
+              />
+              <YAxis 
+                domain={[6, 10]} 
+                tick={{ fontSize: 11, fill: '#374151' }}
+                tickLine={{ stroke: '#d1d5db' }}
+                tickFormatter={(value) => Number(value).toFixed(1)}
+                label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '11px', textAnchor: 'middle' } }}
+                width={45}
+              />
             <Tooltip content={<CustomTooltip />} />
             <Legend 
               wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }}
@@ -157,7 +157,7 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
               dot={{ fill: '#1f2937', strokeWidth: 2, r: 5 }}
               activeDot={{ r: 7, stroke: '#1f2937', strokeWidth: 2 }}
             />
-          </LineChart>
+            </LineChart>
           </ResponsiveContainer>
         </div>
       </CardContent>
