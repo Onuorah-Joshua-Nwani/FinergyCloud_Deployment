@@ -262,7 +262,7 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Leaf className="w-5 h-5 text-green-600" />
-              ESG Impact for {selectedProjectType.charAt(0).toUpperCase() + selectedProjectType.slice(1)} Projects
+              ESG Impact for {selectedProjectType ? (selectedProjectType.charAt(0).toUpperCase() + selectedProjectType.slice(1)) : 'Selected'} Projects
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -330,7 +330,7 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
                     esgTemplate.riskCategory === 'low' ? 'text-green-600' :
                     esgTemplate.riskCategory === 'medium' ? 'text-yellow-600' : 'text-red-600'
                   }`}>
-                    {esgTemplate.riskCategory?.charAt(0).toUpperCase() + esgTemplate.riskCategory?.slice(1) || 'Unknown'} Risk
+                    {esgTemplate.riskCategory ? (esgTemplate.riskCategory.charAt(0).toUpperCase() + esgTemplate.riskCategory.slice(1)) : 'Unknown'} Risk
                   </div>
                   <p className="text-gray-600 mt-1">
                     {esgTemplate.riskCategory === 'low' && 'Typically stable returns with proven technology'}
@@ -356,7 +356,7 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
                   esgTemplate.riskCategory === 'medium' ? 'bg-yellow-100 text-yellow-800' : 
                   'bg-red-100 text-red-800'
                 }`}>
-                  {esgTemplate.riskCategory.charAt(0).toUpperCase() + esgTemplate.riskCategory.slice(1)} Risk Category
+                  {esgTemplate.riskCategory ? (esgTemplate.riskCategory.charAt(0).toUpperCase() + esgTemplate.riskCategory.slice(1)) : 'Unknown'} Risk Category
                 </span>
               )}
             </CardTitle>
@@ -386,7 +386,7 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
                   predictionResult.riskLevel === 'low' ? 'text-green-600' :
                   predictionResult.riskLevel === 'medium' ? 'text-yellow-600' : 'text-red-600'
                 }`}>
-                  {predictionResult.riskLevel.charAt(0).toUpperCase() + predictionResult.riskLevel.slice(1)}
+                  {predictionResult.riskLevel ? (predictionResult.riskLevel.charAt(0).toUpperCase() + predictionResult.riskLevel.slice(1)) : 'Unknown'}
                 </div>
                 <p className={`text-sm font-medium ${
                   predictionResult.riskLevel === 'low' ? 'text-green-800' :
@@ -410,11 +410,11 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
               <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-lg p-4 mb-4">
                 <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
                   <Brain className="w-4 h-4 text-blue-600" />
-                  Project Type Analysis: {predictionResult.projectType.charAt(0).toUpperCase() + predictionResult.projectType.slice(1)}
+                  Project Type Analysis: {predictionResult.projectType ? (predictionResult.projectType.charAt(0).toUpperCase() + predictionResult.projectType.slice(1)) : 'Unknown'}
                 </h4>
                 <div className="text-sm text-gray-700">
                   <p className="mb-2">
-                    <strong>Risk Category:</strong> {esgTemplate.riskCategory.charAt(0).toUpperCase() + esgTemplate.riskCategory.slice(1)} 
+                    <strong>Risk Category:</strong> {esgTemplate.riskCategory ? (esgTemplate.riskCategory.charAt(0).toUpperCase() + esgTemplate.riskCategory.slice(1)) : 'Unknown'} 
                     - {esgTemplate.riskCategory === 'low' ? 'Proven technology with stable returns' :
                       esgTemplate.riskCategory === 'medium' ? 'Balanced risk-reward profile' : 
                       'Higher risk but greater return potential'}
