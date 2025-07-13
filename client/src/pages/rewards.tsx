@@ -220,10 +220,10 @@ export default function RewardsPage() {
         {/* Header */}
         <div className="text-center space-y-2">
           <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-            Sustainability Rewards
+            Beta Program Engagement
           </h1>
           <p className="text-sm md:text-base text-gray-600">
-            Earn points and unlock achievements for your sustainable investment choices
+            Exclusive pilot program features for our 10 beta users across Nigeria and West Africa
           </p>
         </div>
 

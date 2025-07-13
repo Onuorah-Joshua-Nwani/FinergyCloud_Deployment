@@ -50,7 +50,7 @@ export default function Dashboard() {
           {/* Header */}
         <div className="mb-4 md:mb-6">
           <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1 md:mb-2">Dashboard</h1>
-          <p className="text-xs md:text-sm lg:text-base text-gray-600">Welcome to FinergyCloud Web Platform</p>
+          <p className="text-xs md:text-sm lg:text-base text-gray-600">UK-registered ESG risk platform serving West African renewable energy developers</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">

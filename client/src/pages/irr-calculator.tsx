@@ -265,8 +265,8 @@ export default function IRRCalculator() {
           <div className="flex items-center gap-3 mb-4">
             <Calculator className="w-8 h-8 text-blue-600" />
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">IRR Calculator</h1>
-              <p className="text-gray-600">Calculate Internal Rate of Return for renewable energy projects</p>
+              <h1 className="text-3xl font-bold text-gray-900">CAPEX/OPEX Analysis</h1>
+              <p className="text-gray-600">Django-powered IRR analysis with West African market intelligence and developer track record scoring</p>
             </div>
           </div>
         </div>

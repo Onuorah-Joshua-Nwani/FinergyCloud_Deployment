@@ -37,13 +37,13 @@ export default function Navigation() {
   const mobileAppNavItems = [
     { path: "/", label: "Dashboard", icon: BarChart3 },
     { path: "/projects", label: "Projects", icon: FolderOpen },
-    { path: "/rewards", label: "Rewards", icon: Gift },
+    { path: "/rewards", label: "Beta Program", icon: Gift },
     { path: "/kpi", label: "Analytics", icon: TrendingUp },
-    { path: "/ai-model", label: "AI Model", icon: Brain },
-    { path: "/market-insights", label: "Market Insights", icon: Newspaper },
-    { path: "/irr-calculator", label: "IRR Calculator", icon: Calculator },
-    { path: "/esg-scoring", label: "ESG Scoring", icon: TreePine },
-    { path: "/advanced-features", label: "Advanced Features", icon: Settings },
+    { path: "/ai-model", label: "XGBoost Risk Engine", icon: Brain },
+    { path: "/market-insights", label: "West Africa Intel", icon: Newspaper },
+    { path: "/irr-calculator", label: "CAPEX/OPEX Analysis", icon: Calculator },
+    { path: "/esg-scoring", label: "ESG Risk Scoring", icon: TreePine },
+    { path: "/advanced-features", label: "Power BI Integration", icon: Settings },
   ];
 
   // Use mobile app navigation if platform parameter exists
@@ -243,7 +243,7 @@ export default function Navigation() {
                         {actuallyMobileApp ? "FinergyCloud" : "FinergyCloud"}
                       </span>
                       <span className="text-sm text-gray-500">
-                        {actuallyMobileApp ? "Mobile Experience" : "Official Website"}
+                        {actuallyMobileApp ? "Studio - Beta Users: 10" : "Official Website"}
                       </span>
                     </div>
                   </div>
@@ -294,7 +294,7 @@ export default function Navigation() {
                       // Mobile App Navigation - Only show app features
                       <>
                         <div>
-                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Mobile Experience</h3>
+                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">FinergyCloud Studio</h3>
                           <div className="space-y-1">
                             {mobileAppNavItems.map(item => (
                               <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />

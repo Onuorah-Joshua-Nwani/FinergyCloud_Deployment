@@ -16,8 +16,8 @@ export default function AIModel() {
           <div className="flex items-start md:items-center gap-3 mb-4">
             <Brain className="w-6 h-6 md:w-8 md:h-8 text-blue-600 mt-1 md:mt-0 flex-shrink-0" />
             <div>
-              <h1 className="text-xl md:text-3xl font-bold text-gray-900">XGBoost AI Model</h1>
-              <p className="text-sm md:text-base text-gray-600 line-clamp-2">Advanced machine learning for renewable energy investment predictions</p>
+              <h1 className="text-xl md:text-3xl font-bold text-gray-900">Django XGBoost Risk Engine</h1>
+              <p className="text-sm md:text-base text-gray-600 line-clamp-2">94% accuracy Python-based risk intelligence for West African renewable energy projects</p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
@@ -37,16 +37,16 @@ export default function AIModel() {
         {/* Model Performance */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
           <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-4 md:p-6 border border-primary/20">
-            <div className="text-2xl md:text-3xl font-bold text-primary mb-1 md:mb-2">92%</div>
-            <p className="text-sm md:text-base text-gray-700 font-medium">AUC Score</p>
+            <div className="text-2xl md:text-3xl font-bold text-primary mb-1 md:mb-2">94%</div>
+            <p className="text-sm md:text-base text-gray-700 font-medium">Model Accuracy</p>
           </div>
           <div className="bg-gradient-to-br from-success/5 to-success/10 rounded-xl p-4 md:p-6 border border-success/20">
-            <div className="text-2xl md:text-3xl font-bold text-success mb-1 md:mb-2">87%</div>
-            <p className="text-sm md:text-base text-gray-700 font-medium">Accuracy</p>
+            <div className="text-2xl md:text-3xl font-bold text-success mb-1 md:mb-2">10</div>
+            <p className="text-sm md:text-base text-gray-700 font-medium">Beta Users</p>
           </div>
           <div className="bg-gradient-to-br from-accent/5 to-accent/10 rounded-xl p-4 md:p-6 border border-accent/20">
-            <div className="text-2xl md:text-3xl font-bold text-accent mb-1 md:mb-2">14</div>
-            <p className="text-sm md:text-base text-gray-700 font-medium">Key Features</p>
+            <div className="text-2xl md:text-3xl font-bold text-accent mb-1 md:mb-2">WA</div>
+            <p className="text-sm md:text-base text-gray-700 font-medium">West Africa Focus</p>
           </div>
         </div>
 

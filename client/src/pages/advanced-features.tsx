@@ -34,21 +34,21 @@ export default function AdvancedFeatures() {
     },
     {
       id: 'recommendations',
-      title: 'AI Project Recommendations',
-      description: 'Personalized investment opportunities powered by machine learning',
+      title: 'Power BI Integration',
+      description: 'Enterprise dashboard integration for institutional investors and NGOs',
       icon: <Brain className="w-6 h-6" />,
       component: <ProjectRecommendationEngine />,
       color: 'bg-purple-100 text-purple-800',
-      status: 'Learning'
+      status: 'Beta'
     },
     {
       id: 'risk-map',
-      title: 'Real-time Risk Heat Map',
-      description: 'Live risk monitoring and visualization across your portfolio',
+      title: 'West Africa Risk Intelligence',
+      description: 'Country-specific risk assessment for Nigeria, Ghana, and regional markets',
       icon: <Thermometer className="w-6 h-6" />,
       component: <RiskHeatMap />,
       color: 'bg-orange-100 text-orange-800',
-      status: 'Live'
+      status: 'Regional'
     },
     {
       id: 'eco-calculator',
