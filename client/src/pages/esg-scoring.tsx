@@ -8,7 +8,7 @@ import ESGComponentBreakdownChart from "@/components/charts/esg-component-breakd
 import PeerComparisonChart from "@/components/charts/peer-comparison-chart";
 import ESGFactorImpactChart from "@/components/charts/esg-factor-impact-chart";
 import { Link } from "wouter";
-import { Leaf, Shield, Recycle, Home, ChevronRight } from "lucide-react";
+import { Leaf, Shield, Recycle, Home, ChevronRight, Lightbulb } from "lucide-react";
 import type { EsgMetrics, Project } from "@shared/schema";
 
 export default function ESGScoring() {
