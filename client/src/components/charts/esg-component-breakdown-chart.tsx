@@ -131,40 +131,40 @@ export default function ESGComponentBreakdownChart() {
           with industry benchmark comparisons and improvement opportunities.
         </div>
         
-        <div className="mobile-grid-3 mobile-gap-2 mb-6">
-          <div className="text-center mobile-p-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 mb-6">
+          <div className="text-center p-3 lg:p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
-              <span className="mobile-text-xl font-bold text-green-600">{overallScore}</span>
-              <span className="text-base sm:text-lg text-green-500">/10</span>
+              <Shield className="w-4 h-4 lg:w-5 lg:h-5 text-green-600" />
+              <span className="text-xl lg:text-2xl font-bold text-green-600">{overallScore}</span>
+              <span className="text-base lg:text-lg text-green-500">/10</span>
             </div>
-            <p className="mobile-text-sm text-green-800 font-medium">Overall ESG Score</p>
-            <p className="text-xs text-green-600">Portfolio average</p>
+            <p className="text-sm lg:text-base text-green-800 font-medium">Overall ESG Score</p>
+            <p className="text-xs lg:text-sm text-green-600">Portfolio average</p>
           </div>
-          <div className="text-center mobile-p-2 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
+          <div className="text-center p-3 lg:p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Eye className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
-              <span className="mobile-text-xl font-bold text-blue-600">{benchmarkScore}</span>
-              <span className="text-base sm:text-lg text-blue-500">/10</span>
+              <Eye className="w-4 h-4 lg:w-5 lg:h-5 text-blue-600" />
+              <span className="text-xl lg:text-2xl font-bold text-blue-600">{benchmarkScore}</span>
+              <span className="text-base lg:text-lg text-blue-500">/10</span>
             </div>
-            <p className="mobile-text-sm text-blue-800 font-medium">Industry Benchmark</p>
-            <p className="text-xs text-blue-600">Sector average</p>
+            <p className="text-sm lg:text-base text-blue-800 font-medium">Industry Benchmark</p>
+            <p className="text-xs lg:text-sm text-blue-600">Sector average</p>
           </div>
-          <div className="text-center mobile-p-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+          <div className="text-center p-3 lg:p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
             <div className="flex items-center justify-center gap-1 mb-1">
-              <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 text-purple-600" />
-              <span className="mobile-text-xl font-bold text-purple-600">{outperformingAreas}</span>
-              <span className="text-base sm:text-lg text-purple-500">/6</span>
+              <Lightbulb className="w-4 h-4 lg:w-5 lg:h-5 text-purple-600" />
+              <span className="text-xl lg:text-2xl font-bold text-purple-600">{outperformingAreas}</span>
+              <span className="text-base lg:text-lg text-purple-500">/6</span>
             </div>
-            <p className="mobile-text-sm text-purple-800 font-medium">Leading Areas</p>
-            <p className="text-xs text-purple-600">Above benchmark</p>
+            <p className="text-sm lg:text-base text-purple-800 font-medium">Leading Areas</p>
+            <p className="text-xs lg:text-sm text-purple-600">Above benchmark</p>
           </div>
         </div>
 
-        <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4 mb-6">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6 mb-6">
           <div className="chart-container flex flex-col items-center">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">ESG Performance Radar</h4>
-            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
+            <h4 className="font-medium text-gray-900 mb-4 text-sm sm:text-base text-center">ESG Performance Radar</h4>
+            <ResponsiveContainer width="100%" height={280} className="sm:h-[300px] lg:h-[320px] xl:h-[280px]">
               <RadarChart data={esgData} margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
                 <PolarGrid stroke="#f0f0f0" />
                 <PolarAngleAxis 
@@ -202,8 +202,8 @@ export default function ESGComponentBreakdownChart() {
           </div>
 
           <div className="chart-container flex flex-col items-center">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Performance vs Benchmark</h4>
-            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
+            <h4 className="font-medium text-gray-900 mb-4 text-sm sm:text-base text-center">Performance vs Benchmark</h4>
+            <ResponsiveContainer width="100%" height={280} className="sm:h-[300px] lg:h-[320px] xl:h-[280px]">
               <BarChart data={esgData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
@@ -240,25 +240,25 @@ export default function ESGComponentBreakdownChart() {
           </div>
         </div>
 
-        <div className="mobile-grid-3 mobile-gap-2 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 mb-6">
           {esgData.map((item, index) => {
             const Icon = item.icon;
             const isAboveBenchmark = item.score > item.benchmark;
             const difference = (item.score - item.benchmark).toFixed(1);
             
             return (
-              <div key={index} className={`p-4 rounded-lg border ${item.bgColor} ${item.borderColor}`}>
+              <div key={index} className={`p-3 lg:p-4 rounded-lg border ${item.bgColor} ${item.borderColor}`}>
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <Icon className={`w-5 h-5 ${item.textColor}`} />
-                    <span className="font-medium text-gray-900">{item.subject}</span>
+                    <Icon className={`w-4 h-4 lg:w-5 lg:h-5 ${item.textColor}`} />
+                    <span className="text-sm lg:text-base font-medium text-gray-900">{item.subject}</span>
                   </div>
                   <div className="text-right">
-                    <span className={`text-lg font-bold ${item.textColor}`}>{item.score}</span>
-                    <span className="text-sm text-gray-500">/10</span>
+                    <span className={`text-lg lg:text-xl font-bold ${item.textColor}`}>{item.score}</span>
+                    <span className="text-xs lg:text-sm text-gray-500">/10</span>
                   </div>
                 </div>
-                <div className="space-y-2 text-xs">
+                <div className="space-y-2 text-xs lg:text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">vs Benchmark:</span>
                     <span className={`font-medium ${isAboveBenchmark ? 'text-green-600' : 'text-orange-600'}`}>
@@ -274,7 +274,7 @@ export default function ESGComponentBreakdownChart() {
                       }}
                     />
                   </div>
-                  <p className="text-gray-600 mt-2">{item.description}</p>
+                  <p className="text-gray-600 mt-2 text-xs lg:text-sm leading-relaxed">{item.description}</p>
                 </div>
               </div>
             );

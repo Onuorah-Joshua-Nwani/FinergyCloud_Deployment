@@ -47,7 +47,7 @@ export default function ESGScoreTrendChart() {
           Track Environmental, Social, and Governance scores over time to identify improvement areas and monitor sustainability progress.
         </div>
         <div className="chart-container flex justify-center">
-          <ResponsiveContainer width="100%" height={250} className="chart-card-mobile sm:h-[280px] lg:h-[300px]">
+          <ResponsiveContainer width="100%" height={250} className="sm:h-[280px] lg:h-[320px] xl:h-[350px]">
           <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis 
@@ -90,11 +90,11 @@ export default function ESGScoreTrendChart() {
             <Line 
               type="monotone" 
               dataKey="governance" 
-              stroke="#f59e0b" 
-              strokeWidth={2}
+              stroke="#8b5cf6" 
+              strokeWidth={3}
               name="Governance"
-              dot={{ fill: '#f59e0b', strokeWidth: 2, r: 4 }}
-              activeDot={{ r: 6, stroke: '#f59e0b', strokeWidth: 2 }}
+              dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 4 }}
+              activeDot={{ r: 6, stroke: '#8b5cf6', strokeWidth: 3 }}
             />
             <Line 
               type="monotone" 
