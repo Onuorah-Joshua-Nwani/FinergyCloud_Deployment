@@ -6,7 +6,7 @@ interface ModelPerformanceChartProps {
   projectType?: string;
 }
 
-const getModelDataByProjectType = (projectType: string) => {
+const getModelDataByProjectType = (projectType?: string) => {
   const modelPerformance = {
     solar: [
       { epoch: 1, training: 0.68, validation: 0.65, auc: 0.71, precision: 0.66, recall: 0.64 },
@@ -59,7 +59,10 @@ const getModelDataByProjectType = (projectType: string) => {
       { epoch: 8, training: 0.93, validation: 0.88, auc: 0.94, precision: 0.89, recall: 0.87 },
     ]
   };
-  return modelPerformance[projectType as keyof typeof modelPerformance] || modelPerformance.solar;
+  if (!projectType || !modelPerformance[projectType as keyof typeof modelPerformance]) {
+    return modelPerformance.solar;
+  }
+  return modelPerformance[projectType as keyof typeof modelPerformance];
 };
 
 const CustomTooltip = ({ active, payload, label }: any) => {

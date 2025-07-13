@@ -6,7 +6,7 @@ interface RiskAssessmentChartProps {
   projectType?: string;
 }
 
-const getRiskDataByProjectType = (projectType: string) => {
+const getRiskDataByProjectType = (projectType?: string) => {
   const riskProfiles = {
     solar: [
       { category: "Market Risk", low: 18, medium: 6, high: 1, total: 25 },
@@ -44,7 +44,10 @@ const getRiskDataByProjectType = (projectType: string) => {
       { category: "Operational Risk", low: 18, medium: 6, high: 1, total: 25 },
     ]
   };
-  return riskProfiles[projectType as keyof typeof riskProfiles] || riskProfiles.solar;
+  if (!projectType || !riskProfiles[projectType as keyof typeof riskProfiles]) {
+    return riskProfiles.solar;
+  }
+  return riskProfiles[projectType as keyof typeof riskProfiles];
 };
 
 const CustomTooltip = ({ active, payload, label }: any) => {
