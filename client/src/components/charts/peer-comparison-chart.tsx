@@ -175,20 +175,21 @@ export default function PeerComparisonChart() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container">
+          <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Component Comparison</h4>
-            <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[420px]">
-              <BarChart 
-                data={peerData} 
-                margin={{ top: 20, right: 30, left: 50, bottom: 80 }}
+            <div className="w-full max-w-2xl flex justify-center">
+              <ResponsiveContainer width="100%" height={380} className="sm:h-[420px] lg:h-[440px]">
+                <BarChart 
+                  data={peerData} 
+                  margin={{ top: 30, right: 40, left: 60, bottom: 100 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="company" 
                   tick={{ fontSize: 11, fill: '#374151' }}
-                  angle={-30}
+                  angle={-35}
                   textAnchor="end"
-                  height={60}
+                  height={80}
                   interval={0}
                   tickLine={{ stroke: '#d1d5db' }}
                 />
@@ -220,24 +221,26 @@ export default function PeerComparisonChart() {
                   name="Governance"
                   radius={[1, 1, 0, 0]}
                 />
-              </BarChart>
-            </ResponsiveContainer>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </div>
 
-          <div className="chart-container">
+          <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Overall ESG Performance</h4>
-            <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[420px]">
-              <BarChart 
-                data={peerData.sort((a, b) => b.overall - a.overall)} 
-                margin={{ top: 20, right: 30, left: 50, bottom: 80 }}
+            <div className="w-full max-w-2xl flex justify-center">
+              <ResponsiveContainer width="100%" height={380} className="sm:h-[420px] lg:h-[440px]">
+                <BarChart 
+                  data={peerData.sort((a, b) => b.overall - a.overall)} 
+                  margin={{ top: 30, right: 40, left: 60, bottom: 100 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="company" 
-                  tick={{ fontSize: 8 }}
-                  angle={-30}
+                  tick={{ fontSize: 11, fill: '#374151' }}
+                  angle={-35}
                   textAnchor="end"
-                  height={90}
+                  height={80}
                   interval={0}
                   tickLine={{ stroke: '#d1d5db' }}
                 />
@@ -263,8 +266,9 @@ export default function PeerComparisonChart() {
                   fill="#f59e0b"
                   radius={[4, 4, 0, 0]}
                 />
-              </BarChart>
-            </ResponsiveContainer>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
 

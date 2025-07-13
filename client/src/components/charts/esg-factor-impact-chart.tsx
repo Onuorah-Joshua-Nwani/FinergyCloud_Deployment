@@ -186,16 +186,17 @@ export default function ESGFactorImpactChart() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Current vs Potential Performance</h4>
-            <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[420px]">
-              <AreaChart data={impactData} margin={{ top: 20, right: 30, left: 50, bottom: 80 }}>
+            <div className="w-full max-w-2xl flex justify-center">
+              <ResponsiveContainer width="100%" height={380} className="sm:h-[420px] lg:h-[440px]">
+                <AreaChart data={impactData} margin={{ top: 30, right: 40, left: 60, bottom: 100 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
                   tick={{ fontSize: 11, fill: '#374151' }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  angle={-30}
+                  angle={-35}
                   textAnchor="end"
-                  height={60}
+                  height={80}
                   interval={0}
                 />
                 <YAxis 
@@ -227,22 +228,24 @@ export default function ESGFactorImpactChart() {
                   strokeDasharray="5 5"
                   name="Potential Score"
                 />
-              </AreaChart>
-            </ResponsiveContainer>
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
           </div>
 
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Investment vs Impact Analysis</h4>
-            <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[420px]">
-              <BarChart data={impactData} margin={{ top: 20, right: 30, left: 50, bottom: 80 }}>
+            <div className="w-full max-w-2xl flex justify-center">
+              <ResponsiveContainer width="100%" height={380} className="sm:h-[420px] lg:h-[440px]">
+                <BarChart data={impactData} margin={{ top: 30, right: 40, left: 60, bottom: 100 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
-                  tick={{ fontSize: 8 }}
+                  tick={{ fontSize: 11, fill: '#374151' }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  angle={-30}
+                  angle={-35}
                   textAnchor="end"
-                  height={90}
+                  height={80}
                   interval={0}
                 />
                 <YAxis 
@@ -270,8 +273,9 @@ export default function ESGFactorImpactChart() {
                   name="investment"
                   radius={[4, 4, 0, 0]}
                 />
-              </BarChart>
-            </ResponsiveContainer>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
 

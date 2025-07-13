@@ -95,18 +95,19 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
             `Monitor ${selectedProject?.type || 'project'} ESG performance trends to identify improvement areas and sustainability progress.`
           }
         </div>
-        <div className="chart-container flex justify-center">
-          <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[450px]">
-          <LineChart data={data} margin={{ top: 20, right: 30, left: 60, bottom: 80 }}>
+        <div className="chart-container flex justify-center items-center">
+          <div className="w-full max-w-4xl">
+            <ResponsiveContainer width="100%" height={380} className="sm:h-[420px] lg:h-[460px]">
+            <LineChart data={data} margin={{ top: 30, right: 40, left: 70, bottom: 100 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis 
               dataKey="month" 
               tick={{ fontSize: 12, fill: '#374151' }}
               tickLine={{ stroke: '#d1d5db' }}
               interval={0}
-              angle={-20}
+              angle={-25}
               textAnchor="end"
-              height={60}
+              height={80}
             />
             <YAxis 
               domain={[6, 10]} 
@@ -157,8 +158,9 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
               dot={{ fill: '#1f2937', strokeWidth: 2, r: 5 }}
               activeDot={{ r: 7, stroke: '#1f2937', strokeWidth: 2 }}
             />
-          </LineChart>
-          </ResponsiveContainer>
+            </LineChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </CardContent>
     </Card>
