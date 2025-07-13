@@ -162,9 +162,9 @@ export default function ESGComponentBreakdownChart() {
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container bg-gradient-to-br from-emerald-50 to-teal-100 rounded-xl p-6 shadow-sm border border-emerald-200">
-            <h4 className="font-semibold text-slate-700 mb-6 text-sm text-center">ESG Performance Radar</h4>
-            <ResponsiveContainer width="100%" height={400}>
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">ESG Performance Radar</h4>
+            <ResponsiveContainer width="100%" height={380}>
               <RadarChart data={esgData} margin={{ top: 25, right: 25, bottom: 25, left: 25 }}>
                 <PolarGrid stroke="#d1fae5" strokeWidth={1.5} />
                 <PolarAngleAxis 
@@ -202,29 +202,27 @@ export default function ESGComponentBreakdownChart() {
             </ResponsiveContainer>
           </div>
 
-          <div className="chart-container bg-gradient-to-br from-amber-50 to-orange-100 rounded-xl p-6 shadow-sm border border-amber-200">
-            <h4 className="font-semibold text-slate-700 mb-6 text-sm text-center">Performance vs Benchmark</h4>
-            <ResponsiveContainer width="100%" height={420}>
-              <BarChart data={esgData} margin={{ top: 25, right: 35, left: 55, bottom: 95 }}>
-                <CartesianGrid strokeDasharray="2 4" stroke="#fef3c7" strokeOpacity={0.6} />
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">Performance vs Benchmark</h4>
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart data={esgData} margin={{ top: 20, right: 40, left: 60, bottom: 80 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  angle={-25}
+                  tick={{ fontSize: 12, fill: '#374151' }}
+                  tickLine={{ stroke: '#d1d5db' }}
+                  angle={-30}
                   textAnchor="end"
-                  height={75}
+                  height={60}
                   interval={0}
                 />
                 <YAxis 
                   domain={[6, 10]}
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                  tick={{ fontSize: 12, fill: '#374151' }}
+                  tickLine={{ stroke: '#d1d5db' }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '13px', fontWeight: 600, fill: '#374151' } }}
-                  width={45}
+                  label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px' } }}
+                  width={50}
                 />
                 <Tooltip 
                   content={<CustomTooltip />} 

@@ -184,10 +184,10 @@ export default function ESGFactorImpactChart() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6 shadow-sm border border-blue-200">
-            <h4 className="font-semibold text-slate-700 mb-6 text-sm text-center">Current vs Potential Performance</h4>
-            <ResponsiveContainer width="100%" height={420}>
-              <AreaChart data={impactData} margin={{ top: 25, right: 35, left: 55, bottom: 95 }}>
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">Current vs Potential Performance</h4>
+            <ResponsiveContainer width="100%" height={400}>
+              <AreaChart data={impactData} margin={{ top: 20, right: 40, left: 60, bottom: 80 }}>
                 <defs>
                   <linearGradient id="currentGradient" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4}/>
@@ -257,10 +257,10 @@ export default function ESGFactorImpactChart() {
             </ResponsiveContainer>
           </div>
 
-          <div className="chart-container bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6 shadow-sm border border-purple-200">
-            <h4 className="font-semibold text-slate-700 mb-6 text-sm text-center">Investment vs Impact Analysis</h4>
-            <ResponsiveContainer width="100%" height={420}>
-              <BarChart data={impactData} margin={{ top: 25, right: 35, left: 55, bottom: 95 }}>
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">Investment vs Impact Analysis</h4>
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart data={impactData} margin={{ top: 20, right: 40, left: 60, bottom: 80 }}>
                 <CartesianGrid strokeDasharray="2 4" stroke="#f3e8ff" strokeOpacity={0.6} />
                 <XAxis 
                   dataKey="factor" 

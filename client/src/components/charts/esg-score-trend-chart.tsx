@@ -95,9 +95,9 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
             `Monitor ${selectedProject?.type || 'project'} ESG performance trends to identify improvement areas and sustainability progress.`
           }
         </div>
-        <div className="chart-container bg-gradient-to-br from-slate-50 to-gray-100 rounded-xl p-6 shadow-sm border border-gray-200">
-          <ResponsiveContainer width="100%" height={420}>
-            <LineChart data={data} margin={{ top: 25, right: 35, left: 65, bottom: 95 }}>
+        <div className="chart-container">
+          <ResponsiveContainer width="100%" height={400}>
+            <LineChart data={data} margin={{ top: 20, right: 40, left: 60, bottom: 80 }}>
               <defs>
                 <linearGradient id="environmentalGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
@@ -112,24 +112,22 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
                   <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0.05}/>
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="2 4" stroke="#e2e8f0" strokeOpacity={0.5} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis 
                 dataKey="month" 
-                tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                tick={{ fontSize: 12, fill: '#374151' }}
+                tickLine={{ stroke: '#d1d5db' }}
                 interval={0}
-                angle={-25}
+                angle={-30}
                 textAnchor="end"
-                height={75}
+                height={60}
               />
               <YAxis 
                 domain={[6, 10]} 
-                tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                tick={{ fontSize: 12, fill: '#374151' }}
+                tickLine={{ stroke: '#d1d5db' }}
                 tickFormatter={(value) => Number(value).toFixed(1)}
-                label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '13px', fontWeight: 600, fill: '#374151', textAnchor: 'middle' } }}
+                label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px', textAnchor: 'middle' } }}
                 width={50}
               />
             <Tooltip 

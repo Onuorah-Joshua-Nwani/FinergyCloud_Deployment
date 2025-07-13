@@ -175,32 +175,30 @@ export default function PeerComparisonChart() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container bg-gradient-to-br from-cyan-50 to-blue-100 rounded-xl p-6 shadow-sm border border-cyan-200">
-            <h4 className="font-semibold text-slate-700 mb-6 text-sm text-center">ESG Component Comparison</h4>
-            <ResponsiveContainer width="100%" height={420}>
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">ESG Component Comparison</h4>
+            <ResponsiveContainer width="100%" height={400}>
               <BarChart 
                 data={peerData} 
-                margin={{ top: 25, right: 35, left: 55, bottom: 95 }}
+                margin={{ top: 20, right: 40, left: 60, bottom: 80 }}
               >
-                <CartesianGrid strokeDasharray="2 4" stroke="#cffafe" strokeOpacity={0.6} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="company" 
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  angle={-25}
+                  tick={{ fontSize: 12, fill: '#374151' }}
+                  angle={-30}
                   textAnchor="end"
-                  height={75}
+                  height={60}
                   interval={0}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                  tickLine={{ stroke: '#d1d5db' }}
                 />
                 <YAxis 
                   domain={[6, 10]}
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                  tick={{ fontSize: 12, fill: '#374151' }}
+                  tickLine={{ stroke: '#d1d5db' }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '13px', fontWeight: 600, fill: '#374151' } }}
-                  width={45}
+                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px' } }}
+                  width={50}
                 />
                 <Tooltip 
                   content={<CustomTooltip />} 
@@ -242,32 +240,30 @@ export default function PeerComparisonChart() {
             </ResponsiveContainer>
           </div>
 
-          <div className="chart-container bg-gradient-to-br from-rose-50 to-pink-100 rounded-xl p-6 shadow-sm border border-rose-200">
-            <h4 className="font-semibold text-slate-700 mb-6 text-sm text-center">Overall ESG Performance</h4>
-            <ResponsiveContainer width="100%" height={420}>
+          <div className="chart-container">
+            <h4 className="font-medium text-gray-900 mb-4 text-sm text-center">Overall ESG Performance</h4>
+            <ResponsiveContainer width="100%" height={400}>
               <BarChart 
                 data={peerData.sort((a, b) => b.overall - a.overall)} 
-                margin={{ top: 25, right: 35, left: 55, bottom: 95 }}
+                margin={{ top: 20, right: 40, left: 60, bottom: 80 }}
               >
-                <CartesianGrid strokeDasharray="2 4" stroke="#fce7f3" strokeOpacity={0.6} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="company" 
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  angle={-25}
+                  tick={{ fontSize: 12, fill: '#374151' }}
+                  angle={-30}
                   textAnchor="end"
-                  height={75}
+                  height={60}
                   interval={0}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                  tickLine={{ stroke: '#d1d5db' }}
                 />
                 <YAxis 
                   domain={[7.5, 8.8]}
-                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
-                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
-                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                  tick={{ fontSize: 12, fill: '#374151' }}
+                  tickLine={{ stroke: '#d1d5db' }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'Overall Score', angle: -90, position: 'insideLeft', style: { fontSize: '13px', fontWeight: 600, fill: '#374151', textAnchor: 'middle' } }}
-                  width={45}
+                  label={{ value: 'Overall Score', angle: -90, position: 'insideLeft', style: { fontSize: '12px', textAnchor: 'middle' } }}
+                  width={50}
                 />
                 <Tooltip 
                   formatter={(value: number, name: string) => [value, 'Overall ESG Score']}
