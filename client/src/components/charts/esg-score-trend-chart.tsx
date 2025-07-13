@@ -96,25 +96,26 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
           }
         </div>
         <div className="chart-container flex justify-center">
-          <ResponsiveContainer width="100%" height={300} className="sm:h-[320px] lg:h-[360px] xl:h-[380px]">
-          <LineChart data={data} margin={{ top: 30, right: 20, left: 50, bottom: 80 }}>
+          <ResponsiveContainer width="100%" height={350} className="sm:h-[370px] lg:h-[400px] xl:h-[420px]">
+          <LineChart data={data} margin={{ top: 40, right: 30, left: 60, bottom: 90 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis 
               dataKey="month" 
-              tick={{ fontSize: 9 }}
+              tick={{ fontSize: 8 }}
               tickLine={{ stroke: '#d1d5db' }}
               interval={0}
-              angle={-15}
+              angle={-20}
               textAnchor="end"
-              height={60}
+              height={70}
+              label={{ value: 'Month', position: 'insideBottom', offset: -5, style: { fontSize: '8px', textAnchor: 'middle' } }}
             />
             <YAxis 
               domain={[6, 10]} 
-              tick={{ fontSize: 9 }}
+              tick={{ fontSize: 8 }}
               tickLine={{ stroke: '#d1d5db' }}
               tickFormatter={(value) => Number(value).toFixed(1)}
-              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '9px' } }}
-              width={50}
+              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px', textAnchor: 'middle' } }}
+              width={55}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend 

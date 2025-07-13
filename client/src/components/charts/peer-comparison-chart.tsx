@@ -188,15 +188,14 @@ export default function PeerComparisonChart() {
                   height={90}
                   interval={0}
                   tickLine={{ stroke: '#d1d5db' }}
-                  angle={-45}
-                  textAnchor="end"
-                  height={80}
                 />
                 <YAxis 
-                  domain={[7, 9]}
-                  tick={{ fontSize: 12 }}
+                  domain={[6, 10]}
+                  tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft' }}
+                  tickFormatter={(value) => Number(value).toFixed(1)}
+                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px' } }}
+                  width={50}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />
@@ -223,26 +222,29 @@ export default function PeerComparisonChart() {
           </div>
 
           <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">Overall ESG Performance</h4>
-            <ResponsiveContainer width="100%" height={320} className="chart-card-mobile">
+            <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Overall ESG Performance</h4>
+            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px]">
               <BarChart 
                 data={peerData.sort((a, b) => b.overall - a.overall)} 
-                margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
+                margin={{ top: 30, right: 20, left: 50, bottom: 100 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="company" 
-                  tick={{ fontSize: 11 }}
-                  tickLine={{ stroke: '#d1d5db' }}
-                  angle={-45}
+                  tick={{ fontSize: 8 }}
+                  angle={-30}
                   textAnchor="end"
-                  height={80}
+                  height={90}
+                  interval={0}
+                  tickLine={{ stroke: '#d1d5db' }}
                 />
                 <YAxis 
                   domain={[7.5, 8.8]}
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'Overall Score', angle: -90, position: 'insideLeft' }}
+                  tickFormatter={(value) => Number(value).toFixed(1)}
+                  label={{ value: 'Overall Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px', textAnchor: 'middle' } }}
+                  width={55}
                 />
                 <Tooltip 
                   formatter={(value: number, name: string) => [value, 'Overall ESG Score']}

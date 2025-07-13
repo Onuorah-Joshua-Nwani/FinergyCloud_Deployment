@@ -203,8 +203,8 @@ export default function ESGFactorImpactChart() {
                   tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px' } }}
-                  width={50}
+                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px', textAnchor: 'middle' } }}
+                  width={55}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />
@@ -246,10 +246,11 @@ export default function ESGFactorImpactChart() {
                   interval={0}
                 />
                 <YAxis 
-                  tick={{ fontSize: 10 }}
+                  tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'Investment (₦M)', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
-                  className="mobile-text-xs"
+                  tickFormatter={(value) => `₦${value}M`}
+                  label={{ value: 'Investment', angle: -90, position: 'insideLeft', style: { fontSize: '8px', textAnchor: 'middle' } }}
+                  width={55}
                 />
                 <Tooltip 
                   formatter={(value: number, name: string) => [
@@ -274,7 +275,7 @@ export default function ESGFactorImpactChart() {
           </div>
         </div>
 
-        <div className="mobile-grid-3 mobile-gap-2 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {impactData.map((item, index) => {
             const Icon = item.icon;
             const improvement = (item.potential - item.current).toFixed(1);
@@ -283,9 +284,9 @@ export default function ESGFactorImpactChart() {
             return (
               <div key={index} className={`p-4 rounded-lg border ${item.bgColor} ${item.borderColor}`}>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
-                    <Icon className={`w-5 h-5 ${item.textColor}`} />
-                    <span className="font-medium text-gray-900 text-sm">{item.factor}</span>
+                  <div className="flex items-center gap-2 min-w-0 flex-1">
+                    <Icon className={`w-4 h-4 ${item.textColor} flex-shrink-0`} />
+                    <span className="font-medium text-gray-900 text-sm truncate">{item.factor}</span>
                   </div>
                   <span className={`px-2 py-1 text-xs rounded-full ${
                     item.priority === 'high' ? 'bg-red-100 text-red-600' : 'bg-yellow-100 text-yellow-600'
