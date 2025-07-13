@@ -177,28 +177,30 @@ export default function PeerComparisonChart() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="chart-container">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Component Comparison</h4>
-            <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[420px]">
+            <ResponsiveContainer width="100%" height={500} className="sm:h-[550px] lg:h-[600px]">
               <BarChart 
                 data={peerData} 
-                margin={{ top: 50, right: 40, left: 60, bottom: 120 }}
+                margin={{ top: 80, right: 80, left: 100, bottom: 160 }}
               >
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.7} />
                 <XAxis 
                   dataKey="company" 
-                  tick={{ fontSize: 8 }}
-                  angle={-30}
+                  tick={{ fontSize: 13, fontWeight: 600, fill: '#374151' }}
+                  angle={-25}
                   textAnchor="end"
-                  height={90}
+                  height={140}
                   interval={0}
-                  tickLine={{ stroke: '#d1d5db' }}
+                  tickLine={{ stroke: '#6b7280', strokeWidth: 2 }}
+                  axisLine={{ stroke: '#6b7280', strokeWidth: 2 }}
                 />
                 <YAxis 
                   domain={[6, 10]}
-                  tick={{ fontSize: 8 }}
-                  tickLine={{ stroke: '#d1d5db' }}
+                  tick={{ fontSize: 13, fontWeight: 600, fill: '#374151' }}
+                  tickLine={{ stroke: '#6b7280', strokeWidth: 2 }}
+                  axisLine={{ stroke: '#6b7280', strokeWidth: 2 }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px' } }}
-                  width={50}
+                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '16px', fontWeight: 'bold', fill: '#1f2937' } }}
+                  width={90}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />
@@ -226,10 +228,10 @@ export default function PeerComparisonChart() {
 
           <div className="chart-container">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Overall ESG Performance</h4>
-            <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[420px]">
+            <ResponsiveContainer width="100%" height={500} className="sm:h-[550px] lg:h-[600px]">
               <BarChart 
                 data={peerData.sort((a, b) => b.overall - a.overall)} 
-                margin={{ top: 50, right: 40, left: 70, bottom: 120 }}
+                margin={{ top: 80, right: 80, left: 100, bottom: 160 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 

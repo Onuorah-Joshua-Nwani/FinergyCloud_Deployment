@@ -96,67 +96,69 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
           }
         </div>
         <div className="chart-container flex justify-center">
-          <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[450px] xl:h-[480px]">
-          <LineChart data={data} margin={{ top: 50, right: 40, left: 70, bottom: 100 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+          <ResponsiveContainer width="100%" height={500} className="sm:h-[550px] lg:h-[600px] xl:h-[650px]">
+          <LineChart data={data} margin={{ top: 80, right: 80, left: 100, bottom: 160 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.7} />
             <XAxis 
               dataKey="month" 
-              tick={{ fontSize: 8 }}
-              tickLine={{ stroke: '#d1d5db' }}
+              tick={{ fontSize: 14, fontWeight: 600, fill: '#374151' }}
+              tickLine={{ stroke: '#6b7280', strokeWidth: 2 }}
+              axisLine={{ stroke: '#6b7280', strokeWidth: 2 }}
               interval={0}
-              angle={-20}
+              angle={-25}
               textAnchor="end"
-              height={70}
-              label={{ value: 'Month', position: 'insideBottom', offset: -5, style: { fontSize: '8px', textAnchor: 'middle' } }}
+              height={140}
+              label={{ value: 'Month', position: 'insideBottom', offset: -10, style: { fontSize: '16px', fontWeight: 'bold', textAnchor: 'middle', fill: '#1f2937' } }}
             />
             <YAxis 
               domain={[6, 10]} 
-              tick={{ fontSize: 8 }}
-              tickLine={{ stroke: '#d1d5db' }}
+              tick={{ fontSize: 14, fontWeight: 600, fill: '#374151' }}
+              tickLine={{ stroke: '#6b7280', strokeWidth: 2 }}
+              axisLine={{ stroke: '#6b7280', strokeWidth: 2 }}
               tickFormatter={(value) => Number(value).toFixed(1)}
-              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px', textAnchor: 'middle' } }}
-              width={55}
+              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '16px', fontWeight: 'bold', textAnchor: 'middle', fill: '#1f2937' } }}
+              width={90}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend 
-              wrapperStyle={{ paddingTop: '30px', fontSize: '10px' }}
+              wrapperStyle={{ paddingTop: '40px', fontSize: '14px', fontWeight: '600' }}
               iconType="circle"
             />
             <Line 
               type="monotone" 
               dataKey="environmental" 
               stroke="#16a34a" 
-              strokeWidth={2}
+              strokeWidth={4}
               name="Environmental"
-              dot={{ fill: '#16a34a', strokeWidth: 2, r: 4 }}
-              activeDot={{ r: 6, stroke: '#16a34a', strokeWidth: 2 }}
+              dot={{ fill: '#16a34a', strokeWidth: 3, r: 6 }}
+              activeDot={{ r: 8, stroke: '#16a34a', strokeWidth: 3 }}
             />
             <Line 
               type="monotone" 
               dataKey="social" 
               stroke="#2563eb" 
-              strokeWidth={2}
+              strokeWidth={4}
               name="Social"
-              dot={{ fill: '#2563eb', strokeWidth: 2, r: 4 }}
-              activeDot={{ r: 6, stroke: '#2563eb', strokeWidth: 2 }}
+              dot={{ fill: '#2563eb', strokeWidth: 3, r: 6 }}
+              activeDot={{ r: 8, stroke: '#2563eb', strokeWidth: 3 }}
             />
             <Line 
               type="monotone" 
               dataKey="governance" 
               stroke="#8b5cf6" 
-              strokeWidth={3}
+              strokeWidth={4}
               name="Governance"
-              dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 4 }}
-              activeDot={{ r: 6, stroke: '#8b5cf6', strokeWidth: 3 }}
+              dot={{ fill: '#8b5cf6', strokeWidth: 3, r: 6 }}
+              activeDot={{ r: 8, stroke: '#8b5cf6', strokeWidth: 3 }}
             />
             <Line 
               type="monotone" 
               dataKey="overall" 
               stroke="#1f2937" 
-              strokeWidth={3}
+              strokeWidth={5}
               name="Overall ESG"
-              dot={{ fill: '#1f2937', strokeWidth: 2, r: 5 }}
-              activeDot={{ r: 7, stroke: '#1f2937', strokeWidth: 2 }}
+              dot={{ fill: '#1f2937', strokeWidth: 3, r: 7 }}
+              activeDot={{ r: 9, stroke: '#1f2937', strokeWidth: 3 }}
             />
           </LineChart>
           </ResponsiveContainer>
