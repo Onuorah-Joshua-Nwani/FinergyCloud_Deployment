@@ -136,48 +136,51 @@ export default function PeerComparisonChart() {
           analyzing environmental, social, and governance metrics with market positioning insights.
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-          <div className="text-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
-            <div className="flex items-center justify-center gap-1 mb-2">
-              <Crown className="w-4 h-4 text-green-600" />
-              <span className="text-lg font-bold text-green-600">#{ourRank}</span>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-8">
+          <div className="text-center p-4 lg:p-5 bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 rounded-xl border-2 border-green-200 shadow-sm">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Crown className="w-5 h-5 text-green-600" />
+              <span className="text-xl lg:text-2xl font-bold text-green-600">#{ourRank}</span>
             </div>
-            <p className="text-xs sm:text-sm text-green-800 font-medium mb-1">Our Ranking</p>
-            <p className="text-xs text-green-600">Industry position</p>
+            <p className="text-sm lg:text-base text-green-800 font-semibold mb-1">Our Ranking</p>
+            <p className="text-xs text-green-600">Industry Position</p>
           </div>
-          <div className="text-center p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-            <div className="flex items-center justify-center gap-1 mb-2">
-              <Target className="w-4 h-4 text-blue-600" />
-              <span className="text-lg font-bold text-blue-600">{ourCompany.overall}</span>
+          <div className="text-center p-4 lg:p-5 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 rounded-xl border-2 border-blue-200 shadow-sm">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Target className="w-5 h-5 text-blue-600" />
+              <span className="text-xl lg:text-2xl font-bold text-blue-600">{ourCompany.overall}</span>
+              <span className="text-sm text-blue-500">/10</span>
             </div>
-            <p className="text-xs sm:text-sm text-blue-800 font-medium mb-1">Our Score</p>
-            <p className="text-xs text-blue-600">ESG rating</p>
+            <p className="text-sm lg:text-base text-blue-800 font-semibold mb-1">Our ESG Score</p>
+            <p className="text-xs text-blue-600">Current Rating</p>
           </div>
-          <div className="text-center p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
-            <div className="flex items-center justify-center gap-1 mb-2">
-              <Trophy className="w-4 h-4 text-purple-600" />
-              <span className="text-lg font-bold text-purple-600">{avgScore}</span>
+          <div className="text-center p-4 lg:p-5 bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 rounded-xl border-2 border-purple-200 shadow-sm">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Trophy className="w-5 h-5 text-purple-600" />
+              <span className="text-xl lg:text-2xl font-bold text-purple-600">{avgScore}</span>
+              <span className="text-sm text-purple-500">/10</span>
             </div>
-            <p className="text-xs sm:text-sm text-purple-800 font-medium mb-1">Peer Average</p>
-            <p className="text-xs text-purple-600">Industry mean</p>
+            <p className="text-sm lg:text-base text-purple-800 font-semibold mb-1">Industry Average</p>
+            <p className="text-xs text-purple-600">Peer Benchmark</p>
           </div>
-          <div className="text-center p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border border-orange-200">
-            <div className="flex items-center justify-center gap-1 mb-2">
-              <TrendingUp className="w-4 h-4 text-orange-600" />
-              <span className="text-lg font-bold text-orange-600">+{(ourCompany.overall - parseFloat(avgScore)).toFixed(1)}</span>
+          <div className="text-center p-4 lg:p-5 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 rounded-xl border-2 border-orange-200 shadow-sm">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <TrendingUp className="w-5 h-5 text-orange-600" />
+              <span className="text-xl lg:text-2xl font-bold text-orange-600">+{(ourCompany.overall - parseFloat(avgScore)).toFixed(1)}</span>
+              <span className="text-sm text-orange-500">pts</span>
             </div>
-            <p className="text-xs sm:text-sm text-orange-800 font-medium mb-1">vs Average</p>
-            <p className="text-xs text-orange-600">Performance gap</p>
+            <p className="text-sm lg:text-base text-orange-800 font-semibold mb-1">Above Average</p>
+            <p className="text-xs text-orange-600">Performance Lead</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="chart-container">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Component Comparison</h4>
-            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px]">
+            <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[420px]">
               <BarChart 
                 data={peerData} 
-                margin={{ top: 30, right: 20, left: 30, bottom: 100 }}
+                margin={{ top: 50, right: 40, left: 60, bottom: 120 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
@@ -223,10 +226,10 @@ export default function PeerComparisonChart() {
 
           <div className="chart-container">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Overall ESG Performance</h4>
-            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px]">
+            <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[420px]">
               <BarChart 
                 data={peerData.sort((a, b) => b.overall - a.overall)} 
-                margin={{ top: 30, right: 20, left: 50, bottom: 100 }}
+                margin={{ top: 50, right: 40, left: 70, bottom: 120 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
@@ -265,7 +268,7 @@ export default function PeerComparisonChart() {
           </div>
         </div>
 
-        <div className="mobile-grid-5 mobile-gap-2 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-8">
           {peerData.sort((a, b) => a.rank - b.rank).map((company, index) => {
             const TrendIcon = company.trend === 'up' ? TrendingUp : 
                              company.trend === 'down' ? TrendingUp : Target;
@@ -273,26 +276,45 @@ export default function PeerComparisonChart() {
                               company.trend === 'down' ? 'text-red-600' : 'text-gray-600';
             
             return (
-              <div key={index} className={`p-3 rounded-lg border ${company.bgColor} ${company.borderColor}`}>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-1">
-                    {company.rank === 1 && <Crown className="w-4 h-4 text-yellow-500" />}
-                    <span className="font-medium text-gray-900 text-sm">{company.company}</span>
+              <div key={index} className={`p-4 rounded-xl border-2 ${company.bgColor} ${company.borderColor} shadow-sm hover:shadow-md transition-all duration-200`}>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2 min-w-0 flex-1">
+                    {company.rank === 1 && <Crown className="w-4 h-4 text-yellow-500 flex-shrink-0" />}
+                    <span className="font-semibold text-gray-900 text-sm lg:text-base truncate">{company.company}</span>
                   </div>
-                  <TrendIcon className={`w-4 h-4 ${trendColor} ${company.trend === 'down' ? 'rotate-180' : ''}`} />
+                  <TrendIcon className={`w-4 h-4 flex-shrink-0 ${trendColor} ${company.trend === 'down' ? 'rotate-180' : ''}`} />
                 </div>
-                <div className="space-y-1 text-xs text-gray-600">
-                  <div className="flex justify-between">
-                    <span>ESG Score:</span>
-                    <span className="font-medium" style={{ color: company.color }}>{company.overall}</span>
+                
+                <div className="text-center mb-4">
+                  <div className="text-2xl lg:text-3xl font-bold mb-1" style={{ color: company.color }}>
+                    {company.overall}
                   </div>
-                  <div className="flex justify-between">
-                    <span>Market Cap:</span>
-                    <span className="font-medium">₦{company.marketCap}B</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Rank:</span>
+                  <div className="text-xs text-gray-500 mb-2">ESG Score</div>
+                  <div className="flex items-center justify-center gap-1 text-xs text-gray-600">
                     <span className="font-medium">#{company.rank}</span>
+                    <span>•</span>
+                    <span>₦{company.marketCap}B</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-2 text-xs text-gray-600">
+                  <div className="flex justify-between items-center">
+                    <span>Market Cap:</span>
+                    <span className="font-medium text-gray-800">₦{company.marketCap}B</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span>Rank:</span>
+                    <span className="font-medium text-gray-800">#{company.rank}</span>
+                  </div>
+                  <div className="pt-2 border-t border-gray-200">
+                    <div className="text-center">
+                      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                        company.rank <= 2 ? 'bg-green-100 text-green-700' : 
+                        company.rank <= 4 ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
+                      }`}>
+                        {company.rank <= 2 ? 'Top Performer' : company.rank <= 4 ? 'Good' : 'Average'}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

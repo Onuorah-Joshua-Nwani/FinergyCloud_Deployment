@@ -164,8 +164,8 @@ export default function ESGComponentBreakdownChart() {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Performance Radar</h4>
-            <ResponsiveContainer width="100%" height={350} className="sm:h-[370px] lg:h-[390px] xl:h-[350px]">
-              <RadarChart data={esgData} margin={{ top: 50, right: 50, bottom: 50, left: 50 }}>
+            <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[420px] xl:h-[400px]">
+              <RadarChart data={esgData} margin={{ top: 60, right: 60, bottom: 60, left: 60 }}>
                 <PolarGrid stroke="#f0f0f0" />
                 <PolarAngleAxis 
                   dataKey="subject" 
@@ -204,8 +204,8 @@ export default function ESGComponentBreakdownChart() {
 
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Performance vs Benchmark</h4>
-            <ResponsiveContainer width="100%" height={350} className="sm:h-[370px] lg:h-[390px] xl:h-[350px]">
-              <BarChart data={esgData} margin={{ top: 40, right: 30, left: 60, bottom: 110 }}>
+            <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[420px] xl:h-[400px]">
+              <BarChart data={esgData} margin={{ top: 50, right: 40, left: 70, bottom: 120 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="subject" 

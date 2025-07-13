@@ -96,8 +96,8 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
           }
         </div>
         <div className="chart-container flex justify-center">
-          <ResponsiveContainer width="100%" height={350} className="sm:h-[370px] lg:h-[400px] xl:h-[420px]">
-          <LineChart data={data} margin={{ top: 40, right: 30, left: 60, bottom: 90 }}>
+          <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[450px] xl:h-[480px]">
+          <LineChart data={data} margin={{ top: 50, right: 40, left: 70, bottom: 100 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis 
               dataKey="month" 

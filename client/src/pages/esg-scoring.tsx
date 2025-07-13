@@ -63,13 +63,15 @@ export default function ESGScoring() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <section className="py-4 md:py-8 bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-green-50/30">
+      <section className="py-6 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6 md:mb-8">
-          <h1 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">ESG Scoring</h1>
-          <p className="text-sm md:text-base text-gray-600">Environmental, Social & Governance assessment</p>
-        </div>
+          <div className="mb-8 md:mb-10 text-center">
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3">ESG Performance Dashboard</h1>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+              Comprehensive Environmental, Social & Governance assessment with industry benchmarking and actionable insights
+            </p>
+          </div>
 
         {/* ESG Score Overview */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
@@ -154,69 +156,93 @@ export default function ESGScoring() {
         </div>
 
         {/* ESG Analytics */}
-        <div className="space-y-8 mb-8">
-          <ESGScoreTrendChart selectedProjectId={selectedProjectId} projects={projects} />
-          <ESGComponentBreakdownChart />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <PeerComparisonChart />
-            <ESGFactorImpactChart />
+        <div className="space-y-10 mb-10">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <ESGScoreTrendChart selectedProjectId={selectedProjectId} projects={projects} />
+          </div>
+          
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <ESGComponentBreakdownChart />
+          </div>
+          
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+              <PeerComparisonChart />
+            </div>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+              <ESGFactorImpactChart />
+            </div>
           </div>
         </div>
 
         {/* ESG Improvement Recommendations */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Improvement Recommendations</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="p-4 border border-gray-200 rounded-lg hover:border-secondary/30 transition-colors">
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-secondary/10 rounded-lg mt-1">
-                    <Leaf className="w-5 h-5 text-secondary" />
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          <div className="px-6 py-5 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-green-50">
+            <h2 className="text-xl font-semibold text-gray-900 flex items-center gap-3">
+              <Lightbulb className="w-6 h-6 text-blue-600" />
+              ESG Improvement Recommendations
+            </h2>
+            <p className="text-sm text-gray-600 mt-2">Strategic initiatives to enhance your ESG performance and market positioning</p>
+          </div>
+          
+          <div className="p-6">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="p-6 border-2 border-green-200 rounded-xl hover:border-green-300 transition-all duration-200 bg-gradient-to-br from-green-50 to-emerald-50">
+                <div className="flex items-start space-x-4">
+                  <div className="p-3 bg-green-100 rounded-xl mt-1">
+                    <Leaf className="w-6 h-6 text-green-600" />
                   </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900 mb-2">Enhance Community Engagement</h3>
-                    <p className="text-sm text-gray-600">
-                      Increase local stakeholder involvement to improve social scores by 0.8 points.
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-3 text-lg">Enhance Community Engagement</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                      Increase local stakeholder involvement through community advisory boards and regular engagement sessions to improve social scores significantly.
                     </p>
-                    <div className="mt-3 text-xs text-secondary font-medium">Potential Impact: +0.8</div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-green-700 font-medium bg-green-200 px-3 py-1 rounded-full">High Priority</span>
+                      <span className="text-sm font-bold text-green-600">Impact: +0.8</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 border border-gray-200 rounded-lg hover:border-primary/30 transition-colors">
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-primary/10 rounded-lg mt-1">
-                    <Shield className="w-5 h-5 text-primary" />
+              <div className="p-6 border-2 border-blue-200 rounded-xl hover:border-blue-300 transition-all duration-200 bg-gradient-to-br from-blue-50 to-cyan-50">
+                <div className="flex items-start space-x-4">
+                  <div className="p-3 bg-blue-100 rounded-xl mt-1">
+                    <Shield className="w-6 h-6 text-blue-600" />
                   </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900 mb-2">Strengthen Risk Management</h3>
-                    <p className="text-sm text-gray-600">
-                      Implement comprehensive risk assessment frameworks for governance improvement.
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-3 text-lg">Strengthen Risk Management</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                      Implement comprehensive risk assessment frameworks and governance protocols to enhance transparency and accountability measures.
                     </p>
-                    <div className="mt-3 text-xs text-primary font-medium">Potential Impact: +0.6</div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-blue-700 font-medium bg-blue-200 px-3 py-1 rounded-full">Medium Priority</span>
+                      <span className="text-sm font-bold text-blue-600">Impact: +0.6</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 border border-gray-200 rounded-lg hover:border-accent/30 transition-colors">
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-accent/10 rounded-lg mt-1">
-                    <Recycle className="w-5 h-5 text-accent" />
+              <div className="p-6 border-2 border-purple-200 rounded-xl hover:border-purple-300 transition-all duration-200 bg-gradient-to-br from-purple-50 to-pink-50">
+                <div className="flex items-start space-x-4">
+                  <div className="p-3 bg-purple-100 rounded-xl mt-1">
+                    <Recycle className="w-6 h-6 text-purple-600" />
                   </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900 mb-2">Optimize Waste Management</h3>
-                    <p className="text-sm text-gray-600">
-                      Implement circular economy principles to enhance environmental performance.
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-3 text-lg">Optimize Waste Management</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                      Implement circular economy principles and advanced recycling systems to enhance environmental performance and sustainability metrics.
                     </p>
-                    <div className="mt-3 text-xs text-accent font-medium">Potential Impact: +0.4</div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-purple-700 font-medium bg-purple-200 px-3 py-1 rounded-full">Low Priority</span>
+                      <span className="text-sm font-bold text-purple-600">Impact: +0.4</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
         </div>
       </section>
     </div>

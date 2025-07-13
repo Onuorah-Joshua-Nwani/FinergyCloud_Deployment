@@ -186,8 +186,8 @@ export default function ESGFactorImpactChart() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Current vs Potential Performance</h4>
-            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px]">
-              <AreaChart data={impactData} margin={{ top: 30, right: 20, left: 50, bottom: 100 }}>
+            <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[420px]">
+              <AreaChart data={impactData} margin={{ top: 50, right: 40, left: 70, bottom: 110 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
@@ -233,8 +233,8 @@ export default function ESGFactorImpactChart() {
 
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Investment vs Impact Analysis</h4>
-            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px]">
-              <BarChart data={impactData} margin={{ top: 30, right: 20, left: 50, bottom: 100 }}>
+            <ResponsiveContainer width="100%" height={380} className="sm:h-[400px] lg:h-[420px]">
+              <BarChart data={impactData} margin={{ top: 50, right: 40, left: 70, bottom: 110 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
