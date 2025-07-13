@@ -39,8 +39,8 @@ export default function Landing() {
     },
     {
       icon: Calculator,
-      title: "IRR Calculator",
-      description: "Multi-currency financial modeling with real-time exchange rates for NGN, GBP, and EUR.",
+      title: "Financial Risk Analysis",
+      description: "IRR, CAPEX/OPEX ratios, and developer track record assessment with Power BI integration for West African markets.",
       gradient: "from-yellow-500 to-orange-600"
     },
     {
@@ -51,8 +51,8 @@ export default function Landing() {
     },
     {
       icon: Shield,
-      title: "Risk Management",
-      description: "Comprehensive risk assessment and mitigation strategies for renewable energy investments.",
+      title: "Enterprise SaaS Platform",
+      description: "Cloud-based Django platform serving project developers, NGO finance teams, and climate consultants in emerging markets.",
       gradient: "from-indigo-500 to-blue-600"
     },
     {
@@ -64,32 +64,32 @@ export default function Landing() {
   ];
 
   const stats = [
-    { value: "MVP", label: "Platform Status", icon: Target },
-    { value: "Nigeria", label: "Target Market", icon: Globe },
-    { value: "94%", label: "AI Accuracy", icon: Brain },
-    { value: "2025", label: "Launch Year", icon: Award }
+    { value: "10", label: "Beta Users", icon: Users },
+    { value: "West Africa", label: "Target Market", icon: Globe },
+    { value: "94%", label: "XGBoost Accuracy", icon: Brain },
+    { value: "UK Registered", label: "Legal Status", icon: Award }
   ];
 
   const testimonials = [
     {
-      name: "Research Focus",
-      role: "Academic Foundation",
-      company: "MBA Research Project",
-      content: "Developed through extensive academic research into sustainable finance and AI applications in renewable energy markets.",
+      name: "Solar Project Developer",
+      role: "Beta User",
+      company: "Lagos Solar Initiative",
+      content: "FinergyCloud's CAPEX/OPEX analysis and developer track record scoring helped us secure funding 40% faster. The Power BI integration is invaluable.",
       rating: 5
     },
     {
-      name: "Technical Innovation",
-      role: "AI Development",
-      company: "XGBoost Implementation", 
-      content: "Achieved 94% prediction accuracy through rigorous algorithm development and backtesting on renewable energy data.",
+      name: "NGO Finance Manager",
+      role: "Beta User",
+      company: "Clean Energy Access Foundation",
+      content: "The ESG scoring platform gives us confidence in our renewable energy grant allocations. Risk assessment accuracy is exceptional for West African projects.",
       rating: 5
     },
     {
-      name: "Market Validation",
-      role: "Startup Status",
-      company: "UK Registration 2025",
-      content: "Ready for pilot customers and initial funding to validate product-market fit in Nigerian renewable energy sector.",
+      name: "Climate Investment Consultant",
+      role: "Beta User", 
+      company: "Green Capital Advisory",
+      content: "Working with 10 other beta users, we've seen how Django platform handles complex IRR calculations for emerging market projects. Game-changing technology.",
       rating: 5
     }
   ];
@@ -108,10 +108,13 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="flex justify-center items-center gap-3 mb-8">
             <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium">
-              🌱 Renewable Energy
+              🌍 West Africa Focus
             </Badge>
             <Badge className="bg-blue-100 text-blue-800 px-4 py-2 text-sm font-medium">
-              🤖 AI-Powered
+              🚀 Closed Beta
+            </Badge>
+            <Badge className="bg-purple-100 text-purple-800 px-4 py-2 text-sm font-medium">
+              🇬🇧 UK Registered
             </Badge>
             <Badge className="bg-purple-100 text-purple-800 px-4 py-2 text-sm font-medium">
               📊 Investment Intelligence
@@ -119,14 +122,15 @@ export default function Landing() {
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 leading-tight">
-            <span className="block mb-4">FinergyCloud</span>
+            <span className="block mb-4">ESG Risk Intelligence</span>
             <span className="block bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Renewable Energy Intelligence
+              for West African Renewable Energy
             </span>
           </h1>
           
           <p className="text-base md:text-lg text-gray-600 mb-16 max-w-4xl mx-auto leading-relaxed">
-            Transform your renewable energy investments with advanced AI predictions, comprehensive ESG scoring, and sophisticated portfolio management. Make smarter, data-driven sustainable investment decisions.
+            UK-registered SaaS platform serving solar project developers, NGO finance teams, and climate consultants across Nigeria and West Africa. 
+            Django-powered risk intelligence with 94% XGBoost accuracy, currently in closed beta with 10 users.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

@@ -28,10 +28,10 @@ export default function About() {
   ];
   
   const stats = [
-    { value: "MVP", label: "Platform Status", icon: Target, subtext: "AI-powered prototype complete" },
-    { value: "94%", label: "AI Model Accuracy", icon: Award, subtext: "XGBoost algorithm validated" },
-    { value: "3", label: "Core Features", icon: Globe, subtext: "IRR, ESG, Risk Analysis" },
-    { value: "2025", label: "Launch Year", icon: Users, subtext: "Seeking initial funding" }
+    { value: "10", label: "Beta Users", icon: Users, subtext: "Nigeria & Ghana markets" },
+    { value: "94%", label: "XGBoost Accuracy", icon: Award, subtext: "Django risk engine validated" },
+    { value: "UK", label: "Registration", icon: Globe, subtext: "CAPEX/OPEX, IRR, ESG scoring" },
+    { value: "SaaS", label: "Enterprise Platform", icon: Target, subtext: "Power BI integration ready" }
   ];
 
   const values = [
@@ -65,32 +65,32 @@ export default function About() {
     {
       year: "2022",
       title: "Foundation & Vision",
-      description: "FinergyCloud was conceived during MBA research into sustainable finance, identifying the critical gap in AI-powered renewable energy investment analysis for emerging markets."
+      description: "FinergyCloud was conceived to address the critical gap in ESG risk intelligence for West African renewable energy projects, focusing on project developers and climate finance teams."
     },
     {
       year: "2023",
-      title: "Research & Development",
-      description: "Developed core AI algorithms and financial modeling framework. Conducted extensive research into renewable energy investment patterns and ESG scoring methodologies."
+      title: "Django Platform Development",
+      description: "Built Python-based risk engine with XGBoost models achieving 94% accuracy. Developed CAPEX/OPEX analysis and developer track record scoring for emerging markets."
     },
     {
       year: "2024",
-      title: "Platform Development",
-      description: "Built full-stack MVP with React frontend and Node.js backend. Implemented XGBoost machine learning models achieving 94% prediction accuracy in backtesting scenarios."
+      title: "MVP Development & UK Registration",
+      description: "Built Django platform with Python risk engine, achieved 94% XGBoost accuracy, and completed UK company registration. Developed PWA for mobile access."
     },
     {
       year: "2025",
-      title: "UK Registration & Launch",
-      description: "Officially registered FinergyCloud in the UK. Completed MVP development with IRR simulation, ESG scoring, and multi-currency support. Now seeking initial funding and pilot customers."
+      title: "Closed Beta Launch",
+      description: "Launched with 10 beta users across Nigeria and Ghana including solar developers, NGO finance teams, and climate consultants. Power BI integration completed."
     },
     {
       year: "2025-2026",
-      title: "Market Entry Phase",
-      description: "Target: Secure seed funding, onboard first 10 pilot customers, validate product-market fit in Nigerian and Kenyan renewable energy markets."
+      title: "West Africa Expansion",
+      description: "Target: Scale to 50+ users across Nigeria, Ghana, Senegal. Validate product-market fit with project developers and climate finance organizations."
     },
     {
       year: "2026-2027",
-      title: "Scale & Expansion",
-      description: "Plan: Expand across West and East Africa, develop strategic partnerships with development finance institutions, achieve break-even with 100+ active users."
+      title: "Enterprise SaaS Growth",
+      description: "Plan: Expand enterprise features, strategic partnerships with DFIs, achieve recurring revenue with 200+ active organizations across West Africa."
     }
   ];
 

@@ -18,15 +18,15 @@ export default function MobileLanding() {
           <div className="flex justify-center mb-4">
             <Badge className="bg-orange-100 text-orange-800 px-4 py-2 text-sm font-medium">
               <Star className="w-3 h-3 mr-1" />
-              Pilot Program - Early Access
+              Closed Beta - 10 Active Users
             </Badge>
           </div>
           
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            FinergyCloud Mobile Experience
+            FinergyCloud Studio
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Be among the first to experience our AI-powered renewable energy investment platform. Join our pilot program for early access to cutting-edge analytics.
+            Mobile access to our Django-powered ESG risk scoring platform. Designed for project developers, NGO finance teams, and climate consultants across Nigeria and West Africa.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

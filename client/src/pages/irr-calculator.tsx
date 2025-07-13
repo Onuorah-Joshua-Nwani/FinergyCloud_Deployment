@@ -31,9 +31,10 @@ const projectTypeConfigs = {
     borderColor: "border-yellow-200",
     baseIRR: 16.2,
     regions: {
-      nigeria: { currency: "NGN" as Currency, multiplier: 1.0 },
-      uk: { currency: "GBP" as Currency, multiplier: 0.8 },
-      europe: { currency: "EUR" as Currency, multiplier: 0.9 }
+      nigeria: { currency: "NGN" as Currency, multiplier: 1.2, capexRatio: 0.75, opexRatio: 0.25 },
+      ghana: { currency: "NGN" as Currency, multiplier: 1.1, capexRatio: 0.78, opexRatio: 0.22 },
+      uk: { currency: "GBP" as Currency, multiplier: 0.8, capexRatio: 0.65, opexRatio: 0.35 },
+      europe: { currency: "EUR" as Currency, multiplier: 0.9, capexRatio: 0.68, opexRatio: 0.32 }
     }
   },
   wind: {
@@ -44,9 +45,10 @@ const projectTypeConfigs = {
     borderColor: "border-blue-200",
     baseIRR: 14.8,
     regions: {
-      nigeria: { currency: "NGN" as Currency, multiplier: 1.0 },
-      uk: { currency: "GBP" as Currency, multiplier: 1.2 },
-      europe: { currency: "EUR" as Currency, multiplier: 1.1 }
+      nigeria: { currency: "NGN" as Currency, multiplier: 1.0, capexRatio: 0.70, opexRatio: 0.30 },
+      ghana: { currency: "NGN" as Currency, multiplier: 1.05, capexRatio: 0.72, opexRatio: 0.28 },
+      uk: { currency: "GBP" as Currency, multiplier: 1.2, capexRatio: 0.60, opexRatio: 0.40 },
+      europe: { currency: "EUR" as Currency, multiplier: 1.1, capexRatio: 0.63, opexRatio: 0.37 }
     }
   },
   hydro: {

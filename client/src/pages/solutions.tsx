@@ -41,7 +41,7 @@ export default function Solutions() {
       ],
       badge: "Core AI Technology",
       color: "from-blue-500 to-purple-600",
-      metrics: { accuracy: "94%", status: "MVP Ready", validation: "Backtested" }
+      metrics: { accuracy: "94%", status: "Beta Users: 10", validation: "Django Platform" }
     },
     {
       icon: Leaf,
@@ -56,22 +56,22 @@ export default function Solutions() {
       ],
       badge: "Sustainability Framework",
       color: "from-green-500 to-emerald-600",
-      metrics: { factors: "50+", coverage: "Global", precision: "±5%" }
+      metrics: { factors: "50+", coverage: "West Africa", precision: "Nigeria/Ghana" }
     },
     {
       icon: Calculator,
-      title: "Multi-Currency Financial Modeling",
-      description: "Advanced IRR simulation and financial modeling suite supporting NGN, GBP, and EUR with real-time exchange rate integration",
+      title: "CAPEX/OPEX Financial Analysis",
+      description: "IRR calculations, CAPEX/OPEX ratio analysis, and developer track record assessment with Power BI integration for West African markets",
       features: [
-        "Real-time multi-currency conversion",
-        "Advanced cash flow projections",
-        "ROI optimization algorithms",
-        "Risk-adjusted return calculations",
-        "Sensitivity analysis tools"
+        "CAPEX/OPEX ratio optimization",
+        "Developer track record scoring",
+        "Power BI dashboard integration",
+        "Multi-currency modeling (NGN, GBP, EUR)",
+        "Risk-adjusted return calculations"
       ],
       badge: "Financial Intelligence",
       color: "from-yellow-500 to-orange-600",
-      metrics: { currencies: "3", accuracy: "99.5%", speed: "Instant" }
+      metrics: { ratios: "CAPEX/OPEX", powerbi: "Integrated", markets: "West Africa" }
     },
     {
       icon: BarChart3,
