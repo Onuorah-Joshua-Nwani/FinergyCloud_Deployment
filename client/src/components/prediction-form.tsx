@@ -273,7 +273,7 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
                 </div>
                 <p className="text-sm text-green-800 font-medium">Environmental</p>
                 <p className="text-xs text-green-600 mt-1">
-                  {esgTemplate.co2Reduction.toLocaleString()} tons CO₂ saved annually
+                  {esgTemplate.co2Reduction?.toLocaleString() || '0'} tons CO₂ saved annually
                 </p>
               </div>
               <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
@@ -282,7 +282,7 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
                 </div>
                 <p className="text-sm text-blue-800 font-medium">Social</p>
                 <p className="text-xs text-blue-600 mt-1">
-                  {esgTemplate.jobsCreated} jobs created, {esgTemplate.communitiesServed} communities served
+                  {esgTemplate.jobsCreated || 0} jobs created, {esgTemplate.communitiesServed || 0} communities served
                 </p>
               </div>
               <div className="text-center p-4 bg-purple-50 rounded-lg border border-purple-200">
@@ -291,7 +291,7 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
                 </div>
                 <p className="text-sm text-purple-800 font-medium">Governance</p>
                 <p className="text-xs text-purple-600 mt-1">
-                  {esgTemplate.educationPrograms} education programs
+                  {esgTemplate.educationPrograms || 0} education programs
                 </p>
               </div>
             </div>
@@ -305,11 +305,11 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Clean Energy Generated:</span>
-                    <span className="font-medium">{esgTemplate.cleanEnergyGenerated} GWh/year</span>
+                    <span className="font-medium">{esgTemplate.cleanEnergyGenerated || 0} GWh/year</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Water Saved:</span>
-                    <span className="font-medium">{(esgTemplate.waterSaved / 1000000).toFixed(1)}M liters/year</span>
+                    <span className="font-medium">{((esgTemplate.waterSaved || 0) / 1000000).toFixed(1)}M liters/year</span>
                   </div>
                 </div>
               </div>
@@ -330,7 +330,7 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
                     esgTemplate.riskCategory === 'low' ? 'text-green-600' :
                     esgTemplate.riskCategory === 'medium' ? 'text-yellow-600' : 'text-red-600'
                   }`}>
-                    {esgTemplate.riskCategory.charAt(0).toUpperCase() + esgTemplate.riskCategory.slice(1)} Risk
+                    {esgTemplate.riskCategory?.charAt(0).toUpperCase() + esgTemplate.riskCategory?.slice(1) || 'Unknown'} Risk
                   </div>
                   <p className="text-gray-600 mt-1">
                     {esgTemplate.riskCategory === 'low' && 'Typically stable returns with proven technology'}
