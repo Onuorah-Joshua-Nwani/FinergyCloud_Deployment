@@ -68,15 +68,21 @@ app.use((req, res, next) => {
     }
 
     // Use Railway's PORT or fallback to 5000 for local development
-    const port = process.env.PORT || 5000;
-    server.listen({
-      port: Number(port),
-      host: "0.0.0.0",
-      reusePort: true,
-    }, () => {
-      log(`FinergyCloud serving on port ${port}`);
+    const port = Number(process.env.PORT || 5000);
+    const host = "0.0.0.0";
+    
+    server.listen(port, host, () => {
+      log(`FinergyCloud serving on ${host}:${port}`);
       console.log('Server started successfully');
       console.log(`Access the application at: http://localhost:${port}`);
+      console.log(`Mobile app: http://localhost:${port}/?platform=mobile`);
+      console.log(`Health check: http://localhost:${port}/api/health`);
+      
+      // Signal to Replit that server is ready
+      console.log(`\n🟢 REPLIT SERVER READY ON PORT ${port} 🟢`);
+      if (process.env.REPLIT_DEV_DOMAIN) {
+        console.log(`Preview URL: https://${process.env.REPLIT_DEV_DOMAIN}`);
+      }
     });
 
     // Handle graceful shutdown
