@@ -137,75 +137,74 @@ export default function ESGFactorImpactChart() {
   return (
     <Card className="overflow-hidden">
       <CardHeader>
-        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div className="flex items-center gap-2 justify-center sm:justify-start">
-            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
-            <span className="mobile-text-lg">ESG Impact & Improvement Analysis</span>
-          </div>
+        <CardTitle className="flex items-center gap-2 text-sm sm:text-base font-semibold">
+          <TrendingUp className="w-4 h-4 text-purple-600" />
+          ESG Impact & Improvement Analysis
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-6 mobile-text-sm text-gray-600 text-center">
+        <div className="mb-6 text-xs sm:text-sm text-gray-600 leading-relaxed">
           Strategic analysis of ESG improvement opportunities showing current performance, potential gains, 
           required investments, and implementation timelines for maximum impact.
         </div>
         
-        <div className="mobile-grid-4 mobile-gap-2 mb-6">
-          <div className="text-center mobile-p-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <div className="text-center p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+            <div className="flex items-center justify-center gap-1 mb-2">
               <Target className="w-4 h-4 text-purple-600" />
-              <span className="mobile-text-xl font-bold text-purple-600">+{totalImpact.toFixed(1)}</span>
+              <span className="text-lg font-bold text-purple-600">+{totalImpact.toFixed(1)}</span>
             </div>
-            <p className="text-sm text-purple-800 font-medium">Total Impact</p>
+            <p className="text-xs sm:text-sm text-purple-800 font-medium mb-1">Total Impact</p>
             <p className="text-xs text-purple-600">Score improvement</p>
           </div>
-          <div className="text-center mobile-p-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
-              <span className="mobile-text-base font-bold text-green-600">₦{totalInvestment}</span>
+          <div className="text-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
+            <div className="flex items-center justify-center gap-1 mb-2">
+              <Zap className="w-4 h-4 text-green-600" />
+              <span className="text-lg font-bold text-green-600">₦{totalInvestment}</span>
             </div>
-            <p className="mobile-text-sm text-green-800 font-medium">Investment</p>
+            <p className="text-xs sm:text-sm text-green-800 font-medium mb-1">Investment</p>
             <p className="text-xs text-green-600">Millions required</p>
           </div>
-          <div className="text-center mobile-p-2 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border border-orange-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <AlertTriangle className="w-3 h-3 sm:w-4 sm:h-4 text-orange-600" />
-              <span className="mobile-text-base font-bold text-orange-600">{highPriorityItems}</span>
+          <div className="text-center p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border border-orange-200">
+            <div className="flex items-center justify-center gap-1 mb-2">
+              <AlertTriangle className="w-4 h-4 text-orange-600" />
+              <span className="text-lg font-bold text-orange-600">{highPriorityItems}</span>
             </div>
-            <p className="mobile-text-sm text-orange-800 font-medium">High Priority</p>
+            <p className="text-xs sm:text-sm text-orange-800 font-medium mb-1">High Priority</p>
             <p className="text-xs text-orange-600">Critical factors</p>
           </div>
-          <div className="text-center mobile-p-2 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <Eye className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
-              <span className="mobile-text-base font-bold text-blue-600">{avgTimeline}mo</span>
+          <div className="text-center p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
+            <div className="flex items-center justify-center gap-1 mb-2">
+              <Eye className="w-4 h-4 text-blue-600" />
+              <span className="text-lg font-bold text-blue-600">{avgTimeline}mo</span>
             </div>
-            <p className="mobile-text-sm text-blue-800 font-medium">Avg Timeline</p>
+            <p className="text-xs sm:text-sm text-blue-800 font-medium mb-1">Avg Timeline</p>
             <p className="text-xs text-blue-600">Implementation</p>
           </div>
         </div>
 
-        <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="chart-container flex flex-col items-center">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Current vs Potential Performance</h4>
-            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
-              <AreaChart data={impactData} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
+            <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Current vs Potential Performance</h4>
+            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px]">
+              <AreaChart data={impactData} margin={{ top: 30, right: 20, left: 50, bottom: 100 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
-                  tick={{ fontSize: 9 }}
+                  tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  angle={-45}
+                  angle={-30}
                   textAnchor="end"
-                  height={80}
-                  className="mobile-text-xs"
+                  height={90}
+                  interval={0}
                 />
                 <YAxis 
                   domain={[7, 10]}
-                  tick={{ fontSize: 10 }}
+                  tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
-                  className="mobile-text-xs"
+                  tickFormatter={(value) => Number(value).toFixed(1)}
+                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px' } }}
+                  width={50}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />
@@ -233,18 +232,18 @@ export default function ESGFactorImpactChart() {
           </div>
 
           <div className="chart-container flex flex-col items-center">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base text-center">Investment vs Impact Analysis</h4>
-            <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[300px] lg:h-[320px]">
-              <BarChart data={impactData} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
+            <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Investment vs Impact Analysis</h4>
+            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px]">
+              <BarChart data={impactData} margin={{ top: 30, right: 20, left: 50, bottom: 100 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
-                  tick={{ fontSize: 9 }}
+                  tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  angle={-45}
+                  angle={-30}
                   textAnchor="end"
-                  height={80}
-                  className="mobile-text-xs"
+                  height={90}
+                  interval={0}
                 />
                 <YAxis 
                   tick={{ fontSize: 10 }}

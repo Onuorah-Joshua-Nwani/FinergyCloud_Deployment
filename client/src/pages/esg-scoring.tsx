@@ -154,11 +154,13 @@ export default function ESGScoring() {
         </div>
 
         {/* ESG Analytics */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+        <div className="space-y-8 mb-8">
           <ESGScoreTrendChart selectedProjectId={selectedProjectId} projects={projects} />
           <ESGComponentBreakdownChart />
-          <PeerComparisonChart />
-          <ESGFactorImpactChart />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <PeerComparisonChart />
+            <ESGFactorImpactChart />
+          </div>
         </div>
 
         {/* ESG Improvement Recommendations */}

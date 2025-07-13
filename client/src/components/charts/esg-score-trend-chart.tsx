@@ -80,44 +80,46 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <span className="mobile-text-lg">ESG Performance Trends</span>
-          <div className="flex flex-col sm:items-end gap-1">
+        <CardTitle className="flex flex-col gap-2">
+          <span className="text-sm sm:text-base lg:text-lg font-semibold">ESG Performance Trends</span>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
             <span className="text-xs sm:text-sm font-medium text-gray-700">{projectName}</span>
-            <span className="text-xs sm:text-sm font-normal text-gray-500">6-Month Overview</span>
+            <span className="text-xs font-normal text-gray-500">6-Month Overview</span>
           </div>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-4 mobile-text-sm text-gray-600 text-center">
+        <div className="mb-6 text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
           {selectedProjectId === "all" ? 
             "Track Environmental, Social, and Governance scores across your entire project portfolio over time." :
             `Monitor ${selectedProject?.type || 'project'} ESG performance trends to identify improvement areas and sustainability progress.`
           }
         </div>
         <div className="chart-container flex justify-center">
-          <ResponsiveContainer width="100%" height={250} className="sm:h-[280px] lg:h-[320px] xl:h-[350px]">
-          <LineChart data={data} margin={{ top: 20, right: 30, left: 40, bottom: 5 }}>
+          <ResponsiveContainer width="100%" height={300} className="sm:h-[320px] lg:h-[360px] xl:h-[380px]">
+          <LineChart data={data} margin={{ top: 30, right: 20, left: 50, bottom: 80 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis 
               dataKey="month" 
-              tick={{ fontSize: 10 }}
+              tick={{ fontSize: 9 }}
               tickLine={{ stroke: '#d1d5db' }}
-              className="mobile-text-xs"
+              interval={0}
+              angle={-15}
+              textAnchor="end"
+              height={60}
             />
             <YAxis 
               domain={[6, 10]} 
-              tick={{ fontSize: 10 }}
+              tick={{ fontSize: 9 }}
               tickLine={{ stroke: '#d1d5db' }}
               tickFormatter={(value) => Number(value).toFixed(1)}
-              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
-              className="mobile-text-xs"
+              label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '9px' } }}
+              width={50}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend 
-              wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }}
+              wrapperStyle={{ paddingTop: '30px', fontSize: '10px' }}
               iconType="circle"
-              className="mobile-text-xs"
             />
             <Line 
               type="monotone" 

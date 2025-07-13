@@ -131,53 +131,51 @@ export default function ESGComponentBreakdownChart() {
           with industry benchmark comparisons and improvement opportunities.
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 mb-6">
-          <div className="text-center p-3 lg:p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <Shield className="w-4 h-4 lg:w-5 lg:h-5 text-green-600" />
-              <span className="text-xl lg:text-2xl font-bold text-green-600">{overallScore}</span>
-              <span className="text-base lg:text-lg text-green-500">/10</span>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4 mb-6">
+          <div className="text-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
+            <div className="flex items-center justify-center gap-1 mb-2">
+              <Shield className="w-4 h-4 text-green-600" />
+              <span className="text-lg sm:text-xl font-bold text-green-600">{overallScore}</span>
+              <span className="text-sm text-green-500">/10</span>
             </div>
-            <p className="text-sm lg:text-base text-green-800 font-medium">Overall ESG Score</p>
-            <p className="text-xs lg:text-sm text-green-600">Portfolio average</p>
+            <p className="text-xs sm:text-sm text-green-800 font-medium mb-1">Overall ESG Score</p>
+            <p className="text-xs text-green-600">Portfolio average</p>
           </div>
-          <div className="text-center p-3 lg:p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <Eye className="w-4 h-4 lg:w-5 lg:h-5 text-blue-600" />
-              <span className="text-xl lg:text-2xl font-bold text-blue-600">{benchmarkScore}</span>
-              <span className="text-base lg:text-lg text-blue-500">/10</span>
+          <div className="text-center p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
+            <div className="flex items-center justify-center gap-1 mb-2">
+              <Eye className="w-4 h-4 text-blue-600" />
+              <span className="text-lg sm:text-xl font-bold text-blue-600">{benchmarkScore}</span>
+              <span className="text-sm text-blue-500">/10</span>
             </div>
-            <p className="text-sm lg:text-base text-blue-800 font-medium">Industry Benchmark</p>
-            <p className="text-xs lg:text-sm text-blue-600">Sector average</p>
+            <p className="text-xs sm:text-sm text-blue-800 font-medium mb-1">Industry Benchmark</p>
+            <p className="text-xs text-blue-600">Sector average</p>
           </div>
-          <div className="text-center p-3 lg:p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <Lightbulb className="w-4 h-4 lg:w-5 lg:h-5 text-purple-600" />
-              <span className="text-xl lg:text-2xl font-bold text-purple-600">{outperformingAreas}</span>
-              <span className="text-base lg:text-lg text-purple-500">/6</span>
+          <div className="text-center p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+            <div className="flex items-center justify-center gap-1 mb-2">
+              <Lightbulb className="w-4 h-4 text-purple-600" />
+              <span className="text-lg sm:text-xl font-bold text-purple-600">{outperformingAreas}</span>
+              <span className="text-sm text-purple-500">/6</span>
             </div>
-            <p className="text-sm lg:text-base text-purple-800 font-medium">Leading Areas</p>
-            <p className="text-xs lg:text-sm text-purple-600">Above benchmark</p>
+            <p className="text-xs sm:text-sm text-purple-800 font-medium mb-1">Leading Areas</p>
+            <p className="text-xs text-purple-600">Above benchmark</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6 mb-6">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
           <div className="chart-container flex flex-col items-center">
-            <h4 className="font-medium text-gray-900 mb-4 text-sm sm:text-base text-center">ESG Performance Radar</h4>
-            <ResponsiveContainer width="100%" height={280} className="sm:h-[300px] lg:h-[320px] xl:h-[280px]">
-              <RadarChart data={esgData} margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
+            <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Performance Radar</h4>
+            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px] xl:h-[320px]">
+              <RadarChart data={esgData} margin={{ top: 40, right: 40, bottom: 40, left: 40 }}>
                 <PolarGrid stroke="#f0f0f0" />
                 <PolarAngleAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 10, fill: '#374151' }}
-                  className="mobile-text-xs"
+                  tick={{ fontSize: 9, fill: '#374151' }}
                 />
                 <PolarRadiusAxis 
                   angle={90} 
                   domain={[0, 10]} 
-                  tick={{ fontSize: 8, fill: '#6b7280' }}
+                  tick={{ fontSize: 7, fill: '#6b7280' }}
                   tickFormatter={(value) => Number(value).toFixed(0)}
-                  className="mobile-text-xs"
                 />
                 <Radar
                   name="Our Score"
@@ -203,26 +201,26 @@ export default function ESGComponentBreakdownChart() {
           </div>
 
           <div className="chart-container flex flex-col items-center">
-            <h4 className="font-medium text-gray-900 mb-4 text-sm sm:text-base text-center">Performance vs Benchmark</h4>
-            <ResponsiveContainer width="100%" height={280} className="sm:h-[300px] lg:h-[320px] xl:h-[280px]">
-              <BarChart data={esgData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+            <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Performance vs Benchmark</h4>
+            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px] xl:h-[320px]">
+              <BarChart data={esgData} margin={{ top: 30, right: 20, left: 50, bottom: 100 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 9 }}
+                  tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  angle={-45}
+                  angle={-30}
                   textAnchor="end"
-                  height={80}
-                  className="mobile-text-xs"
+                  height={90}
+                  interval={0}
                 />
                 <YAxis 
                   domain={[6, 10]}
-                  tick={{ fontSize: 10 }}
+                  tick={{ fontSize: 8 }}
                   tickLine={{ stroke: '#d1d5db' }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
-                  className="mobile-text-xs"
+                  label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '8px' } }}
+                  width={50}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar 
@@ -242,26 +240,26 @@ export default function ESGComponentBreakdownChart() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {esgData.map((item, index) => {
             const Icon = item.icon;
             const isAboveBenchmark = item.score > item.benchmark;
             const difference = (item.score - item.benchmark).toFixed(1);
             
             return (
-              <div key={index} className={`p-3 lg:p-4 rounded-lg border ${item.bgColor} ${item.borderColor}`}>
+              <div key={index} className={`p-4 rounded-lg border ${item.bgColor} ${item.borderColor}`}>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
-                    <Icon className={`w-4 h-4 lg:w-5 lg:h-5 ${item.textColor}`} />
-                    <span className="text-sm lg:text-base font-medium text-gray-900">{item.subject}</span>
+                  <div className="flex items-center gap-2 min-w-0 flex-1">
+                    <Icon className={`w-4 h-4 ${item.textColor} flex-shrink-0`} />
+                    <span className="text-sm font-medium text-gray-900 truncate">{item.subject}</span>
                   </div>
-                  <div className="text-right">
-                    <span className={`text-lg lg:text-xl font-bold ${item.textColor}`}>{item.score}</span>
-                    <span className="text-xs lg:text-sm text-gray-500">/10</span>
+                  <div className="text-right flex-shrink-0 ml-2">
+                    <span className={`text-lg font-bold ${item.textColor}`}>{item.score}</span>
+                    <span className="text-xs text-gray-500">/10</span>
                   </div>
                 </div>
-                <div className="space-y-2 text-xs lg:text-sm">
-                  <div className="flex justify-between">
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center text-xs">
                     <span className="text-gray-600">vs Benchmark:</span>
                     <span className={`font-medium ${isAboveBenchmark ? 'text-green-600' : 'text-orange-600'}`}>
                       {isAboveBenchmark ? '+' : ''}{difference}
@@ -269,14 +267,14 @@ export default function ESGComponentBreakdownChart() {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className={`h-2 rounded-full transition-all duration-300`}
+                      className="h-2 rounded-full transition-all duration-300"
                       style={{ 
                         width: `${(item.score / 10) * 100}%`,
                         backgroundColor: item.color
                       }}
                     />
                   </div>
-                  <p className="text-gray-600 mt-2 text-xs lg:text-sm leading-relaxed">{item.description}</p>
+                  <p className="text-xs text-gray-600 leading-relaxed line-clamp-3">{item.description}</p>
                 </div>
               </div>
             );

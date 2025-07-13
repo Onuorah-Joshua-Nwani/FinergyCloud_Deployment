@@ -125,64 +125,68 @@ export default function PeerComparisonChart() {
   return (
     <Card className="overflow-hidden">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Users className="w-5 h-5 text-blue-600" />
+        <CardTitle className="flex items-center gap-2 text-sm sm:text-base font-semibold">
+          <Users className="w-4 h-4 text-blue-600" />
           Industry Peer Analysis
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-6 text-sm text-gray-600">
+        <div className="mb-6 text-xs sm:text-sm text-gray-600 leading-relaxed">
           Comprehensive ESG performance comparison against leading renewable energy companies, 
           analyzing environmental, social, and governance metrics with market positioning insights.
         </div>
         
-        <div className="mobile-grid-4 mobile-gap-2 mb-6">
-          <div className="text-center mobile-p-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <div className="text-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
+            <div className="flex items-center justify-center gap-1 mb-2">
               <Crown className="w-4 h-4 text-green-600" />
-              <span className="mobile-text-xl font-bold text-green-600">#{ourRank}</span>
+              <span className="text-lg font-bold text-green-600">#{ourRank}</span>
             </div>
-            <p className="text-sm text-green-800 font-medium">Our Ranking</p>
+            <p className="text-xs sm:text-sm text-green-800 font-medium mb-1">Our Ranking</p>
             <p className="text-xs text-green-600">Industry position</p>
           </div>
           <div className="text-center p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
+            <div className="flex items-center justify-center gap-1 mb-2">
               <Target className="w-4 h-4 text-blue-600" />
-              <span className="text-xl font-bold text-blue-600">{ourCompany.overall}</span>
+              <span className="text-lg font-bold text-blue-600">{ourCompany.overall}</span>
             </div>
-            <p className="text-sm text-blue-800 font-medium">Our Score</p>
+            <p className="text-xs sm:text-sm text-blue-800 font-medium mb-1">Our Score</p>
             <p className="text-xs text-blue-600">ESG rating</p>
           </div>
           <div className="text-center p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
+            <div className="flex items-center justify-center gap-1 mb-2">
               <Trophy className="w-4 h-4 text-purple-600" />
-              <span className="text-xl font-bold text-purple-600">{avgScore}</span>
+              <span className="text-lg font-bold text-purple-600">{avgScore}</span>
             </div>
-            <p className="text-sm text-purple-800 font-medium">Peer Average</p>
+            <p className="text-xs sm:text-sm text-purple-800 font-medium mb-1">Peer Average</p>
             <p className="text-xs text-purple-600">Industry mean</p>
           </div>
           <div className="text-center p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border border-orange-200">
-            <div className="flex items-center justify-center gap-1 mb-1">
+            <div className="flex items-center justify-center gap-1 mb-2">
               <TrendingUp className="w-4 h-4 text-orange-600" />
-              <span className="text-xl font-bold text-orange-600">+{(ourCompany.overall - parseFloat(avgScore)).toFixed(1)}</span>
+              <span className="text-lg font-bold text-orange-600">+{(ourCompany.overall - parseFloat(avgScore)).toFixed(1)}</span>
             </div>
-            <p className="text-sm text-orange-800 font-medium">vs Average</p>
+            <p className="text-xs sm:text-sm text-orange-800 font-medium mb-1">vs Average</p>
             <p className="text-xs text-orange-600">Performance gap</p>
           </div>
         </div>
 
-        <div className="mobile-grid-1 lg:grid-cols-2 mobile-gap-4 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-4 mobile-text-base">ESG Component Comparison</h4>
-            <ResponsiveContainer width="100%" height={320} className="chart-card-mobile">
+            <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Component Comparison</h4>
+            <ResponsiveContainer width="100%" height={320} className="sm:h-[340px] lg:h-[360px]">
               <BarChart 
                 data={peerData} 
-                margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
+                margin={{ top: 30, right: 20, left: 30, bottom: 100 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="company" 
-                  tick={{ fontSize: 11 }}
+                  tick={{ fontSize: 8 }}
+                  angle={-30}
+                  textAnchor="end"
+                  height={90}
+                  interval={0}
                   tickLine={{ stroke: '#d1d5db' }}
                   angle={-45}
                   textAnchor="end"
