@@ -1,11 +1,27 @@
-// Ultra-simple startup script to eliminate all possible crash points
-process.env.NODE_ENV = 'development';
-process.env.PORT = '5000';
+#!/usr/bin/env node
+/**
+ * Simple startup script for Replit Run Button
+ */
 
-console.log('Starting FinergyCloud...');
+import { spawn } from 'child_process';
 
-// Import and run the server directly
-import('./server/index.ts').catch(err => {
-  console.error('Startup failed:', err);
-  process.exit(1);
+console.log('🚀 Starting FinergyCloud...');
+
+const server = spawn('npx', ['tsx', 'server/index.ts'], {
+  env: {
+    ...process.env,
+    NODE_ENV: 'development',
+    PORT: '5000'
+  },
+  stdio: 'inherit'
 });
+
+server.on('exit', (code) => {
+  if (code !== 0) {
+    console.error(`Server exited with code ${code}`);
+    process.exit(code);
+  }
+});
+
+process.on('SIGTERM', () => server.kill('SIGTERM'));
+process.on('SIGINT', () => server.kill('SIGINT'));
