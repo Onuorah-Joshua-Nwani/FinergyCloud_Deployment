@@ -177,6 +177,90 @@ export class DatabaseStorage implements IStorage {
       .returning();
     return user;
   }
+  async seedEsgTemplateData() {
+    // Check if ESG templates already exist
+    const existingTemplates = await db.select().from(projectTypeEsgTemplates);
+    if (existingTemplates.length > 0) {
+      return; // Already seeded
+    }
+
+    // Seed ESG templates
+    const templateData = [
+      {
+        projectType: "solar",
+        environmental: 9.2,
+        social: 8.5,
+        governance: 8.8,
+        overall: 8.8,
+        co2Reduction: 3200,
+        cleanEnergyGenerated: 15.2,
+        waterSaved: 1200000,
+        jobsCreated: 185,
+        communitiesServed: 12,
+        educationPrograms: 6,
+        riskCategory: "low",
+      },
+      {
+        projectType: "wind",
+        environmental: 8.9,
+        social: 7.8,
+        governance: 8.2,
+        overall: 8.3,
+        co2Reduction: 2800,
+        cleanEnergyGenerated: 18.5,
+        waterSaved: 450000,
+        jobsCreated: 145,
+        communitiesServed: 8,
+        educationPrograms: 4,
+        riskCategory: "medium",
+      },
+      {
+        projectType: "hydro",
+        environmental: 9.5,
+        social: 9.1,
+        governance: 9.2,
+        overall: 9.3,
+        co2Reduction: 4200,
+        cleanEnergyGenerated: 25.8,
+        waterSaved: 2500000,
+        jobsCreated: 220,
+        communitiesServed: 15,
+        educationPrograms: 8,
+        riskCategory: "low",
+      },
+      {
+        projectType: "biomass",
+        environmental: 7.8,
+        social: 8.9,
+        governance: 7.5,
+        overall: 8.1,
+        co2Reduction: 2100,
+        cleanEnergyGenerated: 12.3,
+        waterSaved: 350000,
+        jobsCreated: 280,
+        communitiesServed: 22,
+        educationPrograms: 12,
+        riskCategory: "medium",
+      },
+      {
+        projectType: "geothermal",
+        environmental: 9.0,
+        social: 8.2,
+        governance: 8.5,
+        overall: 8.6,
+        co2Reduction: 3500,
+        cleanEnergyGenerated: 20.1,
+        waterSaved: 800000,
+        jobsCreated: 165,
+        communitiesServed: 10,
+        educationPrograms: 5,
+        riskCategory: "medium",
+      },
+    ];
+
+    await db.insert(projectTypeEsgTemplates).values(templateData);
+  }
+
   async seedData() {
     try {
       // Check if data already exists
@@ -1259,12 +1343,16 @@ export class MemStorage implements IStorage {
   }
 }
 
-// Use MemStorage in development when database is not available
-export const storage = process.env.DATABASE_URL && process.env.NODE_ENV === 'production' 
+// Force MemStorage for development to use our mock data
+export const storage = process.env.NODE_ENV === 'production' 
   ? new DatabaseStorage() 
   : new MemStorage();
+
+console.log(`Storage type: ${storage.constructor.name}`);
+console.log(`Environment: NODE_ENV=${process.env.NODE_ENV}, DATABASE_URL=${process.env.DATABASE_URL ? 'set' : 'not set'}`);
 
 // Initialize with seed data
 if (storage instanceof DatabaseStorage) {
   storage.seedData().catch(console.error);
+  storage.seedEsgTemplateData().catch(console.error);
 }
