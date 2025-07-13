@@ -263,59 +263,61 @@ export class DatabaseStorage implements IStorage {
     // Check if achievements already exist
     const existingAchievements = await db.select().from(achievements).limit(1);
     if (existingAchievements.length > 0) {
+      console.log('Reward data already seeded');
       return; // Reward data already seeded
     }
+    console.log('Seeding reward data...');
 
     // Seed achievements
     await db
       .insert(achievements)
       .values([
         {
-          title: "First Investment",
+          name: "First Investment",
           description: "Make your first renewable energy investment",
           icon: "trophy",
           category: "investment",
-          difficulty: "easy",
+          difficulty: "bronze",
           points: 100,
           requirement: { type: "sustainability_points", value: 50 },
           isActive: true,
         },
         {
-          title: "Green Champion",
+          name: "Green Champion",
           description: "Save 1000 tons of CO2 through investments",
           icon: "leaf",
           category: "environmental",
-          difficulty: "medium",
+          difficulty: "silver",
           points: 250,
           requirement: { type: "co2_saved", value: 1000 },
           isActive: true,
         },
         {
-          title: "Energy Pioneer",
+          name: "Energy Pioneer",
           description: "Generate 10 MWh of clean energy",
           icon: "zap",
           category: "environmental",
-          difficulty: "medium",
+          difficulty: "silver",
           points: 200,
           requirement: { type: "energy_generated", value: 10 },
           isActive: true,
         },
         {
-          title: "Sustainability Streak",
+          name: "Sustainability Streak",
           description: "Maintain a 30-day activity streak",
           icon: "calendar",
           category: "engagement",
-          difficulty: "hard",
+          difficulty: "gold",
           points: 500,
           requirement: { type: "streak", value: 30 },
           isActive: true,
         },
         {
-          title: "Level Master",
+          name: "Level Master",
           description: "Reach level 10 in the platform",
           icon: "star",
           category: "engagement",
-          difficulty: "hard",
+          difficulty: "platinum",
           points: 1000,
           requirement: { type: "level", value: 10 },
           isActive: true,
@@ -329,11 +331,9 @@ export class DatabaseStorage implements IStorage {
         {
           title: "Weekly Green Investor",
           description: "Make 3 sustainable investments this week",
-          category: "investment",
-          difficulty: "medium",
-          points: 150,
-          xpReward: 300,
+          type: "weekly",
           requirement: { type: "investments", value: 3 },
+          reward: { points: 150, xp: 300, badge: "green_investor" },
           isActive: true,
           startDate: new Date(),
           endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
@@ -341,11 +341,9 @@ export class DatabaseStorage implements IStorage {
         {
           title: "ESG Analysis Expert",
           description: "Complete ESG analysis for 5 projects",
-          category: "analysis",
-          difficulty: "medium",
-          points: 100,
-          xpReward: 200,
+          type: "weekly",
           requirement: { type: "esg_analyses", value: 5 },
+          reward: { points: 100, xp: 200, badge: "esg_expert" },
           isActive: true,
           startDate: new Date(),
           endDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000), // 14 days from now
@@ -353,11 +351,9 @@ export class DatabaseStorage implements IStorage {
         {
           title: "Daily Engagement",
           description: "Use the platform for 7 consecutive days",
-          category: "engagement",
-          difficulty: "easy",
-          points: 75,
-          xpReward: 150,
+          type: "daily",
           requirement: { type: "daily_logins", value: 7 },
+          reward: { points: 75, xp: 150, badge: "daily_user" },
           isActive: true,
           startDate: new Date(),
           endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
@@ -683,6 +679,72 @@ export class DatabaseStorage implements IStorage {
 }
 
 export class MemStorage implements IStorage {
+  private mockAchievements: Achievement[] = [
+    {
+      id: 1,
+      name: "First Investment",
+      description: "Make your first renewable energy investment",
+      icon: "trophy",
+      category: "investment",
+      difficulty: "bronze",
+      points: 100,
+      requirement: { type: "sustainability_points", value: 50 },
+      isActive: true,
+      createdAt: new Date(),
+    },
+    {
+      id: 2,
+      name: "Green Champion",
+      description: "Save 1000 tons of CO2 through investments",
+      icon: "leaf",
+      category: "environmental",
+      difficulty: "silver",
+      points: 250,
+      requirement: { type: "co2_saved", value: 1000 },
+      isActive: true,
+      createdAt: new Date(),
+    },
+    {
+      id: 3,
+      name: "Energy Pioneer",
+      description: "Generate 10 MWh of clean energy",
+      icon: "zap",
+      category: "environmental",
+      difficulty: "silver",
+      points: 200,
+      requirement: { type: "energy_generated", value: 10 },
+      isActive: true,
+      createdAt: new Date(),
+    },
+  ];
+
+  private mockChallenges: RewardChallenge[] = [
+    {
+      id: 1,
+      title: "Weekly Green Investor",
+      description: "Make 3 sustainable investments this week",
+      type: "weekly",
+      requirement: { type: "investments", value: 3 },
+      reward: { points: 150, xp: 300, badge: "green_investor" },
+      isActive: true,
+      startDate: new Date(),
+      endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      createdAt: new Date(),
+    },
+    {
+      id: 2,
+      title: "ESG Analysis Expert",
+      description: "Complete ESG analysis for 5 projects",
+      type: "weekly",
+      requirement: { type: "esg_analyses", value: 5 },
+      reward: { points: 100, xp: 200, badge: "esg_expert" },
+      isActive: true,
+      startDate: new Date(),
+      endDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
+      createdAt: new Date(),
+    },
+  ];
+
   // User operations
   async getUser(id: string): Promise<User | undefined> {
     // Mock implementation for memory storage
@@ -784,7 +846,7 @@ export class MemStorage implements IStorage {
   }
 
   async getAchievements(): Promise<Achievement[]> {
-    return [];
+    return this.mockAchievements;
   }
 
   async getUserRewardActivities(userId: string): Promise<RewardActivity[]> {
@@ -792,7 +854,7 @@ export class MemStorage implements IStorage {
   }
 
   async getActiveChallenges(): Promise<RewardChallenge[]> {
-    return [];
+    return this.mockChallenges;
   }
 
   async getUserChallengeProgress(userId: string): Promise<UserChallengeProgress[]> {

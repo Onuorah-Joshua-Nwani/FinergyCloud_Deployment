@@ -37,7 +37,7 @@ interface RewardStats {
 
 interface Achievement {
   id: number;
-  title: string;
+  name: string;
   description: string;
   icon: string;
   category: string;
@@ -63,11 +63,9 @@ interface Challenge {
   id: number;
   title: string;
   description: string;
-  category: string;
-  difficulty: string;
-  points: number;
-  xpReward: number;
+  type: string;
   requirement: any;
+  reward: any;
   isActive: boolean;
   startDate: string;
   endDate: string;
@@ -131,6 +129,16 @@ export default function RewardsPage() {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
+      case 'bronze': return 'bg-orange-100 text-orange-800';
+      case 'silver': return 'bg-gray-100 text-gray-800';
+      case 'gold': return 'bg-yellow-100 text-yellow-800';
+      case 'platinum': return 'bg-purple-100 text-purple-800';
+      // Challenge types
+      case 'daily': return 'bg-green-100 text-green-800';
+      case 'weekly': return 'bg-blue-100 text-blue-800';
+      case 'monthly': return 'bg-purple-100 text-purple-800';
+      case 'special': return 'bg-red-100 text-red-800';
+      // Legacy support
       case 'easy': return 'bg-green-100 text-green-800';
       case 'medium': return 'bg-yellow-100 text-yellow-800';
       case 'hard': return 'bg-red-100 text-red-800';
@@ -397,8 +405,8 @@ export default function RewardsPage() {
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg">{challenge.title}</CardTitle>
-                      <Badge className={getDifficultyColor(challenge.difficulty)}>
-                        {challenge.difficulty}
+                      <Badge className={getDifficultyColor(challenge.type)}>
+                        {challenge.type}
                       </Badge>
                     </div>
                   </CardHeader>
@@ -416,11 +424,11 @@ export default function RewardsPage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Trophy className="h-4 w-4 text-yellow-500" />
-                        <span className="text-sm font-medium">{challenge.points} pts</span>
+                        <span className="text-sm font-medium">{challenge.reward?.points || 0} pts</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Zap className="h-4 w-4 text-blue-500" />
-                        <span className="text-sm font-medium">{challenge.xpReward} XP</span>
+                        <span className="text-sm font-medium">{challenge.reward?.xp || 0} XP</span>
                       </div>
                     </div>
                     
@@ -465,7 +473,7 @@ export default function RewardsPage() {
                         <Medal className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <CardTitle className="text-lg">{achievement.title}</CardTitle>
+                        <CardTitle className="text-lg">{achievement.name}</CardTitle>
                         <Badge className={getDifficultyColor(achievement.difficulty)}>
                           {achievement.difficulty}
                         </Badge>
