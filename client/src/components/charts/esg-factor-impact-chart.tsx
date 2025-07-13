@@ -186,27 +186,25 @@ export default function ESGFactorImpactChart() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Current vs Potential Performance</h4>
-            <ResponsiveContainer width="100%" height={500} className="sm:h-[550px] lg:h-[600px]">
-              <AreaChart data={impactData} margin={{ top: 80, right: 80, left: 100, bottom: 160 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.7} />
+            <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[420px]">
+              <AreaChart data={impactData} margin={{ top: 20, right: 30, left: 50, bottom: 80 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 
-                  tick={{ fontSize: 13, fontWeight: 600, fill: '#374151' }}
-                  tickLine={{ stroke: '#6b7280', strokeWidth: 2 }}
-                  axisLine={{ stroke: '#6b7280', strokeWidth: 2 }}
-                  angle={-25}
+                  tick={{ fontSize: 11, fill: '#374151' }}
+                  tickLine={{ stroke: '#d1d5db' }}
+                  angle={-30}
                   textAnchor="end"
-                  height={140}
+                  height={60}
                   interval={0}
                 />
                 <YAxis 
                   domain={[7, 10]}
-                  tick={{ fontSize: 13, fontWeight: 600, fill: '#374151' }}
-                  tickLine={{ stroke: '#6b7280', strokeWidth: 2 }}
-                  axisLine={{ stroke: '#6b7280', strokeWidth: 2 }}
+                  tick={{ fontSize: 11, fill: '#374151' }}
+                  tickLine={{ stroke: '#d1d5db' }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '16px', fontWeight: 'bold', textAnchor: 'middle', fill: '#1f2937' } }}
-                  width={90}
+                  label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '11px', textAnchor: 'middle' } }}
+                  width={40}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />
@@ -235,8 +233,8 @@ export default function ESGFactorImpactChart() {
 
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Investment vs Impact Analysis</h4>
-            <ResponsiveContainer width="100%" height={500} className="sm:h-[550px] lg:h-[600px]">
-              <BarChart data={impactData} margin={{ top: 80, right: 80, left: 100, bottom: 160 }}>
+            <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[420px]">
+              <BarChart data={impactData} margin={{ top: 20, right: 30, left: 50, bottom: 80 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="factor" 

@@ -164,18 +164,18 @@ export default function ESGComponentBreakdownChart() {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Performance Radar</h4>
-            <ResponsiveContainer width="100%" height={500} className="sm:h-[550px] lg:h-[600px] xl:h-[550px]">
-              <RadarChart data={esgData} margin={{ top: 80, right: 80, bottom: 80, left: 80 }}>
-                <PolarGrid stroke="#e5e7eb" strokeWidth={2} />
+            <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[420px]">
+              <RadarChart data={esgData} margin={{ top: 40, right: 40, bottom: 40, left: 40 }}>
+                <PolarGrid stroke="#f0f0f0" />
                 <PolarAngleAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 13, fontWeight: 600, fill: '#374151' }}
-                  tickFormatter={(value) => value.length > 10 ? value.substring(0, 10) + '...' : value}
+                  tick={{ fontSize: 11, fill: '#374151' }}
+                  tickFormatter={(value) => value.length > 12 ? value.substring(0, 12) + '...' : value}
                 />
                 <PolarRadiusAxis 
                   angle={90} 
                   domain={[0, 10]} 
-                  tick={{ fontSize: 12, fontWeight: 600, fill: '#6b7280' }}
+                  tick={{ fontSize: 10, fill: '#6b7280' }}
                   tickFormatter={(value) => Number(value).toFixed(0)}
                   axisLine={false}
                 />
@@ -204,8 +204,8 @@ export default function ESGComponentBreakdownChart() {
 
           <div className="chart-container flex flex-col items-center">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Performance vs Benchmark</h4>
-            <ResponsiveContainer width="100%" height={500} className="sm:h-[550px] lg:h-[600px] xl:h-[550px]">
-              <BarChart data={esgData} margin={{ top: 80, right: 80, left: 100, bottom: 160 }}>
+            <ResponsiveContainer width="100%" height={350} className="sm:h-[400px] lg:h-[420px]">
+              <BarChart data={esgData} margin={{ top: 20, right: 30, left: 50, bottom: 80 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="subject" 
