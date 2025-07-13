@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import ESGScoreDisplay from "@/components/esg-score-display";
@@ -8,12 +9,17 @@ import PeerComparisonChart from "@/components/charts/peer-comparison-chart";
 import ESGFactorImpactChart from "@/components/charts/esg-factor-impact-chart";
 import { Link } from "wouter";
 import { Leaf, Shield, Recycle, Home, ChevronRight } from "lucide-react";
-import type { EsgMetrics } from "@shared/schema";
+import type { EsgMetrics, Project } from "@shared/schema";
 
 export default function ESGScoring() {
+  const [selectedProjectId, setSelectedProjectId] = useState<string>("all");
 
   const { data: esgMetrics, isLoading } = useQuery<EsgMetrics[]>({
     queryKey: ["/api/esg-metrics"],
+  });
+
+  const { data: projects } = useQuery<Project[]>({
+    queryKey: ["/api/projects"],
   });
 
   if (isLoading) {
@@ -72,15 +78,17 @@ export default function ESGScoring() {
               <CardHeader className="pb-3 md:pb-6">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <CardTitle className="text-base md:text-lg">Current ESG Assessment</CardTitle>
-                  <Select defaultValue="all">
+                  <Select value={selectedProjectId} onValueChange={setSelectedProjectId}>
                     <SelectTrigger className="w-full sm:w-48">
-                      <SelectValue />
+                      <SelectValue placeholder="Select project" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All Projects</SelectItem>
-                      <SelectItem value="solar">Solar Projects</SelectItem>
-                      <SelectItem value="wind">Wind Projects</SelectItem>
-                      <SelectItem value="hydro">Hydro Projects</SelectItem>
+                      <SelectItem value="all">All Projects Portfolio</SelectItem>
+                      {projects?.map((project) => (
+                        <SelectItem key={project.id} value={project.id.toString()}>
+                          {project.name}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
@@ -147,7 +155,7 @@ export default function ESGScoring() {
 
         {/* ESG Analytics */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <ESGScoreTrendChart />
+          <ESGScoreTrendChart selectedProjectId={selectedProjectId} projects={projects} />
           <ESGComponentBreakdownChart />
           <PeerComparisonChart />
           <ESGFactorImpactChart />
