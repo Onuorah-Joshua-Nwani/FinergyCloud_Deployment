@@ -37,17 +37,20 @@ const generateTrendData = (selectedProjectId: string, projects?: Project[]) => {
   const multiplier = projectTypeMultipliers[selectedProject.type as keyof typeof projectTypeMultipliers] || 
                    { environmental: 1.0, social: 1.0, governance: 1.0 };
 
-  return portfolioData.map(data => ({
-    ...data,
-    environmental: Math.min(10, Math.max(6, data.environmental * multiplier.environmental)),
-    social: Math.min(10, Math.max(6, data.social * multiplier.social)),
-    governance: Math.min(10, Math.max(6, data.governance * multiplier.governance)),
-    overall: Math.min(10, Math.max(6, 
-      (data.environmental * multiplier.environmental + 
-       data.social * multiplier.social + 
-       data.governance * multiplier.governance) / 3
-    ))
-  }));
+  return portfolioData.map(data => {
+    const env = Math.round((Math.min(10, Math.max(6, data.environmental * multiplier.environmental)) * 10)) / 10;
+    const soc = Math.round((Math.min(10, Math.max(6, data.social * multiplier.social)) * 10)) / 10;
+    const gov = Math.round((Math.min(10, Math.max(6, data.governance * multiplier.governance)) * 10)) / 10;
+    const overall = Math.round(((env + soc + gov) / 3) * 10) / 10;
+    
+    return {
+      ...data,
+      environmental: env,
+      social: soc,
+      governance: gov,
+      overall: overall
+    };
+  });
 };
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -101,7 +104,7 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
             <div className="bg-white p-4 rounded-lg border">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm font-medium text-gray-700">Environmental</span>
-                <span className="text-lg font-bold text-green-600">{data[data.length - 1]?.environmental}</span>
+                <span className="text-lg font-bold text-green-600">{data[data.length - 1]?.environmental.toFixed(1)}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <div 
@@ -114,7 +117,7 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
             <div className="bg-white p-4 rounded-lg border">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm font-medium text-gray-700">Social</span>
-                <span className="text-lg font-bold text-blue-600">{data[data.length - 1]?.social}</span>
+                <span className="text-lg font-bold text-blue-600">{data[data.length - 1]?.social.toFixed(1)}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <div 
@@ -127,7 +130,7 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
             <div className="bg-white p-4 rounded-lg border">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm font-medium text-gray-700">Governance</span>
-                <span className="text-lg font-bold text-purple-600">{data[data.length - 1]?.governance}</span>
+                <span className="text-lg font-bold text-purple-600">{data[data.length - 1]?.governance.toFixed(1)}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <div 
@@ -140,7 +143,7 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
             <div className="bg-white p-4 rounded-lg border">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm font-medium text-gray-700">Overall ESG</span>
-                <span className="text-lg font-bold text-gray-800">{data[data.length - 1]?.overall}</span>
+                <span className="text-lg font-bold text-gray-800">{data[data.length - 1]?.overall.toFixed(1)}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <div 
@@ -158,13 +161,13 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
                 <div className="text-xs text-gray-500 mb-1">{item.month}</div>
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs">
-                    <span>E:</span><span className="font-medium text-green-600">{item.environmental}</span>
+                    <span>E:</span><span className="font-medium text-green-600">{item.environmental.toFixed(1)}</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span>S:</span><span className="font-medium text-blue-600">{item.social}</span>
+                    <span>S:</span><span className="font-medium text-blue-600">{item.social.toFixed(1)}</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span>G:</span><span className="font-medium text-purple-600">{item.governance}</span>
+                    <span>G:</span><span className="font-medium text-purple-600">{item.governance.toFixed(1)}</span>
                   </div>
                 </div>
               </div>
