@@ -176,6 +176,7 @@ export default function ESGComponentBreakdownChart() {
                   angle={90} 
                   domain={[0, 10]} 
                   tick={{ fontSize: 8, fill: '#6b7280' }}
+                  tickFormatter={(value) => Number(value).toFixed(0)}
                   className="mobile-text-xs"
                 />
                 <Radar
@@ -219,6 +220,7 @@ export default function ESGComponentBreakdownChart() {
                   domain={[6, 10]}
                   tick={{ fontSize: 10 }}
                   tickLine={{ stroke: '#d1d5db' }}
+                  tickFormatter={(value) => Number(value).toFixed(1)}
                   label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
                   className="mobile-text-xs"
                 />

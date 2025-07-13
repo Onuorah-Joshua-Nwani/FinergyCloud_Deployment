@@ -64,7 +64,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
               />
               <span className="text-sm text-gray-600">{entry.name}:</span>
             </div>
-            <span className="font-medium text-gray-900">{entry.value}/10</span>
+            <span className="font-medium text-gray-900">{Number(entry.value).toFixed(1)}/10</span>
           </div>
         ))}
       </div>
@@ -97,7 +97,7 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
         </div>
         <div className="chart-container flex justify-center">
           <ResponsiveContainer width="100%" height={250} className="sm:h-[280px] lg:h-[320px] xl:h-[350px]">
-          <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+          <LineChart data={data} margin={{ top: 20, right: 30, left: 40, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis 
               dataKey="month" 
@@ -106,9 +106,10 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
               className="mobile-text-xs"
             />
             <YAxis 
-              domain={[7.5, 9]} 
+              domain={[6, 10]} 
               tick={{ fontSize: 10 }}
               tickLine={{ stroke: '#d1d5db' }}
+              tickFormatter={(value) => Number(value).toFixed(1)}
               label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
               className="mobile-text-xs"
             />
