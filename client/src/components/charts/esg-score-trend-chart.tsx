@@ -95,67 +95,98 @@ export default function ESGScoreTrendChart({ selectedProjectId, projects }: ESGS
             `Monitor ${selectedProject?.type || 'project'} ESG performance trends to identify improvement areas and sustainability progress.`
           }
         </div>
-        <div className="chart-container">
-          <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={data} margin={{ top: 20, right: 30, left: 60, bottom: 90 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+        <div className="chart-container bg-gradient-to-br from-slate-50 to-gray-100 rounded-xl p-6 shadow-sm border border-gray-200">
+          <ResponsiveContainer width="100%" height={420}>
+            <LineChart data={data} margin={{ top: 25, right: 35, left: 65, bottom: 95 }}>
+              <defs>
+                <linearGradient id="environmentalGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#10b981" stopOpacity={0.05}/>
+                </linearGradient>
+                <linearGradient id="socialGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.05}/>
+                </linearGradient>
+                <linearGradient id="governanceGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0.05}/>
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="2 4" stroke="#e2e8f0" strokeOpacity={0.5} />
               <XAxis 
                 dataKey="month" 
-                tick={{ fontSize: 11, fill: '#374151' }}
-                tickLine={{ stroke: '#d1d5db' }}
+                tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
+                tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
                 interval={0}
-                angle={-30}
+                angle={-25}
                 textAnchor="end"
-                height={70}
+                height={75}
               />
               <YAxis 
                 domain={[6, 10]} 
-                tick={{ fontSize: 11, fill: '#374151' }}
-                tickLine={{ stroke: '#d1d5db' }}
+                tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
+                tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
                 tickFormatter={(value) => Number(value).toFixed(1)}
-                label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '11px', textAnchor: 'middle' } }}
-                width={45}
+                label={{ value: 'ESG Score', angle: -90, position: 'insideLeft', style: { fontSize: '13px', fontWeight: 600, fill: '#374151', textAnchor: 'middle' } }}
+                width={50}
               />
-            <Tooltip content={<CustomTooltip />} />
+            <Tooltip 
+              content={<CustomTooltip />} 
+              contentStyle={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                border: '1px solid #e2e8f0', 
+                borderRadius: '8px', 
+                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
+                fontSize: '13px'
+              }}
+            />
             <Legend 
-              wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }}
+              wrapperStyle={{ 
+                paddingTop: '25px', 
+                fontSize: '13px', 
+                fontWeight: 500,
+                color: '#374151'
+              }}
               iconType="circle"
             />
             <Line 
               type="monotone" 
               dataKey="environmental" 
-              stroke="#16a34a" 
-              strokeWidth={3}
+              stroke="#10b981" 
+              strokeWidth={3.5}
               name="Environmental"
-              dot={{ fill: '#16a34a', strokeWidth: 2, r: 4 }}
-              activeDot={{ r: 6, stroke: '#16a34a', strokeWidth: 2 }}
+              dot={{ fill: '#ffffff', stroke: '#10b981', strokeWidth: 3, r: 5 }}
+              activeDot={{ r: 7, stroke: '#10b981', strokeWidth: 3, fill: '#10b981' }}
             />
             <Line 
               type="monotone" 
               dataKey="social" 
-              stroke="#2563eb" 
-              strokeWidth={3}
+              stroke="#3b82f6" 
+              strokeWidth={3.5}
               name="Social"
-              dot={{ fill: '#2563eb', strokeWidth: 2, r: 4 }}
-              activeDot={{ r: 6, stroke: '#2563eb', strokeWidth: 2 }}
+              dot={{ fill: '#ffffff', stroke: '#3b82f6', strokeWidth: 3, r: 5 }}
+              activeDot={{ r: 7, stroke: '#3b82f6', strokeWidth: 3, fill: '#3b82f6' }}
             />
             <Line 
               type="monotone" 
               dataKey="governance" 
               stroke="#8b5cf6" 
-              strokeWidth={3}
+              strokeWidth={3.5}
               name="Governance"
-              dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 4 }}
-              activeDot={{ r: 6, stroke: '#8b5cf6', strokeWidth: 2 }}
+              dot={{ fill: '#ffffff', stroke: '#8b5cf6', strokeWidth: 3, r: 5 }}
+              activeDot={{ r: 7, stroke: '#8b5cf6', strokeWidth: 3, fill: '#8b5cf6' }}
             />
             <Line 
               type="monotone" 
               dataKey="overall" 
-              stroke="#1f2937" 
-              strokeWidth={3}
+              stroke="#1e293b" 
+              strokeWidth={4}
+              strokeDasharray="8 4"
               name="Overall ESG"
-              dot={{ fill: '#1f2937', strokeWidth: 2, r: 5 }}
-              activeDot={{ r: 7, stroke: '#1f2937', strokeWidth: 2 }}
+              dot={{ fill: '#ffffff', stroke: '#1e293b', strokeWidth: 3, r: 6 }}
+              activeDot={{ r: 8, stroke: '#1e293b', strokeWidth: 3, fill: '#1e293b' }}
             />
             </LineChart>
           </ResponsiveContainer>

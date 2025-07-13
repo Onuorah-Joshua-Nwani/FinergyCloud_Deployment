@@ -162,14 +162,14 @@ export default function ESGComponentBreakdownChart() {
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Performance Radar</h4>
-            <ResponsiveContainer width="100%" height={380}>
-              <RadarChart data={esgData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-                <PolarGrid stroke="#f0f0f0" />
+          <div className="chart-container bg-gradient-to-br from-emerald-50 to-teal-100 rounded-xl p-6 shadow-sm border border-emerald-200">
+            <h4 className="font-semibold text-slate-700 mb-6 text-sm text-center">ESG Performance Radar</h4>
+            <ResponsiveContainer width="100%" height={400}>
+              <RadarChart data={esgData} margin={{ top: 25, right: 25, bottom: 25, left: 25 }}>
+                <PolarGrid stroke="#d1fae5" strokeWidth={1.5} />
                 <PolarAngleAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 11, fill: '#374151' }}
+                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
                   tickFormatter={(value) => value.length > 12 ? value.substring(0, 12) + '...' : value}
                 />
                 <PolarRadiusAxis 
@@ -202,40 +202,51 @@ export default function ESGComponentBreakdownChart() {
             </ResponsiveContainer>
           </div>
 
-          <div className="chart-container">
-            <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Performance vs Benchmark</h4>
-            <ResponsiveContainer width="100%" height={400}>
-              <BarChart data={esgData} margin={{ top: 20, right: 30, left: 50, bottom: 90 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+          <div className="chart-container bg-gradient-to-br from-amber-50 to-orange-100 rounded-xl p-6 shadow-sm border border-amber-200">
+            <h4 className="font-semibold text-slate-700 mb-6 text-sm text-center">Performance vs Benchmark</h4>
+            <ResponsiveContainer width="100%" height={420}>
+              <BarChart data={esgData} margin={{ top: 25, right: 35, left: 55, bottom: 95 }}>
+                <CartesianGrid strokeDasharray="2 4" stroke="#fef3c7" strokeOpacity={0.6} />
                 <XAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 11, fill: '#374151' }}
-                  tickLine={{ stroke: '#d1d5db' }}
-                  angle={-30}
+                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
+                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                  angle={-25}
                   textAnchor="end"
-                  height={70}
+                  height={75}
                   interval={0}
                 />
                 <YAxis 
                   domain={[6, 10]}
-                  tick={{ fontSize: 11, fill: '#374151' }}
-                  tickLine={{ stroke: '#d1d5db' }}
+                  tick={{ fontSize: 12, fill: '#475569', fontWeight: 500 }}
+                  tickLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
+                  axisLine={{ stroke: '#cbd5e1', strokeWidth: 1 }}
                   tickFormatter={(value) => Number(value).toFixed(1)}
-                  label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '11px' } }}
-                  width={40}
+                  label={{ value: 'Score', angle: -90, position: 'insideLeft', style: { fontSize: '13px', fontWeight: 600, fill: '#374151' } }}
+                  width={45}
                 />
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip 
+                  content={<CustomTooltip />} 
+                  contentStyle={{ 
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                    border: '1px solid #e2e8f0', 
+                    borderRadius: '8px', 
+                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
+                    fontSize: '13px'
+                  }}
+                />
                 <Bar 
                   dataKey="benchmark" 
-                  fill="#e2e8f0" 
+                  fill="#cbd5e1" 
                   name="Industry Benchmark"
-                  radius={[2, 2, 0, 0]}
+                  radius={[3, 3, 0, 0]}
                 />
                 <Bar 
                   dataKey="score" 
-                  fill="#22c55e" 
+                  fill="#10b981" 
                   name="Our Score"
-                  radius={[2, 2, 0, 0]}
+                  radius={[3, 3, 0, 0]}
                 />
               </BarChart>
             </ResponsiveContainer>
