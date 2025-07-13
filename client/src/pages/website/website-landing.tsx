@@ -28,47 +28,35 @@ export default function WebsiteLanding() {
   const features = [
     {
       icon: Brain,
-      title: "AI-Powered Predictions",
-      description: "Advanced XGBoost machine learning models with 94% accuracy in renewable energy project success predictions.",
+      title: "XGBoost Risk Engine",
+      description: "Python-based machine learning model analyzing IRR, CAPEX/OPEX ratios, and developer track records.",
       gradient: "from-blue-500 to-purple-600"
     },
     {
       icon: Leaf,
-      title: "ESG Scoring",
-      description: "Comprehensive Environmental, Social, and Governance assessment with detailed impact metrics.",
+      title: "ESG Risk Scoring",
+      description: "Financial and ESG dimension scoring to improve transparency and accelerate investment decisions.",
       gradient: "from-green-500 to-emerald-600"
     },
     {
       icon: Calculator,
-      title: "IRR Calculator",
-      description: "Multi-currency financial modeling with real-time exchange rates for NGN, GBP, and EUR.",
+      title: "Financial Models",
+      description: "IRR calculations and CAPEX/OPEX ratio analysis for renewable energy project assessment.",
       gradient: "from-yellow-500 to-orange-600"
     },
     {
       icon: BarChart3,
-      title: "Portfolio Analytics",
-      description: "Real-time performance tracking and investment portfolio optimization with interactive dashboards.",
+      title: "Power BI Dashboards",
+      description: "Interactive dashboards for comprehensive risk intelligence and investment decision support.",
       gradient: "from-red-500 to-pink-600"
-    },
-    {
-      icon: Shield,
-      title: "Risk Management",
-      description: "Comprehensive risk assessment and mitigation strategies for renewable energy investments.",
-      gradient: "from-indigo-500 to-blue-600"
-    },
-    {
-      icon: TrendingUp,
-      title: "Market Intelligence",
-      description: "Industry insights, regulatory updates, and market trend analysis for informed decision-making.",
-      gradient: "from-purple-500 to-violet-600"
     }
   ];
 
   const stats = [
-    { value: "15,000+", label: "Projects Analyzed", icon: Target },
-    { value: "50+", label: "Countries Served", icon: Globe },
-    { value: "94%", label: "Prediction Accuracy", icon: Brain },
-    { value: "₦120M+", label: "Investment Value", icon: Award }
+    { value: "MVP", label: "Working Platform", icon: Target },
+    { value: "10", label: "Beta Users", icon: Users },
+    { value: "Django", label: "Python Backend", icon: Brain },
+    { value: "Nigeria/Ghana", label: "Target Markets", icon: Globe }
   ];
 
   return (

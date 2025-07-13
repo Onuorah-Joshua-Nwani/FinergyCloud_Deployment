@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard, Info, Wrench, BookOpen, Smartphone } from "lucide-react";
+import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard, Info, Wrench, BookOpen, Smartphone, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -24,26 +24,23 @@ export default function Navigation() {
   // More comprehensive mobile detection that checks both URL and location
   const shouldForceMobile = isMobileApp || window.location.href.includes('platform=mobile') || window.location.search.includes('platform=mobile');
 
-  // Website navigation items (Clean FinergyCloud website)
+  // Website navigation items (Simple MVP website)
   const websiteNavItems = [
     { path: "/", label: "Home", icon: BookOpen },
     { path: "/about", label: "About", icon: Info },
-    { path: "/solutions", label: "Solutions", icon: Wrench },
-    { path: "/blog", label: "Blog", icon: Newspaper },
+    { path: "/platform", label: "Platform", icon: Wrench },
+    { path: "/beta", label: "Beta Program", icon: Users },
     { path: "/contact", label: "Contact", icon: Phone },
   ];
 
-  // Mobile app navigation items (clean simplified list)
+  // Mobile app navigation items (Core MVP features)
   const mobileAppNavItems = [
     { path: "/", label: "Dashboard", icon: BarChart3 },
     { path: "/projects", label: "Projects", icon: FolderOpen },
-    { path: "/rewards", label: "Beta Program", icon: Gift },
-    { path: "/kpi", label: "Analytics", icon: TrendingUp },
-    { path: "/ai-model", label: "XGBoost Risk Engine", icon: Brain },
-    { path: "/market-insights", label: "West Africa Intel", icon: Newspaper },
-    { path: "/irr-calculator", label: "CAPEX/OPEX Analysis", icon: Calculator },
-    { path: "/esg-scoring", label: "ESG Risk Scoring", icon: TreePine },
-    { path: "/advanced-features", label: "Power BI Integration", icon: Settings },
+    { path: "/esg-scoring", label: "ESG Scoring", icon: TreePine },
+    { path: "/irr-calculator", label: "Financial Models", icon: Calculator },
+    { path: "/ai-model", label: "Risk Engine", icon: Brain },
+    { path: "/advanced-features", label: "Power BI", icon: Settings },
   ];
 
   // Use mobile app navigation if platform parameter exists
