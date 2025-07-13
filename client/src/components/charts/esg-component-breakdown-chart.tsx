@@ -162,10 +162,9 @@ export default function ESGComponentBreakdownChart() {
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
-          <div className="chart-container flex flex-col items-center">
+          <div className="chart-container">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">ESG Performance Radar</h4>
-            <div className="w-full max-w-lg flex justify-center">
-              <ResponsiveContainer width="100%" height={380} className="sm:h-[420px] lg:h-[440px]">
+            <ResponsiveContainer width="100%" height={450} className="sm:h-[500px] lg:h-[520px]">
               <RadarChart data={esgData} margin={{ top: 40, right: 40, bottom: 40, left: 40 }}>
                 <PolarGrid stroke="#f0f0f0" />
                 <PolarAngleAxis 
@@ -200,23 +199,21 @@ export default function ESGComponentBreakdownChart() {
                 />
                 <Tooltip content={<CustomTooltip />} />
               </RadarChart>
-              </ResponsiveContainer>
-            </div>
+            </ResponsiveContainer>
           </div>
 
-          <div className="chart-container flex flex-col items-center">
+          <div className="chart-container">
             <h4 className="font-medium text-gray-900 mb-6 text-sm text-center">Performance vs Benchmark</h4>
-            <div className="w-full max-w-lg flex justify-center">
-              <ResponsiveContainer width="100%" height={380} className="sm:h-[420px] lg:h-[440px]">
-                <BarChart data={esgData} margin={{ top: 30, right: 40, left: 60, bottom: 100 }}>
+            <ResponsiveContainer width="100%" height={450} className="sm:h-[500px] lg:h-[520px]">
+            <BarChart data={esgData} margin={{ top: 40, right: 60, left: 80, bottom: 120 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="subject" 
-                  tick={{ fontSize: 11, fill: '#374151' }}
+                  tick={{ fontSize: 13, fill: '#374151' }}
                   tickLine={{ stroke: '#d1d5db' }}
-                  angle={-35}
+                  angle={-20}
                   textAnchor="end"
-                  height={80}
+                  height={100}
                   interval={0}
                 />
                 <YAxis 
@@ -240,9 +237,8 @@ export default function ESGComponentBreakdownChart() {
                   name="Our Score"
                   radius={[2, 2, 0, 0]}
                 />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+            </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
 
