@@ -72,35 +72,35 @@ export default function AIModel() {
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">Project Type</span>
                   <div className="flex-1 mx-4 bg-gray-200 rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full" style={{ width: "85%" }}></div>
+                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: "85%" }}></div>
                   </div>
                   <span className="text-sm font-medium text-gray-900">85%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">Location</span>
                   <div className="flex-1 mx-4 bg-gray-200 rounded-full h-2">
-                    <div className="bg-secondary h-2 rounded-full" style={{ width: "72%" }}></div>
+                    <div className="bg-purple-600 h-2 rounded-full" style={{ width: "72%" }}></div>
                   </div>
                   <span className="text-sm font-medium text-gray-900">72%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">Grid Stability</span>
                   <div className="flex-1 mx-4 bg-gray-200 rounded-full h-2">
-                    <div className="bg-success h-2 rounded-full" style={{ width: "68%" }}></div>
+                    <div className="bg-green-600 h-2 rounded-full" style={{ width: "68%" }}></div>
                   </div>
                   <span className="text-sm font-medium text-gray-900">68%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">Project Size</span>
                   <div className="flex-1 mx-4 bg-gray-200 rounded-full h-2">
-                    <div className="bg-accent h-2 rounded-full" style={{ width: "54%" }}></div>
+                    <div className="bg-orange-600 h-2 rounded-full" style={{ width: "54%" }}></div>
                   </div>
                   <span className="text-sm font-medium text-gray-900">54%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">Community Engagement</span>
                   <div className="flex-1 mx-4 bg-gray-200 rounded-full h-2">
-                    <div className="bg-warning h-2 rounded-full" style={{ width: "41%" }}></div>
+                    <div className="bg-yellow-600 h-2 rounded-full" style={{ width: "41%" }}></div>
                   </div>
                   <span className="text-sm font-medium text-gray-900">41%</span>
                 </div>
