@@ -4,13 +4,16 @@ import SocialLinks from "./social-links";
 import PlatformSwitcher from "./platform-switcher";
 import LegalModal from "./legal-modal";
 import ResourcesModal from "./resources-modal";
-import { Leaf, MapPin, Mail, Phone, Shield, FileText, Scale, Cookie, Database, Lock, Code, HelpCircle, Video, BookOpen, Users } from "lucide-react";
+import PlatformAccessModal from "./platform-access-modal";
+import { Leaf, MapPin, Mail, Phone, Shield, FileText, Scale, Cookie, Database, Lock, Code, HelpCircle, Video, BookOpen, Users, BarChart3, FolderOpen, Brain, TreePine, TrendingUp, Calculator } from "lucide-react";
 
 export default function Footer() {
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [resourcesModalOpen, setResourcesModalOpen] = useState(false);
+  const [platformModalOpen, setPlatformModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState<'privacy' | 'terms' | 'cookies' | 'compliance' | 'data-protection' | 'risk-disclosure'>('privacy');
   const [selectedResource, setSelectedResource] = useState<'docs' | 'api' | 'help' | 'webinars' | 'research' | 'case-studies'>('docs');
+  const [selectedPlatformFeature, setSelectedPlatformFeature] = useState<'dashboard' | 'projects' | 'ai-model' | 'esg-scoring' | 'portfolio' | 'market-insights'>('dashboard');
 
   const openLegalModal = (documentType: typeof selectedDocument) => {
     setSelectedDocument(documentType);
@@ -20,6 +23,11 @@ export default function Footer() {
   const openResourcesModal = (resourceType: typeof selectedResource) => {
     setSelectedResource(resourceType);
     setResourcesModalOpen(true);
+  };
+
+  const openPlatformModal = (featureType: typeof selectedPlatformFeature) => {
+    setSelectedPlatformFeature(featureType);
+    setPlatformModalOpen(true);
   };
   const companyLinks = [
     { name: "About Us", href: "/about" },
@@ -31,12 +39,12 @@ export default function Footer() {
   ];
 
   const platformLinks = [
-    { name: "Investment Dashboard", href: "/dashboard" },
-    { name: "Project Analytics", href: "/projects" },
-    { name: "AI Predictions", href: "/ai-model" },
-    { name: "ESG Scoring", href: "/esg-scoring" },
-    { name: "Portfolio Management", href: "/portfolio" },
-    { name: "Market Insights", href: "/market-insights" }
+    { name: "Investment Dashboard", type: "dashboard" as const, icon: BarChart3 },
+    { name: "Project Analytics", type: "projects" as const, icon: FolderOpen },
+    { name: "AI Predictions", type: "ai-model" as const, icon: Brain },
+    { name: "ESG Scoring", type: "esg-scoring" as const, icon: TreePine },
+    { name: "Portfolio Management", type: "portfolio" as const, icon: TrendingUp },
+    { name: "Market Insights", type: "market-insights" as const, icon: Calculator }
   ];
 
   const resourcesLinks = [
@@ -123,15 +131,20 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-green-400">Platform</h4>
             <ul className="space-y-2">
-              {platformLinks.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href}>
-                    <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer block py-1">
+              {platformLinks.map((link) => {
+                const IconComponent = link.icon;
+                return (
+                  <li key={link.name}>
+                    <button
+                      onClick={() => openPlatformModal(link.type)}
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm cursor-pointer py-1 w-full text-left"
+                    >
+                      <IconComponent className="w-3 h-3" />
                       {link.name}
-                    </span>
-                  </Link>
-                </li>
-              ))}
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -226,6 +239,13 @@ export default function Footer() {
         isOpen={resourcesModalOpen}
         onClose={() => setResourcesModalOpen(false)}
         resourceType={selectedResource}
+      />
+
+      {/* Platform Access Modal */}
+      <PlatformAccessModal 
+        isOpen={platformModalOpen}
+        onClose={() => setPlatformModalOpen(false)}
+        platformFeature={selectedPlatformFeature}
       />
     </footer>
   );
