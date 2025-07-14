@@ -136,7 +136,7 @@ Questions? Reach out at hello@finergycloud.com - we're always happy to explain h
     id: "how-finergycloud-ai-works",
     title: "How FinergyCloud's AI Predicts Renewable Energy Project Success",
     excerpt: "A technical but accessible explanation of our machine learning methodology, training data, and why we achieve 94% accuracy in predicting project outcomes in emerging markets.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 14, 2025", 
     readTime: "12 min read",
     category: "Technical Deep-Dive",
@@ -272,7 +272,7 @@ Our goal is to make AI-powered project assessment accessible to everyone working
     id: "renewable-energy-terminology-guide",
     title: "Renewable Energy Investment Terms Every Investor Should Know",
     excerpt: "A comprehensive glossary of essential terms for renewable energy investment, from IRR and LCOE to PPA and ESG. Perfect for newcomers to clean energy investing in emerging markets.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 14, 2025",
     readTime: "15 min read", 
     category: "Education & Terminology",
@@ -282,7 +282,7 @@ Our goal is to make AI-powered project assessment accessible to everyone working
     mediumUrl: "https://medium.com/@finergycloud/renewable-energy-terminology-guide",
     linkedinUrl: "https://www.linkedin.com/pulse/renewable-energy-investment-terms-every-investor-michael-okafor",
     content: `Renewable Energy Investment Terms Every Investor Should Know
-Author: Your Name
+Author: O.J. Nwani
 Date: January 14, 2025
 
 Introduction
@@ -532,7 +532,7 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     id: "finergycloud-features-complete-guide",
     title: "Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management",
     excerpt: "Deep dive into every FinergyCloud feature - from our XGBoost prediction engine to multi-currency IRR calculators. Learn how each tool helps you make better renewable energy investment decisions.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 14, 2025",
     readTime: "18 min read",
     category: "Platform Features",
@@ -542,7 +542,7 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     mediumUrl: "https://medium.com/@finergycloud/complete-guide-finergycloud-features",
     linkedinUrl: "https://www.linkedin.com/pulse/complete-guide-finergycloud-features-ai-models-esg-james-mitchell",
     content: `Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
-Author: Your Name
+Author: O.J. Nwani
 Date: January 14, 2025
 
 Introduction
@@ -705,7 +705,7 @@ Questions about specific features? Our product team is available at features@fin
     id: "building-finergycloud-mvp-2025",
     title: "Building FinergyCloud MVP: From Concept to Pilot Program in 2025",
     excerpt: "Our journey from early 2022 research to developing a validated MVP platform for renewable energy investment intelligence. Discover how we achieved 94% prediction accuracy through backtesting and what's next for our pilot program.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 12, 2025",
     readTime: "10 min read",
     category: "Company Updates",
@@ -715,7 +715,7 @@ Questions about specific features? Our product team is available at features@fin
     mediumUrl: "https://medium.com/@finergycloud/building-finergycloud-mvp-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/building-finergycloud-mvp-concept-pilot-program-2025-oj-nwani",
     content: `Building FinergyCloud MVP: From Concept to Pilot Program in 2025
-Author: Your Name
+Author: O.J. Nwani
 Date: January 12, 2025
 
 Introduction
@@ -825,7 +825,7 @@ If you're interested in learning more about our pilot program or want to discuss
 
 ---
 
-Your Name is the founder and CEO of FinergyCloud. Connect with them on LinkedIn for updates on our pilot program and insights about AI-powered renewable energy investment.
+O.J. Nwani is the founder and CEO of FinergyCloud. Connect with them on LinkedIn for updates on our pilot program and insights about AI-powered renewable energy investment.
 
     `
   },
@@ -833,7 +833,7 @@ Your Name is the founder and CEO of FinergyCloud. Connect with them on LinkedIn 
     id: "seeking-pilot-customers-2025",
     title: "Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025",
     excerpt: "As we prepare for our official pilot program launch, we're looking for forward-thinking investors and renewable energy professionals to join our early access program and shape the future of AI-powered investment intelligence.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 10, 2025",
     readTime: "7 min read",
     category: "Company Updates",
@@ -843,7 +843,7 @@ Your Name is the founder and CEO of FinergyCloud. Connect with them on LinkedIn 
     mediumUrl: "https://medium.com/@finergycloud/seeking-pilot-customers-finergycloud-launch-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/seeking-pilot-customers-finergyclouds-launch-strategy-oj-nwani",
     content: `Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
-Author: Your Name
+Author: O.J. Nwani
 Date: January 10, 2025
 
 Introduction
@@ -1005,7 +1005,7 @@ Interested in joining our pilot program? Connect with O.J. Nwani on LinkedIn or 
     id: "roadmap-2025-2027-innovations",
     title: "Roadmap 2025-2027: Planned Innovations and Future Features",
     excerpt: "Our technical roadmap for the next 3 years: from MVP pilot to Series A funding, including planned blockchain integration, satellite data analysis, and real-time market intelligence features.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 6, 2025",
     readTime: "11 min read",
     category: "Platform Development",
@@ -1286,7 +1286,7 @@ This roadmap represents our current strategic thinking and will be updated regul
     id: "xgboost-backtesting-validation",
     title: "XGBoost Backtesting: Validating 94% Accuracy with Historical Data",
     excerpt: "Deep dive into our machine learning validation methodology. How we used 3 years of historical renewable energy project data to validate our prediction algorithms before building the MVP platform.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 8, 2025",
     readTime: "12 min read",
     category: "AI & Technology",
@@ -1296,7 +1296,7 @@ This roadmap represents our current strategic thinking and will be updated regul
     mediumUrl: "https://medium.com/@finergycloud/xgboost-backtesting-validation-94-accuracy",
     linkedinUrl: "https://www.linkedin.com/pulse/xgboost-backtesting-validating-94-accuracy-historical-ai-team",
     content: `XGBoost Backtesting: Validating 94% Accuracy with Historical Data
-Author: Your Name
+Author: O.J. Nwani
 Date: January 8, 2025
 
 Introduction
@@ -1616,7 +1616,7 @@ For technical questions about our backtesting methodology or access to detailed 
     id: "multi-currency-irr-modeling",
     title: "Multi-Currency IRR Modeling: Building Financial Models for Emerging Markets",
     excerpt: "How we built sophisticated financial modeling capabilities supporting NGN, GBP, and EUR currencies with real-time conversion and risk assessment for renewable energy investments across emerging markets.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 9, 2025",
     readTime: "9 min read",
     category: "Financial Modeling",
@@ -2632,7 +2632,7 @@ The FinergyCloud AI Team includes data scientists, renewable energy engineers, a
     id: "multi-currency-irr-modeling",
     title: "Multi-Currency IRR Modeling: Building for Global Markets",
     excerpt: "Technical implementation of our currency conversion engine supporting NGN, GBP, and EUR. How we designed the financial modeling system to handle real-time exchange rates for emerging market investments.",
-    author: "Your Name",
+    author: "O.J. Nwani",
     date: "January 4, 2025",
     readTime: "9 min read",
     category: "Financial Modeling",
@@ -2640,7 +2640,7 @@ The FinergyCloud AI Team includes data scientists, renewable energy engineers, a
     tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets", "MVP"],
     featured: false,
     content: `Multi-Currency IRR Modeling: Building for Global Markets
-Author: Your Name
+Author: O.J. Nwani
 Date: January 4, 2025
 
 Introduction
