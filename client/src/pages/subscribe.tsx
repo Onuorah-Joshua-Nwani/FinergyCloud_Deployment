@@ -25,18 +25,18 @@ const SUBSCRIPTION_PLANS = [
     name: "Pilot Program",
     price: "Free",
     period: "during beta",
-    description: "Join our pilot program for early access to FinergyCloud platform",
+    description: "Test our AI platform for free during pilot phase",
     features: [
-      "Full MVP platform access",
-      "AI prediction models (94% accuracy)",
-      "Complete ESG scoring framework",
-      "Multi-currency IRR calculator",
-      "Market insights dashboard",
-      "Direct founder feedback channel"
+      "AI predictions (94% accuracy)",
+      "ESG scoring and risk analysis",
+      "Multi-currency financial modeling",
+      "Portfolio tracking dashboard",
+      "Market intelligence reports",
+      "Direct support from our team"
     ],
     limitations: [
-      "Beta software - some features in development",
-      "Limited to pilot program participants"
+      "Currently in beta testing",
+      "Available to qualified participants only"
     ],
     color: "border-green-200",
     buttonColor: "primary",
@@ -48,18 +48,18 @@ const SUBSCRIPTION_PLANS = [
     name: "Early Investor",
     price: "Contact",
     period: "for details",
-    description: "Strategic partnership and investment opportunities",
+    description: "Invest in or partner with FinergyCloud",
     features: [
-      "Seed funding opportunity",
-      "Platform co-development input",
-      "Early revenue sharing potential",
-      "Strategic advisory position",
-      "Market launch partnership",
-      "Direct founder collaboration"
+      "Seed funding opportunities available",
+      "Strategic partnership discussions", 
+      "Revenue sharing agreements",
+      "Advisory board positions",
+      "Co-development opportunities",
+      "Direct founder access"
     ],
     limitations: [
-      "Requires investment commitment",
-      "Limited to strategic partners"
+      "Investment or partnership commitment required",
+      "Subject to due diligence process"
     ],
     color: "border-blue-200",
     buttonColor: "primary",
@@ -71,18 +71,18 @@ const SUBSCRIPTION_PLANS = [
     name: "Future Plans",
     price: "TBD",
     period: "post-launch", 
-    description: "Commercial pricing will be available after pilot program completion",
+    description: "Commercial pricing available after successful pilot program",
     features: [
-      "Professional subscription tiers",
-      "Enterprise solutions",
-      "Custom integrations",
-      "Full platform access",
-      "Premium support",
-      "Advanced analytics"
+      "Software subscriptions ($500-5,000/month)",
+      "Project analysis reports ($200-1,000/report)",
+      "ESG compliance services ($1,000-10,000/quarter)",
+      "Market intelligence data ($2,000-15,000/year)",
+      "Enterprise integrations and support",
+      "Custom analytics and reporting"
     ],
     limitations: [
-      "Available after successful pilot program",
-      "Pricing to be determined based on market validation"
+      "Launching in 2025 after pilot validation",
+      "Pricing based on features and usage"
     ],
     color: "border-purple-200 bg-gradient-to-br from-purple-50 to-blue-50",
     buttonColor: "default",
@@ -190,8 +190,8 @@ export default function Subscribe() {
             Choose Your Investment Plan
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Unlock the full potential of renewable energy investing with our comprehensive platform. 
-            Scale your portfolio with advanced analytics, AI-powered insights, and professional tools.
+            Simple pricing for AI-powered renewable energy investment analysis. 
+            Join our pilot program or explore future partnership opportunities.
           </p>
         </div>
 
