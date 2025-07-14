@@ -99,14 +99,14 @@ export default function About() {
       {/* Breadcrumb Navigation */}
       <div className="bg-white/40 backdrop-blur-sm border-b border-gray-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center space-x-2 text-sm text-gray-600">
+          <nav className="flex items-center space-x-2 text-sm text-white/80">
             {breadcrumbs.map((item, index) => (
               <div key={index} className="flex items-center">
-                {index > 0 && <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />}
+                {index > 0 && <ChevronRight className="w-4 h-4 mx-2 text-white/60" />}
                 {index === breadcrumbs.length - 1 ? (
-                  <span className="font-medium text-gray-900">{item.label}</span>
+                  <span className="font-medium text-white">{item.label}</span>
                 ) : (
-                  <Link href={item.path} className="hover:text-green-600 transition-colors">
+                  <Link href={item.path} className="hover:text-yellow-300 transition-colors">
                     {item.label}
                   </Link>
                 )}
@@ -123,12 +123,12 @@ export default function About() {
             <Badge className="bg-green-100 text-green-800 px-4 py-2 text-sm font-medium mb-8">
               🇬🇧 UK Registered • 🤖 AI-Powered • 🌍 Africa-Focused
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
-              <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-12">
+              <span className="block bg-gradient-to-r from-yellow-300 to-green-300 bg-clip-text text-transparent">
                 Our Story
               </span>
             </h1>
-            <p className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-20">
+            <p className="text-base md:text-lg text-green-100 max-w-4xl mx-auto leading-relaxed mb-20">
               An innovative startup developing AI-powered renewable energy investment analysis. 
               Our MVP platform features IRR simulation, ESG scoring, and risk profiling designed 
               specifically for emerging market opportunities.

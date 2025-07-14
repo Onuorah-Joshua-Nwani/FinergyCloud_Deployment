@@ -85,14 +85,14 @@ export default function WebsiteLanding() {
           </div>
           
           {/* Mobile-First Typography */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             <span className="block">FinergyCloud</span>
-            <span className="block bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-yellow-300 to-green-300 bg-clip-text text-transparent">
               Renewable Energy Intelligence
             </span>
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-green-100 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
             We're building AI tools to help investors assess renewable energy projects in Nigeria and Ghana. 
             Currently in beta with 10 users - looking for more pilot customers to test our risk assessment platform.
           </p>
@@ -137,8 +137,8 @@ export default function WebsiteLanding() {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 bg-gradient-to-br from-green-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-green-100">{stat.label}</div>
                 </div>
               );
             })}
