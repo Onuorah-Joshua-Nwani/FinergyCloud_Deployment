@@ -14,6 +14,12 @@ export interface BlogArticle {
   featured: boolean;
   mediumUrl?: string;
   linkedinUrl?: string;
+  twitterUrl?: string;
+  facebookUrl?: string;
+  whatsappUrl?: string;
+  telegramUrl?: string;
+  redditUrl?: string;
+  shareableText?: string;
 }
 
 export const blogArticles: BlogArticle[] = [
@@ -31,87 +37,92 @@ export const blogArticles: BlogArticle[] = [
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/how-finergycloud-makes-money",
     linkedinUrl: "https://www.linkedin.com/pulse/how-finergycloud-makes-money-simple-business-model-oj-nwani",
+    twitterUrl: "https://twitter.com/intent/tweet?text=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained&url=https://finergycloud.com/blog/how-finergycloud-makes-money",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/how-finergycloud-makes-money",
+    whatsappUrl: "https://wa.me/?text=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained%20https://finergycloud.com/blog/how-finergycloud-makes-money",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/how-finergycloud-makes-money&text=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/how-finergycloud-makes-money&title=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained",
+    shareableText: "How FinergyCloud Makes Money: Simple Business Model Explained - AI-powered renewable energy investment platform with 4 revenue streams",
     content: `How FinergyCloud Makes Money: Simple Business Model Explained
+
 Author: O.J. Nwani
 Date: January 14, 2025
 
-Introduction
+**Introduction**
 
 People often ask me: "How exactly does FinergyCloud plan to make money?" It's a fair question. We're building sophisticated AI technology for renewable energy investment, but what's the actual business model?
 
 Let me break it down in simple terms.
 
-The Problem We Solve
+**The Problem We Solve**
 
 Investors lose millions on renewable energy projects in emerging markets because they can't accurately predict which projects will succeed. Traditional analysis tools miss critical factors like community acceptance, grid stability, and local politics.
 
-Our solution: AI that predicts project success with 94% accuracy.
+**Our solution:** AI that predicts project success with 94% accuracy.
 
-How We Make Money
+**How We Make Money**
 
 We make money in four simple ways:
 
-1. Software Subscriptions (launching 2025)
+**1. Software Subscriptions (launching 2025)**
 
 Monthly subscriptions to our AI platform, like Netflix but for renewable energy investment analysis.
 
-Who pays: Investment funds, development banks, project developers
-Price: $500-5,000 per month
-What they get: AI predictions, risk analysis, portfolio tracking
+**Who pays:** Investment funds, development banks, project developers
+**Price:** $500-5,000 per month
+**What they get:** AI predictions, risk analysis, portfolio tracking
 
-2. Project Analysis Reports (launching 2025)
+**2. Project Analysis Reports (launching 2025)**
 
 One-time reports analyzing specific renewable energy projects.
 
-Who pays: Investors considering individual projects  
-Price: $200-1,000 per report
-What they get: Detailed risk assessment, success probability, recommendations
+**Who pays:** Investors considering individual projects  
+**Price:** $200-1,000 per report
+**What they get:** Detailed risk assessment, success probability, recommendations
 
-3. ESG Compliance Services (launching 2025)
+**3. ESG Compliance Services (launching 2025)**
 
 ESG scoring and reporting for companies with sustainability goals.
 
-Who pays: Corporations, pension funds, impact investors
-Price: $1,000-10,000 per quarter
-What they get: Professional ESG reports, compliance documentation
+**Who pays:** Corporations, pension funds, impact investors
+**Price:** $1,000-10,000 per quarter
+**What they get:** Professional ESG reports, compliance documentation
 
-4. Market Data Services (launching 2026)
+**4. Market Data Services (launching 2026)**
 
 Real-time market intelligence and investment opportunities.
 
-Who pays: Large institutional investors
-Price: $2,000-15,000 per year
-What they get: Market insights, regulatory updates, deal flow
+**Who pays:** Large institutional investors
+**Price:** $2,000-15,000 per year
+**What they get:** Market insights, regulatory updates, deal flow
 
-Why This Works
+**Why This Works**
 
 Our customers manage millions in renewable energy investments. When we help them avoid one bad $10 million project, paying us $50,000 annually is easy math.
 
 We solve a real problem: investors are losing money because they can't assess risk properly in emerging markets.
 
-Current Status
+**Current Status**
 
 We're in pilot phase with 10 users testing our platform for free. Once we prove value, we'll start charging.
 
-Target market: Investment funds and development banks focused on renewable energy in Nigeria, Ghana, and Kenya.
+**Target market:** Investment funds and development banks focused on renewable energy in Nigeria, Ghana, and Kenya.
 
-Revenue goals: $200K in 2025, $1.2M in 2026, $3.5M in 2027.
+**Revenue goals:** $200K in 2025, $1.2M in 2026, $3.5M in 2027.
 
-Simple Business Model
+**Simple Business Model**
 
-Problem: Investors lose money on bad renewable energy projects
-Solution: AI that predicts which projects will succeed  
-Customers: Investment funds, development banks, project developers
-Revenue: Monthly subscriptions plus one-time analysis reports
-Market: Emerging markets in Africa (Nigeria, Ghana, Kenya)
+**Problem:** Investors lose money on bad renewable energy projects
+**Solution:** AI that predicts which projects will succeed  
+**Customers:** Investment funds, development banks, project developers
+**Revenue:** Monthly subscriptions plus one-time analysis reports
+**Market:** Emerging markets in Africa (Nigeria, Ghana, Kenya)
 
 That's it. We help people make better investment decisions, and they pay us for that value.
 
-Questions?
+**Questions?**
 
 If you want to know more about our business model or are interested in our pilot program, reach out. We believe in transparency, especially in financial services.
-
----
 
 Connect with O.J. Nwani on LinkedIn to discuss FinergyCloud's business model and partnership opportunities.
 `
@@ -131,13 +142,19 @@ Connect with O.J. Nwani on LinkedIn to discuss FinergyCloud's business model and
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/what-is-finergycloud-explained",
     linkedinUrl: "https://www.linkedin.com/pulse/what-finergycloud-simple-guide-ai-powered-renewable-oj-nwani",
+    twitterUrl: "https://twitter.com/intent/tweet?text=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment&url=https://finergycloud.com/blog/what-is-finergycloud-explained",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/what-is-finergycloud-explained",
+    whatsappUrl: "https://wa.me/?text=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment%20https://finergycloud.com/blog/what-is-finergycloud-explained",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/what-is-finergycloud-explained&text=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/what-is-finergycloud-explained&title=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment",
+    shareableText: "What is FinergyCloud? AI-powered platform that predicts renewable energy project success with 94% accuracy in emerging markets",
     content: `What is FinergyCloud? A Simple Guide to AI-Powered Renewable Energy Investment
 
 If you're new to FinergyCloud, you might be wondering: what exactly do we do, and how can it help you?
 
 Let me explain it simply.
 
-The Problem We Solve
+**The Problem We Solve**
 
 Imagine you want to invest in a solar farm in Nigeria or a wind project in Kenya. Traditional investment tools will show you beautiful spreadsheets with projected returns, but they can't tell you the most important thing: will this project actually work?
 
@@ -145,87 +162,87 @@ In emerging markets, renewable energy projects fail for reasons that have nothin
 
 Standard investment tools ignore these factors because they're designed for stable markets like Germany or the US. They assume things work the way they're supposed to work.
 
-What FinergyCloud Does
+**What FinergyCloud Does**
 
 FinergyCloud is an AI-powered platform that predicts which renewable energy projects will succeed in emerging markets like Nigeria, Kenya, and Ghana.
 
-Our system analyzes over 200 factors including:
-Technical factors like solar irradiance, wind patterns, and grid capacity
-Social factors like community engagement and local employment impact
-Economic factors like currency stability, financing costs, and tariff structures
-Political factors like regulatory environment and government stability
-Environmental factors like ESG compliance, carbon impact, and water usage
+**Our system analyzes over 200 factors including:**
+**Technical factors:** solar irradiance, wind patterns, and grid capacity
+**Social factors:** community engagement and local employment impact
+**Economic factors:** currency stability, financing costs, and tariff structures
+**Political factors:** regulatory environment and government stability
+**Environmental factors:** ESG compliance, carbon impact, and water usage
 
-How Our AI Works (Simply Explained)
+**How Our AI Works (Simply Explained)**
 
 Think of our AI like a very smart advisor who has studied every renewable energy project in Africa for the past 10 years.
 
-When you input details about a new project, our AI compares it to similar projects and tells you:
+**When you input details about a new project, our AI compares it to similar projects and tells you:**
 
-Success probability - what are the chances this project will meet its targets?
-Risk assessment - what could go wrong and how likely is it?
-IRR prediction - what returns can you realistically expect?
-ESG scoring - how does this project impact the environment and community?
+**Success probability:** what are the chances this project will meet its targets?
+**Risk assessment:** what could go wrong and how likely is it?
+**IRR prediction:** what returns can you realistically expect?
+**ESG scoring:** how does this project impact the environment and community?
 
 Our AI has achieved 94% accuracy by learning from real project data, not theoretical models.
 
-Who Uses FinergyCloud
+**Who Uses FinergyCloud**
 
-Project Developers validate projects before spending millions on development
-Impact Investors make data-driven decisions about clean energy investments
-Climate Consultants provide clients with accurate ESG and risk assessments
-NGO Finance Teams evaluate community energy projects for maximum impact
-Development Finance Institutions assess portfolio risk across multiple markets
+**Project Developers** validate projects before spending millions on development
+**Impact Investors** make data-driven decisions about clean energy investments
+**Climate Consultants** provide clients with accurate ESG and risk assessments
+**NGO Finance Teams** evaluate community energy projects for maximum impact
+**Development Finance Institutions** assess portfolio risk across multiple markets
 
-Key Features Explained
+**Key Features Explained**
 
-AI Prediction Engine
+**AI Prediction Engine**
 Our machine learning model analyzes your project data and provides success probability, risk factors, and expected returns.
 
-ESG Scoring System
+**ESG Scoring System**
 Comprehensive environmental, social, and governance assessment specifically designed for emerging market projects.
 
-Multi-Currency IRR Calculator
+**Multi-Currency IRR Calculator**
 Calculate returns in Nigerian Naira, British Pounds, or Euros with real-time currency risk analysis.
 
-Portfolio Management
+**Portfolio Management**
 Track multiple projects, analyze risk distribution, and optimize your renewable energy portfolio.
 
-Market Intelligence
+**Market Intelligence**
 Real-time insights on regulatory changes, market trends, and new opportunities across target markets.
 
-Why We Focus on Emerging Markets
+**Why We Focus on Emerging Markets**
 
 Most investment platforms focus on established markets where infrastructure is reliable and regulations are stable. But that's where the biggest opportunities in renewable energy actually exist.
 
-Countries like Nigeria, Kenya, and Ghana have:
+**Countries like Nigeria, Kenya, and Ghana have:**
 
-Massive energy gaps and abundant renewable resources
-Growing middle classes creating increasing demand
-Improving regulatory frameworks making investment possible
-Strong government support for clean energy driving policy
+**Massive energy gaps** and abundant renewable resources
+**Growing middle classes** creating increasing demand
+**Improving regulatory frameworks** making investment possible
+**Strong government support** for clean energy driving policy
 
 The challenge is that traditional investment tools don't understand these markets. That's where FinergyCloud comes in.
 
-Getting Started
+**Getting Started**
 
-We're currently in closed beta with 10 users across Nigeria and Ghana. Our pilot program gives you access to:
+We're currently in closed beta with 10 users across Nigeria and Ghana. **Our pilot program gives you access to:**
 
-Full AI prediction engine
-ESG scoring for all project types
-Multi-currency financial modeling
-Direct support from our team
+**Full AI prediction engine**
+**ESG scoring for all project types**
+**Multi-currency financial modeling**
+**Direct support from our team**
 
 If you're working on renewable energy projects in emerging markets, we'd love to hear from you.
 
-Next Steps
+**Next Steps**
 
 Ready to learn more? Here are some helpful next steps:
 
-Read our technical overview: How FinergyCloud's AI Predicts Project Success
-Understand ESG scoring: ESG Metrics That Actually Matter in Emerging Markets
-See our methodology: Why Our AI Achieves 94% Accuracy
-Join our pilot program: Contact us for early access
+**Read our technical overview:** How FinergyCloud's AI Predicts Project Success
+**Understand ESG scoring:** ESG Metrics That Actually Matter in Emerging Markets
+**See our methodology:** Why Our AI Achieves 94% Accuracy
+**Join our pilot program:** Contact us for early access
 
 Questions? Reach out at hello@finergycloud.com - we're always happy to explain how our platform can help with your specific projects.
 `
@@ -245,6 +262,12 @@ Questions? Reach out at hello@finergycloud.com - we're always happy to explain h
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/how-ai-predicts-renewable-success",
     linkedinUrl: "https://www.linkedin.com/pulse/how-finergyclouds-ai-predicts-renewable-energy-project-chen",
+    twitterUrl: "https://twitter.com/intent/tweet?text=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success&url=https://finergycloud.com/blog/how-finergycloud-ai-works",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/how-finergycloud-ai-works",
+    whatsappUrl: "https://wa.me/?text=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success%20https://finergycloud.com/blog/how-finergycloud-ai-works",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/how-finergycloud-ai-works&text=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/how-finergycloud-ai-works&title=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success",
+    shareableText: "How FinergyCloud's AI Predicts Renewable Energy Project Success - 94% accuracy with XGBoost machine learning models",
     content: `How FinergyCloud's AI Predicts Renewable Energy Project Success
 
 A technical but accessible explanation of our machine learning methodology, training data, and why we achieve 94% accuracy in predicting project outcomes in emerging markets.
@@ -381,6 +404,12 @@ Our goal is to make AI-powered project assessment accessible to everyone working
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/renewable-energy-terminology-guide",
     linkedinUrl: "https://www.linkedin.com/pulse/renewable-energy-investment-terms-every-investor-michael-okafor",
+    twitterUrl: "https://twitter.com/intent/tweet?text=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know&url=https://finergycloud.com/blog/renewable-energy-terminology-guide",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/renewable-energy-terminology-guide",
+    whatsappUrl: "https://wa.me/?text=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know%20https://finergycloud.com/blog/renewable-energy-terminology-guide",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/renewable-energy-terminology-guide&text=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/renewable-energy-terminology-guide&title=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know",
+    shareableText: "Renewable Energy Investment Terms Every Investor Should Know - Complete glossary for clean energy investing in emerging markets",
     content: `Renewable Energy Investment Terms Every Investor Should Know
 Author: O.J. Nwani
 Date: January 14, 2025
@@ -641,6 +670,12 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/complete-guide-finergycloud-features",
     linkedinUrl: "https://www.linkedin.com/pulse/complete-guide-finergycloud-features-ai-models-esg-james-mitchell",
+    twitterUrl: "https://twitter.com/intent/tweet?text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management&url=https://finergycloud.com/blog/finergycloud-features-complete-guide",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/finergycloud-features-complete-guide",
+    whatsappUrl: "https://wa.me/?text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management%20https://finergycloud.com/blog/finergycloud-features-complete-guide",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/finergycloud-features-complete-guide&text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/finergycloud-features-complete-guide&title=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management",
+    shareableText: "Complete Guide to FinergyCloud Features - Deep dive into XGBoost prediction engine, ESG scoring, and portfolio management tools",
     content: `Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
 Author: O.J. Nwani
 Date: January 14, 2025
@@ -814,6 +849,12 @@ Questions about specific features? Our product team is available at features@fin
     featured: true,
     mediumUrl: "https://medium.com/@finergycloud/building-finergycloud-mvp-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/building-finergycloud-mvp-concept-pilot-program-2025-oj-nwani",
+    twitterUrl: "https://twitter.com/intent/tweet?text=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025&url=https://finergycloud.com/blog/building-finergycloud-mvp-2025",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/building-finergycloud-mvp-2025",
+    whatsappUrl: "https://wa.me/?text=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025%20https://finergycloud.com/blog/building-finergycloud-mvp-2025",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/building-finergycloud-mvp-2025&text=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/building-finergycloud-mvp-2025&title=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025",
+    shareableText: "Building FinergyCloud MVP: From Concept to Pilot Program in 2025 - Our startup journey developing AI-powered renewable energy investment platform",
     content: `Building FinergyCloud MVP: From Concept to Pilot Program in 2025
 Author: O.J. Nwani
 Date: January 12, 2025
@@ -942,6 +983,12 @@ O.J. Nwani is the founder and CEO of FinergyCloud. Connect with them on LinkedIn
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/seeking-pilot-customers-finergycloud-launch-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/seeking-pilot-customers-finergyclouds-launch-strategy-oj-nwani",
+    twitterUrl: "https://twitter.com/intent/tweet?text=Seeking%20Pilot%20Customers%3A%20FinergyCloud's%20Launch%20Strategy%20for%202025&url=https://finergycloud.com/blog/seeking-pilot-customers-2025",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/seeking-pilot-customers-2025",
+    whatsappUrl: "https://wa.me/?text=Seeking%20Pilot%20Customers%3A%20FinergyCloud's%20Launch%20Strategy%20for%202025%20https://finergycloud.com/blog/seeking-pilot-customers-2025",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/seeking-pilot-customers-2025&text=Seeking%20Pilot%20Customers%3A%20FinergyCloud's%20Launch%20Strategy%20for%202025",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/seeking-pilot-customers-2025&title=Seeking%20Pilot%20Customers%3A%20FinergyCloud's%20Launch%20Strategy%20for%202025",
+    shareableText: "Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025 - Join our early access program for AI-powered renewable energy investment platform",
     content: `Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
 Author: O.J. Nwani
 Date: January 10, 2025
@@ -1114,6 +1161,12 @@ Interested in joining our pilot program? Connect with O.J. Nwani on LinkedIn or 
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/roadmap-2025-2027-planned-innovations",
     linkedinUrl: "https://www.linkedin.com/pulse/roadmap-2025-2027-planned-innovations-future-features-product-team",
+    twitterUrl: "https://twitter.com/intent/tweet?text=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features&url=https://finergycloud.com/blog/roadmap-2025-2027-innovations",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/roadmap-2025-2027-innovations",
+    whatsappUrl: "https://wa.me/?text=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features%20https://finergycloud.com/blog/roadmap-2025-2027-innovations",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/roadmap-2025-2027-innovations&text=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/roadmap-2025-2027-innovations&title=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features",
+    shareableText: "Roadmap 2025-2027: FinergyCloud's Planned Innovations - Satellite data integration, blockchain ESG compliance, and real-time market intelligence",
     content: `Roadmap 2025-2027: Planned Innovations and Future Features
 
 Building a startup in the renewable energy investment space means thinking both tactically about immediate needs and strategically about where the market is heading. Our three-year roadmap balances delivering immediate value to our pilot customers with preparing for the technological advances that will reshape this industry.
@@ -1395,6 +1448,12 @@ This roadmap represents our current strategic thinking and will be updated regul
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/xgboost-backtesting-validation-94-accuracy",
     linkedinUrl: "https://www.linkedin.com/pulse/xgboost-backtesting-validating-94-accuracy-historical-ai-team",
+    twitterUrl: "https://twitter.com/intent/tweet?text=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data&url=https://finergycloud.com/blog/xgboost-backtesting-validation",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/xgboost-backtesting-validation",
+    whatsappUrl: "https://wa.me/?text=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data%20https://finergycloud.com/blog/xgboost-backtesting-validation",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/xgboost-backtesting-validation&text=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/xgboost-backtesting-validation&title=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data",
+    shareableText: "XGBoost Backtesting: Validating 94% Accuracy with Historical Data - Deep dive into our machine learning validation methodology",
     content: `XGBoost Backtesting: Validating 94% Accuracy with Historical Data
 Author: O.J. Nwani
 Date: January 8, 2025
@@ -1725,6 +1784,12 @@ For technical questions about our backtesting methodology or access to detailed 
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/multi-currency-irr-modeling-emerging-markets",
     linkedinUrl: "https://www.linkedin.com/pulse/multi-currency-irr-modeling-building-financial-models-financial-team",
+    twitterUrl: "https://twitter.com/intent/tweet?text=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets&url=https://finergycloud.com/blog/multi-currency-irr-modeling",
+    facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com/blog/multi-currency-irr-modeling",
+    whatsappUrl: "https://wa.me/?text=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets%20https://finergycloud.com/blog/multi-currency-irr-modeling",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/multi-currency-irr-modeling&text=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/multi-currency-irr-modeling&title=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets",
+    shareableText: "Multi-Currency IRR Modeling for Emerging Markets - How to calculate returns across Nigerian Naira, British Pounds, and Euros",
     content: `Multi-Currency IRR Modeling: Building Financial Models for Emerging Markets
 
 How we built sophisticated financial modeling capabilities supporting NGN, GBP, and EUR currencies with real-time conversion and risk assessment for renewable energy investments across emerging markets.

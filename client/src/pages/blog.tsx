@@ -50,8 +50,32 @@ export default function Blog() {
     setSelectedArticle(null);
   };
 
-  const handleShare = (article: BlogArticle, platform: 'linkedin' | 'medium') => {
-    const url = platform === 'linkedin' ? article.linkedinUrl : article.mediumUrl;
+  const handleShare = (article: BlogArticle, platform: 'linkedin' | 'medium' | 'twitter' | 'facebook' | 'whatsapp' | 'telegram' | 'reddit') => {
+    let url = '';
+    switch (platform) {
+      case 'linkedin':
+        url = article.linkedinUrl || '';
+        break;
+      case 'medium':
+        url = article.mediumUrl || '';
+        break;
+      case 'twitter':
+        url = article.twitterUrl || '';
+        break;
+      case 'facebook':
+        url = article.facebookUrl || '';
+        break;
+      case 'whatsapp':
+        url = article.whatsappUrl || '';
+        break;
+      case 'telegram':
+        url = article.telegramUrl || '';
+        break;
+      case 'reddit':
+        url = article.redditUrl || '';
+        break;
+    }
+    
     if (url) {
       window.open(url, '_blank', 'noopener,noreferrer');
     } else {
@@ -173,7 +197,7 @@ export default function Blog() {
                   Read Full Article
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-gray-600 text-sm">Share:</span>
                   <Button
                     variant="ghost"
@@ -190,6 +214,30 @@ export default function Blog() {
                     className="text-green-600 hover:text-green-700"
                   >
                     Medium
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleShare(featuredPost, 'twitter')}
+                    className="text-blue-400 hover:text-blue-500"
+                  >
+                    Twitter
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleShare(featuredPost, 'facebook')}
+                    className="text-blue-800 hover:text-blue-900"
+                  >
+                    Facebook
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleShare(featuredPost, 'whatsapp')}
+                    className="text-green-500 hover:text-green-600"
+                  >
+                    WhatsApp
                   </Button>
                 </div>
               </div>
@@ -304,24 +352,33 @@ export default function Blog() {
                   <span>{selectedArticle?.readTime}</span>
                 </DialogDescription>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 flex-wrap">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => selectedArticle && handleShare(selectedArticle, 'linkedin')}
-                  className="text-blue-600 hover:text-blue-800 text-xs sm:text-sm"
+                  className="text-blue-600 hover:text-blue-800 text-xs"
                 >
-                  <Share2 className="w-4 h-4 mr-1" />
+                  <Share2 className="w-3 h-3 mr-1" />
                   <span className="hidden sm:inline">LinkedIn</span>
                 </Button>
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => selectedArticle && handleShare(selectedArticle, 'medium')}
-                  className="text-green-600 hover:text-green-800 text-xs sm:text-sm"
+                  onClick={() => selectedArticle && handleShare(selectedArticle, 'twitter')}
+                  className="text-blue-400 hover:text-blue-500 text-xs"
                 >
-                  <ExternalLink className="w-4 h-4 mr-1" />
-                  <span className="hidden sm:inline">Medium</span>
+                  <Share2 className="w-3 h-3 mr-1" />
+                  <span className="hidden sm:inline">Twitter</span>
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => selectedArticle && handleShare(selectedArticle, 'whatsapp')}
+                  className="text-green-500 hover:text-green-600 text-xs"
+                >
+                  <Share2 className="w-3 h-3 mr-1" />
+                  <span className="hidden sm:inline">WhatsApp</span>
                 </Button>
               </div>
             </div>
@@ -381,20 +438,48 @@ export default function Blog() {
                     <h4 className="font-semibold text-gray-900 mb-2">Share this article</h4>
                     <p className="text-sm text-gray-600">Help others discover valuable insights about renewable energy investment</p>
                   </div>
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-wrap gap-2">
                     <Button
                       onClick={() => selectedArticle && handleShare(selectedArticle, 'linkedin')}
-                      className="bg-blue-600 hover:bg-blue-700 text-white text-sm"
+                      className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm"
                     >
                       <Share2 className="w-4 h-4 mr-2" />
-                      Share on LinkedIn
+                      LinkedIn
                     </Button>
                     <Button
                       onClick={() => selectedArticle && handleShare(selectedArticle, 'medium')}
-                      className="bg-green-600 hover:bg-green-700 text-white text-sm"
+                      className="bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm"
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      Read on Medium
+                      Medium
+                    </Button>
+                    <Button
+                      onClick={() => selectedArticle && handleShare(selectedArticle, 'twitter')}
+                      className="bg-blue-400 hover:bg-blue-500 text-white text-xs sm:text-sm"
+                    >
+                      <Share2 className="w-4 h-4 mr-2" />
+                      Twitter
+                    </Button>
+                    <Button
+                      onClick={() => selectedArticle && handleShare(selectedArticle, 'facebook')}
+                      className="bg-blue-800 hover:bg-blue-900 text-white text-xs sm:text-sm"
+                    >
+                      <Share2 className="w-4 h-4 mr-2" />
+                      Facebook
+                    </Button>
+                    <Button
+                      onClick={() => selectedArticle && handleShare(selectedArticle, 'whatsapp')}
+                      className="bg-green-500 hover:bg-green-600 text-white text-xs sm:text-sm"
+                    >
+                      <Share2 className="w-4 h-4 mr-2" />
+                      WhatsApp
+                    </Button>
+                    <Button
+                      onClick={() => selectedArticle && handleShare(selectedArticle, 'telegram')}
+                      className="bg-blue-500 hover:bg-blue-600 text-white text-xs sm:text-sm"
+                    >
+                      <Share2 className="w-4 h-4 mr-2" />
+                      Telegram
                     </Button>
                   </div>
                 </div>
