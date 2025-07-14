@@ -30,7 +30,6 @@ export default function Navigation() {
     { path: "/about", label: "About", icon: Info },
     { path: "/platform", label: "Platform", icon: Wrench },
     { path: "/blog", label: "Blog", icon: Newspaper },
-    { path: "/beta", label: "Beta Program", icon: Users },
     { path: "/contact", label: "Contact", icon: Phone },
   ];
 
@@ -275,13 +274,26 @@ export default function Navigation() {
                             {websiteNavItems.map(item => (
                               <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} isMobile={true} />
                             ))}
-                            {/* Mobile App Link */}
+                          </div>
+                        </div>
+                        
+                        {/* Platform Access Section */}
+                        <div className="mt-6">
+                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Platform Access</h3>
+                          <div className="space-y-1">
                             <button
                               onClick={() => window.open('/?platform=mobile', '_blank')}
                               className="w-full flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 text-gray-600 hover:text-primary hover:bg-gray-50 text-left"
                             >
                               <Smartphone className="w-5 h-5 mr-3 flex-shrink-0" />
-                              Open Mobile Experience
+                              Mobile Experience
+                            </button>
+                            <button
+                              onClick={() => window.location.href = 'mailto:beta@finergycloud.com?subject=Beta Program Application'}
+                              className="w-full flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 text-gray-600 hover:text-primary hover:bg-gray-50 text-left"
+                            >
+                              <Users className="w-5 h-5 mr-3 flex-shrink-0" />
+                              Join Beta Program
                             </button>
                           </div>
                         </div>
