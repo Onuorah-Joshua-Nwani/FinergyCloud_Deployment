@@ -34,24 +34,32 @@ export default function Contact() {
   const contactMethods = [
     {
       icon: Mail,
-      title: "Email Support",
-      description: "Get help with technical issues, billing, or general inquiries",
+      title: "General Support",
+      description: "Technical issues, billing questions, and platform assistance",
       contact: "support@finergycloud.com",
       action: "Send Email",
       color: "from-blue-500 to-indigo-600"
     },
     {
       icon: MessageSquare,
-      title: "Business Inquiries",
-      description: "Partnership opportunities, enterprise solutions, and custom integrations",
-      contact: "business@finergycloud.com",
-      action: "Contact Sales",
+      title: "Partnership Inquiries",
+      description: "Strategic partnerships, NGO collaborations, university research projects",
+      contact: "partnerships@finergycloud.com",
+      action: "Discuss Partnership",
       color: "from-green-500 to-emerald-600"
     },
     {
       icon: Users,
+      title: "Business Development",
+      description: "Enterprise solutions, custom integrations, and commercial opportunities",
+      contact: "business@finergycloud.com",
+      action: "Contact Sales",
+      color: "from-orange-500 to-red-600"
+    },
+    {
+      icon: Zap,
       title: "Investor Relations",
-      description: "Connect with our team for investment discussions and platform demos",
+      description: "Investment discussions, platform demos, and funding opportunities",
       contact: "investors@finergycloud.com",
       action: "Schedule Meeting",
       color: "from-purple-500 to-pink-600"

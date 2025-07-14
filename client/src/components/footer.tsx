@@ -12,7 +12,7 @@ export default function Footer() {
   const [resourcesModalOpen, setResourcesModalOpen] = useState(false);
   const [platformModalOpen, setPlatformModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState<'privacy' | 'terms' | 'cookies' | 'compliance' | 'data-protection' | 'risk-disclosure'>('privacy');
-  const [selectedResource, setSelectedResource] = useState<'docs' | 'api' | 'help' | 'webinars' | 'research' | 'case-studies'>('docs');
+  const [selectedResource, setSelectedResource] = useState<'docs' | 'api' | 'help' | 'webinars' | 'research' | 'case-studies' | 'partnerships'>('docs');
   const [selectedPlatformFeature, setSelectedPlatformFeature] = useState<'dashboard' | 'projects' | 'ai-model' | 'esg-scoring' | 'portfolio' | 'market-insights' | 'beta-signup'>('dashboard');
 
   const openLegalModal = (documentType: typeof selectedDocument) => {
@@ -50,6 +50,7 @@ export default function Footer() {
     { name: "Documentation", type: "docs" as const, icon: FileText },
     { name: "API Reference", type: "api" as const, icon: Code },
     { name: "Help Center", type: "help" as const, icon: HelpCircle },
+    { name: "Partnership Program", type: "partnerships" as const, icon: Users },
     { name: "Webinars", type: "webinars" as const, icon: Video },
     { name: "White Papers", type: "research" as const, icon: BookOpen },
     { name: "Case Studies", type: "case-studies" as const, icon: Users }

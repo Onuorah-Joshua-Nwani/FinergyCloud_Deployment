@@ -18,7 +18,7 @@ import {
 interface ResourcesModalProps {
   isOpen: boolean;
   onClose: () => void;
-  resourceType: 'docs' | 'api' | 'help' | 'webinars' | 'research' | 'case-studies';
+  resourceType: 'docs' | 'api' | 'help' | 'webinars' | 'research' | 'case-studies' | 'partnerships';
 }
 
 export default function ResourcesModal({ isOpen, onClose, resourceType }: ResourcesModalProps) {
@@ -134,6 +134,39 @@ Case studies will be published with permission from pilot participants.`,
           timeline: 'Q2 2025'
         };
 
+      case 'partnerships':
+        return {
+          title: 'Partnership Program',
+          icon: Users,
+          status: 'Open Applications',
+          description: 'Strategic partnerships for renewable energy ecosystem development',
+          content: `We're seeking partnerships with:
+
+• Universities & Research Institutions
+  - AI model validation and research collaboration
+  - Student internship and thesis programs
+  - Academic publication opportunities
+
+• NGOs & Development Organizations  
+  - Community engagement and ESG validation
+  - Local project sourcing and due diligence
+  - Impact measurement frameworks
+
+• Financial Institutions
+  - Investment facilitation and risk sharing
+  - Local currency hedging solutions
+  - Regulatory compliance expertise
+
+• Technology Partners
+  - Satellite data providers for environmental monitoring
+  - IoT sensor networks for project performance tracking
+  - Blockchain solutions for transparent ESG reporting
+
+Current partnership discussions: 3 universities, 2 NGOs, 1 development finance institution.`,
+          actionText: 'Submit Partnership Proposal',
+          timeline: 'Rolling Applications'
+        };
+
       default:
         return {
           title: 'Resource',
@@ -155,6 +188,8 @@ Case studies will be published with permission from pilot participants.`,
       window.location.href = 'mailto:help@finergycloud.com';
     } else if (resourceType === 'api') {
       window.location.href = 'mailto:api@finergycloud.com?subject=Beta API Access Request';
+    } else if (resourceType === 'partnerships') {
+      window.location.href = 'mailto:partnerships@finergycloud.com?subject=Partnership Proposal Submission';
     } else {
       // For other resources, could integrate with newsletter signup
       window.location.href = 'mailto:updates@finergycloud.com?subject=Resource Updates Subscription';
