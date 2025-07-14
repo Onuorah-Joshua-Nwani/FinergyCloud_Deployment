@@ -58,13 +58,17 @@ app.use((req, res, next) => {
       res.status(status).json({ message });
     });
 
-    // importantly only setup vite in development and after
-    // setting up all the other routes so the catch-all route
-    // doesn't interfere with the other routes
-    if (app.get("env") === "development") {
-      await setupVite(app, server);
+    // For development, serve content directly without requiring full build
+    if (process.env.NODE_ENV === "production") {
+      try {
+        serveStatic(app);
+      } catch (error) {
+        console.log("Production build not available, serving development content");
+        setupVite(app, server);
+      }
     } else {
-      serveStatic(app);
+      // Development mode - use Vite for frontend serving
+      setupVite(app, server);
     }
 
     // Use Railway's PORT or fallback to 5000 for local development

@@ -34,7 +34,7 @@ export const blogArticles: BlogArticle[] = [
     content: `
 \\documentclass{article}
 \\usepackage[utf8]{inputenc}
-\\\usepackage{amsmath}
+\\usepackage{amsmath}
 \\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
@@ -172,9 +172,9 @@ Questions? Reach out at hello@finergycloud.com - we're always happy to explain h
     linkedinUrl: "https://www.linkedin.com/pulse/how-finergyclouds-ai-predicts-renewable-energy-project-chen",
     content: `
 \\documentclass{article}
-\\\usepackage[utf8]{inputenc}
-\\\usepackage{amsmath}
-\\\usepackage{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
 \\title{How FinergyCloud's AI Predicts Renewable Energy Project Success}
@@ -322,9 +322,9 @@ Our goal is to make AI-powered project assessment accessible to everyone working
     linkedinUrl: "https://www.linkedin.com/pulse/renewable-energy-investment-terms-every-investor-michael-okafor",
     content: `
 \\documentclass{article}
-\\\\usepackage[utf8]{inputenc}
-\\\\usepackage{amsmath}
-\\\\usepackage{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
 \\title{Renewable Energy Investment Terms Every Investor Should Know}
@@ -598,9 +598,9 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     linkedinUrl: "https://www.linkedin.com/pulse/complete-guide-finergycloud-features-ai-models-esg-james-mitchell",
     content: `
 \\documentclass{article}
-\\\usepackage[utf8]{inputenc}
-\\\usepackage{amsmath}
-\\\usepackage{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
 \\title{Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management}
@@ -784,9 +784,9 @@ Questions about specific features? Our product team is available at features@fin
     linkedinUrl: "https://www.linkedin.com/pulse/building-finergycloud-mvp-concept-pilot-program-2025-oj-nwani",
     content: `
 \\documentclass{article}
-\\\usepackage[utf8]{inputenc}
-\\\usepackage{amsmath}
-\\\\usepackage{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
 \\title{Building FinergyCloud MVP: From Concept to Pilot Program in 2025}
@@ -924,9 +924,9 @@ If you're interested in learning more about our pilot program or want to discuss
     linkedinUrl: "https://www.linkedin.com/pulse/seeking-pilot-customers-finergyclouds-launch-strategy-oj-nwani",
     content: `
 \\documentclass{article}
-\\\usepackage[utf8]{inputenc}
-\\\usepackage{amsmath}
-\\\usepackage{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
 \\title{Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025}
@@ -1390,9 +1390,9 @@ We're building the future of renewable energy investment intelligence. This road
     linkedinUrl: "https://www.linkedin.com/pulse/xgboost-backtesting-validating-94-accuracy-historical-ai-team",
     content: `
 \\documentclass{article}
-\\\usepackage[utf8]{inputenc}
-\\\usepackage{amsmath}
-\\\usepackage{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
 \\title{XGBoost Backtesting: Validating 94\\% Accuracy with Historical Data}
@@ -1732,9 +1732,9 @@ As we continue to refine and improve our models, we're not just building better 
     linkedinUrl: "https://www.linkedin.com/pulse/multi-currency-irr-modeling-building-financial-models-financial-team",
     content: `
 \\documentclass{article}
-\\\usepackage[utf8]{inputenc}
-\\\usepackage{amsmath}
-\\\usepackage{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
 \\title{Multi-Currency IRR Modeling: How We Built Financial Models for Emerging Markets}
@@ -2771,9 +2771,9 @@ As we launch our pilot program and begin working with real investors on actual i
     featured: false,
     content: `
 \\documentclass{article}
-\\\usepackage[utf8]{inputenc}
-\\\usepackage{amsmath}
-\\\usepackage{geometry}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{geometry}
 \\geometry{a4paper, margin=1in}
 
 \\title{Multi-Currency IRR Modeling: Building for Global Markets}
