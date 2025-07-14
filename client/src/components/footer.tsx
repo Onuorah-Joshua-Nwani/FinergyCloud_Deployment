@@ -3,15 +3,23 @@ import { Link } from "wouter";
 import SocialLinks from "./social-links";
 import PlatformSwitcher from "./platform-switcher";
 import LegalModal from "./legal-modal";
-import { Leaf, MapPin, Mail, Phone, Shield, FileText, Scale, Cookie, Database, Lock } from "lucide-react";
+import ResourcesModal from "./resources-modal";
+import { Leaf, MapPin, Mail, Phone, Shield, FileText, Scale, Cookie, Database, Lock, Code, HelpCircle, Video, BookOpen, Users } from "lucide-react";
 
 export default function Footer() {
   const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [resourcesModalOpen, setResourcesModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState<'privacy' | 'terms' | 'cookies' | 'compliance' | 'data-protection' | 'risk-disclosure'>('privacy');
+  const [selectedResource, setSelectedResource] = useState<'docs' | 'api' | 'help' | 'webinars' | 'research' | 'case-studies'>('docs');
 
   const openLegalModal = (documentType: typeof selectedDocument) => {
     setSelectedDocument(documentType);
     setLegalModalOpen(true);
+  };
+
+  const openResourcesModal = (resourceType: typeof selectedResource) => {
+    setSelectedResource(resourceType);
+    setResourcesModalOpen(true);
   };
   const companyLinks = [
     { name: "About Us", href: "/about" },
@@ -32,12 +40,12 @@ export default function Footer() {
   ];
 
   const resourcesLinks = [
-    { name: "Documentation", href: "/docs" },
-    { name: "API Reference", href: "/api" },
-    { name: "Help Center", href: "/help" },
-    { name: "Webinars", href: "/webinars" },
-    { name: "White Papers", href: "/research" },
-    { name: "Case Studies", href: "/case-studies" }
+    { name: "Documentation", type: "docs" as const, icon: FileText },
+    { name: "API Reference", type: "api" as const, icon: Code },
+    { name: "Help Center", type: "help" as const, icon: HelpCircle },
+    { name: "Webinars", type: "webinars" as const, icon: Video },
+    { name: "White Papers", type: "research" as const, icon: BookOpen },
+    { name: "Case Studies", type: "case-studies" as const, icon: Users }
   ];
 
   const legalLinks = [
@@ -131,15 +139,20 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-green-400">Resources</h4>
             <ul className="space-y-2">
-              {resourcesLinks.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href}>
-                    <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer block py-1">
+              {resourcesLinks.map((link) => {
+                const IconComponent = link.icon;
+                return (
+                  <li key={link.name}>
+                    <button
+                      onClick={() => openResourcesModal(link.type)}
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm cursor-pointer py-1 w-full text-left"
+                    >
+                      <IconComponent className="w-3 h-3" />
                       {link.name}
-                    </span>
-                  </Link>
-                </li>
-              ))}
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -206,6 +219,13 @@ export default function Footer() {
         isOpen={legalModalOpen}
         onClose={() => setLegalModalOpen(false)}
         documentType={selectedDocument}
+      />
+
+      {/* Resources Modal */}
+      <ResourcesModal 
+        isOpen={resourcesModalOpen}
+        onClose={() => setResourcesModalOpen(false)}
+        resourceType={selectedResource}
       />
     </footer>
   );
