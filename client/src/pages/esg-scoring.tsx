@@ -136,7 +136,7 @@ export default function ESGScoring() {
               AI-Powered ESG Risk Scoring
             </h1>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-              XGBoost machine learning models assess Environmental, Social & Governance risks for renewable energy investments in emerging markets
+              Machine learning risk assessment for renewable energy projects in West Africa markets - currently testing with 10 pilot users
             </p>
             <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-500">
               <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">

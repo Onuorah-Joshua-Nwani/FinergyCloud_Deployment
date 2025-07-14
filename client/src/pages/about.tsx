@@ -31,7 +31,7 @@ export default function About() {
     { value: "10", label: "Beta Users", icon: Users, subtext: "Nigeria & Ghana markets" },
     { value: "94%", label: "XGBoost Accuracy", icon: Award, subtext: "Django risk engine validated" },
     { value: "UK", label: "Registration", icon: Globe, subtext: "CAPEX/OPEX, IRR, ESG scoring" },
-    { value: "SaaS", label: "Enterprise Platform", icon: Target, subtext: "Power BI integration ready" }
+    { value: "2025", label: "MVP Launch", icon: Target, subtext: "Django-based analytics platform" }
   ];
 
   const values = [

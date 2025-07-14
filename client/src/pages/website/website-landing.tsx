@@ -29,7 +29,7 @@ export default function WebsiteLanding() {
     {
       icon: Brain,
       title: "XGBoost Risk Engine",
-      description: "Python-based machine learning model analyzing IRR, CAPEX/OPEX ratios, and developer track records.",
+      description: "Django-based prediction engine trained on 200+ historical projects. Still in beta but showing promising results.",
       gradient: "from-blue-500 to-purple-600"
     },
     {
@@ -47,7 +47,7 @@ export default function WebsiteLanding() {
     {
       icon: BarChart3,
       title: "Power BI Dashboards",
-      description: "Interactive dashboards for comprehensive risk intelligence and investment decision support.",
+      description: "Basic analytics dashboard - we're working on better visualizations based on user feedback.",
       gradient: "from-red-500 to-pink-600"
     }
   ];
@@ -93,8 +93,8 @@ export default function WebsiteLanding() {
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
-            Transform your renewable energy investments with advanced AI predictions, comprehensive ESG scoring, 
-            and sophisticated portfolio management. Make smarter, data-driven sustainable investment decisions.
+            We're building AI tools to help investors assess renewable energy projects in Nigeria and Ghana. 
+            Currently in beta with 10 users - looking for more pilot customers to test our risk assessment platform.
           </p>
           
           {/* Hero Illustration */}
@@ -108,7 +108,7 @@ export default function WebsiteLanding() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 px-4 sm:px-0">
             <Link href="/login" className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 bg-green-600 hover:bg-green-700 shadow-lg transition-all duration-200">
-                Start Free Trial
+                Join Beta Program
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
               </Button>
             </Link>

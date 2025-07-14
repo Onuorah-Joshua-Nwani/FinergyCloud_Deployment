@@ -33,7 +33,9 @@ export const blogArticles: BlogArticle[] = [
     content: `
 # Building FinergyCloud MVP: From Concept to Pilot Program in 2025
 
-Three years ago, I was sitting in a cramped office in London, staring at spreadsheets that made no sense. I'd just lost £50,000 on a solar project in Nigeria that looked perfect on paper but failed miserably in reality.
+Three years ago I was in a cramped WeWork in London, trying to figure out why I'd just lost £50,000 on what should have been a straightforward solar project in Lagos. The spreadsheets all looked perfect. 18% IRR, solid developer, government backing. Should have been easy money.
+
+Except the project failed spectacularly within 6 months.
 
 The problem wasn't the technology or the team – it was that nobody could tell me beforehand which projects would actually work. Every "expert" had a different opinion, every consultant had their own methodology, and most investment tools were designed for markets that actually had functioning infrastructure.
 
@@ -67,7 +69,9 @@ The model looks at over 200 variables, but the key insight was understanding whi
 
 What Makes Our Approach Different
 
-Most investment platforms focus on the numbers: IRR, NPV, payback periods. That's fine for mature markets, but it's not enough for emerging markets where the real risks are things you can't put in a spreadsheet.
+Here's the thing nobody talks about: most investment platforms obsess over IRR calculations and payback periods. Which is fine if you're investing in German solar farms where everything works as expected.
+
+But in Nigeria? The real risk isn't your CAPEX/OPEX ratio. It's whether the local grid can actually handle your output. Or if the community will accept the project. Or if currency devaluation will kill your returns overnight.
 
 We built our platform around a simple idea: ESG factors aren't just nice-to-have metrics – they're predictive indicators of financial success. Projects that create local jobs, reduce community emissions, and engage with local stakeholders are more likely to hit their financial targets.
 
