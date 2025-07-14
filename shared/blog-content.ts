@@ -31,7 +31,7 @@ export const blogArticles: BlogArticle[] = [
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/what-is-finergycloud-explained",
     linkedinUrl: "https://www.linkedin.com/pulse/what-finergycloud-simple-guide-ai-powered-renewable-oj-nwani",
-    content: What is FinergyCloud? A Simple Guide to AI-Powered Renewable Energy Investment
+    content: `What is FinergyCloud? A Simple Guide to AI-Powered Renewable Energy Investment
 
 If you're new to FinergyCloud, you might be wondering: what exactly do we do, and how can it help you?
 
@@ -128,7 +128,7 @@ See our methodology: Why Our AI Achieves 94% Accuracy
 Join our pilot program: Contact us for early access
 
 Questions? Reach out at hello@finergycloud.com - we're always happy to explain how our platform can help with your specific projects.
-
+`
   },
 
   // Educational Content - How FinergyCloud Works
@@ -145,7 +145,7 @@ Questions? Reach out at hello@finergycloud.com - we're always happy to explain h
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/how-ai-predicts-renewable-success",
     linkedinUrl: "https://www.linkedin.com/pulse/how-finergyclouds-ai-predicts-renewable-energy-project-chen",
-    content: How FinergyCloud's AI Predicts Renewable Energy Project Success
+    content: `How FinergyCloud's AI Predicts Renewable Energy Project Success
 
 A technical but accessible explanation of our machine learning methodology, training data, and why we achieve 94% accuracy in predicting project outcomes in emerging markets.
 
@@ -264,7 +264,7 @@ Questions?
 If you're curious about our methodology or want to discuss how our AI can help with your specific projects, reach out to our team at technical@finergycloud.com.
 
 Our goal is to make AI-powered project assessment accessible to everyone working on renewable energy in emerging markets.
-
+`
   },
 
   // Educational Content - Industry Terminology
@@ -281,9 +281,7 @@ Our goal is to make AI-powered project assessment accessible to everyone working
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/renewable-energy-terminology-guide",
     linkedinUrl: "https://www.linkedin.com/pulse/renewable-energy-investment-terms-every-investor-michael-okafor",
-    content: 
-
-Renewable Energy Investment Terms Every Investor Should Know
+    content: `Renewable Energy Investment Terms Every Investor Should Know
 Author: Your Name
 Date: January 14, 2025
 
@@ -386,7 +384,7 @@ At FinergyCloud, we help investors navigate this complexity by translating techn
 Want to learn more about how these concepts apply to specific markets like Nigeria, Kenya, or Ghana? Our next article covers "Market-Specific Investment Considerations" with detailed country profiles and opportunity assessments.
 
 Questions about any of these terms? Contact our team at education@finergycloud.com - we're here to help make renewable energy investment accessible to everyone.
-
+`
   },
 
   // Educational Content - ESG in Emerging Markets
@@ -403,8 +401,7 @@ Questions about any of these terms? Contact our team at education@finergycloud.c
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/esg-metrics-emerging-markets",
     linkedinUrl: "https://www.linkedin.com/pulse/esg-metrics-actually-matter-emerging-markets-amara-kone",
-    content: 
-ESG Metrics That Actually Matter in Emerging Markets
+    content: `ESG Metrics That Actually Matter in Emerging Markets
 
 Most ESG frameworks were designed for developed markets. Apply them in Nigeria or Kenya, and you'll get misleading results that don't reflect real impact.
 
@@ -527,7 +524,7 @@ Getting Started with Emerging Market ESG
 If you're evaluating renewable energy projects in Africa: Understand local context before applying global frameworks. Measure relative impact vs. local baselines. Include informal stakeholders in governance assessments. Track multiplier effects beyond direct project metrics. Calibrate for local regulatory realities.
 
 FinergyCloud's ESG scoring system is available for all renewable energy projects in our target markets. Contact our ESG team at impact@finergycloud.com to discuss your specific assessment needs.
-
+`
   },
 
   // Educational Content - FinergyCloud Features Deep Dive
@@ -544,9 +541,8 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/complete-guide-finergycloud-features",
     linkedinUrl: "https://www.linkedin.com/pulse/complete-guide-finergycloud-features-ai-models-esg-james-mitchell",
-    content: 
-
-Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
+    content: `Blog content is being updated...`
+`Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
 Author: Your Name
 Date: January 14, 2025
 
@@ -704,7 +700,7 @@ Feature Roadmap
 2026 Developments include blockchain integration for transparent impact tracking, AI-powered market opportunity identification, automated compliance monitoring, and advanced risk prediction models.
 
 Questions about specific features? Our product team is available at features@finergycloud.com to discuss your needs and provide personalized training.
-
+`
   },
   {
     id: "building-finergycloud-mvp-2025",
@@ -719,9 +715,8 @@ Questions about specific features? Our product team is available at features@fin
     featured: true,
     mediumUrl: "https://medium.com/@finergycloud/building-finergycloud-mvp-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/building-finergycloud-mvp-concept-pilot-program-2025-oj-nwani",
-    content: 
-
-Building FinergyCloud MVP: From Concept to Pilot Program in 2025
+    content: `Blog content is being updated...`
+`Building FinergyCloud MVP: From Concept to Pilot Program in 2025
 Author: Your Name
 Date: January 12, 2025
 
@@ -834,7 +829,7 @@ If you're interested in learning more about our pilot program or want to discuss
 
 Your Name is the founder and CEO of FinergyCloud. Connect with them on LinkedIn for updates on our pilot program and insights about AI-powered renewable energy investment.
 
-    
+    `
   },
   {
     id: "seeking-pilot-customers-2025",
@@ -849,9 +844,8 @@ Your Name is the founder and CEO of FinergyCloud. Connect with them on LinkedIn 
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/seeking-pilot-customers-finergycloud-launch-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/seeking-pilot-customers-finergyclouds-launch-strategy-oj-nwani",
-    content: 
-
-Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
+    content: `Blog content is being updated...`
+`Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
 Author: Your Name
 Date: January 10, 2025
 
@@ -1008,7 +1002,7 @@ The future of clean energy investment is being built today. We'd love to build i
 ---
 
 Interested in joining our pilot program? Connect with O.J. Nwani on LinkedIn or reach out through our contact page to start the conversation.
-    
+    `
   },
   {
     id: "roadmap-2025-2027-innovations",
@@ -1023,8 +1017,7 @@ Interested in joining our pilot program? Connect with O.J. Nwani on LinkedIn or 
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/roadmap-2025-2027-planned-innovations",
     linkedinUrl: "https://www.linkedin.com/pulse/roadmap-2025-2027-planned-innovations-future-features-product-team",
-    content: 
-Roadmap 2025-2027: Planned Innovations and Future Features
+    content: `Roadmap 2025-2027: Planned Innovations and Future Features
 
 Building a startup in the renewable energy investment space means thinking both tactically about immediate needs and strategically about where the market is heading. Our three-year roadmap balances delivering immediate value to our pilot customers with preparing for the technological advances that will reshape this industry.
 
@@ -1290,7 +1283,7 @@ We're building the future of renewable energy investment intelligence. This road
 
 This roadmap represents our current strategic thinking and will be updated regularly based on market feedback, technical developments, and business results. For questions about specific features or timeline details, connect with our Product Strategy Team on LinkedIn.
 
-    
+    `
   },
   {
     id: "xgboost-backtesting-validation",
@@ -1305,9 +1298,8 @@ This roadmap represents our current strategic thinking and will be updated regul
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/xgboost-backtesting-validation-94-accuracy",
     linkedinUrl: "https://www.linkedin.com/pulse/xgboost-backtesting-validating-94-accuracy-historical-ai-team",
-    content: 
-
-XGBoost Backtesting: Validating 94% Accuracy with Historical Data
+    content: `Blog content is being updated...`
+`XGBoost Backtesting: Validating 94% Accuracy with Historical Data
 Author: Your Name
 Date: January 8, 2025
 
@@ -1622,7 +1614,7 @@ As we continue to refine and improve our models, we're not just building better 
 
 For technical questions about our backtesting methodology or access to detailed performance reports, contact our AI Research Team through LinkedIn or our technical blog.
 
-    
+    `
   },
   {
     id: "multi-currency-irr-modeling",
@@ -1637,7 +1629,7 @@ For technical questions about our backtesting methodology or access to detailed 
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/multi-currency-irr-modeling-emerging-markets",
     linkedinUrl: "https://www.linkedin.com/pulse/multi-currency-irr-modeling-building-financial-models-financial-team",
-    content: Multi-Currency IRR Modeling: Building Financial Models for Emerging Markets
+    content: `Multi-Currency IRR Modeling: Building Financial Models for Emerging Markets
 
 How we built sophisticated financial modeling capabilities supporting NGN, GBP, and EUR currencies with real-time conversion and risk assessment for renewable energy investments across emerging markets.
 
@@ -1990,7 +1982,7 @@ The future of renewable energy investment in emerging markets depends on having 
 ---
 
 The FinergyCloud Financial Engineering Team includes quantitative analysts, emerging market specialists, and renewable energy finance experts. For questions about financial modeling methodology or custom analysis requirements, connect with our team on LinkedIn.
-    
+    `
   },
   {
     id: "satellite-data-integration-2026",
@@ -2005,8 +1997,7 @@ The FinergyCloud Financial Engineering Team includes quantitative analysts, emer
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/satellite-data-integration-real-time-monitoring-2026",
     linkedinUrl: "https://www.linkedin.com/pulse/satellite-data-integration-real-time-project-monitoring-future-team",
-    content: 
-Satellite Data Integration for Real-Time Project Monitoring (Coming 2026)
+    content: `Satellite Data Integration for Real-Time Project Monitoring (Coming 2026)
 
 While our current platform provides industry-leading prediction accuracy for renewable energy investments, we're not stopping there. In 2026, we're planning to launch one of the most ambitious technology integrations in the renewable energy investment space: comprehensive satellite data analysis for real-time project monitoring and performance validation.
 
@@ -2279,7 +2270,7 @@ The future of renewable energy investment is being written in the sky. We're bui
 ---
 
 The FinergyCloud Future Technology Team is actively developing satellite integration capabilities. For partnership opportunities or early access to beta testing programs, connect with our team on LinkedIn or contact us through our technology partnership program.
-    
+    `
   },
   {
     id: "xgboost-backtesting-validation",
@@ -2292,8 +2283,7 @@ The FinergyCloud Future Technology Team is actively developing satellite integra
     image: "📈",
     tags: ["XGBoost", "Backtesting", "Data Validation", "Algorithm Development", "MVP"],
     featured: false,
-    content: 
-XGBoost Backtesting: How We Proved Our 94% Accuracy Claims
+    content: `XGBoost Backtesting: How We Proved Our 94% Accuracy Claims
 
 "94% accuracy? That sounds too good to be true. How do you know it actually works?"
 
@@ -2640,7 +2630,7 @@ As we launch our pilot program and begin working with real investors on actual i
 ---
 
 The FinergyCloud AI Team includes data scientists, renewable energy engineers, and financial analysts with experience at leading technology and investment firms. For technical questions about our methodology, connect with our team on LinkedIn.
-    
+    `
   },
   {
     id: "multi-currency-irr-modeling",
@@ -2653,9 +2643,8 @@ The FinergyCloud AI Team includes data scientists, renewable energy engineers, a
     image: "💱",
     tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets", "MVP"],
     featured: false,
-    content: 
-
-Multi-Currency IRR Modeling: Building for Global Markets
+    content: `Blog content is being updated...`
+`Multi-Currency IRR Modeling: Building for Global Markets
 Author: Your Name
 Date: January 4, 2025
 
@@ -2907,7 +2896,7 @@ As emerging market currencies evolve and global capital markets develop new tool
 
 The FinergyCloud Financial Engineering Team includes former investment banking professionals, quantitative analysts, and emerging market specialists. For questions about multi-currency modeling or custom analysis needs, connect with our team on LinkedIn.
 
-    
+    `
   },
   {
     id: "esg-framework-african-renewable",
@@ -2920,8 +2909,7 @@ The FinergyCloud Financial Engineering Team includes former investment banking p
     image: "🌍",
     tags: ["ESG Framework", "Emerging Markets", "Research", "Africa", "Methodology"],
     featured: false,
-    content: 
-ESG Framework for African Renewable Energy: What We Learned the Hard Way
+    content: `ESG Framework for African Renewable Energy: What We Learned the Hard Way
 
 Two years ago, I was sitting in a village meeting outside Kano, Nigeria, listening to a community leader explain why their solar project had failed. The project had checked all the ESG boxes that international investors cared about. Perfect environmental impact assessment, proper labor standards, clean governance structure. But it had missed the one thing that mattered most: the community had never actually wanted the project in the first place.
 
@@ -3250,7 +3238,7 @@ The future of renewable energy in Africa depends on projects that deliver both f
 ---
 
 The FinergyCloud ESG Research Team includes environmental scientists, social impact specialists, and governance experts with extensive field experience across African renewable energy markets. For questions about ESG methodology or regional adaptations, connect with our team on LinkedIn.
-    
+    `
   }
 ];
 
