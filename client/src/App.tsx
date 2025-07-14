@@ -85,7 +85,7 @@ function Router() {
 
   // WEBSITE PLATFORM (Default)
   return (
-    <div className="min-h-screen bg-white touch-zoom">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 touch-zoom">
       <Navigation />
       <main className="zoom-container">
         <Switch>
