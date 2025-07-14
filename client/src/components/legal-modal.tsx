@@ -129,29 +129,29 @@ export default function LegalModal({ isOpen, onClose, documentType }: LegalModal
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-3 text-xl">
-            <IconComponent className="w-6 h-6 text-blue-600" />
-            {document.title}
+          <DialogTitle className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg lg:text-xl">
+            <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
+            <span className="truncate">{document.title}</span>
           </DialogTitle>
-          <DialogDescription className="flex items-center justify-between">
-            <span>Last updated: {document.lastUpdated}</span>
-            <Badge variant="outline" className="text-xs">
+          <DialogDescription className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
+            <span className="text-sm sm:text-base text-gray-600">Last updated: {document.lastUpdated}</span>
+            <Badge variant="outline" className="text-xs whitespace-nowrap self-start sm:self-auto">
               FinergyCloud Legal
             </Badge>
           </DialogDescription>
         </DialogHeader>
 
-        <ScrollArea className="h-[60vh] pr-4">
-          <div className="space-y-6">
+        <ScrollArea className="h-[50vh] sm:h-[60vh] pr-2 sm:pr-4">
+          <div className="space-y-4 sm:space-y-6">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <Home className="w-4 h-4" />
-              <ChevronRight className="w-4 h-4" />
-              <span>Legal</span>
-              <ChevronRight className="w-4 h-4" />
-              <span>{document.title}</span>
+            <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-500 overflow-x-auto">
+              <Home className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+              <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+              <span className="whitespace-nowrap">Legal</span>
+              <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+              <span className="truncate">{document.title}</span>
             </div>
 
             {/* Content Sections */}
@@ -159,14 +159,14 @@ export default function LegalModal({ isOpen, onClose, documentType }: LegalModal
               const SectionIcon = section.icon;
               return (
                 <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg">
-                      <SectionIcon className="w-5 h-5 text-blue-600" />
-                      {section.title}
+                  <CardHeader className="pb-3 sm:pb-4">
+                    <CardTitle className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base lg:text-lg">
+                      <SectionIcon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0" />
+                      <span className="leading-tight">{section.title}</span>
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700 leading-relaxed">
+                  <CardContent className="pt-0">
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                       {section.content}
                     </p>
                   </CardContent>
@@ -175,19 +175,19 @@ export default function LegalModal({ isOpen, onClose, documentType }: LegalModal
             })}
 
             {/* Contact Information */}
-            <Card className="bg-blue-50">
-              <CardContent className="pt-6">
-                <h4 className="font-semibold text-blue-900 mb-2">Questions about this document?</h4>
-                <p className="text-blue-800 text-sm mb-3">
+            <Card className="bg-blue-50 border-blue-200">
+              <CardContent className="p-3 sm:p-4 lg:pt-6">
+                <h4 className="font-semibold text-blue-900 mb-2 text-sm sm:text-base">Questions about this document?</h4>
+                <p className="text-blue-800 text-xs sm:text-sm mb-3 leading-relaxed">
                   Our legal team is available to help clarify any aspects of our policies.
                 </p>
-                <div className="flex gap-3">
-                  <Button size="sm" variant="outline" className="text-blue-700 border-blue-200">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                  <Button size="sm" variant="outline" className="text-blue-700 border-blue-200 w-full sm:w-auto min-h-[36px] sm:min-h-[32px] text-xs sm:text-sm touch-manipulation">
                     legal@finergycloud.com
                   </Button>
-                  <Button size="sm" variant="outline" className="text-blue-700 border-blue-200">
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    Full Document
+                  <Button size="sm" variant="outline" className="text-blue-700 border-blue-200 w-full sm:w-auto min-h-[36px] sm:min-h-[32px] text-xs sm:text-sm touch-manipulation">
+                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
+                    <span className="truncate">Full Document</span>
                   </Button>
                 </div>
               </CardContent>
@@ -195,13 +195,13 @@ export default function LegalModal({ isOpen, onClose, documentType }: LegalModal
           </div>
         </ScrollArea>
 
-        <div className="flex justify-end gap-3 pt-4 border-t">
-          <Button variant="outline" onClick={onClose}>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-end pt-4 border-t">
+          <Button variant="outline" onClick={onClose} className="w-full sm:w-auto min-h-[44px] sm:min-h-[40px] touch-manipulation order-2 sm:order-1 sm:mr-3">
             Close
           </Button>
-          <Button onClick={() => window.open(`/${documentType}`, '_blank')}>
-            <ExternalLink className="w-4 h-4 mr-2" />
-            Open Full Page
+          <Button onClick={() => window.open(`/${documentType}`, '_blank')} className="w-full sm:w-auto min-h-[44px] sm:min-h-[40px] touch-manipulation order-1 sm:order-2">
+            <ExternalLink className="w-4 h-4 mr-2 flex-shrink-0" />
+            <span className="truncate">Open Full Page</span>
           </Button>
         </div>
       </DialogContent>
