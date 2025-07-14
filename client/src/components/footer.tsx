@@ -31,11 +31,10 @@ export default function Footer() {
   };
   const companyLinks = [
     { name: "About Us", href: "/about" },
-    { name: "Solutions", href: "/solutions" },
+    { name: "Platform", href: "/platform" },
     { name: "Blog & Research", href: "/blog" },
-    { name: "Contact", href: "/contact" },
-    { name: "Careers", href: "/careers" },
-    { name: "Press & Media", href: "/press" }
+    { name: "Beta Program", href: "/beta" },
+    { name: "Contact", href: "/contact" }
   ];
 
   const platformLinks = [
