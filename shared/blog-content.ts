@@ -541,8 +541,7 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/complete-guide-finergycloud-features",
     linkedinUrl: "https://www.linkedin.com/pulse/complete-guide-finergycloud-features-ai-models-esg-james-mitchell",
-    content: `Blog content is being updated...`
-`Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
+    content: `Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
 Author: Your Name
 Date: January 14, 2025
 
@@ -715,8 +714,7 @@ Questions about specific features? Our product team is available at features@fin
     featured: true,
     mediumUrl: "https://medium.com/@finergycloud/building-finergycloud-mvp-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/building-finergycloud-mvp-concept-pilot-program-2025-oj-nwani",
-    content: `Blog content is being updated...`
-`Building FinergyCloud MVP: From Concept to Pilot Program in 2025
+    content: `Building FinergyCloud MVP: From Concept to Pilot Program in 2025
 Author: Your Name
 Date: January 12, 2025
 
@@ -844,8 +842,7 @@ Your Name is the founder and CEO of FinergyCloud. Connect with them on LinkedIn 
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/seeking-pilot-customers-finergycloud-launch-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/seeking-pilot-customers-finergyclouds-launch-strategy-oj-nwani",
-    content: `Blog content is being updated...`
-`Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
+    content: `Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
 Author: Your Name
 Date: January 10, 2025
 
@@ -1298,8 +1295,7 @@ This roadmap represents our current strategic thinking and will be updated regul
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/xgboost-backtesting-validation-94-accuracy",
     linkedinUrl: "https://www.linkedin.com/pulse/xgboost-backtesting-validating-94-accuracy-historical-ai-team",
-    content: `Blog content is being updated...`
-`XGBoost Backtesting: Validating 94% Accuracy with Historical Data
+    content: `XGBoost Backtesting: Validating 94% Accuracy with Historical Data
 Author: Your Name
 Date: January 8, 2025
 
@@ -2643,8 +2639,7 @@ The FinergyCloud AI Team includes data scientists, renewable energy engineers, a
     image: "💱",
     tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets", "MVP"],
     featured: false,
-    content: `Blog content is being updated...`
-`Multi-Currency IRR Modeling: Building for Global Markets
+    content: `Multi-Currency IRR Modeling: Building for Global Markets
 Author: Your Name
 Date: January 4, 2025
 
