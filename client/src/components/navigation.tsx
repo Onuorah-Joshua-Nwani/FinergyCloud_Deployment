@@ -41,7 +41,7 @@ export default function Navigation() {
     { path: "/esg-scoring", label: "ESG Scoring", icon: TreePine },
     { path: "/irr-calculator", label: "Financial Models", icon: Calculator },
     { path: "/ai-model", label: "Risk Engine", icon: Brain },
-    { path: "/advanced-features", label: "Power BI", icon: Settings },
+    { path: "/advanced-features", label: "Analytics", icon: Settings },
   ];
 
   // Use mobile app navigation if platform parameter exists

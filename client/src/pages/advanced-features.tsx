@@ -38,8 +38,8 @@ export default function AdvancedFeatures() {
     },
     {
       id: 'recommendations',
-      title: 'Power BI Integration',
-      description: 'Enterprise dashboard integration for institutional investors and NGOs',
+      title: 'Data Analytics Beta',
+      description: 'Early access to dashboard analytics for project developers and climate consultants',
       icon: <Brain className="w-6 h-6" />,
       component: <ProjectRecommendationEngine />,
       color: 'bg-purple-100 text-purple-800',
@@ -84,13 +84,13 @@ export default function AdvancedFeatures() {
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="w-6 h-6 text-primary" />
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
-              {isMobileApp ? "Power BI Mobile" : "Advanced Features"}
+              {isMobileApp ? "Analytics Beta" : "Advanced Features"}
             </h1>
           </div>
           <p className="text-sm md:text-base text-gray-600">
             {isMobileApp 
-              ? "Mobile access to Django-powered Power BI integration for West Africa renewable energy risk intelligence"
-              : "Experience next-generation investment tools powered by AI and machine learning"
+              ? "Beta access to Django-powered analytics for West Africa renewable energy risk assessment"
+              : "Early access to AI-powered investment tools and data visualization features"
             }
           </p>
         </div>
