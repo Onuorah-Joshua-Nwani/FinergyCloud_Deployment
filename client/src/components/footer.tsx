@@ -137,7 +137,7 @@ export default function Footer() {
                   return (
                     <li key={link.name}>
                       <Link href={link.href}>
-                        <span className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm cursor-pointer block py-1">
+                        <span className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm cursor-pointer block py-1 hover:bg-gray-800 px-2 rounded">
                           {link.name}
                         </span>
                       </Link>
@@ -151,7 +151,8 @@ export default function Footer() {
                     <li key={link.name}>
                       <button
                         onClick={() => openPlatformModal(link.type)}
-                        className="flex items-center gap-1 sm:gap-2 text-gray-400 hover:text-white transition-colors text-xs sm:text-sm cursor-pointer py-1 w-full text-left"
+                        className="flex items-center gap-1 sm:gap-2 text-gray-400 hover:text-white transition-colors text-xs sm:text-sm cursor-pointer py-1 w-full text-left hover:bg-gray-800 px-2 rounded min-h-[28px] touch-manipulation"
+                        aria-label={`Open ${link.name} platform feature`}
                       >
                         <IconComponent className="w-3 h-3 flex-shrink-0" />
                         <span className="truncate">{link.name}</span>
@@ -174,7 +175,8 @@ export default function Footer() {
                   <li key={link.name}>
                     <button
                       onClick={() => openResourcesModal(link.type)}
-                      className="flex items-center gap-1 sm:gap-2 text-gray-400 hover:text-white transition-colors text-xs sm:text-sm cursor-pointer py-1 w-full text-left"
+                      className="flex items-center gap-1 sm:gap-2 text-gray-400 hover:text-white transition-colors text-xs sm:text-sm cursor-pointer py-1 w-full text-left hover:bg-gray-800 px-2 rounded min-h-[28px] touch-manipulation"
+                      aria-label={`Open ${link.name} resource`}
                     >
                       <IconComponent className="w-3 h-3 flex-shrink-0" />
                       <span className="truncate">{link.name}</span>
@@ -190,17 +192,18 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="mb-4 sm:mb-6">
             <h4 className="text-xs sm:text-sm font-semibold mb-3 sm:mb-4 text-green-400">Legal & Compliance</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-2 sm:gap-3 lg:gap-4">
               {legalLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
                   <button
                     key={link.name}
                     onClick={() => openLegalModal(link.type)}
-                    className="flex items-center gap-1 sm:gap-2 text-xs text-gray-400 hover:text-white transition-colors p-2 sm:p-2 rounded hover:bg-gray-800 cursor-pointer text-left w-full"
+                    className="flex items-center gap-1 sm:gap-2 text-xs text-gray-400 hover:text-white transition-colors p-2 sm:p-3 rounded hover:bg-gray-800 cursor-pointer text-left w-full min-h-[36px] sm:min-h-[40px] touch-manipulation"
+                    aria-label={`View ${link.name} legal document`}
                   >
-                    <IconComponent className="w-3 h-3 flex-shrink-0" />
-                    <span className="truncate">{link.name}</span>
+                    <IconComponent className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                    <span className="truncate text-xs sm:text-sm">{link.name}</span>
                   </button>
                 );
               })}
@@ -208,21 +211,32 @@ export default function Footer() {
           </div>
           
           {/* Regulatory & Disclaimer */}
-          <div className="bg-gray-800 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
-            <h5 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3 text-yellow-400">Important Regulatory Information</h5>
-            <div className="text-xs text-gray-400 space-y-1 sm:space-y-2 leading-relaxed">
-              <p>
-                <strong>Investment Risk:</strong> FinergyCloud is an early-stage technology platform. All investment predictions and ESG scores are for informational purposes only and do not constitute financial advice. Past performance does not guarantee future results.
-              </p>
-              <p>
-                <strong>Data & AI:</strong> Our AI models achieve 94% accuracy through historical backtesting. Actual market conditions may vary. All data processing complies with GDPR and UK Data Protection regulations.
-              </p>
-              <p>
-                <strong>Regulatory Status:</strong> FinergyCloud is currently in pilot phase. We are committed to obtaining appropriate financial services authorizations as we scale operations in the UK and EU markets.
-              </p>
-              <p>
-                <strong>Environmental Claims:</strong> ESG scores and sustainability metrics are calculated using industry-standard methodologies. Carbon footprint calculations are estimates based on available project data.
-              </p>
+          <div className="bg-gray-800 rounded-lg p-3 sm:p-4 lg:p-6 mb-4 sm:mb-6 lg:mb-8">
+            <h5 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3 text-yellow-400 flex items-center gap-2">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0"></div>
+              Important Regulatory Information
+            </h5>
+            <div className="text-xs sm:text-sm text-gray-400 space-y-2 sm:space-y-3 leading-relaxed">
+              <div className="border-l-2 border-yellow-400/30 pl-3">
+                <p className="mb-1">
+                  <strong className="text-yellow-300">Investment Risk:</strong> FinergyCloud is an early-stage technology platform. All investment predictions and ESG scores are for informational purposes only and do not constitute financial advice.
+                </p>
+              </div>
+              <div className="border-l-2 border-blue-400/30 pl-3">
+                <p className="mb-1">
+                  <strong className="text-blue-300">Data & AI:</strong> Our AI models achieve 94% accuracy through historical backtesting. All data processing complies with GDPR and UK Data Protection regulations.
+                </p>
+              </div>
+              <div className="border-l-2 border-green-400/30 pl-3">
+                <p className="mb-1">
+                  <strong className="text-green-300">Regulatory Status:</strong> FinergyCloud is in pilot phase. We are committed to obtaining appropriate financial services authorizations.
+                </p>
+              </div>
+              <div className="border-l-2 border-purple-400/30 pl-3">
+                <p className="mb-1">
+                  <strong className="text-purple-300">Environmental Claims:</strong> ESG scores calculated using industry-standard methodologies. Carbon footprint calculations are estimates.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -233,11 +247,11 @@ export default function Footer() {
               <p className="text-xs mt-1">Registered in England & Wales. All rights reserved.</p>
             </div>
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2 sm:gap-4 text-xs text-gray-500">
-              <span>MVP Platform</span>
+              <span className="px-2 py-1 bg-gray-800 rounded text-green-400">MVP Platform</span>
               <span className="hidden sm:inline">•</span>
-              <span>Pilot Program 2025</span>
+              <span className="px-2 py-1 bg-gray-800 rounded text-blue-400">Pilot Program 2025</span>
               <span className="hidden sm:inline">•</span>
-              <span className="hidden sm:inline">Built with ❤️ for sustainable energy</span>
+              <span className="hidden sm:inline text-purple-400">Built with ❤️ for sustainable energy</span>
             </div>
           </div>
         </div>
