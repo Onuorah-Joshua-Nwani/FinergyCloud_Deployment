@@ -677,163 +677,146 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/finergycloud-features-complete-guide&title=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management",
     shareableText: "Complete Guide to FinergyCloud Features - Deep dive into XGBoost prediction engine, ESG scoring, and portfolio management tools",
     content: `Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
-Author: O.J. Nwani
-Date: January 14, 2025
 
-Introduction
+**Introduction**
 
 FinergyCloud offers a comprehensive suite of tools for renewable energy investment analysis. This guide walks through every feature, explaining how to use them and when they're most valuable.
 
-AI Prediction Engine
+**AI Prediction Engine**
 
-What It Does - Our machine learning model analyzes your project data and predicts success probability, risk factors, and expected returns with 94% accuracy.
+**What It Does** - Our machine learning model analyzes your project data and predicts success probability, risk factors, and expected returns with 94% accuracy.
 
-How to Use It - Input required includes project type (solar, wind, hydro, biomass, geothermal), location (GPS coordinates or nearest city), capacity (kW or MW), technology specifications, financial structure, and community engagement plan.
+**How to Use It** - Input required includes project type (solar, wind, hydro, biomass, geothermal), location (GPS coordinates or nearest city), capacity (kW or MW), technology specifications, financial structure, and community engagement plan.
 
-Output provided includes success probability (0-100%), risk assessment with top 5 risk factors, expected IRR range with confidence intervals, timeline predictions with potential delays, and comparison to similar projects.
+**Output provided** includes success probability (0-100%), risk assessment with top 5 risk factors, expected IRR range with confidence intervals, timeline predictions with potential delays, and comparison to similar projects.
 
-Best Use Cases include due diligence to validate projects before major investment, portfolio optimization to compare multiple opportunities, risk management to identify mitigation strategies, and fundraising to support investment proposals with data.
+**Best Use Cases** include due diligence to validate projects before major investment, portfolio optimization to compare multiple opportunities, risk management to identify mitigation strategies, and fundraising to support investment proposals with data.
 
-Example Output for 50MW Solar Farm, Kaduna State, Nigeria: Success Probability 84% (±6%), Expected IRR 15.2% - 18.7% (local currency), Top Risk is grid connection delays (23% chance), Timeline 18-24 months to commissioning, Ranking 7th out of 12 similar projects.
+**Example Output for 50MW Solar Farm, Kaduna State, Nigeria:** Success Probability 84% (±6%), Expected IRR 15.2% - 18.7% (local currency), Top Risk is grid connection delays (23% chance), Timeline 18-24 months to commissioning, Ranking 7th out of 12 similar projects.
 
-Pro Tips: Include as much community engagement data as possible, upload site visit reports for better accuracy, use actual quotes for equipment costs, specify realistic timeline expectations.
+**Pro Tips:** Include as much community engagement data as possible, upload site visit reports for better accuracy, use actual quotes for equipment costs, specify realistic timeline expectations.
 
-ESG Scoring System
+**ESG Scoring System**
 
-What It Does - Comprehensive environmental, social, and governance assessment calibrated for emerging market realities.
+**What It Does** - Comprehensive environmental, social, and governance assessment calibrated for emerging market realities.
 
-How It Works - Our ESG framework evaluates Environmental (40%) covering carbon impact, resource efficiency, and waste management. Social (40%) covering energy access, community development, and gender impact. Governance (20%) covering stakeholder engagement, transparency, and anti-corruption.
+**How It Works** - Our ESG framework evaluates Environmental (40%) covering carbon impact, resource efficiency, and waste management. Social (40%) covering energy access, community development, and gender impact. Governance (20%) covering stakeholder engagement, transparency, and anti-corruption.
 
-Scoring Scale: 9.0-10.0 means exceptional impact and governance. 8.0-8.9 means strong ESG performance. 7.0-7.9 means good ESG practices. 6.0-6.9 means adequate with improvement needed. Below 6.0 means significant ESG risks.
+**Scoring Scale:** 9.0-10.0 means exceptional impact and governance. 8.0-8.9 means strong ESG performance. 7.0-7.9 means good ESG practices. 6.0-6.9 means adequate with improvement needed. Below 6.0 means significant ESG risks.
 
-Key Metrics Tracked
+**Key Metrics Tracked**
 
-Environmental: CO2 avoided per year (tons), air quality improvement index, water impact assessment, biodiversity protection measures.
+**Environmental:** CO2 avoided per year (tons), air quality improvement index, water impact assessment, biodiversity protection measures.
 
-Social: People gaining energy access, local jobs created (direct/indirect), healthcare facilities powered, educational institutions served, women's economic empowerment.
+**Social:** People gaining energy access, local jobs created (direct/indirect), healthcare facilities powered, educational institutions served, women's economic empowerment.
 
-Governance: Community consultation quality, benefit-sharing transparency, anti-corruption measures, local regulatory compliance.
+**Governance:** Community consultation quality, benefit-sharing transparency, anti-corruption measures, local regulatory compliance.
 
-Using ESG Scores - Investment screening to filter opportunities by impact. Impact reporting to document development outcomes. Risk assessment because ESG risks often become operational risks. Stakeholder communication to demonstrate commitment to sustainability.
+**Using ESG Scores** - Investment screening to filter opportunities by impact. Impact reporting to document development outcomes. Risk assessment because ESG risks often become operational risks. Stakeholder communication to demonstrate commitment to sustainability.
 
-Regional Calibration - Scores adjust for local context: Nigeria focuses on security considerations and grid challenges. Kenya emphasizes mobile money integration and pastoralist impacts. Ghana focuses on mining remediation and coastal community effects.
+**Regional Calibration** - Scores adjust for local context: Nigeria focuses on security considerations and grid challenges. Kenya emphasizes mobile money integration and pastoralist impacts. Ghana focuses on mining remediation and coastal community effects.
 
-Multi-Currency IRR Calculator
+**Multi-Currency IRR Calculator**
 
-What It Does - Calculate investment returns in Nigerian Naira, British Pounds, or Euros with comprehensive currency risk analysis.
+**What It Does** - Calculate investment returns in Nigerian Naira, British Pounds, or Euros with comprehensive currency risk analysis.
 
-Currency Features
+**Currency Features**
 
-Supported Currencies: NGN (Nigerian Naira) ₦, GBP (British Pound) £, EUR (Euro) €.
+**Supported Currencies:** NGN (Nigerian Naira) ₦, GBP (British Pound) £, EUR (Euro) €.
 
-Exchange Rate Data: Real-time rates from reliable sources, historical volatility analysis, future rate projections, hedging cost estimates.
+**Exchange Rate Data:** Real-time rates from reliable sources, historical volatility analysis, future rate projections, hedging cost estimates.
 
-IRR Calculation Inputs
+**IRR Calculation Inputs**
 
-Project Financials: Initial CAPEX and OPEX, revenue projections, financing terms and costs, tax implications, depreciation schedules.
+**Project Financials:** Initial CAPEX and OPEX, revenue projections, financing terms and costs, tax implications, depreciation schedules.
 
-Risk Factors: Currency volatility, inflation differentials, political risk premiums, market competition.
+**Risk Factors:** Currency volatility, inflation differentials, political risk premiums, market competition.
 
-Advanced Features
+**Advanced Features**
 
-Sensitivity Analysis - See how IRR changes with key variables. Monte Carlo Simulation - Run 1,000+ scenarios for risk assessment. Currency Hedging - Model impact of hedging strategies. Real vs. Nominal - Account for inflation in all calculations.
+**Sensitivity Analysis** - See how IRR changes with key variables. **Monte Carlo Simulation** - Run 1,000+ scenarios for risk assessment. **Currency Hedging** - Model impact of hedging strategies. **Real vs. Nominal** - Account for inflation in all calculations.
 
-Best Practices - Always model currency risk for cross-border investments. Consider natural hedges (local revenue in local currency). Factor in currency conversion costs. Update models regularly with new exchange rates.
+**Best Practices** - Always model currency risk for cross-border investments. Consider natural hedges (local revenue in local currency). Factor in currency conversion costs. Update models regularly with new exchange rates.
 
-4. Portfolio Management Dashboard
+**Portfolio Management Dashboard**
 
-What It Does
-Track multiple projects, analyze risk distribution, and optimize your renewable energy portfolio performance.
+**What It Does** - Track multiple projects, analyze risk distribution, and optimize your renewable energy portfolio performance.
 
-Key Visualizations
-Portfolio Overview:
-Total capacity and investment
-Geographic distribution
-Technology mix breakdown
-Performance vs. projections
+**Key Visualizations**
 
-Risk Analysis:
-Risk heat map by project
-Correlation analysis
-Concentration risk indicators
-Stress testing results
+**Portfolio Overview:** Total capacity and investment, Geographic distribution, Technology mix breakdown, Performance vs. projections
 
-Performance Tracking:
-Actual vs. projected IRR
-ESG score distribution
-Operational status updates
-Key milestone tracking
+**Risk Analysis:** Risk heat map by project, Correlation analysis, Concentration risk indicators, Stress testing results
 
-Portfolio Optimization Features
-Diversification Analysis:
-Technology diversification score
-Geographic risk concentration
-Currency exposure analysis
-Timeline correlation assessment
+**Performance Tracking:** Actual vs. projected IRR, ESG score distribution, Operational status updates, Key milestone tracking
 
-Scenario Planning includes economic downturn impact, currency crisis modeling, regulatory change effects, and climate scenario analysis.
+**Portfolio Optimization Features**
 
-Reporting Capabilities include executive dashboards for high-level portfolio performance, detailed analytics for project-level deep dives, ESG reports for impact measurement and reporting, and risk reports for regular risk assessment updates.
+**Diversification Analysis:** Technology diversification score, Geographic risk concentration, Currency exposure analysis, Timeline correlation assessment
 
-Market Intelligence System
+**Scenario Planning** includes economic downturn impact, currency crisis modeling, regulatory change effects, and climate scenario analysis.
 
-What It Does - Real-time insights on regulatory changes, market trends, and investment opportunities across target markets.
+**Reporting Capabilities** include executive dashboards for high-level portfolio performance, detailed analytics for project-level deep dives, ESG reports for impact measurement and reporting, and risk reports for regular risk assessment updates.
 
-Data Sources include government policy announcements, regulatory filing updates, grid infrastructure developments, market price movements, and currency and economic indicators.
+**Market Intelligence System**
 
-Intelligence Categories
+**What It Does** - Real-time insights on regulatory changes, market trends, and investment opportunities across target markets.
 
-Regulatory Updates include feed-in tariff changes, new licensing requirements, environmental regulations, and import duty modifications.
+**Data Sources** include government policy announcements, regulatory filing updates, grid infrastructure developments, market price movements, and currency and economic indicators.
 
-Market Opportunities include new tender announcements, grid expansion plans, economic zone developments, and partnership opportunities.
+**Intelligence Categories**
 
-Risk Alerts include political instability indicators, currency volatility warnings, infrastructure disruptions, and security concerns.
+**Regulatory Updates** include feed-in tariff changes, new licensing requirements, environmental regulations, and import duty modifications.
 
-How to Use Market Intelligence includes daily briefings to stay current on key developments, opportunity screening to identify new investment prospects, risk monitoring for early warning for portfolio risks, and strategic planning for long-term market positioning.
+**Market Opportunities** include new tender announcements, grid expansion plans, economic zone developments, and partnership opportunities.
 
-Project Management Tools
+**Risk Alerts** include political instability indicators, currency volatility warnings, infrastructure disruptions, and security concerns.
 
-What It Does - Comprehensive project tracking from initial assessment through operations.
+**How to Use Market Intelligence** includes daily briefings to stay current on key developments, opportunity screening to identify new investment prospects, risk monitoring for early warning for portfolio risks, and strategic planning for long-term market positioning.
 
-Project Lifecycle Management
+**Project Management Tools**
 
-Development Phase includes feasibility study tracking, permit application progress, community engagement milestones, and financing negotiations.
+**What It Does** - Comprehensive project tracking from initial assessment through operations.
 
-Construction Phase includes EPC contractor performance, milestone completion tracking, budget vs. actual monitoring, and risk issue management.
+**Project Lifecycle Management**
 
-Operations Phase includes performance vs. projections, maintenance scheduling, community relationship management, and financial performance tracking.
+**Development Phase** includes feasibility study tracking, permit application progress, community engagement milestones, and financing negotiations.
 
-Collaboration Features include team access with multiple user roles and permissions, document management with centralized file storage, communication tools with built-in messaging and alerts, and third-party integration to connect with existing tools.
+**Construction Phase** includes EPC contractor performance, milestone completion tracking, budget vs. actual monitoring, and risk issue management.
 
-Advanced Analytics & Reporting
+**Operations Phase** includes performance vs. projections, maintenance scheduling, community relationship management, and financial performance tracking.
 
-What It Does - Deep-dive analytics and customizable reporting for sophisticated users.
+**Collaboration Features** include team access with multiple user roles and permissions, document management with centralized file storage, communication tools with built-in messaging and alerts, and third-party integration to connect with existing tools.
 
-Advanced Analytics includes predictive modeling for custom models for specific use cases, benchmarking to compare against industry standards, trend analysis for long-term performance patterns, and correlation studies to identify unexpected relationships.
+**Advanced Analytics and Reporting**
 
-Reporting Options
+**What It Does** - Deep-dive analytics and customizable reporting for sophisticated users.
 
-Standard Reports include monthly portfolio summaries, quarterly performance reviews, annual ESG impact reports, and risk assessment updates.
+**Advanced Analytics** includes predictive modeling for custom models for specific use cases, benchmarking to compare against industry standards, trend analysis for long-term performance patterns, and correlation studies to identify unexpected relationships.
 
-Custom Reports include investor presentations, board reporting packages, regulatory compliance filings, and development partner updates.
+**Reporting Options**
 
-Export and Integration includes data exports in CSV, Excel, and PDF formats, API access to integrate with existing systems, automated delivery to schedule regular reports, and white-label options for branded reports for clients.
+**Standard Reports** include monthly portfolio summaries, quarterly performance reviews, annual ESG impact reports, and risk assessment updates.
 
-Getting the Most from FinergyCloud
+**Custom Reports** include investor presentations, board reporting packages, regulatory compliance filings, and development partner updates.
 
-For New Users: Start with AI Prediction Engine for key projects. Explore ESG Scoring to understand impact metrics. Use IRR Calculator for financial modeling. Set up Portfolio Dashboard for ongoing tracking.
+**Export and Integration** includes data exports in CSV, Excel, and PDF formats, API access to integrate with existing systems, automated delivery to schedule regular reports, and white-label options for branded reports for clients.
 
-For Advanced Users: Leverage Market Intelligence for opportunity sourcing. Use Advanced Analytics for custom insights. Integrate via API with existing systems. Develop custom reporting workflows.
+**Getting the Most from FinergyCloud**
 
-Training and Support includes video tutorials with step-by-step feature walkthroughs, webinar series with monthly deep-dive sessions, documentation with comprehensive user guides, and support team with direct access to platform experts.
+**For New Users:** Start with AI Prediction Engine for key projects. Explore ESG Scoring to understand impact metrics. Use IRR Calculator for financial modeling. Set up Portfolio Dashboard for ongoing tracking.
 
-Feature Roadmap
+**For Advanced Users:** Leverage Market Intelligence for opportunity sourcing. Use Advanced Analytics for custom insights. Integrate via API with existing systems. Develop custom reporting workflows.
 
-2025 Enhancements include satellite data integration for real-time monitoring, enhanced mobile app with offline capabilities, automated ESG data collection, and expanded market coverage (Tanzania, Rwanda).
+**Training and Support** includes video tutorials with step-by-step feature walkthroughs, webinar series with monthly deep-dive sessions, documentation with comprehensive user guides, and support team with direct access to platform experts.
 
-2026 Developments include blockchain integration for transparent impact tracking, AI-powered market opportunity identification, automated compliance monitoring, and advanced risk prediction models.
+**Feature Roadmap**
 
-Questions about specific features? Our product team is available at features@finergycloud.com to discuss your needs and provide personalized training.
+**2025 Enhancements** include satellite data integration for real-time monitoring, enhanced mobile app with offline capabilities, automated ESG data collection, and expanded market coverage (Tanzania, Rwanda).
+
+**2026 Developments** include blockchain integration for transparent impact tracking, AI-powered market opportunity identification, automated compliance monitoring, and advanced risk prediction models.
+
+**Questions about specific features?** Our product team is available at features@finergycloud.com to discuss your needs and provide personalized training.
 `
   },
   {
@@ -856,10 +839,8 @@ Questions about specific features? Our product team is available at features@fin
     redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/building-finergycloud-mvp-2025&title=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025",
     shareableText: "Building FinergyCloud MVP: From Concept to Pilot Program in 2025 - Our startup journey developing AI-powered renewable energy investment platform",
     content: `Building FinergyCloud MVP: From Concept to Pilot Program in 2025
-Author: O.J. Nwani
-Date: January 12, 2025
 
-Introduction
+**Introduction**
 
 Three years ago I was in a cramped WeWork in London, trying to figure out why I'd just lost £50,000 on what should have been a straightforward solar project in Lagos. The spreadsheets all looked perfect. 18% IRR, solid developer, government backing. Should have been easy money.
 
@@ -869,7 +850,7 @@ The problem wasn't the technology or the team. It was that nobody could tell me 
 
 That failure taught me something important: if you want to invest in renewable energy in emerging markets, you need completely different tools than what exists today.
 
-The Early Days: Learning from Failures
+**The Early Days: Learning from Failures**
 
 In early 2022, we weren't building anything yet. We were just trying to understand why some projects succeeded while others crashed and burned. I spent months visiting failed solar farms, talking to engineers who'd been burned by bad investments, and interviewing local community leaders who'd been promised jobs that never materialized.
 
@@ -877,7 +858,7 @@ The patterns started to emerge. Projects failed because of things nobody was mea
 
 Meanwhile, the investment tools everyone was using were built for German solar farms or Texas wind projects. They assumed reliable grids, stable currencies, and predictable regulatory environments. None of that exists in the markets we wanted to serve.
 
-Building in Stealth Mode: The Best Decision We Made
+**Building in Stealth Mode: The Best Decision We Made**
 
 While other fintech companies were raising millions and posting on LinkedIn about their revolutionary platforms, we decided to keep our heads down and actually build something that worked.
 
@@ -887,78 +868,78 @@ Instead, we focused on one thing: building a system that could actually predict 
 
 The work was unglamorous. Most days involved cleaning messy datasets, debugging algorithms, or trying to figure out why our model was wrong about a wind farm in Kaduna. But it was necessary work.
 
-The Breakthrough: 94% Accuracy (Finally)
+**The Breakthrough: 94% Accuracy (Finally)**
 
 In late 2024, we finally had something to show for all those long nights. Our machine learning model could predict project success with 94% accuracy based on historical data from 200+ completed projects.
 
 This wasn't just a good number. It was a game-changer. For the first time, investors could look at a renewable energy project in an emerging market and get a reliable assessment of whether it would actually deliver the promised returns.
 
-The model looks at over 200 variables, but the key insight was understanding which factors actually matter. Grid stability is more important than peak sun hours. Community engagement scores predict long-term success better than initial financial projections. Local political stability matters more than national policies.
+The model looks at over 200 variables, but the key insight was understanding which factors actually matter. **Grid stability is more important than peak sun hours.** **Community engagement scores predict long-term success better than initial financial projections.** **Local political stability matters more than national policies.**
 
-What Makes Our Approach Different
+**What Makes Our Approach Different**
 
 Here's the thing nobody talks about: most investment platforms obsess over IRR calculations and payback periods. Which is fine if you're investing in German solar farms where everything works as expected.
 
 But in Nigeria? The real risk isn't your CAPEX/OPEX ratio. It's whether the local grid can actually handle your output. Or if the community will accept the project. Or if currency devaluation will kill your returns overnight.
 
-We built our platform around a simple idea: ESG factors aren't just nice-to-have metrics – they're predictive indicators of financial success. Projects that create local jobs, reduce community emissions, and engage with local stakeholders are more likely to hit their financial targets.
+We built our platform around a simple idea: **ESG factors aren't just nice-to-have metrics – they're predictive indicators of financial success.** Projects that create local jobs, reduce community emissions, and engage with local stakeholders are more likely to hit their financial targets.
 
 We also built our financial modeling to handle the realities of emerging market investing: currencies that fluctuate wildly, regulatory environments that change overnight, and infrastructure that might or might not exist when you need it.
 
-The MVP: What We've Built
+**The MVP: What We've Built**
 
 After three years of development, our MVP includes:
 
-AI-Powered Risk Assessment: Our core machine learning engine that evaluates projects across technical, financial, and social dimensions.
+**AI-Powered Risk Assessment:** Our core machine learning engine that evaluates projects across technical, financial, and social dimensions.
 
-Multi-Currency Financial Modeling: Built-in support for NGN, GBP, and EUR with real-time conversion and scenario planning for currency volatility.
+**Multi-Currency Financial Modeling:** Built-in support for NGN, GBP, and EUR with real-time conversion and scenario planning for currency volatility.
 
-ESG Impact Tracking: Comprehensive sustainability metrics that go beyond carbon reduction to include social and governance factors.
+**ESG Impact Tracking:** Comprehensive sustainability metrics that go beyond carbon reduction to include social and governance factors.
 
-Portfolio Analytics: Real-time dashboard showing performance across multiple projects and regions.
+**Portfolio Analytics:** Real-time dashboard showing performance across multiple projects and regions.
 
-Market Intelligence: Aggregated insights about renewable energy trends, policy changes, and investment opportunities.
+**Market Intelligence:** Aggregated insights about renewable energy trends, policy changes, and investment opportunities.
 
-Current Status: Ready for Pilot Program
+**Current Status: Ready for Pilot Program**
 
 We're now officially registered in the UK and ready to launch our pilot program. This isn't a beta test – it's a carefully planned rollout with selected partners who understand both the potential and the challenges of this market.
 
 We're looking for investors and renewable energy professionals who are serious about emerging market opportunities and want to be part of shaping how AI can transform investment decision-making in this sector.
 
-What's Next: 2025-2027 Roadmap
+**What's Next: 2025-2027 Roadmap**
 
 The MVP is just the beginning. Our roadmap includes some genuinely exciting developments:
 
-2025-2026: Integration with satellite data for real-time project monitoring and performance prediction. Imagine being able to assess solar panel efficiency from space or predict maintenance needs before equipment fails.
+**2025-2026:** Integration with satellite data for real-time project monitoring and performance prediction. Imagine being able to assess solar panel efficiency from space or predict maintenance needs before equipment fails.
 
-2026-2027: Blockchain integration for automated ESG compliance monitoring and transparent impact reporting. This could revolutionize how investors track and verify the social and environmental benefits of their investments.
+**2026-2027:** Blockchain integration for automated ESG compliance monitoring and transparent impact reporting. This could revolutionize how investors track and verify the social and environmental benefits of their investments.
 
-2027+: Expansion into other emerging markets and possibly other renewable technologies like energy storage and green hydrogen.
+**2027+:** Expansion into other emerging markets and possibly other renewable technologies like energy storage and green hydrogen.
 
-Lessons Learned: Building for Real Impact
+**Lessons Learned: Building for Real Impact**
 
 Three years of development taught us some hard lessons:
 
-Technology alone isn't enough. The best algorithms in the world are useless if they don't solve real problems for real people. We spent as much time understanding our users' workflows as we did optimizing our machine learning models.
+**Technology alone isn't enough.** The best algorithms in the world are useless if they don't solve real problems for real people. We spent as much time understanding our users' workflows as we did optimizing our machine learning models.
 
-Data quality matters more than data quantity. We turned down partnerships that would have given us more data but lower quality insights. Better to have fewer, more reliable data sources than vast amounts of noisy information.
+**Data quality matters more than data quantity.** We turned down partnerships that would have given us more data but lower quality insights. Better to have fewer, more reliable data sources than vast amounts of noisy information.
 
-Emerging markets require different approaches. Tools built for developed markets don't just need translation – they need fundamental redesign to work in environments with different infrastructure, regulatory frameworks, and risk profiles.
+**Emerging markets require different approaches.** Tools built for developed markets don't just need translation – they need fundamental redesign to work in environments with different infrastructure, regulatory frameworks, and risk profiles.
 
-The Bigger Picture: Why This Matters
+**The Bigger Picture: Why This Matters**
 
 Renewable energy investment in emerging markets isn't just a business opportunity – it's a necessity for global climate goals. But for too long, these investments have been hampered by inadequate risk assessment and limited access to quality information.
 
 If we can make it easier for investors to identify good opportunities and avoid bad ones, we can accelerate the deployment of clean energy where it's needed most. That's not just good business; it's essential for the planet.
 
-Join Our Pilot Program
+**Join Our Pilot Program**
 
 We're now accepting applications for our pilot program. We're particularly interested in working with:
 
-Investment funds focused on emerging market renewable energy
-Development finance institutions looking for better risk assessment tools
-Large corporations with sustainability commitments in these regions
-Renewable energy developers seeking investment or partnership opportunities
+**Investment funds** focused on emerging market renewable energy
+**Development finance institutions** looking for better risk assessment tools
+**Large corporations** with sustainability commitments in these regions
+**Renewable energy developers** seeking investment or partnership opportunities
 
 This is your chance to be part of something that could genuinely change how renewable energy investments are made in the markets that matter most for our climate future.
 
