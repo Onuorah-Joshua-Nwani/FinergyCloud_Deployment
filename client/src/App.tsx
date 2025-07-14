@@ -29,6 +29,9 @@ import WebsiteLanding from "@/pages/website/website-landing";
 import MobileLanding from "@/pages/mobile-app/mobile-landing";
 import NotFound from "@/pages/not-found";
 import ZoomControls from "@/components/zoom-controls-invisible";
+import MobileAppInstall from "@/components/mobile-app-install";
+import MobilePerformanceMonitor from "@/components/mobile-performance-monitor";
+import MobileToastContainer from "@/components/mobile-toast";
 
 
 function Router() {
@@ -79,6 +82,9 @@ function Router() {
           </Switch>
         </main>
         <ZoomControls />
+        <MobileAppInstall />
+        <MobilePerformanceMonitor />
+        <MobileToastContainer />
       </div>
     );
   }

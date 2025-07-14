@@ -2,6 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card";
+import PullToRefresh from "@/components/mobile-pull-to-refresh";
+import MobileLoadingSkeleton from "@/components/mobile-loading-skeleton";
+import MobileErrorBoundary from "@/components/mobile-error-boundary";
+import { useMobileOptimization } from "@/hooks/useMobileOptimization";
 import { 
   Calculator, 
   Folder, 
@@ -22,31 +26,33 @@ export default function Dashboard() {
   const urlParams = new URLSearchParams(window.location.search);
   const isMobileApp = urlParams.get('platform') === 'mobile';
 
-  const { data: projects, isLoading: isLoadingProjects } = useQuery<Project[]>({
+  const { deviceInfo, isOnline, isSlowConnection } = useMobileOptimization();
+
+  const { data: projects, isLoading: isLoadingProjects, error, refetch } = useQuery<Project[]>({
     queryKey: ["/api/projects"],
+    staleTime: isSlowConnection ? 10 * 60 * 1000 : 5 * 60 * 1000, // Longer cache for slow connections
+    retry: isOnline ? 3 : 0,
   });
 
+  const handleRefresh = async () => {
+    await refetch();
+  };
+
+  if (error && !isOnline) {
+    return <MobileErrorBoundary error={error} onRetry={handleRefresh} type="network" />;
+  }
+
+  if (error) {
+    return <MobileErrorBoundary error={error} onRetry={handleRefresh} type="api" />;
+  }
+
   if (isLoadingProjects) {
-    return (
-      <div className="py-4 md:py-6 lg:py-8">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-          <div className="animate-pulse">
-            <div className="h-6 md:h-8 bg-gray-200 rounded w-32 md:w-48 mb-2"></div>
-            <div className="h-3 md:h-4 bg-gray-200 rounded w-48 md:w-64 mb-6 md:mb-8"></div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {[...Array(2)].map((_, i) => (
-                <div key={i} className="h-64 md:h-80 bg-gray-200 rounded-xl"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <MobileLoadingSkeleton type="dashboard" />;
   }
 
   const recentProjects = projects?.slice(0, 2) || [];
 
-  return (
+  const dashboardContent = (
     <div className="min-h-screen bg-gray-50">
       <section className="py-4 md:py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
@@ -194,4 +200,15 @@ export default function Dashboard() {
       </section>
     </div>
   );
+
+  // For mobile app, wrap with pull-to-refresh
+  if (isMobileApp && deviceInfo.isMobile) {
+    return (
+      <PullToRefresh onRefresh={handleRefresh}>
+        {dashboardContent}
+      </PullToRefresh>
+    );
+  }
+
+  return dashboardContent;
 }
