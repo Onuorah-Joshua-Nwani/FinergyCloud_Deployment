@@ -31,28 +31,13 @@ export const blogArticles: BlogArticle[] = [
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/what-is-finergycloud-explained",
     linkedinUrl: "https://www.linkedin.com/pulse/what-finergycloud-simple-guide-ai-powered-renewable-oj-nwani",
-    content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
-
-\\title{What is FinergyCloud? A Simple Guide to AI-Powered Renewable Energy Investment}
-\\author{Your Name}
-\\date{January 14, 2025}
-
-\\begin{document}
-
-\\maketitle
-
-\\section{Introduction}
+    content: `What is FinergyCloud? A Simple Guide to AI-Powered Renewable Energy Investment
 
 If you're new to FinergyCloud, you might be wondering: what exactly do we do, and how can it help you?
 
 Let me explain it simply.
 
-\\section{The Problem We Solve}
+The Problem We Solve
 
 Imagine you want to invest in a solar farm in Nigeria or a wind project in Kenya. Traditional investment tools will show you beautiful spreadsheets with projected returns, but they can't tell you the most important thing: will this project actually work?
 
@@ -60,99 +45,97 @@ In emerging markets, renewable energy projects fail for reasons that have nothin
 
 Standard investment tools ignore these factors because they're designed for stable markets like Germany or the US. They assume things work the way they're supposed to work.
 
-\\section{What FinergyCloud Does}
+What FinergyCloud Does
 
 FinergyCloud is an AI-powered platform that predicts which renewable energy projects will succeed in emerging markets like Nigeria, Kenya, and Ghana.
 
 Our system analyzes over 200 factors including:
-\\begin{itemize}
-\\item Technical factors like solar irradiance, wind patterns, and grid capacity
-\\item Social factors like community engagement and local employment impact
-\\item Economic factors like currency stability, financing costs, and tariff structures
-\\item Political factors like regulatory environment and government stability
-\\item Environmental factors like ESG compliance, carbon impact, and water usage
-\\end{itemize}
+• Technical factors like solar irradiance, wind patterns, and grid capacity
+• Social factors like community engagement and local employment impact
+• Economic factors like currency stability, financing costs, and tariff structures
+• Political factors like regulatory environment and government stability
+• Environmental factors like ESG compliance, carbon impact, and water usage
 
-\\section{How Our AI Works (Simply Explained)}
+\How Our AI Works (Simply Explained)
 
 Think of our AI like a very smart advisor who has studied every renewable energy project in Africa for the past 10 years.
 
 When you input details about a new project, our AI compares it to similar projects and tells you:
-\\begin{itemize}
-\\item Success probability - what are the chances this project will meet its targets?
-\\item Risk assessment - what could go wrong and how likely is it?
-\\item IRR prediction - what returns can you realistically expect?
-\\item ESG scoring - how does this project impact the environment and community?
-\\end{itemize}
+\
+\• Success probability - what are the chances this project will meet its targets?
+\• Risk assessment - what could go wrong and how likely is it?
+\• IRR prediction - what returns can you realistically expect?
+\• ESG scoring - how does this project impact the environment and community?
+\
 
-Our AI has achieved 94\\% accuracy by learning from real project data, not theoretical models.
+Our AI has achieved 94\% accuracy by learning from real project data, not theoretical models.
 
-\\section{Who Uses FinergyCloud}
+\Who Uses FinergyCloud
 
-\\begin{itemize}
-\\item Project Developers validate projects before spending millions on development
-\\item Impact Investors make data-driven decisions about clean energy investments
-\\item Climate Consultants provide clients with accurate ESG and risk assessments
-\\item NGO Finance Teams evaluate community energy projects for maximum impact
-\\item Development Finance Institutions assess portfolio risk across multiple markets
-\\end{itemize}
+\
+\• Project Developers validate projects before spending millions on development
+\• Impact Investors make data-driven decisions about clean energy investments
+\• Climate Consultants provide clients with accurate ESG and risk assessments
+\• NGO Finance Teams evaluate community energy projects for maximum impact
+\• Development Finance Institutions assess portfolio risk across multiple markets
+\
 
-\\section{Key Features Explained}
+\Key Features Explained
 
-\\subsection{AI Prediction Engine}
+\AI Prediction Engine
 Our machine learning model analyzes your project data and provides success probability, risk factors, and expected returns.
 
-\\subsection{ESG Scoring System}
+\ESG Scoring System
 Comprehensive environmental, social, and governance assessment specifically designed for emerging market projects.
 
-\\subsection{Multi-Currency IRR Calculator}
+\Multi-Currency IRR Calculator
 Calculate returns in Nigerian Naira, British Pounds, or Euros with real-time currency risk analysis.
 
-\\subsection{Portfolio Management}
+\Portfolio Management
 Track multiple projects, analyze risk distribution, and optimize your renewable energy portfolio.
 
-\\subsection{Market Intelligence}
+\Market Intelligence
 Real-time insights on regulatory changes, market trends, and new opportunities across target markets.
 
-\\section{Why We Focus on Emerging Markets}
+\Why We Focus on Emerging Markets
 
 Most investment platforms focus on established markets where infrastructure is reliable and regulations are stable. But that's where the biggest opportunities in renewable energy actually exist.
 
 Countries like Nigeria, Kenya, and Ghana have:
-\\begin{itemize}
-\\item Massive energy gaps and abundant renewable resources
-\\item Growing middle classes creating increasing demand
-\\item Improving regulatory frameworks making investment possible
-\\item Strong government support for clean energy driving policy
-\\end{itemize}
+\
+\• Massive energy gaps and abundant renewable resources
+\• Growing middle classes creating increasing demand
+\• Improving regulatory frameworks making investment possible
+\• Strong government support for clean energy driving policy
+\
 
 The challenge is that traditional investment tools don't understand these markets. That's where FinergyCloud comes in.
 
-\\section{Getting Started}
+\Getting Started
 
 We're currently in closed beta with 10 users across Nigeria and Ghana. Our pilot program gives you access to:
-\\begin{itemize}
-\\item Full AI prediction engine
-\\item ESG scoring for all project types
-\\item Multi-currency financial modeling
-\\item Direct support from our team
-\\end{itemize}
+\
+\• Full AI prediction engine
+\• ESG scoring for all project types
+\• Multi-currency financial modeling
+\• Direct support from our team
+\
 
 If you're working on renewable energy projects in emerging markets, we'd love to hear from you.
 
-\\section{Next Steps}
+\Next Steps
 
 Ready to learn more? Here are some helpful next steps:
-\\begin{itemize}
-\\item Read our technical overview: \\textit{How FinergyCloud's AI Predicts Project Success}
-\\item Understand ESG scoring: \\textit{ESG Metrics That Actually Matter in Emerging Markets}
-\\item See our methodology: \\textit{Why Our AI Achieves 94\\% Accuracy}
-\\item Join our pilot program: Contact us for early access
-\\end{itemize}
+\
+\• Read our technical overview: \How FinergyCloud's AI Predicts Project Success
+\• Understand ESG scoring: \ESG Metrics That Actually Matter in Emerging Markets
+\• See our methodology: \Why Our AI Achieves 94\% Accuracy
+\• Join our pilot program: Contact us for early access
+\
 
 Questions? Reach out at hello@finergycloud.com - we're always happy to explain how our platform can help with your specific projects.
 
-\\end{document}
+\
 `
   },
 
@@ -170,43 +153,31 @@ Questions? Reach out at hello@finergycloud.com - we're always happy to explain h
     featured: false,
     mediumUrl: "https://medium.com/@finergycloud/how-ai-predicts-renewable-success",
     linkedinUrl: "https://www.linkedin.com/pulse/how-finergyclouds-ai-predicts-renewable-energy-project-chen",
-    content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
+    content: `How FinergyCloud's AI Predicts Renewable Energy Project Success
 
-\\title{How FinergyCloud's AI Predicts Renewable Energy Project Success}
-\\author{Your Name}
-\\date{January 14, 2025}
+A technical but accessible explanation of our machine learning methodology, training data, and why we achieve 94% accuracy in predicting project outcomes in emerging markets.
 
-\\begin{document}
+Introduction
 
-\\maketitle
-
-\\section{Introduction}
-
-When we tell people our AI can predict renewable energy project success with 94\\% accuracy, the first question is always: ``How?''
+When we tell people our AI can predict renewable energy project success with 94% accuracy, the first question is always: "How?"
 
 Let me walk you through our methodology, training data, and the technical innovations that make this possible.
 
-\\section{The Challenge: Predicting Success in Complex Markets}
+The Challenge: Predicting Success in Complex Markets
 
 Renewable energy projects in emerging markets fail for complex, interconnected reasons. Traditional financial models focus on technical specifications and basic economics, but they miss critical factors.
 
-\\begin{itemize}
-\\item Grid stability and connection challenges can delay projects for years
-\\item Community acceptance and local politics determine whether projects actually get built
-\\item Currency volatility and financing risks destroy projected returns
-\\item Regulatory changes and policy shifts change the rules overnight
-\\item Supply chain disruptions and logistics problems add massive costs
-\\item Environmental and social impacts create unexpected opposition
-\\end{itemize}
+Key challenges include:
+• Grid stability and connection challenges can delay projects for years
+• Community acceptance and local politics determine whether projects actually get built
+• Currency volatility and financing risks destroy projected returns
+• Regulatory changes and policy shifts change the rules overnight
+• Supply chain disruptions and logistics problems add massive costs
+• Environmental and social impacts create unexpected opposition
 
 Our AI needed to understand all these factors and their relationships.
 
-\\section{Our Training Dataset}
+Our Training Dataset
 
 We spent three years building the most comprehensive dataset of renewable energy projects in Sub-Saharan Africa.
 
@@ -302,7 +273,7 @@ If you're curious about our methodology or want to discuss how our AI can help w
 
 Our goal is to make AI-powered project assessment accessible to everyone working on renewable energy in emerging markets.
 
-\\end{document}
+\
 `
   },
 
@@ -321,43 +292,43 @@ Our goal is to make AI-powered project assessment accessible to everyone working
     mediumUrl: "https://medium.com/@finergycloud/renewable-energy-terminology-guide",
     linkedinUrl: "https://www.linkedin.com/pulse/renewable-energy-investment-terms-every-investor-michael-okafor",
     content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
+\
+\
+\
+\
+\
 
-\\title{Renewable Energy Investment Terms Every Investor Should Know}
-\\author{Your Name}
-\\date{January 14, 2025}
+\Renewable Energy Investment Terms Every Investor Should Know
+\Author: Your Name
+\Date: January 14, 2025
 
-\\begin{document}
+\
 
-\\maketitle
+\
 
-\\section{Introduction}
+\Introduction
 
 Entering the renewable energy investment space can feel overwhelming with all the technical jargon and industry-specific terms. Whether you're a seasoned investor new to clean energy or completely new to investment altogether, this guide will help you understand the key terminology.
 
-\\section{Financial Terms}
+\Financial Terms
 
-\\subsection{IRR (Internal Rate of Return)}
+\IRR (Internal Rate of Return)
 The annual percentage return you can expect from an investment, accounting for the time value of money. In renewable energy:
-\\begin{itemize}
-\\item Good IRR: 12-18\\% for emerging markets
-\\item Excellent IRR: 18\\%+ for emerging markets
-\\item Remember that higher IRR often means higher risk
-\\end{itemize}
+\
+\• Good IRR: 12-18\% for emerging markets
+\• Excellent IRR: 18\%+ for emerging markets
+\• Remember that higher IRR often means higher risk
+\
 
-\\textbf{Example:} A solar project with 15\\% IRR means your investment grows by 15\\% annually over the project lifetime.
+\Example: A solar project with 15\% IRR means your investment grows by 15\% annually over the project lifetime.
 
-\\subsection{LCOE (Levelized Cost of Energy)}
+\LCOE (Levelized Cost of Energy)
 The total cost of building and operating a power plant over its lifetime, divided by total energy output. Lower LCOE means cheaper electricity.
-\\begin{itemize}
-\\item Solar LCOE ranges \\$0.048-0.142/kWh globally
-\\item Wind LCOE ranges \\$0.033-0.176/kWh globally
-\\item In Nigeria, costs are often 2-3x higher due to infrastructure challenges
-\\end{itemize}
+\
+\• Solar LCOE ranges \\$0.048-0.142/kWh globally
+\• Wind LCOE ranges \\$0.033-0.176/kWh globally
+\• In Nigeria, costs are often 2-3x higher due to infrastructure challenges
+\
 
 NPV (Net Present Value) - Today's value of all future cash flows from a project, discounted for time and risk. Positive NPV means the project adds value. Negative NPV means the project destroys value. Higher NPV means better investment (all else equal).
 
@@ -365,16 +336,16 @@ CAPEX (Capital Expenditure) - Upfront costs to build the project: equipment, con
 
 OPEX (Operating Expenditure) - Ongoing costs to run the project: maintenance, insurance, security, administration. Solar OPEX runs $10-25/kW/year. Wind OPEX costs $30-60/kW/year. Remote locations increase OPEX significantly.
 
-\\section{Energy Market Terms}
+\Energy Market Terms
 
-\\subsection{PPA (Power Purchase Agreement)}
+\PPA (Power Purchase Agreement)
 Contract between power generator and buyer (utility, corporate, government) that specifies:
-\\begin{itemize}
-\\item Price per kWh
-\\item Contract duration (usually 10-25 years)
-\\item Power delivery terms
-\\item Payment guarantees
-\\end{itemize}
+\
+\• Price per kWh
+\• Contract duration (usually 10-25 years)
+\• Power delivery terms
+\• Payment guarantees
+\
 This is critical for project financing because banks want to see signed PPAs before lending.
 
 Feed-in Tariff (FiT) - Government-guaranteed price for renewable electricity, usually above market rates to encourage investment. In Nigeria, solar gets ₦30-35/kWh. In Kenya, rates are KSh 12-20/kWh depending on technology. The risk is that governments can change tariffs.
@@ -437,7 +408,7 @@ Want to learn more about how these concepts apply to specific markets like Niger
 
 Questions about any of these terms? Contact our team at education@finergycloud.com - we're here to help make renewable energy investment accessible to everyone.
 
-\\end{document}
+\
 `
   },
 
@@ -597,25 +568,25 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     mediumUrl: "https://medium.com/@finergycloud/complete-guide-finergycloud-features",
     linkedinUrl: "https://www.linkedin.com/pulse/complete-guide-finergycloud-features-ai-models-esg-james-mitchell",
     content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
+\
+\
+\
+\
+\
 
-\\title{Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management}
-\\author{Your Name}
-\\date{January 14, 2025}
+\Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
+\Author: Your Name
+\Date: January 14, 2025
 
-\\begin{document}
+\
 
-\\maketitle
+\
 
-\\section{Introduction}
+\Introduction
 
 FinergyCloud offers a comprehensive suite of tools for renewable energy investment analysis. This guide walks through every feature, explaining how to use them and when they're most valuable.
 
-\\section{AI Prediction Engine}
+\AI Prediction Engine
 
 What It Does - Our machine learning model analyzes your project data and predicts success probability, risk factors, and expected returns with 94% accuracy.
 
@@ -766,7 +737,7 @@ Feature Roadmap
 
 Questions about specific features? Our product team is available at features@finergycloud.com to discuss your needs and provide personalized training.
 
-\\end{document}
+\
 `
   },
   {
@@ -783,23 +754,23 @@ Questions about specific features? Our product team is available at features@fin
     mediumUrl: "https://medium.com/@finergycloud/building-finergycloud-mvp-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/building-finergycloud-mvp-concept-pilot-program-2025-oj-nwani",
     content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
+\
+\
+\
+\
+\
 
-\\title{Building FinergyCloud MVP: From Concept to Pilot Program in 2025}
-\\author{Your Name}
-\\date{January 12, 2025}
+\Building FinergyCloud MVP: From Concept to Pilot Program in 2025
+\Author: Your Name
+\Date: January 12, 2025
 
-\\begin{document}
+\
 
-\\maketitle
+\
 
-\\section{Introduction}
+\Introduction
 
-Three years ago I was in a cramped WeWork in London, trying to figure out why I'd just lost £50,000 on what should have been a straightforward solar project in Lagos. The spreadsheets all looked perfect. 18\\% IRR, solid developer, government backing. Should have been easy money.
+Three years ago I was in a cramped WeWork in London, trying to figure out why I'd just lost £50,000 on what should have been a straightforward solar project in Lagos. The spreadsheets all looked perfect. 18\% IRR, solid developer, government backing. Should have been easy money.
 
 Except the project failed spectacularly within 6 months.
 
@@ -807,7 +778,7 @@ The problem wasn't the technology or the team. It was that nobody could tell me 
 
 That failure taught me something important: if you want to invest in renewable energy in emerging markets, you need completely different tools than what exists today.
 
-\\section{The Early Days: Learning from Failures}
+\The Early Days: Learning from Failures
 
 In early 2022, we weren't building anything yet. We were just trying to understand why some projects succeeded while others crashed and burned. I spent months visiting failed solar farms, talking to engineers who'd been burned by bad investments, and interviewing local community leaders who'd been promised jobs that never materialized.
 
@@ -906,7 +877,7 @@ If you're interested in learning more about our pilot program or want to discuss
 
 *Your Name is the founder and CEO of FinergyCloud. Connect with them on LinkedIn for updates on our pilot program and insights about AI-powered renewable energy investment.*
 
-\\end{document}
+\
     `
   },
   {
@@ -923,25 +894,25 @@ If you're interested in learning more about our pilot program or want to discuss
     mediumUrl: "https://medium.com/@finergycloud/seeking-pilot-customers-finergycloud-launch-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/seeking-pilot-customers-finergyclouds-launch-strategy-oj-nwani",
     content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
+\
+\
+\
+\
+\
 
-\\title{Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025}
-\\author{Your Name}
-\\date{January 10, 2025}
+\Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
+\Author: Your Name
+\Date: January 10, 2025
 
-\\begin{document}
+\
 
-\\maketitle
+\
 
-\\section{Introduction}
+\Introduction
 
 After three years of development in stealth mode, we're ready to open our doors. But we're not doing a traditional product launch with flashy marketing campaigns and broad public availability. Instead, we're taking a deliberate, partnership-focused approach that puts our first customers at the center of everything we do.
 
-\\section{Why a Pilot Program Approach?}
+\Why a Pilot Program Approach?
 
 The renewable energy investment landscape is complex, and every investor has different needs, constraints, and objectives. A one-size-fits-all platform simply won't work in this space.
 
@@ -1372,7 +1343,7 @@ We're building the future of renewable energy investment intelligence. This road
 
 *This roadmap represents our current strategic thinking and will be updated regularly based on market feedback, technical developments, and business results. For questions about specific features or timeline details, connect with our Product Strategy Team on LinkedIn.*
 
-\\end{document}
+\
     `
   },
   {
@@ -1389,27 +1360,27 @@ We're building the future of renewable energy investment intelligence. This road
     mediumUrl: "https://medium.com/@finergycloud/xgboost-backtesting-validation-94-accuracy",
     linkedinUrl: "https://www.linkedin.com/pulse/xgboost-backtesting-validating-94-accuracy-historical-ai-team",
     content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
+\
+\
+\
+\
+\
 
-\\title{XGBoost Backtesting: Validating 94\\% Accuracy with Historical Data}
-\\author{Your Name}
-\\date{January 8, 2025}
+\XGBoost Backtesting: Validating 94\% Accuracy with Historical Data
+\Author: Your Name
+\Date: January 8, 2025
 
-\\begin{document}
+\
 
-\\maketitle
+\
 
-\\section{Introduction}
+\Introduction
 
 When we started FinergyCloud in 2022, one of our biggest challenges was proving that AI could actually improve renewable energy investment decisions. It's one thing to build machine learning models that look impressive in demos; it's another to demonstrate that they work in the real world with real investment outcomes.
 
-This article details our comprehensive backtesting methodology and the journey to achieving 94\\% prediction accuracy using three years of historical renewable energy project data across emerging markets.
+This article details our comprehensive backtesting methodology and the journey to achieving 94\% prediction accuracy using three years of historical renewable energy project data across emerging markets.
 
-\\section{The Challenge: Proving AI Value in Investment Analysis}
+\The Challenge: Proving AI Value in Investment Analysis
 
 Traditional renewable energy investment analysis relies heavily on financial modeling, technical specifications, and subjective assessments of regulatory and social factors. While these approaches have served the industry well, they have significant limitations.
 
@@ -1714,7 +1685,7 @@ As we continue to refine and improve our models, we're not just building better 
 
 *For technical questions about our backtesting methodology or access to detailed performance reports, contact our AI Research Team through LinkedIn or our technical blog.*
 
-\\end{document}
+\
     `
   },
   {
@@ -1731,31 +1702,31 @@ As we continue to refine and improve our models, we're not just building better 
     mediumUrl: "https://medium.com/@finergycloud/multi-currency-irr-modeling-emerging-markets",
     linkedinUrl: "https://www.linkedin.com/pulse/multi-currency-irr-modeling-building-financial-models-financial-team",
     content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
+\
+\
+\
+\
+\
 
-\\title{Multi-Currency IRR Modeling: How We Built Financial Models for Emerging Markets}
-\\author{Your Name}
-\\date{January 9, 2025}
+\Multi-Currency IRR Modeling: How We Built Financial Models for Emerging Markets
+\Author: Your Name
+\Date: January 9, 2025
 
-\\begin{document}
+\
 
-\\maketitle
+\
 
-\\section{Introduction}
+\Introduction
 
 Last year, I was trying to explain to a potential investor why our Lagos solar project needed a completely different financial model than the one they were using for their German wind farms. The conversation went something like this:
 
 ``Why can't you just convert everything to euros and run a standard IRR calculation?''
 
-``Because the naira lost 30\\% of its value against the dollar last year, your equipment costs are in USD, your revenue is in NGN, and your carbon credits are priced in EUR. A standard IRR calculation will give you a number, but it won't tell you anything useful about the actual risk.''
+``Because the naira lost 30\% of its value against the dollar last year, your equipment costs are in USD, your revenue is in NGN, and your carbon credits are priced in EUR. A standard IRR calculation will give you a number, but it won't tell you anything useful about the actual risk.''
 
 That conversation led to one of the most challenging technical projects we've tackled: building a multi-currency IRR modeling system that actually works for emerging market renewable energy investments.
 
-\\section{The Problem: Standard Models Are Useless Here}
+\The Problem: Standard Models Are Useless Here
 
 Every financial modeling tool I've used was designed for stable, developed markets. They make assumptions that just don't hold in places like Nigeria, Kenya, or Mexico:
 
@@ -2770,21 +2741,21 @@ As we launch our pilot program and begin working with real investors on actual i
     tags: ["IRR Analysis", "Currency Conversion", "Financial Modeling", "Global Markets", "MVP"],
     featured: false,
     content: `
-\\documentclass{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{amsmath}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
+\
+\
+\
+\
+\
 
-\\title{Multi-Currency IRR Modeling: Building for Global Markets}
-\\author{Your Name}
-\\date{January 4, 2025}
+\Multi-Currency IRR Modeling: Building for Global Markets
+\Author: Your Name
+\Date: January 4, 2025
 
-\\begin{document}
+\
 
-\\maketitle
+\
 
-\\section{Introduction}
+\Introduction
 
 When we started building FinergyCloud, one of the first technical challenges we encountered was seemingly simple: how do you calculate meaningful financial returns for renewable energy investments when projects are in Nigeria, investors are in London, and financing comes from multiple currencies?
 
@@ -2792,7 +2763,7 @@ Traditional IRR (Internal Rate of Return) calculators assume a single currency a
 
 This article takes you inside our technical approach to building a multi-currency financial modeling system that handles these complexities while remaining usable for real investment decisions.
 
-\\section{The Challenge: Why Single-Currency Models Don't Work}
+\The Challenge: Why Single-Currency Models Don't Work
 
 Most financial modeling tools were built for developed markets where currency volatility is relatively low and most transactions happen in a single currency. These assumptions break down quickly in emerging market renewable energy:
 
@@ -3052,7 +3023,7 @@ As emerging market currencies evolve and global capital markets develop new tool
 
 *The FinergyCloud Financial Engineering Team includes former investment banking professionals, quantitative analysts, and emerging market specialists. For questions about multi-currency modeling or custom analysis needs, connect with our team on LinkedIn.*
 
-\\end{document}
+\
     `
   },
   {
