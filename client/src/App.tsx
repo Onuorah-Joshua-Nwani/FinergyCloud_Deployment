@@ -93,7 +93,6 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/platform" component={Solutions} />
         <Route path="/blog" component={Blog} />
-        <Route path="/beta" component={Subscribe} />
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />

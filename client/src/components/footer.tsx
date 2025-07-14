@@ -13,7 +13,7 @@ export default function Footer() {
   const [platformModalOpen, setPlatformModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState<'privacy' | 'terms' | 'cookies' | 'compliance' | 'data-protection' | 'risk-disclosure'>('privacy');
   const [selectedResource, setSelectedResource] = useState<'docs' | 'api' | 'help' | 'webinars' | 'research' | 'case-studies'>('docs');
-  const [selectedPlatformFeature, setSelectedPlatformFeature] = useState<'dashboard' | 'projects' | 'ai-model' | 'esg-scoring' | 'portfolio' | 'market-insights'>('dashboard');
+  const [selectedPlatformFeature, setSelectedPlatformFeature] = useState<'dashboard' | 'projects' | 'ai-model' | 'esg-scoring' | 'portfolio' | 'market-insights' | 'beta-signup'>('dashboard');
 
   const openLegalModal = (documentType: typeof selectedDocument) => {
     setSelectedDocument(documentType);
@@ -43,7 +43,7 @@ export default function Footer() {
     { name: "ESG Scoring", type: "esg-scoring" as const, icon: TreePine },
     { name: "Portfolio Management", type: "portfolio" as const, icon: TrendingUp },
     { name: "Market Insights", type: "market-insights" as const, icon: Calculator },
-    { name: "Join Beta Program", href: "/beta" }
+    { name: "Join Beta Program", type: "beta-signup" as const, icon: Users }
   ];
 
   const resourcesLinks = [

@@ -20,7 +20,7 @@ import {
 interface PlatformAccessModalProps {
   isOpen: boolean;
   onClose: () => void;
-  platformFeature: 'dashboard' | 'projects' | 'ai-model' | 'esg-scoring' | 'portfolio' | 'market-insights';
+  platformFeature: 'dashboard' | 'projects' | 'ai-model' | 'esg-scoring' | 'portfolio' | 'market-insights' | 'beta-signup';
 }
 
 export default function PlatformAccessModal({ isOpen, onClose, platformFeature }: PlatformAccessModalProps) {
@@ -138,6 +138,26 @@ export default function PlatformAccessModal({ isOpen, onClose, platformFeature }
           action: 'View Insights',
           link: '/market-insights',
           requiresAuth: true
+        };
+
+      case 'beta-signup':
+        return {
+          title: 'Join Beta Program',
+          icon: Users,
+          status: 'Open',
+          access: 'Free Access',
+          description: 'Get early access to FinergyCloud\'s AI-powered renewable energy investment platform',
+          features: [
+            'Full MVP platform access during beta',
+            'AI prediction models with 94% accuracy',
+            'Complete ESG scoring framework',
+            'Multi-currency IRR calculator',
+            'Direct founder feedback channel',
+            'Priority access to full platform launch'
+          ],
+          action: 'Join Program',
+          link: 'mailto:beta@finergycloud.com?subject=Beta Program Application',
+          requiresAuth: false
         };
 
       default:
