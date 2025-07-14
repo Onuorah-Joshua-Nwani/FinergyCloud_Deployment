@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🚀 FinergyCloud Startup Script"
+echo "🚀 FinergyCloud Run Button Startup"
 echo "Working directory: $(pwd)"
 echo "Node version: $(node --version)"
 
@@ -9,10 +9,9 @@ echo "Node version: $(node --version)"
 export NODE_ENV=development
 export PORT=5000
 
-# Kill any existing processes
-pkill -f "tsx.*server" 2>/dev/null || true
-pkill -f "node.*server" 2>/dev/null || true
-sleep 2
+# Make sure robust-start.js is executable
+chmod +x robust-start.js
 
-# Start the server directly
-exec npx tsx server/index.ts
+# Start the server using the robust startup script
+echo "🔄 Starting server with robust startup script..."
+exec node robust-start.js
