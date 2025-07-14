@@ -210,37 +210,37 @@ export default function PlatformAccessModal({ isOpen, onClose, platformFeature }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-3">
-            <IconComponent className="w-6 h-6 text-blue-600" />
-            {feature.title}
+          <DialogTitle className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg">
+            <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
+            <span className="truncate">{feature.title}</span>
           </DialogTitle>
-          <DialogDescription className="flex items-center justify-between">
-            <span>{feature.description}</span>
-            <div className="flex gap-2">
-              <Badge className={getStatusColor(feature.status)}>
+          <DialogDescription className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
+            <span className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.description}</span>
+            <div className="flex gap-2 flex-wrap">
+              <Badge className={`${getStatusColor(feature.status)} text-xs whitespace-nowrap`}>
                 {feature.status}
               </Badge>
-              <Badge variant="outline" className="text-xs">
+              <Badge variant="outline" className="text-xs whitespace-nowrap">
                 {feature.access}
               </Badge>
             </div>
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Features List */}
           <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Key Features</CardTitle>
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="text-base sm:text-lg">Key Features</CardTitle>
             </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
+            <CardContent className="pt-0">
+              <ul className="space-y-2 sm:space-y-3">
                 {feature.features.map((featureItem, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                    <span className="text-gray-700">{featureItem}</span>
+                  <li key={index} className="flex items-start gap-2 sm:gap-3">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{featureItem}</span>
                   </li>
                 ))}
               </ul>
@@ -249,13 +249,13 @@ export default function PlatformAccessModal({ isOpen, onClose, platformFeature }
 
           {/* Access Information */}
           {feature.requiresAuth && (
-            <Card className="bg-blue-50">
-              <CardContent className="pt-4">
-                <div className="flex items-center gap-3">
-                  <Lock className="w-5 h-5 text-blue-600" />
+            <Card className="bg-blue-50 border-blue-200">
+              <CardContent className="p-3 sm:p-4">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-blue-900">Authentication Required</h4>
-                    <p className="text-blue-800 text-sm">
+                    <h4 className="font-semibold text-blue-900 text-sm sm:text-base">Authentication Required</h4>
+                    <p className="text-blue-800 text-xs sm:text-sm mt-1 leading-relaxed">
                       This feature requires a FinergyCloud account. Join our pilot program for access.
                     </p>
                   </div>
@@ -265,13 +265,13 @@ export default function PlatformAccessModal({ isOpen, onClose, platformFeature }
           )}
 
           {feature.status === 'Coming Soon' && (
-            <Card className="bg-amber-50">
-              <CardContent className="pt-4">
-                <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-amber-600" />
+            <Card className="bg-amber-50 border-amber-200">
+              <CardContent className="p-3 sm:p-4">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-amber-900">In Development</h4>
-                    <p className="text-amber-800 text-sm">
+                    <h4 className="font-semibold text-amber-900 text-sm sm:text-base">In Development</h4>
+                    <p className="text-amber-800 text-xs sm:text-sm mt-1 leading-relaxed">
                       We're actively building this feature. Expected availability: {feature.access}
                     </p>
                   </div>
@@ -281,29 +281,29 @@ export default function PlatformAccessModal({ isOpen, onClose, platformFeature }
           )}
 
           {/* Action Buttons */}
-          <div className="flex justify-between items-center pt-4 border-t">
-            <Button variant="outline" onClick={onClose}>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between sm:items-center pt-4 border-t">
+            <Button variant="outline" onClick={onClose} className="w-full sm:w-auto min-h-[44px] sm:min-h-[40px] touch-manipulation">
               Close
             </Button>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               {feature.requiresAuth && (
                 <Link href="/beta">
-                  <Button variant="outline">
-                    <Users className="w-4 h-4 mr-2" />
-                    Join Pilot Program
+                  <Button variant="outline" className="w-full sm:w-auto min-h-[44px] sm:min-h-[40px] touch-manipulation">
+                    <Users className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">Join Pilot Program</span>
                   </Button>
                 </Link>
               )}
-              <Button onClick={handleAccess} className="bg-blue-600 hover:bg-blue-700">
+              <Button onClick={handleAccess} className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto min-h-[44px] sm:min-h-[40px] touch-manipulation">
                 {feature.link.startsWith('mailto:') ? (
                   <>
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    {feature.action}
+                    <ExternalLink className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">{feature.action}</span>
                   </>
                 ) : (
                   <>
-                    <IconComponent className="w-4 h-4 mr-2" />
-                    {feature.action}
+                    <IconComponent className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">{feature.action}</span>
                   </>
                 )}
               </Button>
