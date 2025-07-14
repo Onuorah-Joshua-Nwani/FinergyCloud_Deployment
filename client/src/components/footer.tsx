@@ -31,19 +31,19 @@ export default function Footer() {
   };
   const companyLinks = [
     { name: "About Us", href: "/about" },
-    { name: "Platform", href: "/platform" },
     { name: "Blog & Research", href: "/blog" },
-    { name: "Beta Program", href: "/beta" },
     { name: "Contact", href: "/contact" }
   ];
 
   const platformLinks = [
+    { name: "Platform Overview", href: "/platform" },
     { name: "Investment Dashboard", type: "dashboard" as const, icon: BarChart3 },
     { name: "Project Analytics", type: "projects" as const, icon: FolderOpen },
     { name: "AI Predictions", type: "ai-model" as const, icon: Brain },
     { name: "ESG Scoring", type: "esg-scoring" as const, icon: TreePine },
     { name: "Portfolio Management", type: "portfolio" as const, icon: TrendingUp },
-    { name: "Market Insights", type: "market-insights" as const, icon: Calculator }
+    { name: "Market Insights", type: "market-insights" as const, icon: Calculator },
+    { name: "Join Beta Program", href: "/beta" }
   ];
 
   const resourcesLinks = [
@@ -131,18 +131,34 @@ export default function Footer() {
             <h4 className="text-sm font-semibold mb-4 text-green-400">Platform</h4>
             <ul className="space-y-2">
               {platformLinks.map((link) => {
-                const IconComponent = link.icon;
-                return (
-                  <li key={link.name}>
-                    <button
-                      onClick={() => openPlatformModal(link.type)}
-                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm cursor-pointer py-1 w-full text-left"
-                    >
-                      <IconComponent className="w-3 h-3" />
-                      {link.name}
-                    </button>
-                  </li>
-                );
+                // Handle direct links (Platform Overview, Beta Program)
+                if ('href' in link) {
+                  return (
+                    <li key={link.name}>
+                      <Link href={link.href}>
+                        <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer block py-1">
+                          {link.name}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                }
+                // Handle modal links (platform features)
+                if ('type' in link && link.icon) {
+                  const IconComponent = link.icon;
+                  return (
+                    <li key={link.name}>
+                      <button
+                        onClick={() => openPlatformModal(link.type)}
+                        className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm cursor-pointer py-1 w-full text-left"
+                      >
+                        <IconComponent className="w-3 h-3" />
+                        {link.name}
+                      </button>
+                    </li>
+                  );
+                }
+                return null;
               })}
             </ul>
           </div>
