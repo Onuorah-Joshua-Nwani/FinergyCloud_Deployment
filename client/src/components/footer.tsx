@@ -1,9 +1,18 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import SocialLinks from "./social-links";
 import PlatformSwitcher from "./platform-switcher";
-import { Leaf, MapPin, Mail, Phone, Shield, FileText, Scale } from "lucide-react";
+import LegalModal from "./legal-modal";
+import { Leaf, MapPin, Mail, Phone, Shield, FileText, Scale, Cookie, Database, Lock } from "lucide-react";
 
 export default function Footer() {
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [selectedDocument, setSelectedDocument] = useState<'privacy' | 'terms' | 'cookies' | 'compliance' | 'data-protection' | 'risk-disclosure'>('privacy');
+
+  const openLegalModal = (documentType: typeof selectedDocument) => {
+    setSelectedDocument(documentType);
+    setLegalModalOpen(true);
+  };
   const companyLinks = [
     { name: "About Us", href: "/about" },
     { name: "Solutions", href: "/solutions" },
@@ -32,12 +41,12 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { name: "Privacy Policy", href: "/privacy", icon: Shield },
-    { name: "Terms of Service", href: "/terms", icon: FileText },
-    { name: "Cookie Policy", href: "/cookies", icon: FileText },
-    { name: "Compliance", href: "/compliance", icon: Scale },
-    { name: "Data Protection", href: "/data-protection", icon: Shield },
-    { name: "Risk Disclosure", href: "/risk-disclosure", icon: FileText }
+    { name: "Privacy Policy", type: "privacy" as const, icon: Shield },
+    { name: "Terms of Service", type: "terms" as const, icon: FileText },
+    { name: "Cookie Policy", type: "cookies" as const, icon: Cookie },
+    { name: "Compliance", type: "compliance" as const, icon: Scale },
+    { name: "Data Protection", type: "data-protection" as const, icon: Lock },
+    { name: "Risk Disclosure", type: "risk-disclosure" as const, icon: Database }
   ];
 
   return (
@@ -143,12 +152,14 @@ export default function Footer() {
               {legalLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
-                  <Link key={link.name} href={link.href}>
-                    <span className="flex items-center gap-2 text-xs text-gray-400 hover:text-white transition-colors p-2 rounded hover:bg-gray-800 cursor-pointer">
-                      <IconComponent className="w-3 h-3" />
-                      {link.name}
-                    </span>
-                  </Link>
+                  <button
+                    key={link.name}
+                    onClick={() => openLegalModal(link.type)}
+                    className="flex items-center gap-2 text-xs text-gray-400 hover:text-white transition-colors p-2 rounded hover:bg-gray-800 cursor-pointer"
+                  >
+                    <IconComponent className="w-3 h-3" />
+                    {link.name}
+                  </button>
                 );
               })}
             </div>
@@ -189,6 +200,13 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Legal Modal */}
+      <LegalModal 
+        isOpen={legalModalOpen}
+        onClose={() => setLegalModalOpen(false)}
+        documentType={selectedDocument}
+      />
     </footer>
   );
 }
