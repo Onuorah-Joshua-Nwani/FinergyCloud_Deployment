@@ -573,148 +573,67 @@ Track multiple projects, analyze risk distribution, and optimize your renewable 
 - Currency exposure analysis
 - Timeline correlation assessment
 
-**Scenario Planning**:
-- Economic downturn impact
-- Currency crisis modeling
-- Regulatory change effects
-- Climate scenario analysis
+Scenario Planning includes economic downturn impact, currency crisis modeling, regulatory change effects, and climate scenario analysis.
 
-### Reporting Capabilities
-**Executive Dashboards**: High-level portfolio performance
-**Detailed Analytics**: Project-level deep dives
-**ESG Reports**: Impact measurement and reporting
-**Risk Reports**: Regular risk assessment updates
+Reporting Capabilities include executive dashboards for high-level portfolio performance, detailed analytics for project-level deep dives, ESG reports for impact measurement and reporting, and risk reports for regular risk assessment updates.
 
-## 5. Market Intelligence System
+Market Intelligence System
 
-### What It Does
-Real-time insights on regulatory changes, market trends, and investment opportunities across target markets.
+What It Does - Real-time insights on regulatory changes, market trends, and investment opportunities across target markets.
 
-### Data Sources
-- Government policy announcements
-- Regulatory filing updates
-- Grid infrastructure developments
-- Market price movements
-- Currency and economic indicators
+Data Sources include government policy announcements, regulatory filing updates, grid infrastructure developments, market price movements, and currency and economic indicators.
 
-### Intelligence Categories
-**Regulatory Updates**:
-- Feed-in tariff changes
-- New licensing requirements
-- Environmental regulations
-- Import duty modifications
+Intelligence Categories
 
-**Market Opportunities**:
-- New tender announcements
-- Grid expansion plans
-- Economic zone developments
-- Partnership opportunities
+Regulatory Updates include feed-in tariff changes, new licensing requirements, environmental regulations, and import duty modifications.
 
-**Risk Alerts**:
-- Political instability indicators
-- Currency volatility warnings
-- Infrastructure disruptions
-- Security concerns
+Market Opportunities include new tender announcements, grid expansion plans, economic zone developments, and partnership opportunities.
 
-### How to Use Market Intelligence
-- **Daily briefings**: Stay current on key developments
-- **Opportunity screening**: Identify new investment prospects
-- **Risk monitoring**: Early warning for portfolio risks
-- **Strategic planning**: Long-term market positioning
+Risk Alerts include political instability indicators, currency volatility warnings, infrastructure disruptions, and security concerns.
 
-## 6. Project Management Tools
+How to Use Market Intelligence includes daily briefings to stay current on key developments, opportunity screening to identify new investment prospects, risk monitoring for early warning for portfolio risks, and strategic planning for long-term market positioning.
 
-### What It Does
-Comprehensive project tracking from initial assessment through operations.
+Project Management Tools
 
-### Project Lifecycle Management
-**Development Phase**:
-- Feasibility study tracking
-- Permit application progress
-- Community engagement milestones
-- Financing negotiations
+What It Does - Comprehensive project tracking from initial assessment through operations.
 
-**Construction Phase**:
-- EPC contractor performance
-- Milestone completion tracking
-- Budget vs. actual monitoring
-- Risk issue management
+Project Lifecycle Management
 
-**Operations Phase**:
-- Performance vs. projections
-- Maintenance scheduling
-- Community relationship management
-- Financial performance tracking
+Development Phase includes feasibility study tracking, permit application progress, community engagement milestones, and financing negotiations.
 
-### Collaboration Features
-- **Team access**: Multiple user roles and permissions
-- **Document management**: Centralized file storage
-- **Communication tools**: Built-in messaging and alerts
-- **Third-party integration**: Connect with existing tools
+Construction Phase includes EPC contractor performance, milestone completion tracking, budget vs. actual monitoring, and risk issue management.
 
-## 7. Advanced Analytics & Reporting
+Operations Phase includes performance vs. projections, maintenance scheduling, community relationship management, and financial performance tracking.
 
-### What It Does
-Deep-dive analytics and customizable reporting for sophisticated users.
+Collaboration Features include team access with multiple user roles and permissions, document management with centralized file storage, communication tools with built-in messaging and alerts, and third-party integration to connect with existing tools.
 
-### Advanced Analytics
-**Predictive Modeling**: Custom models for specific use cases
-**Benchmarking**: Compare against industry standards
-**Trend Analysis**: Long-term performance patterns
-**Correlation Studies**: Identify unexpected relationships
+Advanced Analytics & Reporting
 
-### Reporting Options
-**Standard Reports**:
-- Monthly portfolio summaries
-- Quarterly performance reviews
-- Annual ESG impact reports
-- Risk assessment updates
+What It Does - Deep-dive analytics and customizable reporting for sophisticated users.
 
-**Custom Reports**:
-- Investor presentations
-- Board reporting packages
-- Regulatory compliance filings
-- Development partner updates
+Advanced Analytics includes predictive modeling for custom models for specific use cases, benchmarking to compare against industry standards, trend analysis for long-term performance patterns, and correlation studies to identify unexpected relationships.
 
-### Export and Integration
-- **Data exports**: CSV, Excel, PDF formats
-- **API access**: Integrate with existing systems
-- **Automated delivery**: Schedule regular reports
-- **White-label options**: Branded reports for clients
+Reporting Options
 
-## Getting the Most from FinergyCloud
+Standard Reports include monthly portfolio summaries, quarterly performance reviews, annual ESG impact reports, and risk assessment updates.
 
-### For New Users
-1. Start with AI Prediction Engine for key projects
-2. Explore ESG Scoring to understand impact metrics
-3. Use IRR Calculator for financial modeling
-4. Set up Portfolio Dashboard for ongoing tracking
+Custom Reports include investor presentations, board reporting packages, regulatory compliance filings, and development partner updates.
 
-### For Advanced Users
-1. Leverage Market Intelligence for opportunity sourcing
-2. Use Advanced Analytics for custom insights
-3. Integrate via API with existing systems
-4. Develop custom reporting workflows
+Export and Integration includes data exports in CSV, Excel, and PDF formats, API access to integrate with existing systems, automated delivery to schedule regular reports, and white-label options for branded reports for clients.
 
-### Training and Support
-- **Video tutorials**: Step-by-step feature walkthroughs
-- **Webinar series**: Monthly deep-dive sessions
-- **Documentation**: Comprehensive user guides
-- **Support team**: Direct access to platform experts
+Getting the Most from FinergyCloud
 
-## Feature Roadmap
+For New Users: Start with AI Prediction Engine for key projects. Explore ESG Scoring to understand impact metrics. Use IRR Calculator for financial modeling. Set up Portfolio Dashboard for ongoing tracking.
 
-**2025 Enhancements**:
-- Satellite data integration for real-time monitoring
-- Enhanced mobile app with offline capabilities
-- Automated ESG data collection
-- Expanded market coverage (Tanzania, Rwanda)
+For Advanced Users: Leverage Market Intelligence for opportunity sourcing. Use Advanced Analytics for custom insights. Integrate via API with existing systems. Develop custom reporting workflows.
 
-**2026 Developments**:
-- Blockchain integration for transparent impact tracking
-- AI-powered market opportunity identification
-- Automated compliance monitoring
-- Advanced risk prediction models
+Training and Support includes video tutorials with step-by-step feature walkthroughs, webinar series with monthly deep-dive sessions, documentation with comprehensive user guides, and support team with direct access to platform experts.
+
+Feature Roadmap
+
+2025 Enhancements include satellite data integration for real-time monitoring, enhanced mobile app with offline capabilities, automated ESG data collection, and expanded market coverage (Tanzania, Rwanda).
+
+2026 Developments include blockchain integration for transparent impact tracking, AI-powered market opportunity identification, automated compliance monitoring, and advanced risk prediction models.
 
 Questions about specific features? Our product team is available at features@finergycloud.com to discuss your needs and provide personalized training.
 `
@@ -857,7 +776,7 @@ If you're interested in learning more about our pilot program or want to discuss
     mediumUrl: "https://medium.com/@finergycloud/seeking-pilot-customers-finergycloud-launch-2025",
     linkedinUrl: "https://www.linkedin.com/pulse/seeking-pilot-customers-finergyclouds-launch-strategy-oj-nwani",
     content: `
-# Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
+Seeking Pilot Customers: FinergyCloud's Launch Strategy for 2025
 
 After three years of development in stealth mode, we're ready to open our doors. But we're not doing a traditional product launch with flashy marketing campaigns and broad public availability. Instead, we're taking a deliberate, partnership-focused approach that puts our first customers at the center of everything we do.
 
@@ -883,31 +802,19 @@ Investment Professionals with Emerging Market Focus
 
 If you're already investing in renewable energy projects in Africa, Southeast Asia, or Latin America, you understand the challenges we're trying to solve. You know how difficult it can be to assess project risks when data is scarce and local conditions are complex.
 
-We're particularly interested in working with:
-- Development finance institutions with renewable energy mandates
-- Impact investment funds focused on climate solutions
-- Family offices with sustainability commitments
-- Corporate venture arms of energy companies
+We're particularly interested in working with development finance institutions with renewable energy mandates, impact investment funds focused on climate solutions, family offices with sustainability commitments, and corporate venture arms of energy companies.
 
 Renewable Energy Developers Seeking Capital
 
 Project developers often struggle to present their opportunities in ways that resonate with international investors. Our platform can help bridge this gap by providing standardized risk assessments and impact metrics that investors understand and trust.
 
-We're looking for developers with:
-- Existing project pipelines in emerging markets
-- Commitment to high ESG standards
-- Willingness to share project data for continuous platform improvement
-- Interest in long-term partnership beyond just our pilot program
+We're looking for developers with existing project pipelines in emerging markets, commitment to high ESG standards, willingness to share project data for continuous platform improvement, and interest in long-term partnership beyond just our pilot program.
 
 Financial Advisors and Consultants
 
 Investment advisors who work with clients interested in sustainable investing face the challenge of evaluating opportunities in markets where traditional due diligence methods fall short.
 
-We're seeking advisors who:
-- Have clients interested in emerging market renewable energy
-- Understand the importance of ESG integration in investment analysis
-- Are willing to provide feedback on user experience and workflow integration
-- Can help us understand how our platform fits into broader investment processes
+We're seeking advisors who have clients interested in emerging market renewable energy, understand the importance of ESG integration in investment analysis, are willing to provide feedback on user experience and workflow integration, and can help us understand how our platform fits into broader investment processes.
 
 What Pilot Partners Get
 
@@ -1274,45 +1181,21 @@ Success Metrics and Milestones
 
 Investment Requirements and Funding Strategy
 
-2025 Funding Needs: $6M Series A
-- Team expansion: 60% (engineering, customer success, business development)
-- Technology development: 25% (platform enhancement, API development)
-- Market expansion: 10% (geographic expansion, partnership development)
-- Operations and infrastructure: 5%
+2025 Funding Needs: $6M Series A includes team expansion 60% (engineering, customer success, business development), technology development 25% (platform enhancement, API development), market expansion 10% (geographic expansion, partnership development), operations and infrastructure 5%.
 
-2026 Funding Needs: $15M Series B
-- Advanced technology development: 50% (satellite integration, AI advancement)
-- International expansion: 30% (new market entry, local partnerships)
-- Team scaling: 15% (specialized technical talent, regional teams)
-- Infrastructure and security: 5%
+2026 Funding Needs: $15M Series B includes advanced technology development 50% (satellite integration, AI advancement), international expansion 30% (new market entry, local partnerships), team scaling 15% (specialized technical talent, regional teams), infrastructure and security 5%.
 
-2027 Funding Needs: $30M Series C
-- Blockchain development and deployment: 40%
-- Global market expansion: 35%
-- Strategic acquisitions and partnerships: 20%
-- Advanced R&D for next-generation features: 5%
+2027 Funding Needs: $30M Series C includes blockchain development and deployment 40%, global market expansion 35%, strategic acquisitions and partnerships 20%, advanced R&D for next-generation features 5%.
 
 Looking Beyond 2027: Long-Term Vision
 
 While this roadmap focuses on our immediate three-year plan, we're also thinking about the longer-term evolution of renewable energy investment:
 
-2028-2030: Global Platform Leadership
-- Expansion into all major renewable energy markets worldwide
-- Integration with global carbon markets and climate finance mechanisms
-- Advanced AI capabilities approaching human expert-level analysis
-- Platform ecosystem supporting the entire renewable energy investment lifecycle
+2028-2030: Global Platform Leadership includes expansion into all major renewable energy markets worldwide, integration with global carbon markets and climate finance mechanisms, advanced AI capabilities approaching human expert-level analysis, platform ecosystem supporting the entire renewable energy investment lifecycle.
 
-Technology Evolution
-- Quantum computing applications for complex optimization problems
-- Advanced robotics integration for automated project monitoring
-- Virtual and augmented reality tools for remote project assessment
-- Internet of Things (IoT) integration for real-time equipment monitoring
+Technology Evolution includes quantum computing applications for complex optimization problems, advanced robotics integration for automated project monitoring, virtual and augmented reality tools for remote project assessment, Internet of Things (IoT) integration for real-time equipment monitoring.
 
-Market Evolution
-- Integration with emerging carbon removal and geoengineering technologies
-- Expansion into space-based solar power and other breakthrough technologies
-- Support for climate adaptation and resilience investment analysis
-- Integration with global climate finance and development frameworks
+Market Evolution includes integration with emerging carbon removal and geoengineering technologies, expansion into space-based solar power and other breakthrough technologies, support for climate adaptation and resilience investment analysis, integration with global climate finance and development frameworks.
 
 Conclusion: Building the Future of Renewable Energy Investment
 
@@ -1343,7 +1226,7 @@ We're building the future of renewable energy investment intelligence. This road
     mediumUrl: "https://medium.com/@finergycloud/xgboost-backtesting-validation-94-accuracy",
     linkedinUrl: "https://www.linkedin.com/pulse/xgboost-backtesting-validating-94-accuracy-historical-ai-team",
     content: `
-# XGBoost Backtesting: Validating 94% Accuracy with Historical Data
+XGBoost Backtesting: Validating 94% Accuracy with Historical Data
 
 When we started FinergyCloud in 2022, one of our biggest challenges was proving that AI could actually improve renewable energy investment decisions. It's one thing to build machine learning models that look impressive in demos; it's another to demonstrate that they work in the real world with real investment outcomes.
 
@@ -1351,7 +1234,7 @@ This article details our comprehensive backtesting methodology and the journey t
 
 The Challenge: Proving AI Value in Investment Analysis
 
-Traditional renewable energy investment analysis relies heavily on financial modeling, technical specifications, and subjective assessments of regulatory and social factors. While these approaches have served the industry well, they have significant limitations:
+Traditional renewable energy investment analysis relies heavily on financial modeling, technical specifications, and subjective assessments of regulatory and social factors. While these approaches have served the industry well, they have significant limitations.
 
 Data Inconsistency: Different analysts weight factors differently, leading to inconsistent investment decisions.
 
@@ -1369,53 +1252,25 @@ Project Universe
 
 Our backtesting dataset includes 847 renewable energy projects across 12 emerging market countries, spanning solar, wind, and small hydro technologies from 2020 to 2024. This represents approximately $12.3 billion in total project value.
 
-Geographic Distribution:
-- Sub-Saharan Africa: 342 projects (Nigeria, Kenya, Ghana, South Africa)
-- Southeast Asia: 289 projects (Philippines, Thailand, Vietnam, Indonesia)
-- Latin America: 216 projects (Mexico, Colombia, Brazil, Chile)
+Geographic Distribution: Sub-Saharan Africa includes 342 projects (Nigeria, Kenya, Ghana, South Africa). Southeast Asia includes 289 projects (Philippines, Thailand, Vietnam, Indonesia). Latin America includes 216 projects (Mexico, Colombia, Brazil, Chile).
 
-Technology Breakdown:
-- Solar PV: 456 projects (54%)
-- Wind: 267 projects (32%)
-- Small Hydro: 124 projects (14%)
+Technology Breakdown: Solar PV includes 456 projects (54%). Wind includes 267 projects (32%). Small Hydro includes 124 projects (14%).
 
-Project Size Range:
-- Small scale (1-10 MW): 387 projects
-- Medium scale (10-50 MW): 312 projects  
-- Large scale (50+ MW): 148 projects
+Project Size Range: Small scale (1-10 MW) includes 387 projects. Medium scale (10-50 MW) includes 312 projects. Large scale (50+ MW) includes 148 projects.
 
 Data Sources and Variables
 
-For each project, we collected data across 200+ variables grouped into six major categories:
+For each project, we collected data across 200+ variables grouped into six major categories.
 
-Technical Specifications (45 variables):
-- Technology type and manufacturer specifications
-- Capacity factors and generation profiles
-- Grid connection and transmission infrastructure
-- Equipment performance and maintenance history
+Technical Specifications (45 variables) includes technology type and manufacturer specifications, capacity factors and generation profiles, grid connection and transmission infrastructure, and equipment performance and maintenance history.
 
-Financial Metrics (38 variables):
-- Capital expenditure and financing structure
-- Operating costs and revenue projections
-- Currency exposure and hedging arrangements
-- Power purchase agreement terms
+Financial Metrics (38 variables) includes capital expenditure and financing structure, operating costs and revenue projections, currency exposure and hedging arrangements, and power purchase agreement terms.
 
-Regulatory Environment (42 variables):
-- Policy stability and government support
-- Permitting timeline and complexity
-- Tariff structures and grid access rules
-- Environmental and social compliance requirements
+Regulatory Environment (42 variables) includes policy stability and government support, permitting timeline and complexity, tariff structures and grid access rules, and environmental and social compliance requirements.
 
-Social and Community Factors (35 variables):
-- Community engagement and acceptance levels
-- Local employment and economic impact
-- Land use and displacement considerations
-- Stakeholder relationship quality
+Social and Community Factors (35 variables) includes community engagement and acceptance levels, local employment and economic impact, land use and displacement considerations, and stakeholder relationship quality.
 
-Environmental Conditions (28 variables):
-- Resource availability and variability
-- Environmental impact assessments
-- Climate and weather pattern analysis
+Environmental Conditions (28 variables) includes resource availability and variability, environmental impact assessments, and climate and weather pattern analysis.
 - Grid stability and load profile matching
 
 Market Context (12 variables):
@@ -1494,18 +1349,9 @@ Hyperparameter Optimization
 
 We used Bayesian optimization to tune hyperparameters:
 
-Key Parameters Optimized:
-- Learning rate: 0.05 (optimal)
-- Max depth: 8 (optimal)
-- Number of estimators: 1,247 (optimal)
-- Subsample ratio: 0.8 (optimal)
-- Feature fraction: 0.85 (optimal)
+Key Parameters Optimized: Learning rate 0.05 (optimal), max depth 8 (optimal), number of estimators 1,247 (optimal), subsample ratio 0.8 (optimal), feature fraction 0.85 (optimal).
 
-Optimization Process:
-- 500 optimization trials using Optuna framework
-- 5-fold cross-validation for each trial
-- Early stopping to prevent overfitting
-- Validation on held-out geographic regions
+Optimization Process: 500 optimization trials using Optuna framework, 5-fold cross-validation for each trial, early stopping to prevent overfitting, validation on held-out geographic regions.
 
 Backtesting Methodology
 
@@ -1522,42 +1368,19 @@ Performance Metrics
 
 We evaluated models using multiple metrics relevant to investment decision-making:
 
-Classification Metrics:
-- Accuracy: Overall prediction correctness
-- Precision: True positive rate (successful predictions that were actually successful)
-- Recall: Sensitivity (percentage of successful projects correctly identified)
-- F1-Score: Harmonic mean of precision and recall
-- AUC-ROC: Area under receiver operating characteristic curve
+Classification Metrics include accuracy for overall prediction correctness, precision for true positive rate (successful predictions that were actually successful), recall for sensitivity (percentage of successful projects correctly identified), F1-Score for harmonic mean of precision and recall, and AUC-ROC for area under receiver operating characteristic curve.
 
-Financial Metrics:
-- Sharpe Ratio: Risk-adjusted returns of model-guided investment strategy
-- Maximum Drawdown: Largest portfolio decline during backtesting period
-- Information Ratio: Excess returns relative to benchmark volatility
-- Calmar Ratio: Annual return divided by maximum drawdown
+Financial Metrics include Sharpe Ratio for risk-adjusted returns of model-guided investment strategy, maximum drawdown for largest portfolio decline during backtesting period, information ratio for excess returns relative to benchmark volatility, and Calmar ratio for annual return divided by maximum drawdown.
 
 Results: 94% Accuracy Achievement
 
-Primary Performance Metrics:
-- Overall Accuracy: 94.2%
-- Precision: 92.8%
-- Recall: 95.1%
-- F1-Score: 93.9%
-- AUC-ROC: 0.97
+Primary Performance Metrics: Overall Accuracy 94.2%, Precision 92.8%, Recall 95.1%, F1-Score 93.9%, AUC-ROC 0.97.
 
-Geographic Performance Consistency:
-- Sub-Saharan Africa: 93.8% accuracy
-- Southeast Asia: 94.1% accuracy
-- Latin America: 94.7% accuracy
+Geographic Performance Consistency: Sub-Saharan Africa 93.8% accuracy, Southeast Asia 94.1% accuracy, Latin America 94.7% accuracy.
 
-Technology-Specific Performance:
-- Solar PV: 95.1% accuracy
-- Wind: 93.2% accuracy
-- Small Hydro: 93.8% accuracy
+Technology-Specific Performance: Solar PV 95.1% accuracy, Wind 93.2% accuracy, Small Hydro 93.8% accuracy.
 
-Project Size Performance:
-- Small scale (1-10 MW): 92.9% accuracy
-- Medium scale (10-50 MW): 94.8% accuracy
-- Large scale (50+ MW): 95.1% accuracy
+Project Size Performance: Small scale (1-10 MW) 92.9% accuracy, Medium scale (10-50 MW) 94.8% accuracy, Large scale (50+ MW) 95.1% accuracy.
 
 Feature Importance Analysis
 
@@ -1587,16 +1410,9 @@ Stress Testing
 
 We tested model performance under various challenging conditions:
 
-Market Stress Scenarios:
-- Economic recession periods (2020 COVID impact)
-- Policy change periods (feed-in tariff modifications)
-- Technology price volatility (solar panel cost changes)
-- Currency crisis periods (emerging market volatility)
+Market Stress Scenarios: Economic recession periods (2020 COVID impact), policy change periods (feed-in tariff modifications), technology price volatility (solar panel cost changes), currency crisis periods (emerging market volatility).
 
-Model Robustness Results:
-- Maintained >90% accuracy during market stress periods
-- Performance degradation was gradual and predictable
-- Recovery to full accuracy within 3-6 months of stress period end
+Model Robustness Results: Maintained >90% accuracy during market stress periods, performance degradation was gradual and predictable, recovery to full accuracy within 3-6 months of stress period end.
 
 Geographic Generalization
 
@@ -1626,27 +1442,15 @@ Investment Strategy Backtesting
 
 We simulated an investment strategy based on model recommendations:
 
-Strategy Rules:
-- Invest only in projects with >80% predicted success probability
-- Weight investments by confidence level
-- Diversify across technologies and geographies
-- Rebalance quarterly based on new predictions
+Strategy Rules: Invest only in projects with >80% predicted success probability, weight investments by confidence level, diversify across technologies and geographies, rebalance quarterly based on new predictions.
 
-Financial Results (2020-2024):
-- Annual Return: 16.8% (vs. 11.2% for random selection)
-- Sharpe Ratio: 1.34 (vs. 0.67 for random selection)
-- Maximum Drawdown: 8.3% (vs. 23.7% for random selection)
-- Success Rate: 94.2% of investments met or exceeded projections
+Financial Results (2020-2024): Annual Return 16.8% (vs. 11.2% for random selection), Sharpe Ratio 1.34 (vs. 0.67 for random selection), Maximum Drawdown 8.3% (vs. 23.7% for random selection), Success Rate 94.2% of investments met or exceeded projections.
 
 Risk-Adjusted Performance
 
 The model's most significant value comes from risk reduction:
 
-Risk Metrics:
-- Portfolio volatility reduced by 47%
-- Tail risk (95% VaR) reduced by 62%
-- Correlation with market factors reduced by 38%
-- Downside deviation reduced by 53%
+Risk Metrics: Portfolio volatility reduced by 47%, tail risk (95% VaR) reduced by 62%, correlation with market factors reduced by 38%, downside deviation reduced by 53%.
 
 This risk reduction is particularly valuable for institutional investors with strict risk management requirements.
 
@@ -1748,7 +1552,7 @@ As we continue to refine and improve our models, we're not just building better 
     mediumUrl: "https://medium.com/@finergycloud/multi-currency-irr-modeling-emerging-markets",
     linkedinUrl: "https://www.linkedin.com/pulse/multi-currency-irr-modeling-building-financial-models-financial-team",
     content: `
-# Multi-Currency IRR Modeling: How We Built Financial Models for Emerging Markets
+Multi-Currency IRR Modeling: How We Built Financial Models for Emerging Markets
 
 Last year, I was trying to explain to a potential investor why our Lagos solar project needed a completely different financial model than the one they were using for their German wind farms. The conversation went something like this:
 
