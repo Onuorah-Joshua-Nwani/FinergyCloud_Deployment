@@ -20,21 +20,58 @@ import {
   MapPin,
   Calendar,
   Star,
-  CheckCircle
+  CheckCircle,
+  Sun,
+  Wind,
+  Droplets
 } from "lucide-react";
 
 export default function MobileBusinessDashboard() {
   // Real FinergyCloud business metrics for renewable energy investment platform
-  const businessMetrics = {
-    portfolioValue: 2850000,
-    activeProjects: 12,
-    monthlyROI: 15.2,
-    esgScore: 8.4,
-    totalCapacity: "285 MW",
-    co2Avoided: "142,000 tons",
-    jobsCreated: 1250,
-    investmentPipeline: "$45M"
-  };
+  const businessMetrics = [
+    {
+      title: "Portfolio Value",
+      value: "$2.85M",
+      icon: DollarSign,
+      color: "text-green-600",
+      bgColor: "bg-green-50"
+    },
+    {
+      title: "Active Projects",
+      value: "12",
+      icon: Folder,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50"
+    },
+    {
+      title: "Monthly ROI",
+      value: "15.2%",
+      icon: TrendingUp,
+      color: "text-purple-600",
+      bgColor: "bg-purple-50"
+    },
+    {
+      title: "ESG Score",
+      value: "8.4/10",
+      icon: Leaf,
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50"
+    },
+    {
+      title: "Total Capacity",
+      value: "285 MW",
+      icon: Zap,
+      color: "text-yellow-600",
+      bgColor: "bg-yellow-50"
+    },
+    {
+      title: "CO2 Avoided",
+      value: "142K tons",
+      icon: Shield,
+      color: "text-teal-600",
+      bgColor: "bg-teal-50"
+    }
+  ];
 
   // Professional renewable energy projects
   const recentProjects = [
@@ -48,7 +85,9 @@ export default function MobileBusinessDashboard() {
       roi: "16.8%",
       esg: 8.9,
       investment: "$12M",
-      progress: 85
+      progress: 85,
+      icon: Sun,
+      color: "text-orange-600"
     },
     {
       id: 2,
@@ -60,7 +99,9 @@ export default function MobileBusinessDashboard() {
       roi: "14.2%",
       esg: 8.1,
       investment: "$18M",
-      progress: 65
+      progress: 65,
+      icon: Wind,
+      color: "text-blue-600"
     },
     {
       id: 3,
@@ -72,232 +113,163 @@ export default function MobileBusinessDashboard() {
       roi: "17.5%",
       esg: 8.7,
       investment: "$8M",
-      progress: 25
+      progress: 25,
+      icon: Droplets,
+      color: "text-cyan-600"
     }
   ];
 
-  const quickActions = [
+  // Platform features
+  const platformFeatures = [
     {
-      title: "New Project Assessment",
-      description: "AI-powered project feasibility analysis",
+      title: "AI Predictions",
+      description: "94% accuracy XGBoost models",
       icon: Brain,
-      href: "/ai-model?platform=mobile",
-      color: "bg-purple-500",
-      badge: "94% Accuracy"
+      link: "/ai-model"
     },
     {
-      title: "ESG Risk Scoring",
-      description: "Environmental impact assessment",
-      icon: Globe,
-      href: "/esg-scoring?platform=mobile",
-      color: "bg-green-500",
-      badge: "Real-time"
+      title: "ESG Scoring",
+      description: "Real-time ESG risk assessment",
+      icon: Leaf,
+      link: "/esg-scoring"
     },
     {
-      title: "Financial Modeling",
-      description: "Multi-currency IRR calculations",
+      title: "IRR Calculator",
+      description: "Multi-currency financial modeling",
       icon: Calculator,
-      href: "/irr-calculator?platform=mobile",
-      color: "bg-blue-500",
-      badge: "NGN/GBP/EUR"
+      link: "/irr-calculator"
     },
     {
-      title: "Portfolio Analytics",
-      description: "Investment performance tracking",
+      title: "Market Insights",
+      description: "West Africa renewable energy trends",
+      icon: Globe,
+      link: "/market-insights"
+    },
+    {
+      title: "Project Management",
+      description: "Portfolio tracking and analytics",
+      icon: Folder,
+      link: "/project-management"
+    },
+    {
+      title: "KPI Dashboard",
+      description: "Real-time performance metrics",
       icon: BarChart3,
-      href: "/kpi?platform=mobile",
-      color: "bg-orange-500",
-      badge: "Live Data"
+      link: "/kpi"
     }
   ];
-
-  const kpiMetrics = [
-    { 
-      label: "Portfolio Value", 
-      value: `$${(businessMetrics.portfolioValue / 1000000).toFixed(1)}M`, 
-      icon: DollarSign, 
-      color: "text-green-600",
-      change: "+12.5%"
-    },
-    { 
-      label: "Active Projects", 
-      value: businessMetrics.activeProjects.toString(), 
-      icon: Folder, 
-      color: "text-blue-600",
-      change: "+3 new"
-    },
-    { 
-      label: "Monthly ROI", 
-      value: `${businessMetrics.monthlyROI}%`, 
-      icon: TrendingUp, 
-      color: "text-purple-600",
-      change: "+2.1%"
-    },
-    { 
-      label: "ESG Score", 
-      value: businessMetrics.esgScore.toString(), 
-      icon: Leaf, 
-      color: "text-green-600",
-      change: "Excellent"
-    },
-    { 
-      label: "Total Capacity", 
-      value: businessMetrics.totalCapacity, 
-      icon: Zap, 
-      color: "text-yellow-600",
-      change: "+45 MW"
-    },
-    { 
-      label: "CO₂ Avoided", 
-      value: `${(parseInt(businessMetrics.co2Avoided.replace(/,/g, '')) / 1000).toFixed(0)}K tons`, 
-      icon: Shield, 
-      color: "text-green-600",
-      change: "This year"
-    }
-  ];
-
-  const ProjectCard = ({ project }: { project: any }) => (
-    <div className="bg-white rounded-lg p-4 shadow-sm border">
-      <div className="flex items-start justify-between mb-3">
-        <div>
-          <h3 className="font-semibold text-gray-900 text-sm">{project.name}</h3>
-          <p className="text-xs text-gray-600 flex items-center">
-            <MapPin className="w-3 h-3 mr-1" />
-            {project.location}
-          </p>
-        </div>
-        <div className="text-right">
-          <div className="text-lg font-bold text-gray-900">{project.roi}</div>
-          <div className="text-xs text-gray-600">Expected ROI</div>
-        </div>
-      </div>
-      
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-sm text-gray-600">{project.type}</span>
-        <span className="text-sm font-medium text-gray-900">{project.capacity}</span>
-      </div>
-      
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-xs text-gray-600">Progress</span>
-        <span className="text-xs font-medium text-gray-900">{project.progress}%</span>
-      </div>
-      
-      <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
-        <div 
-          className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-          style={{ width: `${project.progress}%` }}
-        />
-      </div>
-      
-      <div className="flex items-center justify-between">
-        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-          project.status === 'Active' 
-            ? 'bg-green-100 text-green-700'
-            : project.status === 'Development'
-            ? 'bg-yellow-100 text-yellow-700'
-            : 'bg-gray-100 text-gray-700'
-        }`}>
-          {project.status}
-        </span>
-        <span className="text-sm font-medium text-gray-900">{project.investment}</span>
-      </div>
-    </div>
-  );
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                FinergyCloud Business Dashboard
-              </h1>
-              <p className="text-gray-600">
-                AI-powered renewable energy investment platform
-              </p>
-            </div>
-            <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-              Live Platform
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4">
+      {/* Header */}
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-slate-900 mb-2">
+          FinergyCloud Business Dashboard
+        </h1>
+        <p className="text-slate-600 text-sm">
+          Renewable Energy Investment Platform • Nigeria & Ghana
+        </p>
+      </div>
 
-        {/* Key Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
-          {kpiMetrics.map((metric, index) => (
-            <div key={index} className="bg-white rounded-lg p-4 shadow-sm border">
-              <div className="flex items-center justify-between mb-2">
-                <metric.icon className={`w-5 h-5 ${metric.color}`} />
-                <span className="text-xs text-gray-500">{metric.change}</span>
+      {/* Key Metrics Grid */}
+      <div className="grid grid-cols-2 gap-3 mb-6">
+        {businessMetrics.map((metric, index) => (
+          <div key={index} className="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+            <div className="flex items-center justify-between mb-2">
+              <div className={`p-2 rounded-lg ${metric.bgColor}`}>
+                <metric.icon className={`w-4 h-4 ${metric.color}`} />
               </div>
-              <div className="text-lg font-bold text-gray-900">{metric.value}</div>
-              <div className="text-xs text-gray-600">{metric.label}</div>
+            </div>
+            <h3 className="text-lg font-semibold text-slate-900">{metric.value}</h3>
+            <p className="text-xs text-slate-500">{metric.title}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Platform Features */}
+      <div className="mb-6">
+        <h2 className="text-lg font-semibold text-slate-900 mb-3">Platform Features</h2>
+        <div className="grid grid-cols-2 gap-3">
+          {platformFeatures.map((feature, index) => (
+            <Link key={index} href={feature.link}>
+              <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:border-blue-300 transition-colors">
+                <div className="flex items-center mb-2">
+                  <feature.icon className="w-5 h-5 text-blue-600 mr-2" />
+                  <h3 className="text-sm font-medium text-slate-900">{feature.title}</h3>
+                </div>
+                <p className="text-xs text-slate-500">{feature.description}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Active Projects */}
+      <div className="mb-6">
+        <h2 className="text-lg font-semibold text-slate-900 mb-3">Active Projects</h2>
+        <div className="space-y-3">
+          {recentProjects.map((project, index) => (
+            <div key={index} className="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center">
+                  <project.icon className={`w-5 h-5 ${project.color} mr-3`} />
+                  <div>
+                    <h3 className="text-sm font-semibold text-slate-900">{project.name}</h3>
+                    <p className="text-xs text-slate-500 flex items-center">
+                      <MapPin className="w-3 h-3 mr-1" />
+                      {project.location}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs font-medium text-green-600">{project.roi}</div>
+                  <div className="text-xs text-slate-500">ROI</div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-3 text-xs">
+                <div>
+                  <div className="text-slate-500">Capacity</div>
+                  <div className="font-medium">{project.capacity}</div>
+                </div>
+                <div>
+                  <div className="text-slate-500">ESG Score</div>
+                  <div className="font-medium">{project.esg}/10</div>
+                </div>
+                <div>
+                  <div className="text-slate-500">Investment</div>
+                  <div className="font-medium">{project.investment}</div>
+                </div>
+              </div>
+              
+              <div className="mt-3">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-xs text-slate-500">Progress</span>
+                  <span className="text-xs font-medium">{project.progress}%</span>
+                </div>
+                <div className="w-full bg-slate-200 rounded-full h-2">
+                  <div 
+                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${project.progress}%` }}
+                  ></div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Quick Actions */}
-        <div className="mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Platform Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickActions.map((action, index) => (
-              <Link key={index} href={action.href}>
-                <div className="bg-white rounded-lg p-4 shadow-sm border hover:shadow-md transition-shadow cursor-pointer">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className={`p-2 rounded-lg ${action.color} bg-opacity-10`}>
-                      <action.icon className={`w-5 h-5 ${action.color.replace('bg-', 'text-')}`} />
-                    </div>
-                    <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
-                      {action.badge}
-                    </span>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{action.title}</h3>
-                  <p className="text-sm text-gray-600">{action.description}</p>
-                </div>
-              </Link>
-            ))}
+      {/* Business Impact Summary */}
+      <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl p-4 text-white">
+        <h2 className="text-lg font-semibold mb-3">Business Impact</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <div className="text-2xl font-bold">1,250</div>
+            <div className="text-sm opacity-90">Jobs Created</div>
           </div>
-        </div>
-
-        {/* Recent Projects */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Active Projects</h2>
-            <Link href="/project-management?platform=mobile">
-              <span className="text-sm text-blue-600 hover:text-blue-700 flex items-center cursor-pointer">
-                View All <ArrowRight className="w-4 h-4 ml-1" />
-              </span>
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {recentProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </div>
-
-        {/* Business Impact Summary */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Business Impact</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-600 mb-1">{businessMetrics.totalCapacity}</div>
-              <div className="text-sm text-gray-600">Total Capacity</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600 mb-1">{businessMetrics.co2Avoided}</div>
-              <div className="text-sm text-gray-600">CO₂ Avoided</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600 mb-1">{businessMetrics.jobsCreated.toLocaleString()}</div>
-              <div className="text-sm text-gray-600">Jobs Created</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600 mb-1">{businessMetrics.investmentPipeline}</div>
-              <div className="text-sm text-gray-600">Pipeline</div>
-            </div>
+          <div>
+            <div className="text-2xl font-bold">$45M</div>
+            <div className="text-sm opacity-90">Investment Pipeline</div>
           </div>
         </div>
       </div>
