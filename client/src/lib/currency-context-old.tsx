@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Currency, CURRENCIES } from '@shared/currency';
 
 interface CurrencyContextValue {
@@ -9,25 +9,18 @@ interface CurrencyContextValue {
 
 const CurrencyContext = createContext<CurrencyContextValue | undefined>(undefined);
 
-interface CurrencyProviderProps {
-  children: ReactNode;
-}
-
-export function CurrencyProvider({ children }: CurrencyProviderProps) {
-  const [selectedCurrency, setSelectedCurrency] = useState<Currency>('NGN');
-
-  // Load saved currency on mount
-  useEffect(() => {
+export function CurrencyProvider({ children }: { children: React.ReactNode }) {
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(() => {
+    // Try to get saved currency from localStorage
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('finergy-currency');
-      if (saved && ['NGN', 'GBP', 'EUR'].includes(saved)) {
-        setSelectedCurrency(saved as Currency);
-      }
+      return (saved as Currency) || 'NGN';
     }
-  }, []);
+    return 'NGN';
+  });
 
-  // Save currency changes
   useEffect(() => {
+    // Save currency selection to localStorage
     if (typeof window !== 'undefined') {
       localStorage.setItem('finergy-currency', selectedCurrency);
     }
