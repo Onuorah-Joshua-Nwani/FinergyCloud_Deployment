@@ -1,12 +1,10 @@
 import React from "react";
 import { Switch, Route } from "wouter";
-// import { queryClient } from "./lib/queryClient";
-// import { QueryClientProvider } from "@tanstack/react-query";
-// import { Toaster } from "@/components/ui/toaster";
-// import { TooltipProvider } from "@/components/ui/tooltip";
-// import { CurrencyProvider } from "./lib/currency-context";
-// import { useAuth } from "@/hooks/useAuth";
-import NavigationHookFree from "@/components/navigation-hookfree";
+import { queryClient } from "./lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import NavigationHeader from "@/components/navigation";
 import SEOHead from "@/components/seo-head";
 import Dashboard from "@/pages/dashboard";
 import AIModel from "@/pages/ai-model";
@@ -29,97 +27,74 @@ import Login from "@/pages/login";
 import WebsiteLanding from "@/pages/website/website-landing";
 import MobileLanding from "@/pages/mobile-app/mobile-landing";
 import NotFound from "@/pages/not-found";
-import ZoomControls from "@/components/zoom-controls-invisible";
-import MobileAppInstall from "@/components/mobile-app-install";
-import MobilePerformanceMonitor from "@/components/mobile-performance-monitor";
-import MobileToastContainer from "@/components/mobile-toast";
-
 
 function Router() {
-  // Safe auth detection without hooks
-  const isAuthenticated = false;
-  const isLoading = false;
-  
-  // Check URL parameters directly with more robust parsing
+  // Check URL parameters directly
   const urlParams = new URLSearchParams(window.location.search);
   const platformParam = urlParams.get('platform');
   const isMobileApp = platformParam === 'mobile';
   
-  // Also check if URL suggests mobile app
-  const shouldForceMobile = window.location.href.includes('platform=mobile');
-  
-  // Debug logging - removed for production
-  
-  // If there's a URL encoding issue, try to handle it
-  if (window.location.pathname.includes('%3F')) {
-    const correctedUrl = window.location.href.replace('%3F', '?');
-    console.log('Fixing URL encoding issue:', correctedUrl);
-    window.location.replace(correctedUrl);
-    return null;
-  }
-
   // MOBILE APP PLATFORM
-  if (isMobileApp || shouldForceMobile) {
+  if (isMobileApp) {
     return (
-      <div className="min-h-screen mobile-professional touch-zoom">
-        <NavigationHookFree />
-        <main className="pb-16 lg:pb-0 zoom-container">
+      <div className="min-h-screen mobile-professional">
+        <NavigationHeader />
+        <main className="pb-16 lg:pb-0">
           <Switch>
             <Route path="/login" component={Login} />
-            {/* For mobile app, always show functionality - pilot program access */}
-            <Route path="/" component={isAuthenticated ? Dashboard : MobileLanding} />
+            <Route path="/" component={MobileLanding} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/kpi" component={KPIDashboard} />
             <Route path="/advanced-features" component={AdvancedFeatures} />
             <Route path="/rewards" component={RewardsPage} />
             <Route path="/ai-model" component={AIModel} />
+            <Route path="/market-insights" component={MarketInsights} />
             <Route path="/esg-scoring" component={ESGScoring} />
             <Route path="/irr-calculator" component={IRRCalculator} />
-            <Route path="/projects" component={ProjectManagement} />
-            <Route path="/market-insights" component={MarketInsights} />
-            <Route path="/subscribe" component={Subscribe} />
+            <Route path="/project-management" component={ProjectManagement} />
             <Route path="/privacy" component={Privacy} />
             <Route path="/terms" component={Terms} />
             <Route path="/cookies" component={Cookies} />
-            <Route path="*" component={NotFound} />
+            <Route component={NotFound} />
           </Switch>
         </main>
-        {/* <ZoomControls />
-        <MobileAppInstall />
-        <MobilePerformanceMonitor />
-        <MobileToastContainer /> */}
       </div>
     );
   }
 
-  // WEBSITE PLATFORM (Default)
+  // WEBSITE PLATFORM
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-600 to-blue-600 touch-zoom">
-      <NavigationHookFree />
-      <main className="zoom-container">
+    <div className="min-h-screen bg-gradient-to-br from-green-600 to-blue-600">
+      <NavigationHeader />
+      <main>
         <Switch>
-        <Route path="/" component={WebsiteLanding} />
-        <Route path="/about" component={About} />
-        <Route path="/platform" component={Solutions} />
-        <Route path="/blog" component={Blog} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/privacy" component={Privacy} />
-        <Route path="/terms" component={Terms} />
-        <Route path="/cookies" component={Cookies} />
-        <Route path="/login" component={Login} />
-        <Route path="*" component={NotFound} />
-      </Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/" component={WebsiteLanding} />
+          <Route path="/about" component={About} />
+          <Route path="/solutions" component={Solutions} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/subscribe" component={Subscribe} />
+          <Route path="/privacy" component={Privacy} />
+          <Route path="/terms" component={Terms} />
+          <Route path="/cookies" component={Cookies} />
+          <Route component={NotFound} />
+        </Switch>
       </main>
-      {/* <ZoomControls /> */}
     </div>
   );
 }
 
-export default function App() {
+function App() {
   return (
-    <>
-      <SEOHead />
-      <Router />
-    </>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <SEOHead />
+        <Router />
+        <Toaster />
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 }
+
+export default App;
