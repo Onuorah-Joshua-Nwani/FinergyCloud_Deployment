@@ -1,519 +1,254 @@
-import { useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { 
-  Trophy, 
-  Star, 
-  Target, 
-  Gift, 
-  Zap, 
-  Leaf, 
-  Award,
-  TrendingUp,
-  Calendar,
-  CheckCircle,
-  Clock,
-  Crown,
-  Sparkles,
-  Medal,
-  Activity
-} from "lucide-react";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { Trophy, Zap, Leaf, Target, Award, Star, TrendingUp, Users, Activity, Clock, Gift, CheckCircle } from "lucide-react";
 
-interface RewardStats {
-  sustainabilityPoints: number;
-  level: number;
-  xp: number;
-  streak: number;
-  totalCo2Saved: number;
-  totalEnergyGenerated: number;
-}
+// Mock data to avoid React Query
+const mockRewardStats = {
+  sustainabilityPoints: 2450,
+  level: 7,
+  xp: 1250,
+  streak: 12,
+  totalCo2Saved: 15.8,
+  totalEnergyGenerated: 342.5
+};
 
-interface Achievement {
-  id: number;
-  name: string;
-  description: string;
-  icon: string;
-  category: string;
-  difficulty: string;
-  points: number;
-  requirement: any;
-  isActive: boolean;
-  createdAt: string;
-}
-
-interface RewardActivity {
-  id: number;
-  userId: string;
-  activityType: string;
-  description: string;
-  points: number;
-  xpGained: number;
-  metadata: any;
-  createdAt: string;
-}
-
-interface Challenge {
-  id: number;
-  title: string;
-  description: string;
-  type: string;
-  requirement: any;
-  reward: any;
-  isActive: boolean;
-  startDate: string;
-  endDate: string;
-  userProgress?: {
-    progress: number;
-    completed: boolean;
-    rewardClaimed: boolean;
-  };
-}
-
-export default function RewardsPage() {
-  // Check if this is mobile app platform
-  const urlParams = new URLSearchParams(window.location.search);
-  const isMobileApp = urlParams.get('platform') === 'mobile';
-  
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
-  const [selectedActivity, setSelectedActivity] = useState<RewardActivity | null>(null);
-
-  const { data: rewardStats } = useQuery<RewardStats>({
-    queryKey: ['/api/rewards/stats'],
-  });
-
-  const { data: achievements } = useQuery<Achievement[]>({
-    queryKey: ['/api/rewards/achievements'],
-  });
-
-  const { data: activities } = useQuery<RewardActivity[]>({
-    queryKey: ['/api/rewards/activities'],
-  });
-
-  const { data: challenges } = useQuery<Challenge[]>({
-    queryKey: ['/api/rewards/challenges'],
-  });
-
-  const addActivityMutation = useMutation({
-    mutationFn: async (activityData: any) => {
-      const response = await apiRequest("POST", "/api/rewards/activity", activityData);
-      return response.json();
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/rewards/stats'] });
-      queryClient.invalidateQueries({ queryKey: ['/api/rewards/activities'] });
-      queryClient.invalidateQueries({ queryKey: ['/api/rewards/achievements'] });
-      toast({
-        title: "Activity Recorded",
-        description: "Your sustainable action has been recorded!",
-      });
-    },
-  });
-
-  const claimChallengeMutation = useMutation({
-    mutationFn: async (challengeId: number) => {
-      const response = await apiRequest("POST", "/api/rewards/claim-challenge", { challengeId });
-      return response.json();
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/rewards/challenges'] });
-      toast({
-        title: "Challenge Completed",
-        description: "Congratulations! You've completed a sustainability challenge!",
-      });
-    },
-  });
-
-  const getDifficultyColor = (difficulty: string) => {
-    switch (difficulty) {
-      case 'bronze': return 'bg-orange-100 text-orange-800';
-      case 'silver': return 'bg-gray-100 text-gray-800';
-      case 'gold': return 'bg-yellow-100 text-yellow-800';
-      case 'platinum': return 'bg-purple-100 text-purple-800';
-      // Challenge types
-      case 'daily': return 'bg-green-100 text-green-800';
-      case 'weekly': return 'bg-blue-100 text-blue-800';
-      case 'monthly': return 'bg-purple-100 text-purple-800';
-      case 'special': return 'bg-red-100 text-red-800';
-      // Legacy support
-      case 'easy': return 'bg-green-100 text-green-800';
-      case 'medium': return 'bg-yellow-100 text-yellow-800';
-      case 'hard': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'environmental': return <Leaf className="h-4 w-4" />;
-      case 'investment': return <TrendingUp className="h-4 w-4" />;
-      case 'social': return <Award className="h-4 w-4" />;
-      case 'engagement': return <Activity className="h-4 w-4" />;
-      default: return <Star className="h-4 w-4" />;
-    }
-  };
-
-  const simulateActivity = (type: string) => {
-    const activities = {
-      'green_investment': {
-        description: 'Invested in renewable energy project',
-        points: 50,
-        xpGained: 100,
-        metadata: { projectType: 'solar', amount: 5000 }
-      },
-      'esg_analysis': {
-        description: 'Completed ESG analysis for project',
-        points: 25,
-        xpGained: 50,
-        metadata: { projectId: 1, score: 8.5 }
-      },
-      'daily_login': {
-        description: 'Daily platform engagement',
-        points: 10,
-        xpGained: 20,
-        metadata: { streak: (rewardStats?.streak || 0) + 1 }
-      },
-      'portfolio_review': {
-        description: 'Reviewed portfolio performance',
-        points: 15,
-        xpGained: 30,
-        metadata: { portfolioValue: 25000 }
-      }
-    };
-
-    const activity = activities[type as keyof typeof activities];
-    if (activity) {
-      addActivityMutation.mutate({
-        activityType: type,
-        ...activity
-      });
-    }
-  };
-
-  const getXpToNextLevel = (currentXp: number, level: number) => {
-    const xpNeededForNextLevel = level * 1000;
-    return xpNeededForNextLevel - (currentXp % 1000);
-  };
-
-  const getXpProgress = (currentXp: number) => {
-    const xpInCurrentLevel = currentXp % 1000;
-    return (xpInCurrentLevel / 1000) * 100;
-  };
-
-  if (!rewardStats) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center p-4">
-        <div className="text-center">
-          <div className="animate-spin w-8 h-8 border-4 border-green-500 border-t-transparent rounded-full mx-auto mb-4" />
-          <p className="text-gray-600 text-sm">Loading rewards...</p>
-        </div>
-      </div>
-    );
+const mockAchievements = [
+  {
+    id: 1,
+    name: "First Investment",
+    description: "Make your first renewable energy investment",
+    icon: "trophy",
+    category: "milestone",
+    points: 100,
+    unlockedAt: new Date('2024-01-15')
+  },
+  {
+    id: 2,
+    name: "ESG Champion",
+    description: "Achieve excellent ESG score on 5 projects",
+    icon: "leaf",
+    category: "esg",
+    points: 250,
+    unlockedAt: new Date('2024-02-10')
+  },
+  {
+    id: 3,
+    name: "Portfolio Builder",
+    description: "Build a diversified portfolio with 10+ projects",
+    icon: "target",
+    category: "portfolio",
+    points: 300,
+    unlockedAt: null // Not unlocked yet
   }
+];
+
+const mockActivities = [
+  {
+    id: 1,
+    type: "project_investment",
+    description: "Invested in Solar Farm Kenya project",
+    points: 150,
+    createdAt: new Date('2024-03-10')
+  },
+  {
+    id: 2,
+    type: "esg_score",
+    description: "Achieved 9.2/10 ESG score",
+    points: 75,
+    createdAt: new Date('2024-03-08')
+  }
+];
+
+export default function Rewards() {
+  const [selectedTab, setSelectedTab] = useState("overview");
+
+  const getIconComponent = (iconName: string) => {
+    const icons: { [key: string]: any } = {
+      trophy: Trophy,
+      leaf: Leaf,
+      target: Target,
+      award: Award,
+      star: Star
+    };
+    const IconComponent = icons[iconName] || Trophy;
+    return <IconComponent className="h-5 w-5" />;
+  };
+
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-3 md:p-4">
-      <div className="max-w-7xl mx-auto space-y-4 md:space-y-6">
-        {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-            {isMobileApp ? "Beta Program Mobile" : "Beta Program Engagement"}
-          </h1>
-          <p className="text-sm md:text-base text-gray-600">
-            {isMobileApp 
-              ? "Mobile access for our 10 beta users: project developers, NGO finance teams, climate consultants"
-              : "Exclusive pilot program features for our 10 beta users across Nigeria and West Africa"
-            }
-          </p>
+    <div className="space-y-6 p-4 mobile-professional">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">Sustainability Rewards</h1>
+          <p className="text-gray-600 mt-1">Track your impact and earn rewards for sustainable investing</p>
         </div>
-
-        {/* Stats Overview */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
-          <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
-            <CardHeader className="pb-1 p-2 sm:p-3 md:p-6">
-              <CardTitle className="text-xs font-medium opacity-90">
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <Sparkles className="h-3 w-3 flex-shrink-0" />
-                  <span className="truncate text-xs sm:text-sm">Points</span>
-                </div>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-2 sm:p-3 md:p-6 pt-0">
-              <div className="text-lg sm:text-2xl md:text-3xl font-bold">{rewardStats.sustainabilityPoints.toLocaleString()}</div>
-              <p className="text-xs opacity-90">Total earned</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-            <CardHeader className="pb-1 p-2 sm:p-3 md:p-6">
-              <CardTitle className="text-xs font-medium opacity-90">
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <Crown className="h-3 w-3 flex-shrink-0" />
-                  <span className="text-xs sm:text-sm">Level</span>
-                </div>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-2 sm:p-3 md:p-6 pt-0">
-              <div className="text-lg sm:text-2xl md:text-3xl font-bold">{rewardStats.level}</div>
-              <Progress 
-                value={getXpProgress(rewardStats.xp)} 
-                className="h-1 sm:h-2 bg-blue-400 my-1"
-              />
-              <p className="text-xs opacity-90">
-                {getXpToNextLevel(rewardStats.xp, rewardStats.level)} XP to next
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-            <CardHeader className="pb-1 p-2 sm:p-3 md:p-6">
-              <CardTitle className="text-xs font-medium opacity-90">
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <Calendar className="h-3 w-3 flex-shrink-0" />
-                  <span className="text-xs sm:text-sm">Streak</span>
-                </div>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-2 sm:p-3 md:p-6 pt-0">
-              <div className="text-lg sm:text-2xl md:text-3xl font-bold">{rewardStats.streak}</div>
-              <p className="text-xs opacity-90">Days active</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-r from-purple-500 to-purple-600 text-white">
-            <CardHeader className="pb-1 p-2 sm:p-3 md:p-6">
-              <CardTitle className="text-xs font-medium opacity-90">
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <Leaf className="h-3 w-3 flex-shrink-0" />
-                  <span className="text-xs sm:text-sm">CO₂ Saved</span>
-                </div>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-2 sm:p-3 md:p-6 pt-0">
-              <div className="text-lg sm:text-2xl md:text-3xl font-bold">{rewardStats.totalCo2Saved.toLocaleString()}</div>
-              <p className="text-xs opacity-90">Tons of CO₂</p>
-            </CardContent>
-          </Card>
+        <div className="text-right">
+          <div className="text-sm text-gray-500">Current Level</div>
+          <div className="text-2xl font-bold text-green-600">{mockRewardStats.level}</div>
         </div>
+      </div>
 
-        {/* Main Content */}
-        <Tabs defaultValue="activities" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 h-auto">
-            <TabsTrigger value="activities" className="text-xs sm:text-sm px-2 py-2">
-              <span className="hidden sm:inline">Recent </span>Activities
-            </TabsTrigger>
-            <TabsTrigger value="challenges" className="text-xs sm:text-sm px-2 py-2">
-              Challenges
-            </TabsTrigger>
-            <TabsTrigger value="achievements" className="text-xs sm:text-sm px-2 py-2">
-              Achievements
-            </TabsTrigger>
-          </TabsList>
+      {/* Stats Overview */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+        <Card className="p-2 lg:p-6 mobile-card-professional">
+          <CardContent className="p-0">
+            <div className="flex items-center space-x-2 lg:space-x-3">
+              <div className="p-1.5 lg:p-2 bg-green-100 rounded-lg">
+                <Zap className="h-4 w-4 lg:h-5 lg:w-5 text-green-600" />
+              </div>
+              <div>
+                <p className="text-xs lg:text-sm text-gray-500">Points</p>
+                <p className="text-lg lg:text-xl font-bold text-gray-900">{mockRewardStats.sustainabilityPoints.toLocaleString()}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
-          <TabsContent value="activities" className="space-y-3 md:space-y-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
-              {/* Quick Actions */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Zap className="h-5 w-5" />
-                    Quick Actions
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 sm:space-y-3">
-                  <Button 
-                    onClick={() => simulateActivity('green_investment')}
-                    className="w-full justify-start text-xs sm:text-sm py-2 sm:py-3"
-                    variant="outline"
-                  >
-                    <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
-                    <span className="truncate">Green Investment (+50)</span>
-                  </Button>
-                  <Button 
-                    onClick={() => simulateActivity('esg_analysis')}
-                    className="w-full justify-start text-xs sm:text-sm py-2 sm:py-3"
-                    variant="outline"
-                  >
-                    <Target className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
-                    <span className="truncate">ESG Analysis (+25)</span>
-                  </Button>
-                  <Button 
-                    onClick={() => simulateActivity('daily_login')}
-                    className="w-full justify-start text-xs sm:text-sm py-2 sm:py-3"
-                    variant="outline"
-                  >
-                    <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
-                    <span className="truncate">Daily Check-in (+10)</span>
-                  </Button>
-                  <Button 
-                    onClick={() => simulateActivity('portfolio_review')}
-                    className="w-full justify-start text-xs sm:text-sm py-2 sm:py-3"
-                    variant="outline"
-                  >
-                    <Activity className="h-3 w-3 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
-                    <span className="truncate">Portfolio Review (+15)</span>
-                  </Button>
-                </CardContent>
-              </Card>
+        <Card className="p-2 lg:p-6 mobile-card-professional">
+          <CardContent className="p-0">
+            <div className="flex items-center space-x-2 lg:space-x-3">
+              <div className="p-1.5 lg:p-2 bg-blue-100 rounded-lg">
+                <TrendingUp className="h-4 w-4 lg:h-5 lg:w-5 text-blue-600" />
+              </div>
+              <div>
+                <p className="text-xs lg:text-sm text-gray-500">Experience</p>
+                <p className="text-lg lg:text-xl font-bold text-gray-900">{mockRewardStats.xp.toLocaleString()}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
-              {/* Recent Activities */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Activity className="h-5 w-5" />
-                    Recent Activities
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {activities?.slice(0, 5).map((activity) => (
-                      <div 
-                        key={activity.id} 
-                        className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer"
-                        onClick={() => setSelectedActivity(activity)}
-                      >
-                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                          <Star className="h-5 w-5 text-green-600" />
-                        </div>
-                        <div className="flex-1">
-                          <p className="font-medium text-sm">{activity.description}</p>
-                          <p className="text-xs text-gray-500">
-                            {new Date(activity.createdAt).toLocaleDateString()}
-                          </p>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-sm font-bold text-green-600">+{activity.points}</p>
-                          <p className="text-xs text-gray-500">{activity.xpGained} XP</p>
-                        </div>
+        <Card className="p-2 lg:p-6 mobile-card-professional">
+          <CardContent className="p-0">
+            <div className="flex items-center space-x-2 lg:space-x-3">
+              <div className="p-1.5 lg:p-2 bg-orange-100 rounded-lg">
+                <Activity className="h-4 w-4 lg:h-5 lg:w-5 text-orange-600" />
+              </div>
+              <div>
+                <p className="text-xs lg:text-sm text-gray-500">Streak</p>
+                <p className="text-lg lg:text-xl font-bold text-gray-900">{mockRewardStats.streak} days</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="p-2 lg:p-6 mobile-card-professional">
+          <CardContent className="p-0">
+            <div className="flex items-center space-x-2 lg:space-x-3">
+              <div className="p-1.5 lg:p-2 bg-green-100 rounded-lg">
+                <Leaf className="h-4 w-4 lg:h-5 lg:w-5 text-green-600" />
+              </div>
+              <div>
+                <p className="text-xs lg:text-sm text-gray-500">CO₂ Saved</p>
+                <p className="text-lg lg:text-xl font-bold text-gray-900">{mockRewardStats.totalCo2Saved}t</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Tabs */}
+      <Tabs value={selectedTab} onValueChange={setSelectedTab}>
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="overview" className="text-xs lg:text-sm">Overview</TabsTrigger>
+          <TabsTrigger value="achievements" className="text-xs lg:text-sm">Achievements</TabsTrigger>
+          <TabsTrigger value="activities" className="text-xs lg:text-sm">Activities</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="overview" className="space-y-4">
+          <Card className="mobile-card-professional">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center space-x-2">
+                <Trophy className="h-5 w-5 text-yellow-600" />
+                <span>Recent Achievements</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {mockAchievements.filter(a => a.unlockedAt).slice(0, 3).map((achievement) => (
+                  <div key={achievement.id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <div className="flex-shrink-0">
+                      {getIconComponent(achievement.icon)}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900">{achievement.name}</h4>
+                      <p className="text-sm text-gray-600">{achievement.description}</p>
+                    </div>
+                    <Badge variant="secondary">+{achievement.points}</Badge>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="achievements" className="space-y-4">
+          <div className="grid gap-4">
+            {mockAchievements.map((achievement) => (
+              <Card key={achievement.id} className={`mobile-card-professional ${!achievement.unlockedAt ? 'opacity-60' : ''}`}>
+                <CardContent className="p-4">
+                  <div className="flex items-center space-x-4">
+                    <div className={`p-3 rounded-full ${achievement.unlockedAt ? 'bg-green-100' : 'bg-gray-100'}`}>
+                      {getIconComponent(achievement.icon)}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900">{achievement.name}</h3>
+                      <p className="text-sm text-gray-600">{achievement.description}</p>
+                      <div className="mt-2 flex items-center space-x-4">
+                        <Badge variant={achievement.unlockedAt ? "default" : "secondary"}>
+                          {achievement.points} points
+                        </Badge>
+                        {achievement.unlockedAt && (
+                          <span className="text-xs text-gray-500">
+                            Unlocked {formatDate(achievement.unlockedAt)}
+                          </span>
+                        )}
                       </div>
-                    ))}
-                    {!activities?.length && (
-                      <p className="text-center text-gray-500 py-8">
-                        No activities yet. Start by recording your first sustainable action!
-                      </p>
+                    </div>
+                    {achievement.unlockedAt && (
+                      <CheckCircle className="h-6 w-6 text-green-600" />
                     )}
                   </div>
                 </CardContent>
               </Card>
-            </div>
-          </TabsContent>
+            ))}
+          </div>
+        </TabsContent>
 
-          <TabsContent value="challenges" className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {challenges?.map((challenge) => (
-                <Card key={challenge.id} className="relative">
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg">{challenge.title}</CardTitle>
-                      <Badge className={getDifficultyColor(challenge.type)}>
-                        {challenge.type}
-                      </Badge>
+        <TabsContent value="activities" className="space-y-4">
+          <Card className="mobile-card-professional">
+            <CardHeader>
+              <CardTitle className="text-lg">Recent Activities</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {mockActivities.map((activity) => (
+                  <div key={activity.id} className="flex items-center space-x-4 p-3 border border-gray-200 rounded-lg">
+                    <div className="p-2 bg-blue-100 rounded-lg">
+                      <Activity className="h-4 w-4 text-blue-600" />
                     </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-gray-600">{challenge.description}</p>
-                    
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Progress</span>
-                        <span>{Math.round((challenge.userProgress?.progress || 0) * 100)}%</span>
-                      </div>
-                      <Progress value={(challenge.userProgress?.progress || 0) * 100} />
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-gray-900">{activity.description}</p>
+                      <p className="text-xs text-gray-500">{formatDate(activity.createdAt)}</p>
                     </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Trophy className="h-4 w-4 text-yellow-500" />
-                        <span className="text-sm font-medium">{challenge.reward?.points || 0} pts</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Zap className="h-4 w-4 text-blue-500" />
-                        <span className="text-sm font-medium">{challenge.reward?.xp || 0} XP</span>
-                      </div>
-                    </div>
-                    
-                    {challenge.userProgress?.completed && !challenge.userProgress?.rewardClaimed && (
-                      <Button 
-                        onClick={() => claimChallengeMutation.mutate(challenge.id)}
-                        className="w-full"
-                        disabled={claimChallengeMutation.isPending}
-                      >
-                        <Gift className="h-4 w-4 mr-2" />
-                        Claim Reward
-                      </Button>
-                    )}
-                    
-                    {challenge.userProgress?.rewardClaimed && (
-                      <div className="flex items-center justify-center gap-2 text-green-600">
-                        <CheckCircle className="h-4 w-4" />
-                        <span className="text-sm font-medium">Completed</span>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-              
-              {!challenges?.length && (
-                <div className="col-span-full text-center py-12">
-                  <Target className="h-16 w-16 mx-auto text-gray-400 mb-4" />
-                  <p className="text-lg font-medium text-gray-600">No active challenges</p>
-                  <p className="text-sm text-gray-500">Check back soon for new sustainability challenges!</p>
-                </div>
-              )}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="achievements" className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {achievements?.map((achievement) => (
-                <Card key={achievement.id} className="relative">
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                        <Medal className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">{achievement.name}</CardTitle>
-                        <Badge className={getDifficultyColor(achievement.difficulty)}>
-                          {achievement.difficulty}
-                        </Badge>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-gray-600 mb-4">{achievement.description}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        {getCategoryIcon(achievement.category)}
-                        <span className="text-sm capitalize">{achievement.category}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4 text-yellow-500" />
-                        <span className="text-sm font-medium">{achievement.points} pts</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-              
-              {!achievements?.length && (
-                <div className="col-span-full text-center py-12">
-                  <Trophy className="h-16 w-16 mx-auto text-gray-400 mb-4" />
-                  <p className="text-lg font-medium text-gray-600">No achievements yet</p>
-                  <p className="text-sm text-gray-500">Start completing activities to unlock achievements!</p>
-                </div>
-              )}
-            </div>
-          </TabsContent>
-        </Tabs>
-      </div>
+                    <Badge variant="outline">+{activity.points}</Badge>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
