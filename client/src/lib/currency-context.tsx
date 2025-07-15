@@ -7,18 +7,23 @@ interface CurrencyContextValue {
   currencies: typeof CURRENCIES;
 }
 
-const CurrencyContext = createContext<CurrencyContextValue | undefined>(undefined);
+const CurrencyContext = React.createContext<CurrencyContextValue | undefined>(undefined);
 
 export function CurrencyProvider({ children }: { children: React.ReactNode }) {
-  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(() => {
+  const [selectedCurrency, setSelectedCurrency] = React.useState<Currency>(() => {
     // Try to get saved currency from localStorage
-    const saved = localStorage.getItem('finergy-currency');
-    return (saved as Currency) || 'NGN';
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('finergy-currency');
+      return (saved as Currency) || 'NGN';
+    }
+    return 'NGN';
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Save currency selection to localStorage
-    localStorage.setItem('finergy-currency', selectedCurrency);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('finergy-currency', selectedCurrency);
+    }
   }, [selectedCurrency]);
 
   const value: CurrencyContextValue = {
@@ -35,7 +40,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useCurrency() {
-  const context = useContext(CurrencyContext);
+  const context = React.useContext(CurrencyContext);
   if (context === undefined) {
     throw new Error('useCurrency must be used within a CurrencyProvider');
   }
