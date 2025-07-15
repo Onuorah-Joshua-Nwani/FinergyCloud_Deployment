@@ -7,6 +7,8 @@ import PortfolioPerformanceChart from "@/components/charts/portfolio-performance
 import ProjectDistributionChart from "@/components/charts/project-distribution-chart";
 import InvestmentPerformanceChart from "@/components/charts/investment-performance-chart";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
+import { useCurrency } from "@/lib/currency-context";
+import { formatCurrency } from "@shared/currency";
 import { Link } from "wouter";
 import { 
   TrendingUp, 
@@ -83,6 +85,7 @@ export default function KPIDashboard() {
   
   const [selectedProjectType, setSelectedProjectType] = useState<string>("all");
   const { convertAndFormat } = useCurrencyFormat();
+  const { selectedCurrency } = useCurrency();
   
   const { data: dashboardMetrics, isLoading: isLoadingMetrics } = useQuery({
     queryKey: ["/api/dashboard/metrics"],
@@ -170,7 +173,13 @@ export default function KPIDashboard() {
         <div className="mb-6 md:mb-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">KPI Dashboard</h1>
+              <div className="flex items-center gap-4 mb-2">
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-900">KPI Dashboard</h1>
+                <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full">
+                  <DollarSign className="w-4 h-4 text-green-600" />
+                  <span className="text-sm font-medium text-green-700">{selectedCurrency}</span>
+                </div>
+              </div>
               <p className="text-sm md:text-base text-gray-600">Comprehensive performance metrics and analytics</p>
             </div>
             <div className="flex items-center gap-2">
@@ -292,6 +301,47 @@ export default function KPIDashboard() {
               description={selectedProjectType === "all" ? "Total Employment" : `${selectedConfig?.name} Jobs`}
               icon={Target}
               badge="Jobs"
+              badgeColor="primary"
+            />
+          </div>
+        </div>
+
+        {/* Financial Impact Metrics */}
+        <div className="mb-6 md:mb-8">
+          <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+            Financial Impact ({selectedCurrency})
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            <KPICard
+              title="Environmental Value"
+              value={projectTypeMetrics ? formatCurrency(projectTypeMetrics.totalCO2 * 45, selectedCurrency) : formatCurrency(0, selectedCurrency)}
+              description="CO2 reduction market value"
+              icon={Leaf}
+              badge="Carbon"
+              badgeColor="success"
+            />
+            <KPICard
+              title="Social Impact Value"
+              value={projectTypeMetrics ? formatCurrency(projectTypeMetrics.totalJobs * 25000, selectedCurrency) : formatCurrency(0, selectedCurrency)}
+              description="Employment value created"
+              icon={Home}
+              badge="Social"
+              badgeColor="primary"
+            />
+            <KPICard
+              title="Energy Market Value"
+              value={projectTypeMetrics ? formatCurrency(projectTypeMetrics.totalEnergy * 65000, selectedCurrency) : formatCurrency(0, selectedCurrency)}
+              description="Clean energy market value"
+              icon={Zap}
+              badge="Energy"
+              badgeColor="warning"
+            />
+            <KPICard
+              title="Total ESG Value"
+              value={projectTypeMetrics ? formatCurrency((projectTypeMetrics.totalCO2 * 45) + (projectTypeMetrics.totalJobs * 25000) + (projectTypeMetrics.totalEnergy * 65000), selectedCurrency) : formatCurrency(0, selectedCurrency)}
+              description="Combined ESG market value"
+              icon={TrendingUp}
+              badge="Total"
               badgeColor="primary"
             />
           </div>

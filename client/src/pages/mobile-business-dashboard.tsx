@@ -77,7 +77,7 @@ export default function MobileBusinessDashboard() {
     }
   ];
 
-  // Professional renewable energy projects
+  // Professional renewable energy projects - currency-aware
   const recentProjects = [
     {
       id: 1,
@@ -88,7 +88,7 @@ export default function MobileBusinessDashboard() {
       status: "Active",
       roi: "16.8%",
       esg: 8.9,
-      investment: "$12M",
+      investment: formatCurrency(12000000, selectedCurrency),
       progress: 85,
       icon: Sun,
       color: "text-orange-600"
@@ -102,7 +102,7 @@ export default function MobileBusinessDashboard() {
       status: "Development",
       roi: "14.2%",
       esg: 8.1,
-      investment: "$18M",
+      investment: formatCurrency(18000000, selectedCurrency),
       progress: 65,
       icon: Wind,
       color: "text-blue-600"
@@ -116,7 +116,7 @@ export default function MobileBusinessDashboard() {
       status: "Planning",
       roi: "17.5%",
       esg: 8.7,
-      investment: "$8M",
+      investment: formatCurrency(8000000, selectedCurrency),
       progress: 25,
       icon: Droplets,
       color: "text-cyan-600"

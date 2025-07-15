@@ -8,11 +8,14 @@ import ESGComponentBreakdownChart from "@/components/charts/esg-component-breakd
 import PeerComparisonChart from "@/components/charts/peer-comparison-chart";
 import ESGFactorImpactChart from "@/components/charts/esg-factor-impact-chart";
 import { Link } from "wouter";
-import { Leaf, Shield, Recycle, Home, ChevronRight, Lightbulb } from "lucide-react";
+import { Leaf, Shield, Recycle, Home, ChevronRight, Lightbulb, DollarSign } from "lucide-react";
 import type { EsgMetrics, Project } from "@shared/schema";
+import { useCurrency } from "@/lib/currency-context";
+import { formatCurrency } from "@shared/currency";
 
 export default function ESGScoring() {
   const [selectedProjectId, setSelectedProjectId] = useState<string>("all");
+  const { selectedCurrency } = useCurrency();
 
   const { data: esgMetrics, isLoading } = useQuery<EsgMetrics[]>({
     queryKey: ["/api/esg-metrics"],
@@ -132,9 +135,15 @@ export default function ESGScoring() {
       <section className="py-6 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 md:mb-10 text-center">
-            <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3">
-              AI-Powered ESG Risk Scoring
-            </h1>
+            <div className="flex items-center justify-center gap-4 mb-3">
+              <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
+                AI-Powered ESG Risk Scoring
+              </h1>
+              <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full">
+                <DollarSign className="w-4 h-4 text-green-600" />
+                <span className="text-sm font-medium text-green-700">{selectedCurrency}</span>
+              </div>
+            </div>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
               Machine learning risk assessment for renewable energy projects in West Africa markets - currently testing with 10 pilot users
             </p>
@@ -213,6 +222,12 @@ export default function ESGScoring() {
                       {currentMetrics?.waterSaved?.toLocaleString() || '0'} liters
                     </span>
                   </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Environmental Value</span>
+                    <span className="font-medium text-green-600">
+                      {formatCurrency(currentMetrics?.co2Reduction ? currentMetrics.co2Reduction * 45 : 0, selectedCurrency)}
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -237,6 +252,12 @@ export default function ESGScoring() {
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Education Programs</span>
                     <span className="font-medium text-amber-600">{currentMetrics?.educationPrograms || '0'}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Social Impact Value</span>
+                    <span className="font-medium text-purple-600">
+                      {formatCurrency(currentMetrics?.jobsCreated ? currentMetrics.jobsCreated * 25000 : 0, selectedCurrency)}
+                    </span>
                   </div>
                 </div>
               </CardContent>

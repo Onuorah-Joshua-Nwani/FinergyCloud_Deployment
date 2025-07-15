@@ -14,8 +14,12 @@ import {
   Calendar,
   MapPin
 } from "lucide-react";
+import { useCurrency } from "@/lib/currency-context";
+import { formatCurrency } from "@shared/currency";
 
 export default function AIModelSimple() {
+  const { selectedCurrency } = useCurrency();
+  
   const predictionData = {
     accuracy: 94,
     confidence: 89,
@@ -41,7 +45,9 @@ export default function AIModelSimple() {
         successProbability: 84,
         expectedROI: 15.5,
         paybackPeriod: 6.2,
-        riskLevel: "Medium"
+        riskLevel: "Medium",
+        expectedReturn: formatCurrency(12000000 * 0.155, selectedCurrency),
+        initialInvestment: formatCurrency(12000000, selectedCurrency)
       }
     },
     {
@@ -53,7 +59,9 @@ export default function AIModelSimple() {
         successProbability: 78,
         expectedROI: 18.2,
         paybackPeriod: 5.8,
-        riskLevel: "Medium-High"
+        riskLevel: "Medium-High",
+        expectedReturn: formatCurrency(18000000 * 0.182, selectedCurrency),
+        initialInvestment: formatCurrency(18000000, selectedCurrency)
       }
     }
   ];
@@ -124,9 +132,19 @@ export default function AIModelSimple() {
         </div>
       </div>
       
-      <div className="text-center">
-        <div className="text-sm text-gray-600">Payback Period</div>
-        <div className="text-lg font-semibold text-gray-900">{prediction.prediction.paybackPeriod} years</div>
+      <div className="space-y-3">
+        <div className="flex justify-between">
+          <span className="text-sm text-gray-600">Initial Investment:</span>
+          <span className="text-sm font-semibold text-gray-900">{prediction.prediction.initialInvestment}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-sm text-gray-600">Expected Return:</span>
+          <span className="text-sm font-semibold text-green-600">{prediction.prediction.expectedReturn}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-sm text-gray-600">Payback Period:</span>
+          <span className="text-sm font-semibold text-gray-900">{prediction.prediction.paybackPeriod} years</span>
+        </div>
       </div>
     </div>
   );
@@ -148,9 +166,15 @@ export default function AIModelSimple() {
 
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-            AI Risk Engine
-          </h1>
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+              AI Risk Engine
+            </h1>
+            <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full">
+              <DollarSign className="w-4 h-4 text-green-600" />
+              <span className="text-sm font-medium text-green-700">{selectedCurrency}</span>
+            </div>
+          </div>
           <p className="text-gray-600">
             XGBoost-powered predictions for renewable energy project success
           </p>
