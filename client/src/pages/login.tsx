@@ -28,7 +28,10 @@ export default function Login() {
       });
       
       if (response.ok) {
-        window.location.href = "/";
+        // Check if we're on mobile platform and redirect accordingly
+        const urlParams = new URLSearchParams(window.location.search);
+        const isMobile = urlParams.get('platform') === 'mobile';
+        window.location.href = isMobile ? "/dashboard?platform=mobile" : "/";
       } else {
         console.error("Authentication failed");
       }

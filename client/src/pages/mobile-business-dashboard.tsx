@@ -209,12 +209,19 @@ export default function MobileBusinessDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
-            FinergyCloud Dashboard
-          </h1>
-          <p className="text-gray-600">
-            AI-powered renewable energy investment platform
-          </p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 mb-2">
+                FinergyCloud Business Dashboard
+              </h1>
+              <p className="text-gray-600">
+                AI-powered renewable energy investment platform
+              </p>
+            </div>
+            <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+              Live Platform
+            </div>
+          </div>
         </div>
 
         {/* Key Metrics Grid */}

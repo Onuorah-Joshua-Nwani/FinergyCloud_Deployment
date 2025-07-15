@@ -44,6 +44,7 @@ function MobileAppRouter() {
           <Route path="/login" component={Login} />
           <Route path="/" component={MobileBusinessDashboard} />
           <Route path="/dashboard" component={MobileBusinessDashboard} />
+          <Route path="/mobile-landing" component={MobileLanding} />
           <Route path="/business-dashboard" component={MobileBusinessDashboard} />
           <Route path="/project-management" component={ProjectManagementSimple} />
           <Route path="/kpi" component={KPIDashboard} />
@@ -69,7 +70,7 @@ function Router() {
   const platformParam = urlParams.get('platform');
   const isMobileApp = platformParam === 'mobile';
   
-  // MOBILE APP PLATFORM
+  // MOBILE APP PLATFORM - Show business dashboard immediately
   if (isMobileApp) {
     return (
       <MobileAppRouter />
