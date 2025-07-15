@@ -1,4 +1,4 @@
-import { useCurrency } from "@/lib/currency-context";
+import { useCurrency } from "@/lib/currency-context-minimal";
 import { convertCurrency, formatCurrency, type Currency } from "@shared/currency";
 
 export function useCurrencyFormat() {

@@ -6,7 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, DollarSign } from "lucide-react";
-import { useCurrency } from "@/lib/currency-context";
+import { useCurrency } from "@/lib/currency-context-minimal";
 import type { Currency } from "@shared/currency";
 
 export default function CurrencySelector() {

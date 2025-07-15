@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import { insertProjectSchema, type Project, type InsertProject } from "@shared/schema";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
-import { useCurrency } from "@/lib/currency-context";
+import { useCurrency } from "@/lib/currency-context-minimal";
 import type { Currency } from "@shared/currency";
 
 // Project type configurations
