@@ -207,14 +207,18 @@ export default function AIModelSimple() {
 
         {/* Action Buttons */}
         <div className="flex space-x-4">
-          <button className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
-            <Brain className="w-5 h-5 inline mr-2" />
-            New Prediction
-          </button>
-          <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-            <BarChart3 className="w-5 h-5 inline mr-2" />
-            Model Analytics
-          </button>
+          <Link href="/ai-model?platform=mobile">
+            <button className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+              <Brain className="w-5 h-5 inline mr-2" />
+              New Prediction
+            </button>
+          </Link>
+          <Link href="/kpi?platform=mobile">
+            <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+              <BarChart3 className="w-5 h-5 inline mr-2" />
+              Model Analytics
+            </button>
+          </Link>
         </div>
       </div>
     </div>
