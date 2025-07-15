@@ -29,7 +29,7 @@ export default function Login() {
       
       if (response.ok) {
         // Always redirect to business dashboard for mobile platform
-        window.location.href = "/dashboard?platform=mobile";
+        window.location.href = "/?platform=mobile";
       } else {
         console.error("Authentication failed");
       }

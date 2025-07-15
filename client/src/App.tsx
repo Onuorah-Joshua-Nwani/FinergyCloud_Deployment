@@ -27,7 +27,6 @@ import Terms from "@/pages/terms";
 import Cookies from "@/pages/cookies";
 import Login from "@/pages/login";
 import WebsiteLanding from "@/pages/website/website-landing";
-import MobileLanding from "@/pages/mobile-app/mobile-landing";
 import NotFound from "@/pages/not-found";
 
 function MobileAppRouter() {
