@@ -6,7 +6,7 @@ import { Switch, Route } from "wouter";
 // import { TooltipProvider } from "@/components/ui/tooltip";
 // import { CurrencyProvider } from "./lib/currency-context";
 // import { useAuth } from "@/hooks/useAuth";
-import Navigation from "@/components/navigation";
+import NavigationSimple from "@/components/navigation-simple";
 import SEOHead from "@/components/seo-head";
 import Dashboard from "@/pages/dashboard";
 import AIModel from "@/pages/ai-model";
@@ -62,7 +62,7 @@ function Router() {
   if (isMobileApp || shouldForceMobile) {
     return (
       <div className="min-h-screen mobile-professional touch-zoom">
-        <Navigation />
+        <NavigationSimple />
         <main className="pb-16 lg:pb-0 zoom-container">
           <Switch>
             <Route path="/login" component={Login} />
@@ -95,7 +95,7 @@ function Router() {
   // WEBSITE PLATFORM (Default)
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-600 to-blue-600 touch-zoom">
-      <Navigation />
+      <NavigationSimple />
       <main className="zoom-container">
         <Switch>
         <Route path="/" component={WebsiteLanding} />
