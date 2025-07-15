@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
+// import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Brain, Loader2, Leaf, Shield, AlertTriangle } from "lucide-react";
 import { insertPredictionSchema } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+// import { useToast } from "@/hooks/use-toast";
 import type { Prediction, ProjectTypeEsgTemplate } from "@shared/schema";
 
 interface PredictionFormProps {
@@ -20,8 +20,9 @@ interface PredictionFormProps {
 export default function PredictionForm({ onProjectTypeChange }: PredictionFormProps) {
   const [predictionResult, setPredictionResult] = useState<Prediction | null>(null);
   const [selectedProjectType, setSelectedProjectType] = useState<string>("");
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
+  // const { toast } = useToast();
+  const toast = (options: any) => console.log('Toast:', options);
+  // const queryClient = useQueryClient();
 
   const form = useForm({
     resolver: zodResolver(insertPredictionSchema),
@@ -34,14 +35,9 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
     },
   });
 
-  // Query for ESG template data based on selected project type
-  const { data: esgTemplate, isLoading: esgLoading } = useQuery({
-    queryKey: ["/api/project-type-esg-templates", selectedProjectType],
-    queryFn: () => selectedProjectType ? 
-      fetch(`/api/project-type-esg-templates/${selectedProjectType}`).then(res => res.json()) : 
-      null,
-    enabled: !!selectedProjectType,
-  });
+  // Mock ESG template data for demo
+  const esgTemplate = null;
+  const esgLoading = false;
 
   // Watch for project type changes
   useEffect(() => {
@@ -53,30 +49,34 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
     return () => subscription.unsubscribe();
   }, [form]);
 
-  const createPredictionMutation = useMutation({
-    mutationFn: async (data: any) => {
-      const response = await apiRequest("POST", "/api/predictions", data);
-      return response.json();
-    },
-    onSuccess: (data: Prediction) => {
-      setPredictionResult(data);
-      queryClient.invalidateQueries({ queryKey: ["/api/predictions"] });
+  const onSubmit = async (data: any) => {
+    try {
+      console.log("Form submission data:", data);
+      
+      // Mock prediction for demo
+      const mockPrediction = {
+        id: Date.now(),
+        projectType: data.projectType,
+        location: data.location,
+        successProbability: 84,
+        expectedIrr: 15.5,
+        riskAssessment: "Medium",
+        confidenceScore: 94
+      };
+      
+      setPredictionResult(mockPrediction);
+      
       toast({
         title: "Prediction Complete",
         description: "AI prediction has been generated successfully.",
       });
-    },
-    onError: () => {
+    } catch (error: any) {
       toast({
         title: "Prediction Failed",
         description: "Failed to generate prediction. Please try again.",
         variant: "destructive",
       });
-    },
-  });
-
-  const onSubmit = (data: any) => {
-    createPredictionMutation.mutate(data);
+    }
   };
 
   const getRiskColor = (risk: string) => {

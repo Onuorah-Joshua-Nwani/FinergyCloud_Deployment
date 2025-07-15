@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Button } from "@/components/ui/button";
+// import { Badge } from "@/components/ui/badge";
 import { Leaf, TrendingUp, Globe, Shield, Smartphone, Star } from "lucide-react";
 import { Link } from "wouter";
 
@@ -16,10 +16,10 @@ export default function MobileLanding() {
           </div>
           
           <div className="flex justify-center mb-4">
-            <Badge className="bg-orange-100 text-orange-800 px-4 py-2 text-sm font-medium">
+            <div className="bg-orange-100 text-orange-800 px-4 py-2 text-sm font-medium rounded-full inline-flex items-center">
               <Star className="w-3 h-3 mr-1" />
               Closed Beta - 10 Active Users
-            </Badge>
+            </div>
           </div>
           
           <h1 className="text-3xl md:text-4xl font-bold text-professional-navy mb-4">
@@ -31,59 +31,50 @@ export default function MobileLanding() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login?platform=mobile">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700">
+              <a className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-medium text-center transition-colors">
                 Join Pilot Program
-              </Button>
+              </a>
             </Link>
-            <Button variant="outline" size="lg" onClick={() => window.open('/', '_blank')}>
+            <button 
+              className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-md font-medium transition-colors"
+              onClick={() => window.open('/', '_blank')}
+            >
               Visit Website
-            </Button>
+            </button>
           </div>
         </div>
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <Card className="mobile-card-professional">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3">
-                <TrendingUp className="w-6 h-6 text-green-600" />
-                Portfolio Tracking
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-professional-gray">
-                Real-time monitoring of your renewable energy investments with detailed performance metrics and analytics.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="mobile-card-professional bg-white rounded-xl p-6 shadow-sm border">
+            <div className="flex items-center gap-3 mb-4">
+              <TrendingUp className="w-6 h-6 text-green-600" />
+              <h3 className="text-xl font-semibold text-professional-navy">Portfolio Tracking</h3>
+            </div>
+            <p className="text-professional-gray">
+              Real-time monitoring of your renewable energy investments with detailed performance metrics and analytics.
+            </p>
+          </div>
 
-          <Card className="mobile-card-professional">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3">
-                <Globe className="w-6 h-6 text-blue-600" />
-                ESG Scoring
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-professional-gray">
-                Comprehensive Environmental, Social, and Governance scoring to ensure sustainable investment decisions.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="mobile-card-professional bg-white rounded-xl p-6 shadow-sm border">
+            <div className="flex items-center gap-3 mb-4">
+              <Globe className="w-6 h-6 text-blue-600" />
+              <h3 className="text-xl font-semibold text-professional-navy">ESG Scoring</h3>
+            </div>
+            <p className="text-professional-gray">
+              Comprehensive Environmental, Social, and Governance scoring to ensure sustainable investment decisions.
+            </p>
+          </div>
 
-          <Card className="mobile-card-professional">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3">
-                <Shield className="w-6 h-6 text-purple-600" />
-                AI Predictions
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-professional-gray">
-                Advanced machine learning models provide accurate project success predictions and market insights.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="mobile-card-professional bg-white rounded-xl p-6 shadow-sm border">
+            <div className="flex items-center gap-3 mb-4">
+              <Shield className="w-6 h-6 text-purple-600" />
+              <h3 className="text-xl font-semibold text-professional-navy">AI Predictions</h3>
+            </div>
+            <p className="text-professional-gray">
+              Advanced machine learning models provide accurate project success predictions and market insights.
+            </p>
+          </div>
         </div>
 
         {/* App Info */}
