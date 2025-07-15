@@ -327,11 +327,7 @@ export default function Navigation() {
 
                   {/* Mobile Footer Actions */}
                   <div className="flex-shrink-0 pt-3 border-t border-gray-200 space-y-3">
-                    {/* Currency Selector for Mobile */}
-                    <div className="px-2">
-                      <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">Currency</label>
-                      <CurrencySelector />
-                    </div>
+
                     
                     {/* User Actions */}
                     {isAuthenticated && (
