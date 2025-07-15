@@ -34,17 +34,14 @@
     
     <title>FinergyCloud - AI Risk Intelligence for Renewable Energy Investors</title>
     
-    <!-- Service Worker Registration (optional) -->
+    <!-- Service Worker Registration disabled to prevent caching issues -->
     <script>
+      // Disable service worker to prevent caching issues
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-              console.log('SW registered: ', registration);
-            })
-            .catch((registrationError) => {
-              console.log('SW registration failed: ', registrationError);
-            });
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
         });
       }
     </script>
