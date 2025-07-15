@@ -8,6 +8,7 @@ import NavigationHeader from "@/components/navigation";
 import SEOHead from "@/components/seo-head";
 import { MobileSimpleNav } from "@/components/mobile-simple-nav";
 import DashboardSimple from "@/pages/dashboard-simple";
+import MobileBusinessDashboard from "@/pages/mobile-business-dashboard";
 import ProjectManagementSimple from "@/pages/project-management-simple";
 import AIModelSimple from "@/pages/ai-model-simple";
 import ESGScoringSimple from "@/pages/esg-scoring-simple";
@@ -41,8 +42,8 @@ function MobileAppRouter() {
       <main className="pb-16 lg:pb-0">
         <Switch>
           <Route path="/login" component={Login} />
-          <Route path="/" component={DashboardSimple} />
-          <Route path="/dashboard" component={DashboardSimple} />
+          <Route path="/" component={MobileBusinessDashboard} />
+          <Route path="/dashboard" component={MobileBusinessDashboard} />
           <Route path="/project-management" component={ProjectManagementSimple} />
           <Route path="/kpi" component={KPIDashboard} />
           <Route path="/advanced-features" component={AdvancedFeatures} />
