@@ -19,6 +19,18 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
     
+    // For mobile platform, simulate login and redirect immediately
+    const urlParams = new URLSearchParams(window.location.search);
+    const isMobile = urlParams.get('platform') === 'mobile';
+    
+    if (isMobile) {
+      // Simulate login for mobile platform
+      setTimeout(() => {
+        window.location.href = "/dashboard?platform=mobile";
+      }, 1000);
+      return;
+    }
+    
     try {
       const endpoint = isLogin ? "/api/auth/login" : "/api/auth/register";
       const response = await fetch(endpoint, {
@@ -28,8 +40,7 @@ export default function Login() {
       });
       
       if (response.ok) {
-        // Always redirect to business dashboard for mobile platform
-        window.location.href = "/?platform=mobile";
+        window.location.href = "/dashboard";
       } else {
         console.error("Authentication failed");
       }
