@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-// import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
+import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Brain, Loader2, Leaf, Shield, AlertTriangle } from "lucide-react";
 import { insertPredictionSchema } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
-// import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import type { Prediction, ProjectTypeEsgTemplate } from "@shared/schema";
 
 interface PredictionFormProps {
@@ -20,9 +20,8 @@ interface PredictionFormProps {
 export default function PredictionForm({ onProjectTypeChange }: PredictionFormProps) {
   const [predictionResult, setPredictionResult] = useState<Prediction | null>(null);
   const [selectedProjectType, setSelectedProjectType] = useState<string>("");
-  // const { toast } = useToast();
-  const toast = (options: any) => console.log('Toast:', options);
-  // const queryClient = useQueryClient();
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   const form = useForm({
     resolver: zodResolver(insertPredictionSchema),
@@ -32,6 +31,45 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
       gridStability: "",
       communityEngagement: "",
       projectSize: 0,
+    },
+  });
+
+  // Define the mutation for creating predictions
+  const createPredictionMutation = useMutation({
+    mutationFn: async (data: any) => {
+      // Mock prediction for demo - in real app this would call the API
+      const mockPrediction = {
+        id: Date.now(),
+        projectType: data.projectType,
+        location: data.location,
+        gridStability: data.gridStability,
+        communityEngagement: data.communityEngagement,
+        projectSize: data.projectSize,
+        successProbability: 84,
+        predictedIrr: 15.5,
+        riskAssessment: "Medium",
+        confidenceScore: 94,
+        createdAt: new Date().toISOString(),
+      };
+      
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      return mockPrediction;
+    },
+    onSuccess: (data) => {
+      setPredictionResult(data);
+      toast({
+        title: "Prediction Complete",
+        description: "AI prediction has been generated successfully.",
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Prediction Failed",
+        description: "Failed to generate prediction. Please try again.",
+        variant: "destructive",
+      });
     },
   });
 
@@ -50,33 +88,8 @@ export default function PredictionForm({ onProjectTypeChange }: PredictionFormPr
   }, [form]);
 
   const onSubmit = async (data: any) => {
-    try {
-      console.log("Form submission data:", data);
-      
-      // Mock prediction for demo
-      const mockPrediction = {
-        id: Date.now(),
-        projectType: data.projectType,
-        location: data.location,
-        successProbability: 84,
-        expectedIrr: 15.5,
-        riskAssessment: "Medium",
-        confidenceScore: 94
-      };
-      
-      setPredictionResult(mockPrediction);
-      
-      toast({
-        title: "Prediction Complete",
-        description: "AI prediction has been generated successfully.",
-      });
-    } catch (error: any) {
-      toast({
-        title: "Prediction Failed",
-        description: "Failed to generate prediction. Please try again.",
-        variant: "destructive",
-      });
-    }
+    console.log("Form submission data:", data);
+    createPredictionMutation.mutate(data);
   };
 
   const getRiskColor = (risk: string) => {
