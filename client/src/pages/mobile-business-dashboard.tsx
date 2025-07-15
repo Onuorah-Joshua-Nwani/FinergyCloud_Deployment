@@ -25,13 +25,17 @@ import {
   Wind,
   Droplets
 } from "lucide-react";
+import { useCurrency } from "@/lib/currency-context";
+import { formatCurrency } from "@shared/currency";
 
 export default function MobileBusinessDashboard() {
+  const { selectedCurrency } = useCurrency();
+  
   // Real FinergyCloud business metrics for renewable energy investment platform
   const businessMetrics = [
     {
       title: "Portfolio Value",
-      value: "$2.85M",
+      value: formatCurrency(2850000, selectedCurrency),
       icon: DollarSign,
       color: "text-green-600",
       bgColor: "bg-green-50"
@@ -135,7 +139,7 @@ export default function MobileBusinessDashboard() {
     },
     {
       title: "IRR Calculator",
-      description: "Multi-currency financial modeling",
+      description: `Multi-currency financial modeling (${selectedCurrency})`,
       icon: Calculator,
       link: "/irr-calculator?platform=mobile"
     },
@@ -163,9 +167,15 @@ export default function MobileBusinessDashboard() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-slate-900 mb-2">
-          FinergyCloud Business Dashboard
-        </h1>
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-2xl font-bold text-slate-900">
+            FinergyCloud Business Dashboard
+          </h1>
+          <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full">
+            <DollarSign className="w-4 h-4 text-green-600" />
+            <span className="text-sm font-medium text-green-700">{selectedCurrency}</span>
+          </div>
+        </div>
         <p className="text-slate-600 text-sm">
           Renewable Energy Investment Platform • Nigeria & Ghana
         </p>

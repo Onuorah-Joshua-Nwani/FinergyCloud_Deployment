@@ -11,8 +11,10 @@ import {
   TreePine, 
   Settings,
   Menu,
-  X
+  X,
+  Globe
 } from 'lucide-react';
+import CurrencySelector from './currency-selector';
 
 interface SimpleNavProps {
   isOpen: boolean;
@@ -79,6 +81,16 @@ export function MobileSimpleNav({ isOpen, onToggle }: SimpleNavProps) {
       }`}>
         <div className="p-4 pt-16">
           <h2 className="text-lg font-bold text-gray-900 mb-6">FinergyCloud Studio</h2>
+          
+          {/* Currency Selector */}
+          <div className="mb-6">
+            <div className="flex items-center mb-2">
+              <Globe className="w-4 h-4 mr-2 text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Currency</span>
+            </div>
+            <CurrencySelector />
+          </div>
+          
           <nav className="space-y-2">
             {mobileAppNavItems.map((item) => (
               <NavItem key={item.path} {...item} />
