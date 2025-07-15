@@ -53,7 +53,7 @@ export default function Dashboard() {
   const recentProjects = projects?.slice(0, 2) || [];
 
   const dashboardContent = (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mobile-background">
       <section className="py-4 md:py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           {/* Header */}

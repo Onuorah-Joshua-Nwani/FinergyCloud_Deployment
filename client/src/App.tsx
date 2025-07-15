@@ -58,7 +58,7 @@ function Router() {
   // MOBILE APP PLATFORM
   if (isMobileApp || shouldForceMobile) {
     return (
-      <div className="min-h-screen bg-gray-50 touch-zoom">
+      <div className="min-h-screen mobile-professional touch-zoom">
         <Navigation />
         <main className="pb-16 lg:pb-0 zoom-container">
           <Switch>
