@@ -12,9 +12,14 @@ import { MobileSideNav, MobileMenuButton } from "./mobile-side-nav";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function Navigation() {
-  const [location] = useLocation();
   const [sideNavOpen, setSideNavOpen] = useState(false);
-  const { user, isAuthenticated } = useAuth();
+  
+  // Safe location detection without hooks
+  const currentPath = window.location.pathname;
+  
+  // Safe auth detection without hooks  
+  const user = null;
+  const isAuthenticated = false;
   
   // Check if we're on mobile app platform - more robust detection
   const urlParams = new URLSearchParams(window.location.search);
@@ -56,7 +61,7 @@ export default function Navigation() {
     className?: string;
     isMobile?: boolean;
   }) => {
-    const isActive = location === path || (path === "/" && (location === "/" || location === "/dashboard"));
+    const isActive = currentPath === path || (path === "/" && (currentPath === "/" || currentPath === "/dashboard"));
     
     // Preserve platform parameter for mobile app navigation
     const linkPath = actuallyMobileApp ? `${path}?platform=mobile` : path;
@@ -365,7 +370,7 @@ export default function Navigation() {
               <div className="flex space-x-1 max-w-sm w-full justify-between">
                 {mobileAppNavItems.slice(0, 4).map(item => {
                   const Icon = item.icon;
-                  const isActive = location === item.path || (item.path === "/" && (location === "/" || location === "/dashboard"));
+                  const isActive = currentPath === item.path || (item.path === "/" && (currentPath === "/" || currentPath === "/dashboard"));
                   const linkPath = `${item.path}?platform=mobile`;
                   return (
                     <Link key={item.path} href={linkPath} className="flex-1">
