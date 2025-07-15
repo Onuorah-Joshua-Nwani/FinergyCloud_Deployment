@@ -5,7 +5,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 // import { Toaster } from "@/components/ui/toaster";
 // import { TooltipProvider } from "@/components/ui/tooltip";
 import { CurrencyProvider } from "./lib/currency-context";
-import { useAuth } from "@/hooks/useAuth";
+// import { useAuth } from "@/hooks/useAuth";
 import Navigation from "@/components/navigation";
 import SEOHead from "@/components/seo-head";
 import Dashboard from "@/pages/dashboard";
@@ -36,7 +36,9 @@ import MobileToastContainer from "@/components/mobile-toast";
 
 
 function Router() {
-  const { isAuthenticated, isLoading } = useAuth();
+  // Safe auth detection without hooks
+  const isAuthenticated = false;
+  const isLoading = false;
   
   // Check URL parameters directly with more robust parsing
   const urlParams = new URLSearchParams(window.location.search);

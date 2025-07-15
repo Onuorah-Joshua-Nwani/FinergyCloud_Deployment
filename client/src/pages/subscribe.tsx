@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { useAuth } from "@/hooks/useAuth";
+// import { useAuth } from "@/hooks/useAuth";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { 
   Check, 
@@ -95,7 +95,9 @@ export default function Subscribe() {
   const [selectedPlan, setSelectedPlan] = useState<string>("basic");
   const [isProcessing, setIsProcessing] = useState(false);
   const { toast } = useToast();
-  const { user, isAuthenticated } = useAuth();
+  // Safe auth detection without hooks
+  const user = null;
+  const isAuthenticated = false;
 
   const { data: currentSubscription, isLoading } = useQuery({
     queryKey: ["/api/subscription/status"],

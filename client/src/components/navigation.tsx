@@ -9,7 +9,7 @@ import CurrencySelector from "./currency-selector";
 import SocialLinks from "./social-links";
 import PlatformSwitcher from "./platform-switcher";
 import { MobileSideNav, MobileMenuButton } from "./mobile-side-nav";
-import { useAuth } from "@/hooks/useAuth";
+// import { useAuth } from "@/hooks/useAuth";
 
 export default function Navigation() {
   // Safe location detection without hooks
