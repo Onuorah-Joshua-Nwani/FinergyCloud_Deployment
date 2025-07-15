@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "wouter";
+import React from "react";
+import { Link } from "wouter";
 import { Leaf, Menu, User, LogOut, Settings, BarChart3, TrendingUp, Gift, Brain, FolderOpen, Newspaper, Calculator, TreePine, Phone, CreditCard, Info, Wrench, BookOpen, Smartphone, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -12,8 +12,6 @@ import { MobileSideNav, MobileMenuButton } from "./mobile-side-nav";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function Navigation() {
-  const [sideNavOpen, setSideNavOpen] = useState(false);
-  
   // Safe location detection without hooks
   const currentPath = window.location.pathname;
   
@@ -98,7 +96,7 @@ export default function Navigation() {
       {/* Fixed Hamburger Menu for Mobile App - Always visible */}
       {actuallyMobileApp && (
         <div className="lg:hidden fixed top-2 left-2 z-[60]">
-          <MobileMenuButton onClick={() => setSideNavOpen(!sideNavOpen)} isOpen={sideNavOpen} />
+          <MobileMenuButton onClick={() => {}} isOpen={false} />
         </div>
       )}
       
@@ -396,8 +394,8 @@ export default function Navigation() {
       {/* Mobile Side Navigation - Only for mobile app */}
       {actuallyMobileApp && (
         <MobileSideNav 
-          isOpen={sideNavOpen} 
-          onClose={() => setSideNavOpen(false)} 
+          isOpen={false} 
+          onClose={() => {}} 
           user={user}
         />
       )}
