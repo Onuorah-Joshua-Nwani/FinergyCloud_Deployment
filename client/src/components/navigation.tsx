@@ -125,17 +125,11 @@ export default function Navigation() {
                 <NavLink key={item.path} path={item.path} label={item.label} icon={item.icon} />
               ))
             ) : (
-              // Website Navigation with Mobile App Link
+              // Website Navigation - No duplicate mobile link
               <>
                 {websiteNavItems.map(item => (
                   <NavLink key={item.path} {...item} />
                 ))}
-                <button
-                  onClick={() => window.open('/?platform=mobile', '_blank')}
-                  className="nav-item block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 cursor-pointer text-gray-600 hover:text-primary hover:bg-gray-50"
-                >
-                  Mobile Experience
-                </button>
               </>
             )}
           </div>
@@ -197,12 +191,7 @@ export default function Navigation() {
                       <Settings className="mr-2 h-4 w-4" />
                       <span>Settings</span>
                     </DropdownMenuItem>
-                    {!actuallyMobileApp && (
-                      <DropdownMenuItem onClick={() => window.open('/?platform=mobile', '_blank')}>
-                        <Smartphone className="mr-2 h-4 w-4" />
-                        <span>Mobile Experience</span>
-                      </DropdownMenuItem>
-                    )}
+
                     <DropdownMenuItem onClick={handleLogout}>
                       <LogOut className="mr-2 h-4 w-4" />
                       <span>Log out</span>
@@ -288,13 +277,6 @@ export default function Navigation() {
                         <div className="mt-6">
                           <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Platform Access</h3>
                           <div className="space-y-1">
-                            <button
-                              onClick={() => window.open('/?platform=mobile', '_blank')}
-                              className="w-full flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 text-gray-600 hover:text-primary hover:bg-gray-50 text-left"
-                            >
-                              <Smartphone className="w-5 h-5 mr-3 flex-shrink-0" />
-                              Mobile Experience
-                            </button>
                             <button
                               onClick={() => window.location.href = 'mailto:beta@finergycloud.com?subject=Beta Program Application'}
                               className="w-full flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 text-gray-600 hover:text-primary hover:bg-gray-50 text-left"
