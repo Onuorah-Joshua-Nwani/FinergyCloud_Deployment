@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -6,11 +6,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NavigationHeader from "@/components/navigation";
 import SEOHead from "@/components/seo-head";
-import Dashboard from "@/pages/dashboard";
-import AIModel from "@/pages/ai-model";
-import ESGScoring from "@/pages/esg-scoring";
+import { MobileSimpleNav } from "@/components/mobile-simple-nav";
+import DashboardSimple from "@/pages/dashboard-simple";
+import ProjectManagementSimple from "@/pages/project-management-simple";
+import AIModelSimple from "@/pages/ai-model-simple";
+import ESGScoringSimple from "@/pages/esg-scoring-simple";
 import IRRCalculator from "@/pages/irr-calculator";
-import ProjectManagement from "@/pages/project-management";
 import MarketInsights from "@/pages/market-insights";
 import KPIDashboard from "@/pages/kpi";
 import AdvancedFeatures from "@/pages/advanced-features";
@@ -28,6 +29,38 @@ import WebsiteLanding from "@/pages/website/website-landing";
 import MobileLanding from "@/pages/mobile-app/mobile-landing";
 import NotFound from "@/pages/not-found";
 
+function MobileAppRouter() {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  
+  return (
+    <div className="min-h-screen mobile-professional">
+      <MobileSimpleNav 
+        isOpen={mobileNavOpen} 
+        onToggle={() => setMobileNavOpen(!mobileNavOpen)} 
+      />
+      <main className="pb-16 lg:pb-0">
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/" component={DashboardSimple} />
+          <Route path="/dashboard" component={DashboardSimple} />
+          <Route path="/project-management" component={ProjectManagementSimple} />
+          <Route path="/kpi" component={KPIDashboard} />
+          <Route path="/advanced-features" component={AdvancedFeatures} />
+          <Route path="/rewards" component={RewardsPage} />
+          <Route path="/ai-model" component={AIModelSimple} />
+          <Route path="/market-insights" component={MarketInsights} />
+          <Route path="/esg-scoring" component={ESGScoringSimple} />
+          <Route path="/irr-calculator" component={IRRCalculator} />
+          <Route path="/privacy" component={Privacy} />
+          <Route path="/terms" component={Terms} />
+          <Route path="/cookies" component={Cookies} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
+    </div>
+  );
+}
+
 function Router() {
   // Check URL parameters directly
   const urlParams = new URLSearchParams(window.location.search);
@@ -37,28 +70,7 @@ function Router() {
   // MOBILE APP PLATFORM
   if (isMobileApp) {
     return (
-      <div className="min-h-screen mobile-professional">
-        <NavigationHeader />
-        <main className="pb-16 lg:pb-0">
-          <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/" component={MobileLanding} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/kpi" component={KPIDashboard} />
-            <Route path="/advanced-features" component={AdvancedFeatures} />
-            <Route path="/rewards" component={RewardsPage} />
-            <Route path="/ai-model" component={AIModel} />
-            <Route path="/market-insights" component={MarketInsights} />
-            <Route path="/esg-scoring" component={ESGScoring} />
-            <Route path="/irr-calculator" component={IRRCalculator} />
-            <Route path="/project-management" component={ProjectManagement} />
-            <Route path="/privacy" component={Privacy} />
-            <Route path="/terms" component={Terms} />
-            <Route path="/cookies" component={Cookies} />
-            <Route component={NotFound} />
-          </Switch>
-        </main>
-      </div>
+      <MobileAppRouter />
     );
   }
 
