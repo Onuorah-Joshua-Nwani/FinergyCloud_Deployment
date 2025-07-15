@@ -87,6 +87,7 @@ function Router() {
           <Route path="/login" component={Login} />
           <Route path="/" component={WebsiteLanding} />
           <Route path="/about" component={About} />
+          <Route path="/platform" component={Solutions} />
           <Route path="/solutions" component={Solutions} />
           <Route path="/blog" component={Blog} />
           <Route path="/contact" component={Contact} />
