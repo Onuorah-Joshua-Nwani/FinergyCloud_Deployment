@@ -36,7 +36,7 @@ export const blogArticles: BlogArticle[] = [
     tags: ["Business Model", "Revenue", "Pricing", "Subscription"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained&summary=AI-powered%20renewable%20energy%20investment%20platform%20with%204%20revenue%20streams%20-%20software%20subscriptions%2C%20project%20reports%2C%20ESG%20services%2C%20and%20market%20data",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained%20-%20AI-powered%20renewable%20energy%20investment%20platform%20with%204%20revenue%20streams&url=https://finergycloud.com&hashtags=RenewableEnergy,AI,Investment,ESG",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained%20-%20AI-powered%20renewable%20energy%20investment%20platform",
     whatsappUrl: "https://wa.me/?text=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained%20-%20AI-powered%20renewable%20energy%20investment%20platform%20with%204%20revenue%20streams%20https://finergycloud.com",
@@ -141,12 +141,12 @@ Connect with O.J. Nwani on LinkedIn to discuss FinergyCloud's business model and
     tags: ["FinergyCloud Explained", "AI Investment", "Renewable Energy", "Getting Started"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=How%20FinergyCloud%20Makes%20Money%3A%20Simple%20Business%20Model%20Explained&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment&url=https://finergycloud.com/blog/what-is-finergycloud-explained",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
     whatsappUrl: "https://wa.me/?text=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment%20https://finergycloud.com/blog/what-is-finergycloud-explained",
-    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/what-is-finergycloud-explained&text=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment",
-    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/what-is-finergycloud-explained&title=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com&text=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment%20-%20AI-powered%20renewable%20energy%20investment%20platform",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com&title=What%20is%20FinergyCloud%3F%20A%20Simple%20Guide%20to%20AI-Powered%20Renewable%20Energy%20Investment",
     shareableText: "What is FinergyCloud? AI-powered platform that predicts renewable energy project success with 94% accuracy in emerging markets",
     content: `What is FinergyCloud? A Simple Guide to AI-Powered Renewable Energy Investment
 
@@ -261,12 +261,12 @@ Questions? Reach out at hello@finergycloud.com - we're always happy to explain h
     tags: ["Machine Learning", "XGBoost", "Prediction Models", "Data Science"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success&url=https://finergycloud.com/blog/how-finergycloud-ai-works",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
     whatsappUrl: "https://wa.me/?text=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success%20https://finergycloud.com/blog/how-finergycloud-ai-works",
-    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/how-finergycloud-ai-works&text=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success",
-    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/how-finergycloud-ai-works&title=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com&text=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success%20-%20AI-powered%20renewable%20energy%20investment%20platform",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com&title=How%20FinergyCloud's%20AI%20Predicts%20Renewable%20Energy%20Project%20Success",
     shareableText: "How FinergyCloud's AI Predicts Renewable Energy Project Success - 94% accuracy with XGBoost machine learning models",
     content: `How FinergyCloud's AI Predicts Renewable Energy Project Success
 
@@ -403,12 +403,12 @@ Our goal is to make AI-powered project assessment accessible to everyone working
     tags: ["Terminology", "Investment Basics", "Clean Energy", "Glossary"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know&url=https://finergycloud.com/blog/renewable-energy-terminology-guide",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
     whatsappUrl: "https://wa.me/?text=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know%20https://finergycloud.com/blog/renewable-energy-terminology-guide",
-    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/renewable-energy-terminology-guide&text=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know",
-    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/renewable-energy-terminology-guide&title=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com&text=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know%20-%20AI-powered%20renewable%20energy%20investment%20platform",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com&title=Renewable%20Energy%20Investment%20Terms%20Every%20Investor%20Should%20Know",
     shareableText: "Renewable Energy Investment Terms Every Investor Should Know - Complete glossary for clean energy investing in emerging markets",
     content: `Renewable Energy Investment Terms Every Investor Should Know
 Author: O.J. Nwani
@@ -529,7 +529,7 @@ Questions about any of these terms? Contact our team at education@finergycloud.c
     tags: ["ESG Scoring", "Emerging Markets", "Sustainability", "Impact Measurement"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=ESG%20Metrics%20That%20Actually%20Matter%20in%20Emerging%20Markets&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     content: `ESG Metrics That Actually Matter in Emerging Markets
 
 Most ESG frameworks were designed for developed markets. Apply them in Nigeria or Kenya, and you'll get misleading results that don't reflect real impact.
@@ -669,12 +669,12 @@ FinergyCloud's ESG scoring system is available for all renewable energy projects
     tags: ["Platform Tour", "Feature Guide", "AI Models", "Portfolio Management"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
-    twitterUrl: "https://twitter.com/intent/tweet?text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management&url=https://finergycloud.com/blog/finergycloud-features-complete-guide",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
+    twitterUrl: "https://twitter.com/intent/tweet?text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management%20-%20AI-powered%20renewable%20energy%20investment%20platform&url=https://finergycloud.com&hashtags=RenewableEnergy,AI,Investment,ESG",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
-    whatsappUrl: "https://wa.me/?text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management%20https://finergycloud.com/blog/finergycloud-features-complete-guide",
-    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/finergycloud-features-complete-guide&text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management",
-    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/finergycloud-features-complete-guide&title=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management",
+    whatsappUrl: "https://wa.me/?text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management%20-%20AI-powered%20renewable%20energy%20investment%20platform%20https://finergycloud.com",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com&text=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management%20-%20AI-powered%20renewable%20energy%20investment%20platform",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com&title=Complete%20Guide%20to%20FinergyCloud%20Features%3A%20AI%20Models%2C%20ESG%20Scoring%2C%20and%20Portfolio%20Management",
     shareableText: "Complete Guide to FinergyCloud Features - Deep dive into XGBoost prediction engine, ESG scoring, and portfolio management tools",
     content: `Complete Guide to FinergyCloud Features: AI Models, ESG Scoring, and Portfolio Management
 
@@ -831,7 +831,7 @@ FinergyCloud offers a comprehensive suite of tools for renewable energy investme
     tags: ["MVP Development", "Pilot Program", "Startup Journey", "UK Registration", "Backtesting"],
     featured: true,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025%20-%20AI-powered%20renewable%20energy%20investment%20platform&url=https://finergycloud.com&hashtags=RenewableEnergy,AI,Investment,ESG",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025%20-%20AI-powered%20renewable%20energy%20investment%20platform",
     whatsappUrl: "https://wa.me/?text=Building%20FinergyCloud%20MVP%3A%20From%20Concept%20to%20Pilot%20Program%20in%202025%20-%20AI-powered%20renewable%20energy%20investment%20platform%20https://finergycloud.com",
@@ -963,7 +963,7 @@ O.J. Nwani is the founder and CEO of FinergyCloud. Connect with them on LinkedIn
     tags: ["Pilot Program", "Early Access", "Customer Development", "Partnership"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=Seeking%20Pilot%20Customers%3A%20FinergyCloud's%20Launch%20Strategy%20for%202025&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=Seeking%20Pilot%20Customers%3A%20FinergyCloud's%20Launch%20Strategy%20for%202025%20-%20AI-powered%20renewable%20energy%20investment%20platform&url=https://finergycloud.com&hashtags=RenewableEnergy,AI,Investment,ESG",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=Seeking%20Pilot%20Customers%3A%20FinergyCloud's%20Launch%20Strategy%20for%202025%20-%20AI-powered%20renewable%20energy%20investment%20platform",
     whatsappUrl: "https://wa.me/?text=Seeking%20Pilot%20Customers%3A%20FinergyCloud's%20Launch%20Strategy%20for%202025%20-%20AI-powered%20renewable%20energy%20investment%20platform%20https://finergycloud.com",
@@ -1141,12 +1141,12 @@ Interested in joining our pilot program? Connect with O.J. Nwani on LinkedIn or 
     tags: ["Roadmap", "Future Features", "Innovation", "Blockchain", "Satellite Data"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features&url=https://finergycloud.com/blog/roadmap-2025-2027-innovations",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
     whatsappUrl: "https://wa.me/?text=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features%20https://finergycloud.com/blog/roadmap-2025-2027-innovations",
-    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/roadmap-2025-2027-innovations&text=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features",
-    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/roadmap-2025-2027-innovations&title=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com&text=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features%20-%20AI-powered%20renewable%20energy%20investment%20platform",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com&title=Roadmap%202025-2027%3A%20Planned%20Innovations%20and%20Future%20Features",
     shareableText: "Roadmap 2025-2027: FinergyCloud's Planned Innovations - Satellite data integration, blockchain ESG compliance, and real-time market intelligence",
     content: `Roadmap 2025-2027: Planned Innovations and Future Features
 
@@ -1428,12 +1428,12 @@ This roadmap represents our current strategic thinking and will be updated regul
     tags: ["XGBoost", "Machine Learning", "Backtesting", "Data Science", "Validation"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data&url=https://finergycloud.com/blog/xgboost-backtesting-validation",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
     whatsappUrl: "https://wa.me/?text=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data%20https://finergycloud.com/blog/xgboost-backtesting-validation",
-    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/xgboost-backtesting-validation&text=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data",
-    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/xgboost-backtesting-validation&title=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com&text=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data%20-%20AI-powered%20renewable%20energy%20investment%20platform",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com&title=XGBoost%20Backtesting%3A%20Validating%2094%25%20Accuracy%20with%20Historical%20Data",
     shareableText: "XGBoost Backtesting: Validating 94% Accuracy with Historical Data - Deep dive into our machine learning validation methodology",
     content: `XGBoost Backtesting: Validating 94% Accuracy with Historical Data
 Author: O.J. Nwani
@@ -1764,12 +1764,12 @@ For technical questions about our backtesting methodology or access to detailed 
     tags: ["IRR Calculator", "Multi-Currency", "Financial Modeling", "Risk Assessment", "Emerging Markets"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     twitterUrl: "https://twitter.com/intent/tweet?text=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets&url=https://finergycloud.com/blog/multi-currency-irr-modeling",
     facebookUrl: "https://www.facebook.com/sharer/sharer.php?u=https://finergycloud.com&quote=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
     whatsappUrl: "https://wa.me/?text=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets%20https://finergycloud.com/blog/multi-currency-irr-modeling",
-    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com/blog/multi-currency-irr-modeling&text=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets",
-    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com/blog/multi-currency-irr-modeling&title=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets",
+    telegramUrl: "https://t.me/share/url?url=https://finergycloud.com&text=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets%20-%20AI-powered%20renewable%20energy%20investment%20platform",
+    redditUrl: "https://reddit.com/submit?url=https://finergycloud.com&title=Multi-Currency%20IRR%20Modeling%3A%20Building%20Financial%20Models%20for%20Emerging%20Markets",
     shareableText: "Multi-Currency IRR Modeling for Emerging Markets - How to calculate returns across Nigerian Naira, British Pounds, and Euros",
     content: `Multi-Currency IRR Modeling: Building Financial Models for Emerging Markets
 
@@ -2138,7 +2138,7 @@ The FinergyCloud Financial Engineering Team includes quantitative analysts, emer
     tags: ["Satellite Data", "Remote Monitoring", "Future Tech", "Real-time Analytics", "Innovation"],
     featured: false,
     mediumUrl: "https://medium.com/new-story?source=write_nav_new_story",
-    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com&title=Satellite%20Data%20Integration%20for%20Real-Time%20Project%20Monitoring%20(Coming%202026)&summary=AI-powered%20renewable%20energy%20investment%20platform%20for%20emerging%20markets",
+    linkedinUrl: "https://www.linkedin.com/sharing/share-offsite/?url=https://finergycloud.com",
     content: `Satellite Data Integration for Real-Time Project Monitoring (Coming 2026)
 
 While our current platform provides industry-leading prediction accuracy for renewable energy investments, we're not stopping there. In 2026, we're planning to launch one of the most ambitious technology integrations in the renewable energy investment space: comprehensive satellite data analysis for real-time project monitoring and performance validation.
