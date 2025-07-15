@@ -120,9 +120,44 @@ app.use((req, res, next) => {
     // For development, serve content directly without requiring full build
     if (process.env.NODE_ENV === "production") {
       try {
-        serveStatic(app);
+        // Try multiple paths for production static files
+        const path = await import("path");
+        const fs = await import("fs");
+        
+        const possiblePaths = [
+          path.resolve(process.cwd(), "dist", "public"),
+          path.resolve(process.cwd(), "public"),
+          path.resolve(import.meta.dirname, "public")
+        ];
+        
+        let staticPath = null;
+        for (const testPath of possiblePaths) {
+          console.log('Testing static path:', testPath);
+          if (fs.existsSync(testPath)) {
+            staticPath = testPath;
+            console.log('Found static files at:', staticPath);
+            break;
+          }
+        }
+        
+        if (staticPath) {
+          // Serve static files
+          const express = await import("express");
+          app.use(express.static(staticPath));
+          
+          // Serve index.html for all non-API routes
+          app.use("*", (_req, res) => {
+            res.sendFile(path.resolve(staticPath, "index.html"));
+          });
+          
+          console.log('Production static files served from:', staticPath);
+        } else {
+          console.log("No static files found, trying vite serve");
+          setupVite(app, server);
+        }
       } catch (error) {
-        console.log("Production build not available, serving development content");
+        console.log("Production build error:", error.message);
+        console.log("Falling back to development mode");
         setupVite(app, server);
       }
     } else {

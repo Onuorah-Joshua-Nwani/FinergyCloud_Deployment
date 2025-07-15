@@ -6,7 +6,7 @@ import { insertPredictionSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Direct response for root route to ensure 200 status
+  // Handle mobile route with direct response
   app.get('/', (req, res, next) => {
     const isMobile = req.query.platform === 'mobile';
     if (isMobile) {
@@ -103,46 +103,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       return;
     }
     
-    // For non-mobile requests, respond quickly with basic HTML
-    // This ensures fast 200 response for deployment health checks
-    res.status(200).send(`<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinergyCloud - AI-Powered Renewable Energy Investment Platform</title>
-    <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #059669, #2563eb);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .container { max-width: 600px; margin: 0 auto; }
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
-        .loading { font-size: 1rem; opacity: 0.8; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>FinergyCloud</h1>
-        <p>AI-Powered Renewable Energy Investment Platform</p>
-        <div class="loading">Loading application...</div>
-    </div>
-    <script>
-        // Reload to let Vite handle the frontend after health check passes
-        setTimeout(() => {
-            if (window.location.pathname === '/') {
-                window.location.reload();
-            }
-        }, 1000);
-    </script>
-</body>
-</html>`);
+    // For non-mobile requests, let Vite/static serving handle the React app
+    // This ensures the proper React application loads in production
+    next();
   });
 
   // Health check endpoint for Railway
