@@ -3,8 +3,20 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-// Ensure React is globally available
-(window as any).React = React;
+// Verify React is properly loaded
+console.log('React version:', React.version);
+console.log('React hooks available:', {
+  useState: typeof React.useState,
+  useEffect: typeof React.useEffect,
+  useContext: typeof React.useContext
+});
+
+// Only proceed if React is properly loaded
+if (!React || !React.useState) {
+  console.error('React not properly loaded - reloading page');
+  window.location.reload();
+  throw new Error('React not available');
+}
 
 // Error boundary for React mounting issues
 function ErrorBoundary({ children }: { children: React.ReactNode }) {
