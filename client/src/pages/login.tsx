@@ -28,10 +28,8 @@ export default function Login() {
       });
       
       if (response.ok) {
-        // Check if we're on mobile platform and redirect accordingly
-        const urlParams = new URLSearchParams(window.location.search);
-        const isMobile = urlParams.get('platform') === 'mobile';
-        window.location.href = isMobile ? "/dashboard?platform=mobile" : "/";
+        // Always redirect to business dashboard for mobile platform
+        window.location.href = "/dashboard?platform=mobile";
       } else {
         console.error("Authentication failed");
       }

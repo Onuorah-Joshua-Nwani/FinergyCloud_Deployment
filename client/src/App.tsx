@@ -33,6 +33,10 @@ import NotFound from "@/pages/not-found";
 function MobileAppRouter() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   
+  // Skip login for mobile app - go directly to business dashboard
+  const currentPath = window.location.pathname;
+  const shouldShowLogin = currentPath === '/login';
+  
   return (
     <div className="min-h-screen mobile-professional">
       <MobileSimpleNav 
@@ -44,8 +48,6 @@ function MobileAppRouter() {
           <Route path="/login" component={Login} />
           <Route path="/" component={MobileBusinessDashboard} />
           <Route path="/dashboard" component={MobileBusinessDashboard} />
-          <Route path="/mobile-landing" component={MobileLanding} />
-          <Route path="/business-dashboard" component={MobileBusinessDashboard} />
           <Route path="/project-management" component={ProjectManagementSimple} />
           <Route path="/kpi" component={KPIDashboard} />
           <Route path="/advanced-features" component={AdvancedFeatures} />
