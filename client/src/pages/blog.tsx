@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useToast } from "@/hooks/use-toast";
 
 import Footer from "@/components/footer";
+import { Toaster } from "@/components/ui/toaster";
 import { 
   Calendar,
   User,
@@ -31,6 +33,7 @@ import type { BlogArticle } from '@shared/blog-content';
 export default function Blog() {
   const [selectedArticle, setSelectedArticle] = useState<BlogArticle | null>(null);
   const [isReading, setIsReading] = useState(false);
+  const { toast } = useToast();
   
   const breadcrumbs = [
     { label: "Home", path: "/" },
@@ -52,34 +55,53 @@ export default function Blog() {
 
   const handleShare = (article: BlogArticle, platform: 'linkedin' | 'medium' | 'twitter' | 'facebook' | 'whatsapp' | 'telegram' | 'reddit') => {
     let url = '';
+    let platformName = '';
+    
     switch (platform) {
       case 'linkedin':
         url = article.linkedinUrl || '';
+        platformName = 'LinkedIn';
         break;
       case 'medium':
         url = article.mediumUrl || '';
+        platformName = 'Medium';
         break;
       case 'twitter':
         url = article.twitterUrl || '';
+        platformName = 'Twitter';
         break;
       case 'facebook':
         url = article.facebookUrl || '';
+        platformName = 'Facebook';
         break;
       case 'whatsapp':
         url = article.whatsappUrl || '';
+        platformName = 'WhatsApp';
         break;
       case 'telegram':
         url = article.telegramUrl || '';
+        platformName = 'Telegram';
         break;
       case 'reddit':
         url = article.redditUrl || '';
+        platformName = 'Reddit';
         break;
     }
     
     if (url) {
       window.open(url, '_blank', 'noopener,noreferrer');
+      toast({
+        title: `Shared to ${platformName}`,
+        description: `Opening ${platformName} to share "${article.title}"`,
+        duration: 3000,
+      });
     } else {
-      console.warn(`No ${platform} URL found for article: ${article.title}`);
+      toast({
+        title: "Share link not available",
+        description: `No ${platformName} sharing link found for this article`,
+        variant: "destructive",
+        duration: 3000,
+      });
     }
   };
 
@@ -314,19 +336,47 @@ export default function Blog() {
                           size="sm" 
                           className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                         >
-                          <ArrowRight className="w-4 h-4" />
+                          <BookOpen className="w-4 h-4 mr-1" />
+                          Read
                         </Button>
-                        <Button 
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleShare(post, 'linkedin');
-                          }}
-                          variant="ghost" 
-                          size="sm" 
-                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-blue-600"
-                        >
-                          Share
-                        </Button>
+                        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <Button 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleShare(post, 'linkedin');
+                            }}
+                            variant="ghost" 
+                            size="sm" 
+                            className="text-blue-600 hover:text-blue-800 p-1"
+                            title="Share on LinkedIn"
+                          >
+                            <Share2 className="w-4 h-4" />
+                          </Button>
+                          <Button 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleShare(post, 'twitter');
+                            }}
+                            variant="ghost" 
+                            size="sm" 
+                            className="text-blue-400 hover:text-blue-600 p-1"
+                            title="Share on Twitter"
+                          >
+                            <Share2 className="w-4 h-4" />
+                          </Button>
+                          <Button 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleShare(post, 'whatsapp');
+                            }}
+                            variant="ghost" 
+                            size="sm" 
+                            className="text-green-500 hover:text-green-600 p-1"
+                            title="Share on WhatsApp"
+                          >
+                            <Share2 className="w-4 h-4" />
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -365,8 +415,17 @@ export default function Blog() {
                 <Button
                   variant="ghost"
                   size="sm"
+                  onClick={() => selectedArticle && handleShare(selectedArticle, 'medium')}
+                  className="text-green-600 hover:text-green-800 text-xs"
+                >
+                  <ExternalLink className="w-3 h-3 mr-1" />
+                  <span className="hidden sm:inline">Medium</span>
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
                   onClick={() => selectedArticle && handleShare(selectedArticle, 'twitter')}
-                  className="text-blue-400 hover:text-blue-500 text-xs"
+                  className="text-blue-400 hover:text-blue-600 text-xs"
                 >
                   <Share2 className="w-3 h-3 mr-1" />
                   <span className="hidden sm:inline">Twitter</span>
@@ -481,6 +540,13 @@ export default function Blog() {
                       <Share2 className="w-4 h-4 mr-2" />
                       Telegram
                     </Button>
+                    <Button
+                      onClick={() => selectedArticle && handleShare(selectedArticle, 'reddit')}
+                      className="bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm"
+                    >
+                      <Share2 className="w-4 h-4 mr-2" />
+                      Reddit
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -490,6 +556,7 @@ export default function Blog() {
       </Dialog>
 
       <Footer />
+      <Toaster />
     </div>
   );
 }
