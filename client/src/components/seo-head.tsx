@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useLocation } from 'wouter';
+import React from 'react';
 
 interface SEOHeadProps {
   title?: string;
@@ -64,9 +63,9 @@ const PAGE_SEO_CONFIG = {
 };
 
 export default function SEOHead({ title, description, keywords, ogImage }: SEOHeadProps) {
-  const [location] = useLocation();
+  const location = typeof window !== 'undefined' ? window.location.pathname : '/';
   
-  useEffect(() => {
+  React.useEffect(() => {
     // Get page-specific SEO config
     const pageConfig = PAGE_SEO_CONFIG[location as keyof typeof PAGE_SEO_CONFIG];
     

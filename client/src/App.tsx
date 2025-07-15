@@ -7,7 +7,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { CurrencyProvider } from "./lib/currency-context";
 import { useAuth } from "@/hooks/useAuth";
 import Navigation from "@/components/navigation";
-import SEOHead from "@/components/seo-head";
+import SEOHead from "@/components/seo-head-minimal";
 import Dashboard from "@/pages/dashboard";
 import AIModel from "@/pages/ai-model";
 import ESGScoring from "@/pages/esg-scoring";
