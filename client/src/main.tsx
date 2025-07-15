@@ -3,39 +3,24 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-// Error boundary for React mounting issues
-function ErrorBoundary({ children }: { children: React.ReactNode }) {
-  const [hasError, setHasError] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleError = (error: ErrorEvent) => {
-      if (error.message.includes('Cannot read properties of null')) {
-        setHasError(true);
-      }
-    };
-
-    window.addEventListener('error', handleError);
-    return () => window.removeEventListener('error', handleError);
-  }, []);
-
-  if (hasError) {
-    return (
-      <div style={{ padding: '20px', textAlign: 'center' }}>
-        <h1>FinergyCloud</h1>
-        <p>Application error detected. Reloading...</p>
-        <button onClick={() => window.location.reload()}>Reload</button>
-      </div>
-    );
-  }
-
-  return <>{children}</>;
+// Simple wrapper without hooks
+function AppWrapper() {
+  return <App />;
 }
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
-  createRoot(rootElement).render(
-    <ErrorBoundary>
-      <App />
-    </ErrorBoundary>
-  );
+  try {
+    createRoot(rootElement).render(<AppWrapper />);
+  } catch (error) {
+    console.error('React mounting error:', error);
+    // Fallback static HTML
+    rootElement.innerHTML = `
+      <div style="padding: 20px; text-align: center;">
+        <h1>FinergyCloud</h1>
+        <p>Loading application...</p>
+        <button onclick="window.location.reload()">Reload</button>
+      </div>
+    `;
+  }
 }
