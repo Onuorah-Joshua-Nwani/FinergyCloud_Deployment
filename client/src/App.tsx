@@ -11,6 +11,7 @@ import DashboardSimple from "@/pages/dashboard-simple";
 import MobileBusinessDashboard from "@/pages/mobile-business-dashboard";
 import ProjectManagementSimple from "@/pages/project-management-simple";
 import AIModelSimple from "@/pages/ai-model-simple";
+import AIModel from "@/pages/ai-model";
 import ESGScoringSimple from "@/pages/esg-scoring-simple";
 import IRRCalculator from "@/pages/irr-calculator";
 import MarketInsights from "@/pages/market-insights";
@@ -52,7 +53,7 @@ function MobileAppRouter() {
           <Route path="/kpi" component={KPIDashboard} />
           <Route path="/advanced-features" component={AdvancedFeatures} />
           <Route path="/rewards" component={RewardsPage} />
-          <Route path="/ai-model" component={AIModelSimple} />
+          <Route path="/ai-model" component={AIModel} />
           <Route path="/market-insights" component={MarketInsights} />
           <Route path="/esg-scoring" component={ESGScoringSimple} />
           <Route path="/irr-calculator" component={IRRCalculator} />
