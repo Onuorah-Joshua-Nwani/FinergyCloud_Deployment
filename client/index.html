@@ -34,8 +34,21 @@
     
     <title>FinergyCloud - AI Risk Intelligence for Renewable Energy Investors</title>
     
-    <!-- Service Worker Registration -->
+    <!-- Basic Error Handling -->
     <script>
+      window.addEventListener('error', function(e) {
+        console.error('Global error:', e.error);
+        // Fallback content if React fails to load
+        if (document.getElementById('root') && !document.getElementById('root').hasChildNodes()) {
+          setTimeout(() => {
+            if (!document.getElementById('root').hasChildNodes()) {
+              document.getElementById('root').innerHTML = '<div style="padding: 20px; text-align: center;"><h1>FinergyCloud</h1><p>Loading...</p><p><a href="javascript:window.location.reload();">Reload Page</a></p></div>';
+            }
+          }, 3000);
+        }
+      });
+      
+      // Service Worker Registration (optional)
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
