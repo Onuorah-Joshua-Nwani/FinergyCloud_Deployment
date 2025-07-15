@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import PredictionForm from "@/components/prediction-form";
+import AdvancedPredictionEngine from "@/components/advanced-prediction-engine";
 import ModelPerformanceChart from "@/components/charts/model-performance-chart";
 import RiskAssessmentChart from "@/components/charts/risk-assessment-chart";
 import { Brain, Zap } from "lucide-react";
@@ -112,8 +112,8 @@ export default function AIModel() {
           <ModelPerformanceChart projectType={selectedProjectType} />
         </div>
 
-        {/* Prediction Form */}
-        <PredictionForm onProjectTypeChange={setSelectedProjectType} />
+        {/* Advanced Prediction Engine */}
+        <AdvancedPredictionEngine onProjectTypeChange={setSelectedProjectType} />
 
         {/* Risk Analysis */}
         <div className="mt-8">

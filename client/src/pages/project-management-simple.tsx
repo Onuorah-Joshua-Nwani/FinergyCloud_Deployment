@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { 
   Plus, 
   Building2, 
@@ -17,50 +18,41 @@ import {
   Trash2,
   Home,
   ChevronRight,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
+import { useCurrency } from "@/lib/currency-context";
+import { formatCurrency } from "@shared/currency";
+import ProjectForm from "@/components/project-form";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function ProjectManagementSimple() {
-  const projects = [
-    {
-      id: 1,
-      name: "Solar Farm Lagos",
-      type: "solar",
-      location: "Lagos, Nigeria",
-      capacity: "50MW",
-      investmentAmount: 2500000,
-      expectedROI: 15.5,
-      status: "Active",
-      progress: 65,
-      startDate: "2024-01-15",
-      expectedCompletion: "2024-12-31"
+  const { selectedCurrency } = useCurrency();
+  
+  // Fetch projects from database
+  const { data: projects = [], isLoading, error } = useQuery({
+    queryKey: ["/api/projects"],
+    queryFn: async () => {
+      const response = await fetch('/api/projects');
+      if (!response.ok) {
+        throw new Error('Failed to fetch projects');
+      }
+      return response.json();
     },
-    {
-      id: 2,
-      name: "Wind Project Ghana",
-      type: "wind",
-      location: "Accra, Ghana", 
-      capacity: "30MW",
-      investmentAmount: 1800000,
-      expectedROI: 18.2,
-      status: "Planning",
-      progress: 40,
-      startDate: "2024-03-01",
-      expectedCompletion: "2025-06-30"
-    },
-    {
-      id: 3,
-      name: "Hydro Plant Nigeria",
-      type: "hydro",
-      location: "Kano, Nigeria",
-      capacity: "25MW", 
-      investmentAmount: 3200000,
-      expectedROI: 12.8,
-      status: "Completed",
-      progress: 100,
-      startDate: "2023-06-01",
-      expectedCompletion: "2024-01-31"
-    }
-  ];
+  });
+
+  // Add mock investment amounts for display purposes
+  const enhancedProjects = projects.map((project: any) => ({
+    ...project,
+    investmentAmount: project.capacity * 50000, // Estimate $50k per MW
+    progress: project.status === 'completed' ? 100 : 
+              project.status === 'active' ? 65 : 
+              project.status === 'planning' ? 25 : 50,
+    startDate: project.createdAt ? new Date(project.createdAt).toISOString().split('T')[0] : "2024-01-01",
+    expectedCompletion: project.status === 'completed' ? "2024-12-31" : "2025-06-30"
+  }));
 
   const projectTypeConfigs = {
     solar: {
@@ -100,14 +92,37 @@ export default function ProjectManagementSimple() {
     }
   };
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(amount);
-  };
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 pt-16 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-green-600" />
+              <p className="text-gray-600">Loading projects...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 pt-16 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <AlertCircle className="w-8 h-8 mx-auto mb-4 text-red-500" />
+              <p className="text-gray-600">Failed to load projects. Please try again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const ProjectCard = ({ project }: { project: any }) => {
     const config = projectTypeConfigs[project.type as keyof typeof projectTypeConfigs];
@@ -142,15 +157,15 @@ export default function ProjectManagementSimple() {
         <div className="space-y-3">
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">Capacity</span>
-            <span className="font-medium">{project.capacity}</span>
+            <span className="font-medium">{project.capacity} MW</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">Investment</span>
-            <span className="font-medium">{formatCurrency(project.investmentAmount)}</span>
+            <span className="font-medium">{formatCurrency(project.investmentAmount, selectedCurrency)}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-600">Expected ROI</span>
-            <span className="font-medium text-green-600">{project.expectedROI}%</span>
+            <span className="text-sm text-gray-600">Expected IRR</span>
+            <span className="font-medium text-green-600">{project.irr}%</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">Progress</span>
@@ -201,12 +216,14 @@ export default function ProjectManagementSimple() {
               Manage your renewable energy projects and track their progress
             </p>
           </div>
-          <Link href="/ai-model?platform=mobile">
-            <button className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors">
-              <Plus className="w-4 h-4 inline mr-2" />
-              New Project
-            </button>
-          </Link>
+          <ProjectForm 
+            trigger={
+              <Button className="bg-green-600 hover:bg-green-700">
+                <Plus className="w-4 h-4 mr-2" />
+                New Project
+              </Button>
+            }
+          />
         </div>
 
         {/* Summary Cards */}
@@ -215,7 +232,7 @@ export default function ProjectManagementSimple() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Total Projects</p>
-                <p className="text-2xl font-bold text-gray-900">{projects.length}</p>
+                <p className="text-2xl font-bold text-gray-900">{enhancedProjects.length}</p>
               </div>
               <Building2 className="w-8 h-8 text-blue-600" />
             </div>
@@ -225,7 +242,7 @@ export default function ProjectManagementSimple() {
               <div>
                 <p className="text-sm text-gray-600">Total Investment</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {formatCurrency(projects.reduce((sum, p) => sum + p.investmentAmount, 0))}
+                  {formatCurrency(enhancedProjects.reduce((sum, p) => sum + p.investmentAmount, 0), selectedCurrency)}
                 </p>
               </div>
               <DollarSign className="w-8 h-8 text-green-600" />
@@ -236,7 +253,7 @@ export default function ProjectManagementSimple() {
               <div>
                 <p className="text-sm text-gray-600">Avg. ROI</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {(projects.reduce((sum, p) => sum + p.expectedROI, 0) / projects.length).toFixed(1)}%
+                  {enhancedProjects.length > 0 ? (enhancedProjects.reduce((sum, p) => sum + p.irr, 0) / enhancedProjects.length).toFixed(1) : 0}%
                 </p>
               </div>
               <TrendingUp className="w-8 h-8 text-purple-600" />
@@ -246,7 +263,7 @@ export default function ProjectManagementSimple() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
+          {enhancedProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
