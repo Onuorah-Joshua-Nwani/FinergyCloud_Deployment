@@ -3,8 +3,30 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
+// Request timeout middleware to ensure fast responses
+app.use((req, res, next) => {
+  // Set a 30-second timeout for all requests
+  const timeout = setTimeout(() => {
+    if (!res.headersSent) {
+      console.error(`Request timeout: ${req.method} ${req.path}`);
+      res.status(408).json({ 
+        message: 'Request timeout',
+        status: 408 
+      });
+    }
+  }, 30000);
+
+  // Clear timeout when response finishes
+  res.on('finish', () => {
+    clearTimeout(timeout);
+  });
+
+  next();
+});
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: false, limit: '10mb' }));
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -50,12 +72,49 @@ app.use((req, res, next) => {
     
     const server = await registerRoutes(app);
 
-    app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+    // Comprehensive error handling middleware
+    app.use((err: any, req: Request, res: Response, next: NextFunction) => {
       const status = err.status || err.statusCode || 500;
       const message = err.message || "Internal Server Error";
       
-      console.error('Express error:', err);
-      res.status(status).json({ message });
+      console.error('Express error:', {
+        error: err,
+        stack: err.stack,
+        url: req.url,
+        method: req.method,
+        timestamp: new Date().toISOString()
+      });
+      
+      // Don't send stack traces in production
+      const errorResponse = process.env.NODE_ENV === 'production' 
+        ? { message, status }
+        : { message, status, stack: err.stack };
+      
+      res.status(status).json(errorResponse);
+    });
+
+    // Handle 404 errors for API routes
+    app.use('/api/*', (req: Request, res: Response, next: NextFunction) => {
+      res.status(404).json({ 
+        message: `API endpoint ${req.path} not found`,
+        status: 404
+      });
+    });
+
+    // Catch unhandled promise rejections
+    process.on('unhandledRejection', (reason, promise) => {
+      console.error('Unhandled Promise Rejection:', reason);
+      console.error('Promise:', promise);
+    });
+
+    // Catch uncaught exceptions
+    process.on('uncaughtException', (err) => {
+      console.error('Uncaught Exception:', err);
+      console.error('Stack:', err.stack);
+      // Don't exit in production, just log
+      if (process.env.NODE_ENV !== 'production') {
+        process.exit(1);
+      }
     });
 
     // For development, serve content directly without requiring full build

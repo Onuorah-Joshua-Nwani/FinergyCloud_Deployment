@@ -48,7 +48,7 @@ export async function setupAuth(app: Express) {
   app.use(getSession());
 
   // Simple demo authentication routes
-  app.post('/api/auth/login', async (req, res) => {
+  app.post('/api/auth/login', async (req, res, next) => {
     try {
       const { email, password } = req.body;
       
@@ -81,7 +81,7 @@ export async function setupAuth(app: Express) {
     }
   });
 
-  app.post('/api/auth/register', async (req, res) => {
+  app.post('/api/auth/register', async (req, res, next) => {
     try {
       const { email, firstName, lastName } = req.body;
       
@@ -114,7 +114,7 @@ export async function setupAuth(app: Express) {
     }
   });
 
-  app.post('/api/auth/logout', (req, res) => {
+  app.post('/api/auth/logout', (req, res, next) => {
     req.session.destroy((err) => {
       if (err) {
         return res.status(500).json({ message: 'Logout failed' });
@@ -124,7 +124,7 @@ export async function setupAuth(app: Express) {
   });
 
   // GET route for login redirect
-  app.get('/api/login', (req, res) => {
+  app.get('/api/login', (req, res, next) => {
     res.redirect('/login');
   });
 }
