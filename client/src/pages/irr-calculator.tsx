@@ -110,7 +110,9 @@ export default function IRRCalculator() {
   const isMobileApp = urlParams.get('platform') === 'mobile';
 
   const { convertAndFormat, convert } = useCurrencyFormat();
-  const { selectedCurrency, setSelectedCurrency } = useCurrency();
+  // Safe currency handling without context
+  const selectedCurrency = 'NGN';
+  const setSelectedCurrency = () => {};
   const [selectedProjectType, setSelectedProjectType] = useState<string>("");
   const [selectedRegion, setSelectedRegion] = useState<string>("");
   const [cashFlows, setCashFlows] = useState<CashFlow[]>([

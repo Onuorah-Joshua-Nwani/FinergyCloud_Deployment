@@ -1,8 +1,9 @@
-import { useCurrency } from "@/lib/currency-context";
+// import { useCurrency } from "@/lib/currency-context";
 import { convertCurrency, formatCurrency, type Currency } from "@shared/currency";
 
 export function useCurrencyFormat() {
-  const { selectedCurrency } = useCurrency();
+  // Safe currency handling without context
+  const selectedCurrency = 'NGN';
 
   const convertAndFormat = (amount: number, fromCurrency: Currency = 'NGN'): string => {
     const convertedAmount = convertCurrency(amount, fromCurrency, selectedCurrency);

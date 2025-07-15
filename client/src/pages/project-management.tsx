@@ -128,7 +128,9 @@ const getStatusColor = (status: string) => {
 export default function ProjectManagement() {
 
   const { convertAndFormat } = useCurrencyFormat();
-  const { selectedCurrency, setSelectedCurrency } = useCurrency();
+  // Safe currency handling without context
+  const selectedCurrency = 'NGN';
+  const setSelectedCurrency = () => {};
   const queryClient = useQueryClient();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);

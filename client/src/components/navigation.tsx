@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import CurrencySelector from "./currency-selector";
+// import CurrencySelector from "./currency-selector";
 import SocialLinks from "./social-links";
 import PlatformSwitcher from "./platform-switcher";
 import { MobileSideNav, MobileMenuButton } from "./mobile-side-nav";
@@ -169,10 +169,7 @@ export default function Navigation() {
               </Button>
             )}
             
-            {/* Currency Selector - Always visible */}
-            <div className="block">
-              <CurrencySelector />
-            </div>
+
             
             {/* User Profile - Desktop */}
             {isAuthenticated && (

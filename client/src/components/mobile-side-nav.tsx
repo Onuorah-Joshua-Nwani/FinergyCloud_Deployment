@@ -20,7 +20,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useQuery } from '@tanstack/react-query';
-import CurrencySelector from './currency-selector';
+// import CurrencySelector from './currency-selector';
 
 interface SideNavProps {
   isOpen: boolean;
@@ -159,7 +159,7 @@ export function MobileSideNav({ isOpen, onClose, user }: SideNavProps) {
           {/* Currency Selector */}
           <div>
             <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">Currency</label>
-            <CurrencySelector />
+
           </div>
           
           <div className="space-y-2">
