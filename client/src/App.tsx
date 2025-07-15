@@ -44,6 +44,7 @@ function MobileAppRouter() {
           <Route path="/login" component={Login} />
           <Route path="/" component={MobileBusinessDashboard} />
           <Route path="/dashboard" component={MobileBusinessDashboard} />
+          <Route path="/business-dashboard" component={MobileBusinessDashboard} />
           <Route path="/project-management" component={ProjectManagementSimple} />
           <Route path="/kpi" component={KPIDashboard} />
           <Route path="/advanced-features" component={AdvancedFeatures} />
