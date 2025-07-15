@@ -14,13 +14,14 @@ export default function CurrencySelector() {
   const currentCurrency = currencies[selectedCurrency];
 
   const handleCurrencyChange = (currency: Currency) => {
+    console.log('Currency changing to:', currency);
     setSelectedCurrency(currency);
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="w-full justify-between">
+        <Button variant="outline" className="w-full justify-between hover:bg-gray-50">
           <div className="flex items-center gap-2">
             <span className="text-lg">{currentCurrency.flag}</span>
             <span className="font-medium">{currentCurrency.code}</span>
@@ -28,7 +29,7 @@ export default function CurrencySelector() {
           <ChevronDown className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="start" className="w-48 z-[80] mt-1 shadow-lg border">
         {Object.values(currencies).map((currency) => (
           <DropdownMenuItem 
             key={currency.code}
