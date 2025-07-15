@@ -212,20 +212,27 @@ export default function Navigation() {
               </div>
             )}
             
-            {/* Mobile Navigation - Only show for website, not mobile app */}
+            {/* Mobile Navigation - Simplified button only */}
             {!actuallyMobileApp && (
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden mobile-nav-trigger relative z-50"
-                  >
-                    <Menu className="h-4 w-4" />
-                    <span className="sr-only">Open navigation menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="!w-[280px] !max-w-[70vw] z-[999] border-l border-gray-200 shadow-2xl overflow-hidden p-0" aria-describedby="nav-description">
+              <div>
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="h-8 w-8 border-gray-300 hover:bg-gray-50 xl:hidden"
+                  onClick={() => {
+                    // Simple mobile menu toggle
+                    const mobileMenu = document.getElementById('website-mobile-menu');
+                    if (mobileMenu) {
+                      mobileMenu.classList.toggle('hidden');
+                    }
+                  }}
+                >
+                  <Menu className="h-4 w-4" />
+                  <span className="sr-only">Open navigation menu</span>
+                </Button>
+                
+                {/* Simple mobile menu */}
+                <div id="website-mobile-menu" className="hidden absolute top-16 right-4 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-4">
                   <h2 className="sr-only" id="nav-title">Navigation Menu</h2>
                   <p className="sr-only" id="nav-description">Main navigation menu for FinergyCloud platform</p>
                 <div className="flex flex-col h-full p-6">
@@ -348,8 +355,8 @@ export default function Navigation() {
                     )}
                   </div>
                 </div>
-              </SheetContent>
-            </Sheet>
+                </div>
+              </div>
             )}
           </div>
         </div>
