@@ -1,55 +1,45 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+// Minimal currency context that avoids React import issues
 import { Currency, CURRENCIES } from '@shared/currency';
 
-interface CurrencyContextValue {
+export interface CurrencyContextValue {
   selectedCurrency: Currency;
   setSelectedCurrency: (currency: Currency) => void;
   currencies: typeof CURRENCIES;
 }
 
-const CurrencyContext = createContext<CurrencyContextValue | undefined>(undefined);
-
-interface CurrencyProviderProps {
-  children: ReactNode;
+// Simple provider that doesn't use React hooks
+export function CurrencyProvider({ children }: { children: any }) {
+  return children;
 }
 
-export function CurrencyProvider({ children }: CurrencyProviderProps) {
-  const [selectedCurrency, setSelectedCurrency] = useState<Currency>('NGN');
-
-  // Load saved currency on mount
-  useEffect(() => {
+// Hook that uses window-level storage instead of React state
+export function useCurrency(): CurrencyContextValue {
+  // Get current currency from localStorage or default
+  const getCurrentCurrency = (): Currency => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('finergy-currency');
       if (saved && ['NGN', 'GBP', 'EUR'].includes(saved)) {
-        setSelectedCurrency(saved as Currency);
+        return saved as Currency;
       }
     }
-  }, []);
+    return 'NGN';
+  };
 
-  // Save currency changes
-  useEffect(() => {
+  // Set currency and save to localStorage
+  const setSelectedCurrency = (currency: Currency) => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('finergy-currency', selectedCurrency);
+      localStorage.setItem('finergy-currency', currency);
+      // Trigger a storage event to update other components
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: 'finergy-currency',
+        newValue: currency,
+      }));
     }
-  }, [selectedCurrency]);
+  };
 
-  const value: CurrencyContextValue = {
-    selectedCurrency,
+  return {
+    selectedCurrency: getCurrentCurrency(),
     setSelectedCurrency,
     currencies: CURRENCIES,
   };
-
-  return (
-    <CurrencyContext.Provider value={value}>
-      {children}
-    </CurrencyContext.Provider>
-  );
-}
-
-export function useCurrency() {
-  const context = useContext(CurrencyContext);
-  if (context === undefined) {
-    throw new Error('useCurrency must be used within a CurrencyProvider');
-  }
-  return context;
 }

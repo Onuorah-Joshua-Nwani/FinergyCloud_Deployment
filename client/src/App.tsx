@@ -4,7 +4,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 // import { Toaster } from "@/components/ui/toaster";
 // import { TooltipProvider } from "@/components/ui/tooltip";
-import { CurrencyProvider } from "./lib/currency-context-minimal";
+import { CurrencyProvider } from "./lib/currency-context";
 import { useAuth } from "@/hooks/useAuth";
 import Navigation from "@/components/navigation";
 import SEOHead from "@/components/seo-head";

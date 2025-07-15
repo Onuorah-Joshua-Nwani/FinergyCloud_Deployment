@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calculator, Plus, Minus, TrendingUp, DollarSign, AlertTriangle, CheckCircle, Sun, Wind, Droplets, Leaf, Mountain, Home, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
-import { useCurrency } from "@/lib/currency-context-minimal";
+import { useCurrency } from "@/lib/currency-context";
 import type { Currency } from "@shared/currency";
 import { z } from "zod";
 
