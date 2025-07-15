@@ -159,10 +159,12 @@ export default function ProjectManagementSimple() {
         </div>
 
         <div className="mt-4 flex space-x-2">
-          <button className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md text-sm hover:bg-blue-700 transition-colors">
-            <Eye className="w-4 h-4 inline mr-2" />
-            View Details
-          </button>
+          <Link href={`/projects?platform=mobile&project=${project.id}`}>
+            <button className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md text-sm hover:bg-blue-700 transition-colors">
+              <Eye className="w-4 h-4 inline mr-2" />
+              View Details
+            </button>
+          </Link>
           <button className="px-4 py-2 border border-gray-300 rounded-md text-sm hover:bg-gray-50 transition-colors">
             <Edit className="w-4 h-4" />
           </button>
@@ -199,10 +201,12 @@ export default function ProjectManagementSimple() {
               Manage your renewable energy projects and track their progress
             </p>
           </div>
-          <button className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors">
-            <Plus className="w-4 h-4 inline mr-2" />
-            New Project
-          </button>
+          <Link href="/ai-model?platform=mobile">
+            <button className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors">
+              <Plus className="w-4 h-4 inline mr-2" />
+              New Project
+            </button>
+          </Link>
         </div>
 
         {/* Summary Cards */}

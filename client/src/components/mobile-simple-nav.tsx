@@ -21,14 +21,14 @@ interface SimpleNavProps {
 
 const mobileAppNavItems = [
   { path: "/", label: "Dashboard", icon: BarChart3 },
-  { path: "/project-management", label: "Projects", icon: FolderOpen },
-  { path: "/rewards", label: "Rewards", icon: Gift },
-  { path: "/kpi", label: "Analytics", icon: TrendingUp },
-  { path: "/ai-model", label: "AI Model", icon: Brain },
-  { path: "/market-insights", label: "Market Insights", icon: Newspaper },
-  { path: "/irr-calculator", label: "IRR Calculator", icon: Calculator },
+  { path: "/projects", label: "Projects", icon: FolderOpen },
   { path: "/esg-scoring", label: "ESG Scoring", icon: TreePine },
-  { path: "/advanced-features", label: "Advanced Features", icon: Settings },
+  { path: "/irr-calculator", label: "Financial Models", icon: Calculator },
+  { path: "/ai-model", label: "Risk Engine", icon: Brain },
+  { path: "/advanced-features", label: "Analytics", icon: Settings },
+  { path: "/market-insights", label: "Market Insights", icon: Newspaper },
+  { path: "/rewards", label: "Rewards", icon: Gift },
+  { path: "/kpi", label: "KPI Dashboard", icon: TrendingUp },
 ];
 
 export function MobileSimpleNav({ isOpen, onToggle }: SimpleNavProps) {

@@ -119,43 +119,43 @@ export default function MobileBusinessDashboard() {
     }
   ];
 
-  // Platform features
+  // Platform features - All links include mobile platform parameter
   const platformFeatures = [
     {
       title: "AI Predictions",
       description: "94% accuracy XGBoost models",
       icon: Brain,
-      link: "/ai-model"
+      link: "/ai-model?platform=mobile"
     },
     {
       title: "ESG Scoring",
       description: "Real-time ESG risk assessment",
       icon: Leaf,
-      link: "/esg-scoring"
+      link: "/esg-scoring?platform=mobile"
     },
     {
       title: "IRR Calculator",
       description: "Multi-currency financial modeling",
       icon: Calculator,
-      link: "/irr-calculator"
+      link: "/irr-calculator?platform=mobile"
     },
     {
       title: "Market Insights",
       description: "West Africa renewable energy trends",
       icon: Globe,
-      link: "/market-insights"
+      link: "/market-insights?platform=mobile"
     },
     {
       title: "Project Management",
       description: "Portfolio tracking and analytics",
       icon: Folder,
-      link: "/project-management"
+      link: "/project-management?platform=mobile"
     },
     {
       title: "KPI Dashboard",
       description: "Real-time performance metrics",
       icon: BarChart3,
-      link: "/kpi"
+      link: "/kpi?platform=mobile"
     }
   ];
 
@@ -209,23 +209,24 @@ export default function MobileBusinessDashboard() {
         <h2 className="text-lg font-semibold text-slate-900 mb-3">Active Projects</h2>
         <div className="space-y-3">
           {recentProjects.map((project, index) => (
-            <div key={index} className="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center">
-                  <project.icon className={`w-5 h-5 ${project.color} mr-3`} />
-                  <div>
-                    <h3 className="text-sm font-semibold text-slate-900">{project.name}</h3>
-                    <p className="text-xs text-slate-500 flex items-center">
-                      <MapPin className="w-3 h-3 mr-1" />
-                      {project.location}
-                    </p>
+            <Link key={index} href={`/projects?platform=mobile&project=${project.id}`}>
+              <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:border-blue-300 transition-colors cursor-pointer">
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-center">
+                    <project.icon className={`w-5 h-5 ${project.color} mr-3`} />
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-900">{project.name}</h3>
+                      <p className="text-xs text-slate-500 flex items-center">
+                        <MapPin className="w-3 h-3 mr-1" />
+                        {project.location}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xs font-medium text-green-600">{project.roi}</div>
+                    <div className="text-xs text-slate-500">ROI</div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-xs font-medium text-green-600">{project.roi}</div>
-                  <div className="text-xs text-slate-500">ROI</div>
-                </div>
-              </div>
               
               <div className="grid grid-cols-3 gap-3 text-xs">
                 <div>
@@ -254,7 +255,7 @@ export default function MobileBusinessDashboard() {
                   ></div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
