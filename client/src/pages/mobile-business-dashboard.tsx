@@ -255,6 +255,7 @@ export default function MobileBusinessDashboard() {
                   ></div>
                 </div>
               </div>
+              </div>
             </Link>
           ))}
         </div>
