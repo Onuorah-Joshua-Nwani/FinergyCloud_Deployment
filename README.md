@@ -28,23 +28,28 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
 *Professional dashboard and analytics views*
 
 <div align="center">
-  <img src="screenshots/website/dashboard-overview.png" alt="Dashboard Overview" width="800"/>
-  <p><em>Main Dashboard - Project Overview and Analytics</em></p>
+  <img src="screenshots/website/home.png" alt="Home" width="800"/>
+  <p><em>Comprehensive Renewable Energy Solutions - Featuring; XGBoost Risk Engine, ESG Risk Scoring, Financial Models, and Power BI Dashboards</em></p>
 </div>
 
 <div align="center">
-  <img src="screenshots/website/esg-scoring.png" alt="ESG Scoring Interface" width="800"/>
-  <p><em>ESG Scoring System - Environmental Impact Assessment</em></p>
+  <img src="screenshots/website/about.png" alt="About" width="800"/>
+  <p><em>What Drives Us - Innovation, Sustainability, Integrity, and Partnership </em></p>
 </div>
 
 <div align="center">
-  <img src="screenshots/website/ai-predictions.png" alt="AI Predictions" width="800"/>
-  <p><em>AI-Powered Investment Predictions with Risk Analysis</em></p>
+  <img src="screenshots/website/platform.png" alt="Platform" width="800"/>
+  <p><em>Comprehensive Investment Intelligence, Industries We Serve </em></p>
 </div>
 
 <div align="center">
-  <img src="screenshots/website/portfolio-management.png" alt="Portfolio Management" width="800"/>
-  <p><em>Portfolio Management - Real-time Performance Tracking</em></p>
+  <img src="screenshots/website/blog.png" alt="Blog" width="800"/>
+  <p><em>Let's Connect</em></p>
+</div>
+
+<div align="center">
+  <img src="screenshots/website/contact.png" alt="Contact" width="800"/>
+  <p><em>FinergyCloud Insights & Research</em></p>
 </div>
 
 ### Mobile App Interface  
