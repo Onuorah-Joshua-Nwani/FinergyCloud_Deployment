@@ -177,7 +177,7 @@ export default function MobileBusinessDashboard() {
           </div>
         </div>
         <p className="text-slate-600 text-sm">
-          Renewable Energy Investment Platform • Nigeria & Ghana
+          Renewable Energy Investment Platform
         </p>
       </div>
 
