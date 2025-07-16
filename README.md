@@ -24,44 +24,43 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
 
 ## 🖼️ Platform Screenshots
 
-### Website Interface
+### Website Interface  
 *Professional dashboard and analytics views*
 
-<!-- Screenshots will be added once uploaded to repository -->
 <div align="center">
-  <img src="https://via.placeholder.com/800x600/f0f0f0/333333?text=Dashboard+Overview" alt="Dashboard Overview" width="800"/>
+  <img src="screenshots/website/dashboard-overview.png" alt="Dashboard Overview" width="800"/>
   <p><em>Main Dashboard - Project Overview and Analytics</em></p>
 </div>
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x600/e6f3ff/0066cc?text=ESG+Scoring" alt="ESG Scoring Interface" width="800"/>
+  <img src="screenshots/website/esg-scoring.png" alt="ESG Scoring Interface" width="800"/>
   <p><em>ESG Scoring System - Environmental Impact Assessment</em></p>
 </div>
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x600/e6ffe6/006600?text=AI+Predictions" alt="AI Predictions" width="800"/>
+  <img src="screenshots/website/ai-predictions.png" alt="AI Predictions" width="800"/>
   <p><em>AI-Powered Investment Predictions with Risk Analysis</em></p>
 </div>
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x600/fff9e6/cc6600?text=Portfolio+Management" alt="Portfolio Management" width="800"/>
+  <img src="screenshots/website/portfolio-management.png" alt="Portfolio Management" width="800"/>
   <p><em>Portfolio Management - Real-time Performance Tracking</em></p>
 </div>
 
-### Mobile App Interface
+### Mobile App Interface  
 *Optimized mobile experience for on-the-go investment management*
 
 <div align="center">
-  <img src="https://via.placeholder.com/300x600/ffe6e6/cc0000?text=Mobile+Dashboard" alt="Mobile Dashboard" width="300"/>
-  <img src="https://via.placeholder.com/300x600/ffe6f3/cc0066?text=Mobile+Projects" alt="Mobile Projects" width="300"/>
-  <img src="https://via.placeholder.com/300x600/e6f0ff/0066cc?text=Mobile+Analytics" alt="Mobile Analytics" width="300"/>
+  <img src="screenshots/mobile/mobile-dashboard.png" alt="Mobile Dashboard" width="300"/>
+  <img src="screenshots/mobile/mobile-projects.png" alt="Mobile Projects" width="300"/>
+  <img src="screenshots/mobile/mobile-analytics.png" alt="Mobile Analytics" width="300"/>
   <p><em>Mobile Dashboard, Project Management, and Analytics Views</em></p>
 </div>
 
 <div align="center">
-  <img src="https://via.placeholder.com/300x600/e6fff0/006633?text=Mobile+ESG" alt="Mobile ESG" width="300"/>
-  <img src="https://via.placeholder.com/300x600/fff3e6/cc4400?text=Mobile+Predictions" alt="Mobile Predictions" width="300"/>
-  <img src="https://via.placeholder.com/300x600/f9ffe6/669900?text=Mobile+Profile" alt="Mobile Profile" width="300"/>
+  <img src="screenshots/mobile/mobile-esg.png" alt="Mobile ESG" width="300"/>
+  <img src="screenshots/mobile/mobile-predictions.png" alt="Mobile Predictions" width="300"/>
+  <img src="screenshots/mobile/mobile-profile.png" alt="Mobile Profile" width="300"/>
   <p><em>Mobile ESG Scoring, AI Predictions, and User Profile</em></p>
 </div>
 
