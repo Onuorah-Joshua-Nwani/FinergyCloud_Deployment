@@ -424,12 +424,19 @@ export default function AdvancedPredictionEngine({ onProjectTypeChange }: Advanc
       {predictionResult && (
         <div className="space-y-6">
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 gap-1">
-              <TabsTrigger value="overview" className="text-xs md:text-sm">Overview</TabsTrigger>
-              <TabsTrigger value="financial" className="text-xs md:text-sm">Financial</TabsTrigger>
-              <TabsTrigger value="risk" className="text-xs md:text-sm">Risk</TabsTrigger>
-              <TabsTrigger value="esg" className="text-xs md:text-sm">ESG</TabsTrigger>
-              <TabsTrigger value="competitive" className="text-xs md:text-sm col-span-2 md:col-span-1">Market</TabsTrigger>
+            <div className="flex flex-wrap gap-1 p-1 bg-muted rounded-lg md:hidden">
+              <TabsTrigger value="overview" className="text-xs px-2 py-1 flex-1 min-w-0">Overview</TabsTrigger>
+              <TabsTrigger value="financial" className="text-xs px-2 py-1 flex-1 min-w-0">Financial</TabsTrigger>
+              <TabsTrigger value="risk" className="text-xs px-2 py-1 flex-1 min-w-0">Risk</TabsTrigger>
+              <TabsTrigger value="esg" className="text-xs px-2 py-1 flex-1 min-w-0">ESG</TabsTrigger>
+              <TabsTrigger value="competitive" className="text-xs px-2 py-1 flex-1 min-w-0">Market</TabsTrigger>
+            </div>
+            <TabsList className="hidden md:grid w-full grid-cols-5 gap-1 p-1">
+              <TabsTrigger value="overview" className="text-sm px-2 py-1">Overview</TabsTrigger>
+              <TabsTrigger value="financial" className="text-sm px-2 py-1">Financial</TabsTrigger>
+              <TabsTrigger value="risk" className="text-sm px-2 py-1">Risk</TabsTrigger>
+              <TabsTrigger value="esg" className="text-sm px-2 py-1">ESG</TabsTrigger>
+              <TabsTrigger value="competitive" className="text-sm px-2 py-1">Market</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="space-y-4">
