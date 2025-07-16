@@ -114,3 +114,18 @@ temp/
 Dockerfile
 docker-compose.yml
 .dockerignore
+
+# Replit specific files
+.replit
+replit.nix
+.upm/
+.config/
+.platform/
+
+# Attached assets and screenshots
+attached_assets/
+screenshots/
+
+# Local cache files
+.cache/
+.local/
