@@ -102,11 +102,14 @@ The application uses PostgreSQL with the following main entities:
 
 ## Deployment Strategy
 
-### Railway Deployment
-- **Build Process**: Multi-stage build with Dockerfile
-- **Environment**: Production Node.js environment with environment variables
+### Production Deployment (Fixed Jan 2025)
+- **Entry Point**: `start.js` - robust production entry point with multiple fallback strategies
+- **Build Process**: `build.sh` script handles esbuild server compilation and frontend builds
+- **Built Files**: Server compiled to `dist/index.js` (61.7kb optimized bundle)
+- **Fallback Strategy**: Runs TypeScript source directly if built files unavailable
+- **Environment**: Production Node.js with comprehensive error handling and logging
 - **Health Checks**: API health endpoint for monitoring
-- **Restart Policy**: Automatic restart on failure with retry limits
+- **Restart Policy**: Multiple startup strategies ensure deployment reliability
 
 ### Database Strategy
 - **Primary**: PostgreSQL for production data

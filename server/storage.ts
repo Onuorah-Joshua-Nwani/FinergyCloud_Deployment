@@ -119,7 +119,7 @@ export class DatabaseStorage implements IStorage {
       const [user] = await db.select().from(users).where(eq(users.id, id));
       return user;
     } catch (error) {
-      console.log('Database query failed:', error.message);
+      console.log('Database query failed:', error instanceof Error ? error.message : String(error));
       return undefined;
     }
   }
