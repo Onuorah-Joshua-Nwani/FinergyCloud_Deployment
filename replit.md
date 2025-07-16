@@ -2,7 +2,7 @@
 
 ## Overview
 
-FinergyCloud is a comprehensive full-stack renewable energy investment platform that leverages artificial intelligence, advanced analytics, and sustainable finance to democratize access to clean energy investments. The application provides AI-powered predictions with 94% accuracy for renewable energy project success prediction, comprehensive ESG scoring, multi-currency support, and professional portfolio management capabilities.
+FinergyCloud is a comprehensive full-stack renewable energy investment platform that leverages artificial intelligence, advanced analytics, and sustainable finance to democratize access to clean energy investments. The platform provides AI-powered project success predictions, ESG scoring, portfolio management, and real-time market insights for renewable energy investors in emerging markets.
 
 ## User Preferences
 
@@ -10,146 +10,116 @@ Preferred communication style: Simple, everyday language.
 
 ## System Architecture
 
-### Monorepo Structure
-The application follows a monorepo structure with clear separation between client, server, and shared code:
-- `client/` - React frontend application
-- `server/` - Node.js Express backend
-- `shared/` - Shared TypeScript schemas and utilities
+### Full-Stack Architecture
+The application uses a modern full-stack TypeScript architecture with the following key components:
+- **Frontend**: React 18+ with TypeScript, Vite build system, and Tailwind CSS
+- **Backend**: Express.js server with TypeScript
+- **Database**: PostgreSQL with Drizzle ORM
+- **Build System**: Vite for client-side bundling, esbuild for server bundling
+- **Deployment**: Railway platform with Docker containerization
 
-### Development and Build Strategy
-- **Vite** for fast development and optimized frontend builds
-- **esbuild** for backend bundling
-- **TypeScript** throughout for type safety
-- **ESM modules** for modern JavaScript support
+### Frontend Architecture
+- **React Application**: Single-page application using React 18+ with TypeScript
+- **Routing**: Wouter for lightweight client-side routing
+- **UI Framework**: shadcn/ui components built on Radix UI primitives
+- **Styling**: Tailwind CSS with custom design system and CSS variables
+- **State Management**: TanStack React Query for server state, React hooks for local state
+- **Form Handling**: React Hook Form with Zod validation
+
+### Backend Architecture
+- **Express Server**: RESTful API with TypeScript
+- **Database Layer**: Drizzle ORM with PostgreSQL database
+- **Session Management**: Express sessions with PostgreSQL store (fallback to memory store)
+- **Authentication**: Simple session-based authentication with demo user auto-login
+- **API Structure**: Organized route handlers with proper error handling and timeouts
 
 ## Key Components
 
-### Frontend Architecture
-- **React 18** with TypeScript for component-based UI
-- **Vite** as the build tool for fast development and optimized production builds
-- **TailwindCSS** for utility-first responsive styling
-- **Wouter** for lightweight client-side routing (chosen over React Router for smaller bundle size)
-- **TanStack Query** for server state management and caching
-- **shadcn/ui** components built on Radix UI primitives for accessible, customizable UI components
+### Database Schema
+The application uses PostgreSQL with the following main entities:
+- **Projects**: Renewable energy projects with capacity, IRR, ESG scores, and status
+- **Predictions**: AI-generated project success predictions with confidence scores
+- **ESG Metrics**: Environmental, social, and governance scoring data
+- **Market Insights**: Market analysis and trends data
+- **Users**: User accounts with subscription management
+- **Rewards System**: Achievements, challenges, and user progress tracking
 
-**Rationale**: This frontend stack prioritizes developer experience, performance, and modern React patterns while keeping bundle sizes small for mobile optimization.
+### AI/ML Features
+- **XGBoost Prediction Engine**: 94% accuracy project success prediction
+- **Risk Assessment**: Multi-factor risk analysis with confidence scoring
+- **ESG Scoring**: Comprehensive environmental, social, and governance assessment
+- **Portfolio Analytics**: Real-time performance tracking and optimization
 
-### Backend Architecture
-- **Node.js** with Express.js for the REST API server
-- **Session-based authentication** using express-session with PostgreSQL store fallback to memory store
-- **RESTful API** design for clear separation of concerns
-- **Request timeout middleware** (30-second timeout) for reliable responses
+### Multi-Platform Support
+- **Website Mode**: Full-featured web platform for institutional users
+- **Mobile App Mode**: Optimized mobile experience for on-the-go management
+- **Platform Detection**: URL parameter-based platform switching
+- **Responsive Design**: Mobile-first design with progressive enhancement
 
-**Rationale**: Express.js provides flexibility and a mature ecosystem, while session-based auth offers simplicity for the MVP without requiring complex JWT token management.
-
-### Mobile-First Design
-- **Responsive design** optimized for mobile and desktop
-- **Platform detection** via URL parameters (`?platform=mobile`)
-- **Mobile-specific components** for touch-optimized interactions
-- **Progressive Web App** capabilities with service worker support
-
-**Rationale**: Given the target market of emerging economies, mobile-first design ensures accessibility across devices with varying capabilities.
+### Financial Features
+- **Multi-Currency Support**: NGN, GBP, EUR with real-time conversion
+- **IRR Calculator**: Internal rate of return calculations for project evaluation
+- **Portfolio Management**: Real-time analytics and performance tracking
+- **Investment Predictions**: AI-powered financial projections
 
 ## Data Flow
 
-### Database Layer
-- **PostgreSQL** as the primary database
-- **Drizzle ORM** for type-safe database operations and migrations
-- **Neon Database** serverless PostgreSQL for production deployment
+### Client-Server Communication
+1. **API Requests**: Frontend makes HTTP requests to Express backend
+2. **Authentication**: Session-based auth with automatic demo user login
+3. **Data Fetching**: TanStack React Query manages server state and caching
+4. **Real-time Updates**: Optimistic updates with proper error handling
 
-**Schema Design**:
-- `projects` - Core renewable energy project data
-- `predictions` - AI model predictions and analysis results
-- `esgMetrics` - Environmental, Social, Governance scoring data
-- `marketInsights` - Market analysis and insights
-- `users` - User authentication and profile data
-- `achievements` and `userAchievements` - Gamification system
+### Database Operations
+1. **Connection Management**: Neon PostgreSQL with connection pooling
+2. **Schema Management**: Drizzle ORM with TypeScript-first approach
+3. **Migrations**: Database schema versioning with drizzle-kit
+4. **Query Optimization**: Efficient data fetching with proper indexing
 
-### State Management
-- **TanStack Query** for server state, caching, and synchronization
-- **React hooks** for local component state
-- **Currency context** for global currency selection (NGN, GBP, EUR)
-
-### AI/ML Integration
-- **XGBoost models** for 94% accurate project success prediction
-- **ESG scoring system** with project-specific templates
-- **Risk assessment algorithms** for investment analysis
+### AI/ML Pipeline
+1. **Input Processing**: Form data validation and preprocessing
+2. **Model Execution**: XGBoost models for success probability prediction
+3. **Result Generation**: Confidence scoring and risk assessment
+4. **Output Formatting**: User-friendly prediction reports with visualizations
 
 ## External Dependencies
 
 ### Core Dependencies
-- **@neondatabase/serverless** - Serverless PostgreSQL connection
-- **@radix-ui/** components - Accessible UI primitives
-- **@stripe/stripe-js** and **@stripe/react-stripe-js** - Payment processing
-- **bcrypt** - Password hashing for security
-- **express-session** - Session management
-- **drizzle-orm** - Type-safe database operations
+- **Database**: Neon PostgreSQL (serverless)
+- **UI Components**: Radix UI ecosystem for accessible components
+- **Validation**: Zod for runtime type checking and form validation
+- **Authentication**: Express sessions with connect-pg-simple
+- **Development**: Vite development server with HMR
 
-### Development Dependencies
-- **@replit/vite-plugin-cartographer** - Replit-specific development tools
-- **@replit/vite-plugin-runtime-error-modal** - Enhanced error handling
+### Payment Integration
+- **Stripe**: Payment processing for subscription management
+- **Currency APIs**: Real-time exchange rate data (simulated in demo)
 
-### Multi-Currency Support
-- Real-time currency conversion supporting NGN, GBP, and EUR
-- Local currency storage and conversion utilities
-- Exchange rate management system
-
-**Rationale**: Multi-currency support is essential for international investors in emerging markets, with NGN as the base currency reflecting the Nigerian market focus.
+### Development Tools
+- **TypeScript**: Full type safety across frontend and backend
+- **ESLint/Prettier**: Code quality and formatting
+- **Replit Integration**: Development environment optimizations
 
 ## Deployment Strategy
 
-### Production Environment
-- **Railway** as the primary deployment platform (configured via `.railway.json`)
-- **Docker** containerization for consistent deployments
-- **Node.js production** environment with PM2-style restart policies
+### Railway Deployment
+- **Build Process**: Multi-stage build with Dockerfile
+- **Environment**: Production Node.js environment with environment variables
+- **Health Checks**: API health endpoint for monitoring
+- **Restart Policy**: Automatic restart on failure with retry limits
 
-### Build Process
-1. **Frontend**: Vite builds optimized static assets to `dist/public`
-2. **Backend**: esbuild bundles server code to `dist/index.js`
-3. **Database**: Drizzle migrations handle schema updates
+### Database Strategy
+- **Primary**: PostgreSQL for production data
+- **Fallbacks**: Memory storage for session management if database unavailable
+- **Migrations**: Schema management with drizzle-kit push commands
 
-### Environment Configuration
-- `NODE_ENV=production` for production optimizations
-- `PORT=5000` for Railway deployment
-- `DATABASE_URL` for PostgreSQL connection
-- Session secrets and API keys via environment variables
+### Asset Management
+- **Static Assets**: Served through Vite build system
+- **Images**: Optimized asset delivery with proper caching headers
+- **PWA Features**: Service worker disabled to prevent caching issues during development
 
-### Performance Optimizations
-- Static asset optimization through Vite
-- Database connection pooling via Neon
-- Session store optimization (PostgreSQL preferred, memory fallback)
-- Request timeouts and error handling for reliability
-
-**Rationale**: Railway provides a simple deployment solution for full-stack applications, while the build process ensures optimized production bundles and proper environment separation.
-
-## Key Architectural Decisions
-
-### Type Safety
-- **Shared schemas** in `shared/schema.ts` using Drizzle and Zod for runtime validation
-- **TypeScript paths** configured for clean imports (`@/`, `@shared/`)
-- **Type-safe API** requests with proper error handling
-
-### Error Handling and Resilience
-- **Graceful degradation** for offline functionality
-- **Timeout mechanisms** for API requests
-- **Fallback strategies** for external service failures
-- **Mobile error boundaries** for enhanced user experience
-
-### Security Considerations
-- **bcrypt** for password hashing
-- **Session-based authentication** with secure cookie settings
-- **CSRF protection** through session configuration
-- **Input validation** using Zod schemas
-
-This architecture provides a solid foundation for a scalable renewable energy investment platform while maintaining simplicity and developer productivity for rapid iteration and growth.
-
-## Recent Changes
-
-### Mobile Responsive Improvements (July 16, 2025)
-- **Enhanced Mobile-First Design**: Implemented comprehensive mobile utility classes (mobile-grid-*, mobile-text-*, mobile-gap-*, mobile-p-*)
-- **Advanced Prediction Engine**: Applied mobile-first responsive grids with touch-friendly layouts and proper breakpoints
-- **ESG Scoring Interface**: Enhanced with balanced mobile navigation and optimized card layouts
-- **Chart Readability**: Improved Y-axis text visibility and mobile chart responsiveness
-- **Form Responsiveness**: Optimized form elements for mobile interaction with proper spacing and typography
-- **Mobile Navigation**: Fixed tab navigation overlapping issues while maintaining responsive design
-- **Professional Mobile Experience**: Consistent spacing, typography, and interaction patterns across all mobile breakpoints
+### Scalability Considerations
+- **Session Storage**: PostgreSQL-backed sessions with memory fallback
+- **Database Pooling**: Connection pooling for efficient resource usage
+- **Error Handling**: Comprehensive error boundaries and timeout management
+- **Performance**: Mobile optimization with lazy loading and progressive enhancement
