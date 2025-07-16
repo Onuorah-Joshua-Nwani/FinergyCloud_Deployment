@@ -24,6 +24,7 @@ import {
 import { useCurrency } from "@/lib/currency-context";
 import { formatCurrency } from "@shared/currency";
 import ProjectForm from "@/components/project-form";
+import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -194,17 +195,8 @@ export default function ProjectManagementSimple() {
   return (
     <div className="min-h-screen bg-gray-50 pt-16 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
-          <Link href="/?platform=mobile">
-            <span className="hover:text-gray-900 cursor-pointer">
-              <Home className="w-4 h-4 inline mr-1" />
-              Dashboard
-            </span>
-          </Link>
-          <ChevronRight className="w-4 h-4" />
-          <span className="text-gray-900">Projects</span>
-        </div>
+        {/* Mobile Breadcrumb Navigation */}
+        <MobileBreadcrumb items={commonBreadcrumbs.projects} />
 
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

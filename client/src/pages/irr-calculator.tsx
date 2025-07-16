@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
 import { Calculator, Plus, Minus, TrendingUp, DollarSign, AlertTriangle, CheckCircle, Sun, Wind, Droplets, Leaf, Mountain, Home, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
@@ -266,6 +267,9 @@ export default function IRRCalculator() {
     <div className="min-h-screen bg-gray-50">
       <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Mobile Breadcrumb Navigation */}
+          <MobileBreadcrumb items={commonBreadcrumbs.irrCalculator} />
+          
           <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <Calculator className="w-8 h-8 text-blue-600" />

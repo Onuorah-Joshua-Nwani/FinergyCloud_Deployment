@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
+import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
 import { 
   Globe, 
   Home, 
@@ -97,17 +98,8 @@ export default function ESGScoringSimple() {
   return (
     <div className="min-h-screen bg-gray-50 pt-16 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb Navigation */}
-        <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
-          <Link href="/?platform=mobile">
-            <span className="hover:text-gray-900 cursor-pointer flex items-center">
-              <Home className="w-4 h-4 mr-1" />
-              Dashboard
-            </span>
-          </Link>
-          <ChevronRight className="w-4 h-4" />
-          <span className="text-gray-900">ESG Scoring</span>
-        </div>
+        {/* Mobile Breadcrumb Navigation */}
+        <MobileBreadcrumb items={commonBreadcrumbs.esgScoring} />
 
         {/* Header */}
         <div className="mb-8">

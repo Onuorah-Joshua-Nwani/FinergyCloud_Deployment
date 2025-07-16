@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import MobileBreadcrumb, { commonBreadcrumbs } from '@/components/mobile-breadcrumb';
 import MobileGestureControls from '@/components/mobile-gesture-controls';
 import ProjectRecommendationEngine from '@/components/project-recommendation-engine';
 import RiskHeatMap from '@/components/risk-heat-map';
@@ -79,6 +80,9 @@ export default function AdvancedFeatures() {
   return (
     <section className="py-4 md:py-6 lg:py-8">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        {/* Mobile Breadcrumb Navigation */}
+        <MobileBreadcrumb items={commonBreadcrumbs.advancedFeatures} />
+        
         {/* Header */}
         <div className="mb-6 md:mb-8">
           <div className="flex items-center gap-2 mb-2">

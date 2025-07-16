@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
 import { Link } from "wouter";
 import { 
   Plus, 
@@ -278,6 +279,9 @@ export default function MarketInsights() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Mobile Breadcrumb Navigation */}
+        <MobileBreadcrumb items={commonBreadcrumbs.marketInsights} />
+        
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>

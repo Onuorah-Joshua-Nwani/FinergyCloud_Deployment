@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import AdvancedPredictionEngine from "@/components/advanced-prediction-engine";
 import ModelPerformanceChart from "@/components/charts/model-performance-chart";
 import RiskAssessmentChart from "@/components/charts/risk-assessment-chart";
+import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
 import { Brain, Zap } from "lucide-react";
 
 export default function AIModel() {
@@ -16,6 +17,9 @@ export default function AIModel() {
   return (
     <section className="py-4 md:py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Mobile Breadcrumb Navigation */}
+        <MobileBreadcrumb items={commonBreadcrumbs.aiModel} />
+        
         <div className="mb-6 md:mb-8">
           <div className="flex items-start md:items-center gap-3 mb-4">
             <Brain className="w-6 h-6 md:w-8 md:h-8 text-blue-600 mt-1 md:mt-0 flex-shrink-0" />

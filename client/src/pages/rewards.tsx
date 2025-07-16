@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
 import { Trophy, Zap, Leaf, Target, Award, Star, TrendingUp, Users, Activity, Clock, Gift, CheckCircle } from "lucide-react";
 
 // Mock data to avoid React Query
@@ -86,6 +87,9 @@ export default function Rewards() {
 
   return (
     <div className="space-y-6 p-4 mobile-professional">
+      {/* Mobile Breadcrumb Navigation */}
+      <MobileBreadcrumb items={commonBreadcrumbs.rewards} />
+      
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
