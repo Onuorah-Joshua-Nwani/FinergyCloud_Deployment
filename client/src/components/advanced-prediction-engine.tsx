@@ -424,12 +424,12 @@ export default function AdvancedPredictionEngine({ onProjectTypeChange }: Advanc
       {predictionResult && (
         <div className="space-y-6">
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-5">
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="financial">Financial</TabsTrigger>
-              <TabsTrigger value="risk">Risk Analysis</TabsTrigger>
-              <TabsTrigger value="esg">ESG Impact</TabsTrigger>
-              <TabsTrigger value="competitive">Market</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 gap-1">
+              <TabsTrigger value="overview" className="text-xs md:text-sm">Overview</TabsTrigger>
+              <TabsTrigger value="financial" className="text-xs md:text-sm">Financial</TabsTrigger>
+              <TabsTrigger value="risk" className="text-xs md:text-sm">Risk</TabsTrigger>
+              <TabsTrigger value="esg" className="text-xs md:text-sm">ESG</TabsTrigger>
+              <TabsTrigger value="competitive" className="text-xs md:text-sm col-span-2 md:col-span-1">Market</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="space-y-4">
