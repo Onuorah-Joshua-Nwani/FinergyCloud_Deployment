@@ -424,19 +424,12 @@ export default function AdvancedPredictionEngine({ onProjectTypeChange }: Advanc
       {predictionResult && (
         <div className="space-y-6">
           <Tabs defaultValue="overview" className="w-full">
-            <div className="flex flex-wrap gap-1 p-1 bg-muted rounded-lg md:hidden">
-              <TabsTrigger value="overview" className="text-xs px-2 py-1 flex-1 min-w-0">Overview</TabsTrigger>
-              <TabsTrigger value="financial" className="text-xs px-2 py-1 flex-1 min-w-0">Financial</TabsTrigger>
-              <TabsTrigger value="risk" className="text-xs px-2 py-1 flex-1 min-w-0">Risk</TabsTrigger>
-              <TabsTrigger value="esg" className="text-xs px-2 py-1 flex-1 min-w-0">ESG</TabsTrigger>
-              <TabsTrigger value="competitive" className="text-xs px-2 py-1 flex-1 min-w-0">Market</TabsTrigger>
-            </div>
-            <TabsList className="hidden md:grid w-full grid-cols-5 gap-1 p-1">
-              <TabsTrigger value="overview" className="text-sm px-2 py-1">Overview</TabsTrigger>
-              <TabsTrigger value="financial" className="text-sm px-2 py-1">Financial</TabsTrigger>
-              <TabsTrigger value="risk" className="text-sm px-2 py-1">Risk</TabsTrigger>
-              <TabsTrigger value="esg" className="text-sm px-2 py-1">ESG</TabsTrigger>
-              <TabsTrigger value="competitive" className="text-sm px-2 py-1">Market</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 gap-0.5 p-1 h-auto">
+              <TabsTrigger value="overview" className="text-xs sm:text-sm px-1 py-2 leading-tight">Overview</TabsTrigger>
+              <TabsTrigger value="financial" className="text-xs sm:text-sm px-1 py-2 leading-tight">Financial</TabsTrigger>
+              <TabsTrigger value="risk" className="text-xs sm:text-sm px-1 py-2 leading-tight">Risk</TabsTrigger>
+              <TabsTrigger value="esg" className="text-xs sm:text-sm px-1 py-2 leading-tight">ESG</TabsTrigger>
+              <TabsTrigger value="competitive" className="text-xs sm:text-sm px-1 py-2 leading-tight col-span-3 sm:col-span-1">Market</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="space-y-4">
