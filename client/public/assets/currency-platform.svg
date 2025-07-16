@@ -1,0 +1,76 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="currencyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="500" fill="url(#currencyGrad)"/>
+  
+  <!-- Header -->
+  <text x="40" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">Multi-Currency Investment Platform</text>
+  <text x="40" y="65" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Global renewable energy investments with real-time currency conversion</text>
+  
+  <!-- Currency Selector -->
+  <rect x="40" y="90" width="820" height="80" rx="12" fill="#334155"/>
+  <text x="60" y="120" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e2e8f0">Select Currency</text>
+  
+  <rect x="70" y="135" width="120" height="25" rx="6" fill="#10b981"/>
+  <text x="85" y="152" font-family="Arial, sans-serif" font-size="14" fill="white">🇳🇬 NGN</text>
+  
+  <rect x="200" y="135" width="120" height="25" rx="6" fill="#1e293b"/>
+  <text x="215" y="152" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">🇬🇧 GBP</text>
+  
+  <rect x="330" y="135" width="120" height="25" rx="6" fill="#1e293b"/>
+  <text x="345" y="152" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">🇪🇺 EUR</text>
+  
+  <text x="500" y="152" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Live rates updated every 30 seconds</text>
+  
+  <!-- Investment Calculator -->
+  <rect x="40" y="190" width="400" height="260" rx="12" fill="#334155"/>
+  <text x="60" y="220" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Investment Calculator</text>
+  
+  <text x="70" y="250" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Investment Amount</text>
+  <rect x="70" y="255" width="320" height="35" rx="6" fill="#1e293b"/>
+  <text x="85" y="278" font-family="Arial, sans-serif" font-size="18" fill="#e2e8f0">₦ 50,000,000</text>
+  
+  <text x="70" y="310" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Equivalent Values</text>
+  <rect x="70" y="320" width="320" height="25" rx="4" fill="#1e293b"/>
+  <text x="85" y="337" font-family="Arial, sans-serif" font-size="12" fill="#64748b">GBP: £30,487.80</text>
+  
+  <rect x="70" y="350" width="320" height="25" rx="4" fill="#1e293b"/>
+  <text x="85" y="367" font-family="Arial, sans-serif" font-size="12" fill="#64748b">EUR: €35,714.29</text>
+  
+  <rect x="70" y="380" width="320" height="25" rx="4" fill="#1e293b"/>
+  <text x="85" y="397" font-family="Arial, sans-serif" font-size="12" fill="#64748b">USD: $38,461.54</text>
+  
+  <rect x="70" y="415" width="150" height="25" rx="6" fill="#10b981"/>
+  <text x="85" y="432" font-family="Arial, sans-serif" font-size="12" fill="white">Calculate IRR</text>
+  
+  <rect x="240" y="415" width="150" height="25" rx="6" fill="#1e293b"/>
+  <text x="255" y="432" font-family="Arial, sans-serif" font-size="12" fill="#e2e8f0">View Projections</text>
+  
+  <!-- Exchange Rates -->
+  <rect x="460" y="190" width="400" height="260" rx="12" fill="#334155"/>
+  <text x="480" y="220" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Live Exchange Rates</text>
+  <text x="480" y="240" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Last updated: 2 seconds ago</text>
+  
+  <!-- NGN Base -->
+  <rect x="490" y="260" width="360" height="40" rx="6" fill="#1e293b"/>
+  <text x="510" y="280" font-family="Arial, sans-serif" font-size="14" fill="#10b981">1 NGN = Base Currency</text>
+  <text x="510" y="295" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Nigerian Naira (Primary)</text>
+  
+  <!-- GBP Rate -->
+  <rect x="490" y="310" width="360" height="40" rx="6" fill="#1e293b"/>
+  <text x="510" y="330" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">1 GBP = ₦1,640.25</text>
+  <text x="510" y="345" font-family="Arial, sans-serif" font-size="12" fill="#10b981">↗ +0.45% today</text>
+  
+  <!-- EUR Rate -->
+  <rect x="490" y="360" width="360" height="40" rx="6" fill="#1e293b"/>
+  <text x="510" y="380" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">1 EUR = ₦1,400.50</text>
+  <text x="510" y="395" font-family="Arial, sans-serif" font-size="12" fill="#fbbf24">↘ -0.12% today</text>
+  
+  <!-- Market Status -->
+  <rect x="490" y="410" width="360" height="30" rx="6" fill="#10b981"/>
+  <text x="510" y="430" font-family="Arial, sans-serif" font-size="12" fill="white">🟢 Markets Open - Real-time pricing active</text>
+</svg>

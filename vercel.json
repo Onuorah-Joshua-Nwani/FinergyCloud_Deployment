@@ -1,6 +1,0 @@
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "./dist/public",
-  "installCommand": "npm install",
-  "startCommand": "node start.js"
-}

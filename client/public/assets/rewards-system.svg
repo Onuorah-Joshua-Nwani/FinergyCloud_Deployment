@@ -1,0 +1,99 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rewardsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#rewardsGrad)"/>
+  
+  <!-- Header -->
+  <text x="40" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">Sustainability Rewards Center</text>
+  <text x="40" y="65" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Gamified system encouraging sustainable investment behaviors</text>
+  
+  <!-- User Progress -->
+  <rect x="40" y="90" width="720" height="120" rx="12" fill="#334155"/>
+  <text x="60" y="120" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Your Progress</text>
+  
+  <!-- Level Display -->
+  <circle cx="150" cy="160" r="30" stroke="#10b981" stroke-width="4" fill="none"/>
+  <text x="135" y="170" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#10b981">12</text>
+  <text x="60" y="195" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Level: Eco Advocate</text>
+  
+  <!-- XP Progress Bar -->
+  <text x="220" y="130" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Experience Points</text>
+  <rect x="220" y="140" width="300" height="12" rx="6" fill="#1e293b"/>
+  <rect x="220" y="140" width="210" height="12" rx="6" fill="#10b981"/>
+  <text x="220" y="170" font-family="Arial, sans-serif" font-size="12" fill="#e2e8f0">2,100 / 3,000 XP to next level</text>
+  
+  <!-- Points Display -->
+  <rect x="550" y="125" width="180" height="60" rx="8" fill="#1e293b"/>
+  <text x="570" y="145" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Sustainability Points</text>
+  <text x="570" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">14,750</text>
+  <text x="570" y="185" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Rank: Top 15%</text>
+  
+  <!-- Achievements -->
+  <rect x="40" y="230" width="350" height="320" rx="12" fill="#334155"/>
+  <text x="60" y="260" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Achievements</text>
+  
+  <!-- Achievement Cards -->
+  <rect x="60" y="280" width="310" height="50" rx="8" fill="#10b981"/>
+  <text x="80" y="300" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">🏆 Carbon Neutral Champion</text>
+  <text x="80" y="318" font-family="Arial, sans-serif" font-size="10" fill="white">Invested in 10+ carbon-neutral projects</text>
+  
+  <rect x="60" y="340" width="310" height="50" rx="8" fill="#10b981"/>
+  <text x="80" y="360" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">💎 Diamond Investor</text>
+  <text x="80" y="378" font-family="Arial, sans-serif" font-size="10" fill="white">Portfolio value exceeded ₦2M milestone</text>
+  
+  <rect x="60" y="400" width="310" height="50" rx="8" fill="#334155"/>
+  <text x="80" y="420" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#94a3b8">🌟 AI Trust Expert</text>
+  <text x="80" y="438" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Follow 95% of AI recommendations (7/10)</text>
+  <rect x="80" y="444" width="220" height="4" rx="2" fill="#1e293b"/>
+  <rect x="80" y="444" width="154" height="4" rx="2" fill="#10b981"/>
+  
+  <rect x="60" y="460" width="310" height="50" rx="8" fill="#334155"/>
+  <text x="80" y="480" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#94a3b8">🌍 Global Impact</text>
+  <text x="80" y="498" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Support 5 projects across different continents (3/5)</text>
+  <rect x="80" y="504" width="220" height="4" rx="2" fill="#1e293b"/>
+  <rect x="80" y="504" width="132" height="4" rx="2" fill="#fbbf24"/>
+  
+  <rect x="60" y="520" width="310" height="20" rx="8" fill="#1e293b"/>
+  <text x="80" y="535" font-family="Arial, sans-serif" font-size="10" fill="#64748b">🔒 3 more achievements locked - keep investing!</text>
+  
+  <!-- Challenges -->
+  <rect x="410" y="230" width="350" height="320" rx="12" fill="#334155"/>
+  <text x="430" y="260" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Active Challenges</text>
+  
+  <!-- Challenge Cards -->
+  <rect x="430" y="280" width="310" height="60" rx="8" fill="#1e293b"/>
+  <text x="450" y="300" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">🎯 Monthly ESG Goal</text>
+  <text x="450" y="318" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Invest in 3 A+ ESG projects this month</text>
+  <rect x="450" y="325" width="250" height="6" rx="3" fill="#334155"/>
+  <rect x="450" y="325" width="167" height="6" rx="3" fill="#10b981"/>
+  <text x="450" y="338" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Progress: 2/3 projects • Reward: 500 points</text>
+  
+  <rect x="430" y="350" width="310" height="60" rx="8" fill="#1e293b"/>
+  <text x="450" y="370" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fbbf24">⚡ Speed Investor</text>
+  <text x="450" y="388" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Complete 5 investments within 24 hours</text>
+  <rect x="450" y="395" width="250" height="6" rx="3" fill="#334155"/>
+  <rect x="450" y="395" width="100" height="6" rx="3" fill="#fbbf24"/>
+  <text x="450" y="408" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Progress: 2/5 investments • Reward: 750 points</text>
+  
+  <rect x="430" y="420" width="310" height="60" rx="8" fill="#1e293b"/>
+  <text x="450" y="440" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#94a3b8">🌱 Diversification Master</text>
+  <text x="450" y="458" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Invest in 4 different energy types</text>
+  <rect x="450" y="465" width="250" height="6" rx="3" fill="#334155"/>
+  <rect x="450" y="465" width="188" height="6" rx="3" fill="#10b981"/>
+  <text x="450" y="478" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Progress: 3/4 types • Reward: 1,000 points</text>
+  
+  <!-- Leaderboard Preview -->
+  <rect x="430" y="490" width="310" height="50" rx="8" fill="#10b981"/>
+  <text x="450" y="510" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">🏅 Leaderboard Position: #47</text>
+  <text x="450" y="528" font-family="Arial, sans-serif" font-size="10" fill="white">You're ahead of 1,234 other investors!</text>
+  
+  <!-- Impact Summary -->
+  <rect x="40" y="570" width="720" height="20" rx="8" fill="#1e293b"/>
+  <text x="60" y="585" font-family="Arial, sans-serif" font-size="10" fill="#64748b">
+    🌍 Your Impact: 145 tons CO₂ saved • 2.3 GWh energy generated • 23 jobs created • 4 communities supported
+  </text>
+</svg>

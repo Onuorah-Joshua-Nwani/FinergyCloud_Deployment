@@ -1,0 +1,169 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F2FE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="earthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGradient)"/>
+  
+  <!-- World Map Silhouette -->
+  <g transform="translate(400, 200)" opacity="0.1">
+    <!-- Simplified continents -->
+    <path d="M-150,-80 Q-120,-90 -80,-85 Q-40,-80 0,-75 Q40,-70 80,-75 Q120,-80 150,-75 L150,80 Q120,75 80,80 Q40,85 0,80 Q-40,85 -80,80 Q-120,75 -150,80 Z" fill="#0EA5E9"/>
+  </g>
+  
+  <!-- Central Globe/Hub -->
+  <g transform="translate(400, 200)">
+    <circle r="80" fill="url(#earthGradient)" filter="url(#shadow)"/>
+    <circle r="70" fill="#FFFFFF" opacity="0.1"/>
+    <circle r="60" fill="#FFFFFF" opacity="0.1"/>
+    
+    <!-- Globe Pattern -->
+    <g stroke="#FFFFFF" stroke-width="1" opacity="0.3" fill="none">
+      <circle r="60"/>
+      <ellipse rx="60" ry="30"/>
+      <ellipse rx="60" ry="15"/>
+      <ellipse rx="30" ry="60"/>
+      <ellipse rx="45" ry="60"/>
+    </g>
+    
+    <!-- Central FinergyCloud Logo -->
+    <g transform="scale(0.8)">
+      <rect x="-25" y="-25" width="50" height="50" rx="8" fill="#FFFFFF" opacity="0.9"/>
+      <text y="8" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#047857">FC</text>
+    </g>
+  </g>
+  
+  <!-- UK Headquarters -->
+  <g transform="translate(180, 120)">
+    <circle r="15" fill="#EF4444" filter="url(#glow)"/>
+    <circle r="8" fill="#FFFFFF"/>
+    <g transform="scale(0.6)" fill="#EF4444">
+      <rect x="-8" y="-8" width="16" height="16" rx="2"/>
+      <text y="3" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">HQ</text>
+    </g>
+    
+    <!-- Office Info Card -->
+    <g transform="translate(25, -30)">
+      <rect x="0" y="0" width="140" height="60" rx="8" fill="#FFFFFF" filter="url(#shadow)"/>
+      <text x="70" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1E40AF">UK Headquarters</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748B">London Office</text>
+      <text x="70" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748B">hello@finergycloud.com</text>
+    </g>
+  </g>
+  
+  <!-- Nigeria Focus Market -->
+  <g transform="translate(450, 280)">
+    <circle r="12" fill="#10B981" filter="url(#glow)"/>
+    <circle r="6" fill="#FFFFFF"/>
+    <text y="3" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#10B981">NG</text>
+    
+    <!-- Nigeria Info -->
+    <g transform="translate(20, -25)">
+      <rect x="0" y="0" width="100" height="40" rx="6" fill="#FFFFFF" filter="url(#shadow)"/>
+      <text x="50" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">Nigeria</text>
+      <text x="50" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748B">Primary Market</text>
+    </g>
+  </g>
+  
+  <!-- Kenya Operations -->
+  <g transform="translate(480, 240)">
+    <circle r="8" fill="#06B6D4" filter="url(#glow)"/>
+    <circle r="4" fill="#FFFFFF"/>
+    <text y="2" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#06B6D4">KE</text>
+    
+    <g transform="translate(15, -15)">
+      <rect x="0" y="0" width="60" height="25" rx="4" fill="#FFFFFF" filter="url(#shadow)"/>
+      <text x="30" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#06B6D4">Kenya</text>
+    </g>
+  </g>
+  
+  <!-- Communication Icons -->
+  
+  <!-- Email -->
+  <g transform="translate(120, 180)">
+    <circle r="20" fill="#FFFFFF" filter="url(#shadow)"/>
+    <rect x="-10" y="-6" width="20" height="12" rx="2" fill="#6B7280" stroke="#4B5563" stroke-width="1"/>
+    <path d="M-10,-6 L0,2 L10,-6" fill="none" stroke="#4B5563" stroke-width="1.5"/>
+    <text y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#6B7280">Email</text>
+  </g>
+  
+  <!-- Video Call -->
+  <g transform="translate(680, 180)">
+    <circle r="20" fill="#FFFFFF" filter="url(#shadow)"/>
+    <rect x="-8" y="-5" width="12" height="8" rx="2" fill="#10B981"/>
+    <circle cx="6" cy="-1" r="4" fill="#10B981"/>
+    <text y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#6B7280">Video Call</text>
+  </g>
+  
+  <!-- Support -->
+  <g transform="translate(200, 320)">
+    <circle r="20" fill="#FFFFFF" filter="url(#shadow)"/>
+    <circle r="8" fill="#8B5CF6"/>
+    <circle r="3" fill="#FFFFFF"/>
+    <text y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#6B7280">Support</text>
+  </g>
+  
+  <!-- Partnership -->
+  <g transform="translate(600, 320)">
+    <circle r="20" fill="#FFFFFF" filter="url(#shadow)"/>
+    <circle cx="-4" cy="0" r="6" fill="#F59E0B"/>
+    <circle cx="4" cy="0" r="6" fill="#EF4444"/>
+    <text y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#6B7280">Partnership</text>
+  </g>
+  
+  <!-- Connection Lines -->
+  <g stroke="#0EA5E9" stroke-width="2" opacity="0.3" fill="none">
+    <!-- UK to Center -->
+    <path d="M 210 140 Q 300 100 320 180" stroke-dasharray="5,5"/>
+    <!-- Nigeria to Center -->
+    <path d="M 430 260 Q 420 240 400 220" stroke-dasharray="5,5"/>
+    <!-- Kenya to Center -->
+    <path d="M 460 230 Q 440 220 420 210" stroke-dasharray="5,5"/>
+    <!-- Communication lines -->
+    <path d="M 140 180 Q 250 150 320 180" stroke-dasharray="3,3" opacity="0.2"/>
+    <path d="M 660 180 Q 550 150 480 180" stroke-dasharray="3,3" opacity="0.2"/>
+    <path d="M 220 320 Q 300 280 380 240" stroke-dasharray="3,3" opacity="0.2"/>
+    <path d="M 580 320 Q 500 280 420 240" stroke-dasharray="3,3" opacity="0.2"/>
+  </g>
+  
+  <!-- Floating Data Particles -->
+  <g opacity="0.4">
+    <circle cx="100" cy="100" r="2" fill="#10B981">
+      <animate attributeName="cy" values="100;120;100" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="120" r="2" fill="#EF4444">
+      <animate attributeName="cy" values="120;140;120" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="350" r="2" fill="#06B6D4">
+      <animate attributeName="cy" values="350;370;350" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="650" cy="380" r="2" fill="#8B5CF6">
+      <animate attributeName="cy" values="380;360;380" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Title -->
+  <g transform="translate(400, 50)">
+    <rect x="-100" y="-15" width="200" height="30" rx="15" fill="#FFFFFF" filter="url(#shadow)"/>
+    <text y="5" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E40AF">Global Contact Network</text>
+  </g>
+</svg>
