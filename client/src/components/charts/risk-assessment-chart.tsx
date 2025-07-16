@@ -141,7 +141,7 @@ export default function RiskAssessmentChart({ projectType = "solar" }: RiskAsses
 
         <div className="chart-container flex justify-center">
           <ResponsiveContainer width="100%" height={280} className="chart-card-mobile sm:h-[320px] lg:h-[350px]">
-            <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+            <BarChart data={data} margin={{ top: 20, right: 30, left: 50, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis 
                 dataKey="category" 
@@ -155,7 +155,18 @@ export default function RiskAssessmentChart({ projectType = "solar" }: RiskAsses
               <YAxis 
                 tick={{ fontSize: 10 }}
                 tickLine={{ stroke: '#d1d5db' }}
-                label={{ value: 'Number of Projects', angle: 0, position: 'insideLeft', style: { fontSize: '11px', textAnchor: 'middle' } }}
+                label={{ 
+                  value: 'Number of Projects', 
+                  angle: -90, 
+                  position: 'insideLeft', 
+                  style: { 
+                    fontSize: '11px', 
+                    textAnchor: 'middle',
+                    fill: '#374151',
+                    fontWeight: '500'
+                  },
+                  offset: -10
+                }}
                 className="mobile-text-xs"
               />
               <Tooltip content={<CustomTooltip />} />
