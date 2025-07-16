@@ -6,6 +6,7 @@ import KPICard from "@/components/kpi-card";
 import PortfolioPerformanceChart from "@/components/charts/portfolio-performance-chart";
 import ProjectDistributionChart from "@/components/charts/project-distribution-chart";
 import InvestmentPerformanceChart from "@/components/charts/investment-performance-chart";
+import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
 import { useCurrency } from "@/lib/currency-context";
 import { formatCurrency } from "@shared/currency";
@@ -169,6 +170,9 @@ export default function KPIDashboard() {
     <div className="min-h-screen bg-gray-50">
       <section className="py-4 md:py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          {/* Mobile Breadcrumb Navigation */}
+          <MobileBreadcrumb items={commonBreadcrumbs.kpiDashboard} />
+          
           {/* Header with Project Type Selector */}
         <div className="mb-6 md:mb-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
