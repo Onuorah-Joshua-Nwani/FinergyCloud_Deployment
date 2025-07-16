@@ -51,20 +51,20 @@ export default function ESGScoringSimple() {
   ];
 
   const ESGCard = ({ title, score, icon: Icon, description, color }: any) => (
-    <div className="bg-white rounded-lg p-6 shadow-sm border">
+    <div className="bg-white rounded-lg mobile-p-2 shadow-sm border">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-3">
-          <div className={`p-3 rounded-lg ${color} bg-opacity-10`}>
-            <Icon className={`w-6 h-6 ${color}`} />
+          <div className={`p-2 sm:p-3 rounded-lg ${color} bg-opacity-10`}>
+            <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${color}`} />
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900">{title}</h3>
-            <p className="text-sm text-gray-600">{description}</p>
+            <h3 className="mobile-text-base font-semibold text-gray-900">{title}</h3>
+            <p className="mobile-text-sm text-gray-600">{description}</p>
           </div>
         </div>
         <div className="text-right">
-          <div className="text-2xl font-bold text-gray-900">{score}</div>
-          <div className="text-sm text-gray-600">/ 10</div>
+          <div className="mobile-text-2xl font-bold text-gray-900">{score}</div>
+          <div className="mobile-text-sm text-gray-600">/ 10</div>
         </div>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2">
@@ -88,7 +88,7 @@ export default function ESGScoringSimple() {
           <div className="text-sm text-gray-600">Overall ESG</div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="mobile-grid-3 mobile-gap-2 mt-4">
         <div className="text-center">
           <div className="text-lg font-semibold text-green-600">{project.esg.environmental}</div>
           <div className="text-xs text-gray-600">Environmental</div>
@@ -134,7 +134,7 @@ export default function ESGScoringSimple() {
         </div>
 
         {/* ESG Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="mobile-grid-3 mobile-gap-4 mb-8">
           <ESGCard 
             title="Environmental"
             score={esgData.environmental}
@@ -159,7 +159,7 @@ export default function ESGScoringSimple() {
         </div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="mobile-grid-4 mobile-gap-4 mb-8">
           <div className="bg-white rounded-lg p-6 shadow-sm border text-center">
             <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
             <div className="text-2xl font-bold text-gray-900">95%</div>

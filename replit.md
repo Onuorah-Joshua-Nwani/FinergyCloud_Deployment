@@ -142,3 +142,14 @@ The application follows a monorepo structure with clear separation between clien
 - **Input validation** using Zod schemas
 
 This architecture provides a solid foundation for a scalable renewable energy investment platform while maintaining simplicity and developer productivity for rapid iteration and growth.
+
+## Recent Changes
+
+### Mobile Responsive Improvements (July 16, 2025)
+- **Enhanced Mobile-First Design**: Implemented comprehensive mobile utility classes (mobile-grid-*, mobile-text-*, mobile-gap-*, mobile-p-*)
+- **Advanced Prediction Engine**: Applied mobile-first responsive grids with touch-friendly layouts and proper breakpoints
+- **ESG Scoring Interface**: Enhanced with balanced mobile navigation and optimized card layouts
+- **Chart Readability**: Improved Y-axis text visibility and mobile chart responsiveness
+- **Form Responsiveness**: Optimized form elements for mobile interaction with proper spacing and typography
+- **Mobile Navigation**: Fixed tab navigation overlapping issues while maintaining responsive design
+- **Professional Mobile Experience**: Consistent spacing, typography, and interaction patterns across all mobile breakpoints

@@ -182,7 +182,7 @@ export default function MobileBusinessDashboard() {
       </div>
 
       {/* Key Metrics Grid */}
-      <div className="grid grid-cols-2 gap-3 mb-6">
+      <div className="mobile-grid-2 mobile-gap-2 mb-6">
         {businessMetrics.map((metric, index) => (
           <div key={index} className="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
             <div className="flex items-center justify-between mb-2">
@@ -199,7 +199,7 @@ export default function MobileBusinessDashboard() {
       {/* Platform Features */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-slate-900 mb-3">Platform Features</h2>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="mobile-grid-2 mobile-gap-2">
           {platformFeatures.map((feature, index) => (
             <Link key={index} href={feature.link}>
               <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:border-blue-300 transition-colors">

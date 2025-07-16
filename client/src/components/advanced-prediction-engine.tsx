@@ -241,7 +241,7 @@ export default function AdvancedPredictionEngine({ onProjectTypeChange }: Advanc
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="mobile-grid-2 mobile-gap-4">
                 <FormField
                   control={form.control}
                   name="projectType"
@@ -376,7 +376,7 @@ export default function AdvancedPredictionEngine({ onProjectTypeChange }: Advanc
               {selectedProjectConfig && selectedLocationConfig && (
                 <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
                   <CardContent className="p-4">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                    <div className="mobile-grid-4 mobile-gap-2 mobile-text-sm">
                       <div>
                         <p className="text-gray-600">Market Growth</p>
                         <p className="font-semibold text-blue-600">{selectedProjectConfig.marketGrowth}%</p>
@@ -448,22 +448,22 @@ export default function AdvancedPredictionEngine({ onProjectTypeChange }: Advanc
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <div className="text-2xl font-bold text-blue-600">{predictionResult.predictedIrr}%</div>
-                      <p className="text-sm text-blue-800">Predicted IRR</p>
+                  <div className="mobile-grid-4 mobile-gap-4">
+                    <div className="text-center mobile-p-2 bg-blue-50 rounded-lg">
+                      <div className="mobile-text-2xl font-bold text-blue-600">{predictionResult.predictedIrr}%</div>
+                      <p className="mobile-text-sm text-blue-800">Predicted IRR</p>
                     </div>
-                    <div className="text-center p-4 bg-green-50 rounded-lg">
-                      <div className="text-2xl font-bold text-green-600">{predictionResult.successProbability}%</div>
-                      <p className="text-sm text-green-800">Success Probability</p>
+                    <div className="text-center mobile-p-2 bg-green-50 rounded-lg">
+                      <div className="mobile-text-2xl font-bold text-green-600">{predictionResult.successProbability}%</div>
+                      <p className="mobile-text-sm text-green-800">Success Probability</p>
                     </div>
-                    <div className="text-center p-4 bg-purple-50 rounded-lg">
-                      <div className="text-2xl font-bold text-purple-600">{predictionResult.confidenceScore}%</div>
-                      <p className="text-sm text-purple-800">AI Confidence</p>
+                    <div className="text-center mobile-p-2 bg-purple-50 rounded-lg">
+                      <div className="mobile-text-2xl font-bold text-purple-600">{predictionResult.confidenceScore}%</div>
+                      <p className="mobile-text-sm text-purple-800">AI Confidence</p>
                     </div>
-                    <div className="text-center p-4 bg-orange-50 rounded-lg">
-                      <div className="text-2xl font-bold text-orange-600">{predictionResult.competitiveAnalysis.marketShare}%</div>
-                      <p className="text-sm text-orange-800">Market Share</p>
+                    <div className="text-center mobile-p-2 bg-orange-50 rounded-lg">
+                      <div className="mobile-text-2xl font-bold text-orange-600">{predictionResult.competitiveAnalysis.marketShare}%</div>
+                      <p className="mobile-text-sm text-orange-800">Market Share</p>
                     </div>
                   </div>
                 </CardContent>
@@ -479,19 +479,19 @@ export default function AdvancedPredictionEngine({ onProjectTypeChange }: Advanc
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="mobile-grid-2 mobile-gap-4">
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Initial Investment</span>
-                        <span className="font-semibold">{formatCurrency(predictionResult.financialProjection.initialInvestment, selectedCurrency)}</span>
+                        <span className="mobile-text-sm text-gray-600">Initial Investment</span>
+                        <span className="mobile-text-sm font-semibold">{formatCurrency(predictionResult.financialProjection.initialInvestment, selectedCurrency)}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Annual Revenue</span>
-                        <span className="font-semibold text-green-600">{formatCurrency(predictionResult.financialProjection.annualRevenue, selectedCurrency)}</span>
+                        <span className="mobile-text-sm text-gray-600">Annual Revenue</span>
+                        <span className="mobile-text-sm font-semibold text-green-600">{formatCurrency(predictionResult.financialProjection.annualRevenue, selectedCurrency)}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Payback Period</span>
-                        <span className="font-semibold">{predictionResult.financialProjection.paybackPeriod} years</span>
+                        <span className="mobile-text-sm text-gray-600">Payback Period</span>
+                        <span className="mobile-text-sm font-semibold">{predictionResult.financialProjection.paybackPeriod} years</span>
                       </div>
                     </div>
                     <div className="space-y-4">
