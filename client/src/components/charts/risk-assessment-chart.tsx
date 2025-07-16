@@ -155,7 +155,7 @@ export default function RiskAssessmentChart({ projectType = "solar" }: RiskAsses
               <YAxis 
                 tick={{ fontSize: 10 }}
                 tickLine={{ stroke: '#d1d5db' }}
-                label={{ value: 'Number of Projects', angle: -90, position: 'insideLeft', style: { fontSize: '10px' } }}
+                label={{ value: 'Number of Projects', angle: 0, position: 'insideLeft', style: { fontSize: '11px', textAnchor: 'middle' } }}
                 className="mobile-text-xs"
               />
               <Tooltip content={<CustomTooltip />} />
