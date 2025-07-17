@@ -89,6 +89,13 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
   <p><em>Mobile ESG Scoring, AI Predictions, and User Profile</em></p>
 </div>
 
+<div align="center">
+  <img src="screenshots/mobile/kpidashboard.png" alt="KPI Dashboard" width="300"/>
+  <img src="screenshots/mobile/sustainabilityrewards.png" alt="Sustainability Rewards" width="300"/>
+  <img src="screenshots/mobile/marketinsights.png" alt="Market Insights" width="300"/>
+  <p><em>Mobile ESG Scoring, AI Predictions, and User Profile</em></p>
+</div>
+
 ## 🚀 Platform Capabilities
 
 ### AI & Analytics
