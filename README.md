@@ -27,20 +27,36 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
 ### Website Interface  
 *Professional dashboard and analytics views*
 
+
 <div align="center">
   <img src="screenshots/website/home.png" alt="Home" width="800"/>
-  <p><em>Comprehensive Renewable Energy Solutions - Featuring; XGBoost Risk Engine, ESG Risk Scoring, Financial Models, and Power BI Dashboards</em></p>
+  <p><em>Comprehensive Renewable Energy Solutions</em></p>
 </div>
+
+
+<div align="center">
+  <img src="screenshots/website/howesgscoringworks.png" alt="How ESG Scoring Works" width="800"/>
+  <p><em>Input Variables We Analyze & XGBoost Model Processing Pipeline</em></p>
+</div>
+
+
+<div align="center">
+  <img src="screenshots/website/esgscorebands.png" alt="ESG Score Bands" width="800"/>
+  <p><em>ESG Score Bands/Investment Recommendations & Sample ESG Assessment Result</em></p>
+</div>
+
 
 <div align="center">
   <img src="screenshots/website/about.png" alt="About" width="800"/>
   <p><em>What Drives Us - Innovation, Sustainability, Integrity, and Partnership </em></p>
 </div>
 
+
 <div align="center">
   <img src="screenshots/website/platform.png" alt="Platform" width="800"/>
   <p><em>Comprehensive Investment Intelligence, Industries We Serve </em></p>
 </div>
+
 
 <div align="center">
   <img src="screenshots/website/blog.png" alt="Blog" width="800"/>
@@ -51,6 +67,7 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
   <img src="screenshots/website/contact.png" alt="Contact" width="800"/>
   <p><em>FinergyCloud Insights & Research</em></p>
 </div>
+
 
 ### Mobile App Interface  
 *Optimized mobile experience for on-the-go investment management*
