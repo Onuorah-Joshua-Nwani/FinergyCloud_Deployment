@@ -24,9 +24,7 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
 
 ## 🖼️ Platform Screenshots
 
-### Website Interface  
-*Professional dashboard and analytics views*
-
+### Website Interfaces  
 
 <div align="center">
   <img src="screenshots/website/home.png" alt="Home" width="800"/>
