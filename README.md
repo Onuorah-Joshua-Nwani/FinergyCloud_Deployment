@@ -103,6 +103,85 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
   <p><em>IRR Prediction, IRR Project Details, IRR Calculation Results</em></p>
 </div>
 
+## 🧠 How ESG Scoring Works
+
+FinergyCloud uses advanced XGBoost machine learning models to provide comprehensive ESG scoring and investment recommendations for renewable energy projects.
+
+### Our AI-Powered Assessment Process
+
+**Input Variables:**
+- **Financial Metrics**: CAPEX, OPEX, projected IRR, cash flow patterns
+- **Technical Specifications**: Technology type, capacity, efficiency ratings
+- **Environmental Impact**: CO2 reduction potential, land use, water consumption
+- **Social Factors**: Community engagement, job creation, local partnerships  
+- **Governance**: Developer track record, regulatory compliance, transparency
+
+**XGBoost Model Processing:**
+1. **Data Preprocessing**: Normalize and validate input parameters
+2. **Feature Engineering**: Calculate derived metrics and risk indicators
+3. **Model Prediction**: Process through trained XGBoost ensemble
+4. **Confidence Scoring**: Generate reliability metrics for predictions
+5. **Risk Classification**: Categorize projects into investment bands
+
+### Sample ESG Assessment Results
+
+```json
+{
+  "project": "Solar Mini-Grid, Kaduna State",
+  "technology": "Solar PV + Battery Storage",
+  "capacity": "2.5 MW",
+  "esg_score": 87,
+  "risk_band": "Low Risk",
+  "recommendation": "Investor Ready",
+  "confidence": "94%",
+  "breakdown": {
+    "environmental": 92,
+    "social": 85,
+    "governance": 84
+  },
+  "key_metrics": {
+    "projected_irr": "18.5%",
+    "co2_reduction": "1,200 tons/year",
+    "jobs_created": 45,
+    "payback_period": "6.2 years"
+  },
+  "investment_summary": "Strong ESG performance with excellent environmental impact and solid governance framework. Recommended for green investment portfolios."
+}
+```
+
+```json
+{
+  "project": "Wind Farm, Lagos Coast",
+  "technology": "Offshore Wind",
+  "capacity": "50 MW",
+  "esg_score": 76,
+  "risk_band": "Medium Risk",
+  "recommendation": "Conditional Approval",
+  "confidence": "89%",
+  "breakdown": {
+    "environmental": 88,
+    "social": 67,
+    "governance": 73
+  },
+  "key_metrics": {
+    "projected_irr": "15.2%",
+    "co2_reduction": "35,000 tons/year",
+    "jobs_created": 120,
+    "payback_period": "8.1 years"
+  },
+  "investment_summary": "Good environmental credentials but requires attention to community engagement and governance improvements before full investment approval."
+}
+```
+
+### ESG Score Bands & Investment Recommendations
+
+| Score Range | Risk Band | Classification | Investment Action |
+|-------------|-----------|---------------|------------------|
+| 85-100 | **Low Risk** | Investor Ready | ✅ Immediate funding approval |
+| 70-84 | **Medium Risk** | Conditional Approval | ⚠️ Address specific concerns |
+| 55-69 | **High Risk** | Development Required | 🔄 Substantial improvements needed |
+| Below 55 | **Very High Risk** | Not Recommended | ❌ Significant restructuring required |
+
 ## 🚀 Platform Capabilities
 
 ### AI & Analytics
