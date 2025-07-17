@@ -234,28 +234,6 @@ The application uses Drizzle ORM with PostgreSQL. Key tables include:
 - `esg_metrics` - ESG scoring data
 - `market_insights` - Market analysis data
 
-## 🗂️ Screenshots Directory Structure
-
-To add your screenshots to the README, create a `screenshots/` directory in your repository and organize your images as follows:
-
-```
-screenshots/
-├── website/
-│   ├── dashboard-overview.png
-│   ├── esg-scoring.png
-│   ├── ai-predictions.png
-│   └── portfolio-management.png
-└── mobile/
-    ├── mobile-dashboard.png
-    ├── mobile-projects.png
-    ├── mobile-analytics.png
-    ├── mobile-esg.png
-    ├── mobile-predictions.png
-    └── mobile-profile.png
-```
-
-Then update the image paths in the README to match your actual screenshot locations.
-
 ## 🎯 Target Users
 
 - **Project Developers**: Renewable energy project creators seeking funding and risk assessment
