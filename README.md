@@ -11,7 +11,10 @@
 
 ## Overview
 
-FinergyCloud is a comprehensive full-stack renewable energy investment platform that leverages artificial intelligence, advanced analytics, and sustainable finance to democratize access to clean energy investments. The platform combines cutting-edge technology with financial modeling to provide AI-powered investment predictions, ESG scoring, and portfolio management for renewable energy projects.
+**FinergyCloud** is an intelligent platform for renewable energy investing.  
+It integrates machine learning, ESG analytics, and financial modeling to deliver actionable insights into clean energy projects.
+Whether you're a climate-focused investor, renewable developer, or ESG advisor, FinergyCloud helps you evaluate project risk, forecast ROI, and make confident investment decisions.
+
 
 ## 🌟 Key Features
 
