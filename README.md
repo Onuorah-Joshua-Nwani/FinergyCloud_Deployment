@@ -76,16 +76,16 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
 *Optimized mobile experience for on-the-go investment management*
 
 <div align="center">
+  <img src="screenshots/mobile/mobile-profile.png" alt="Mobile Profile" width="300"/>
   <img src="screenshots/mobile/mobile-dashboard.png" alt="Mobile Dashboard" width="300"/>
   <img src="screenshots/mobile/mobile-projects.png" alt="Mobile Projects" width="300"/>
-  <img src="screenshots/mobile/mobile-analytics.png" alt="Mobile Analytics" width="300"/>
   <p><em>Mobile Dashboard, Project Management, and Analytics Views</em></p>
 </div>
 
 <div align="center">
   <img src="screenshots/mobile/mobile-esg.png" alt="Mobile ESG" width="300"/>
   <img src="screenshots/mobile/mobile-predictions.png" alt="Mobile Predictions" width="300"/>
-  <img src="screenshots/mobile/mobile-profile.png" alt="Mobile Profile" width="300"/>
+  <img src="screenshots/mobile/mobile-analytics.png" alt="Mobile Analytics" width="300"/>
   <p><em>Mobile ESG Scoring, AI Predictions, and User Profile</em></p>
 </div>
 
@@ -97,8 +97,10 @@ FinergyCloud is a comprehensive full-stack renewable energy investment platform 
 </div>
 
 <div align="center">
-  <img src="screenshots/mobile/irrprediction.png" alt="IRR Prediction" width="300"/>
-  <p><em>IRR Prediction</em></p>
+   <img src="screenshots/mobile/irrprediction.png" alt="IRR Prediction" width="300"/>
+  <img src="screenshots/mobile/irrprojectinvestdetails.png" alt="IRR Project Details" width="300"/>
+  <img src="screenshots/mobile/irrcalculationresults.png" alt="IRR Calculation Results" width="300"/>
+  <p><em>IRR Prediction, IRR Project Details, IRR Calculation Results</em></p>
 </div>
 
 ## 🚀 Platform Capabilities
