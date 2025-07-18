@@ -106,11 +106,11 @@ Whether you're a climate-focused investor, renewable developer, or ESG advisor, 
   <p><em>IRR Prediction, IRR Project Details, IRR Calculation Results</em></p>
 </div>
 
-## 🧠 How ESG Scoring Works
+## 🧠 AI-Driven ESG Scoring Engine
 
 FinergyCloud uses advanced XGBoost machine learning models to provide comprehensive ESG scoring and investment recommendations for renewable energy projects.
 
-### Our AI-Powered Assessment Process
+### 🔁 ESG Scoring Process
 
 **Input Variables:**
 - **Financial Metrics**: CAPEX, OPEX, projected IRR, cash flow patterns
@@ -126,7 +126,7 @@ FinergyCloud uses advanced XGBoost machine learning models to provide comprehens
 4. **Confidence Scoring**: Generate reliability metrics for predictions
 5. **Risk Classification**: Categorize projects into investment bands
 
-### Sample ESG Assessment Results
+### 📊 Sample ESG Output
 
 ```json
 {
