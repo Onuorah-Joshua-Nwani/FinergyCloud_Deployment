@@ -373,25 +373,16 @@ npm run db:push
 # Start development server
 npm run dev
 ```
+## 🔗 Live Demo & Links
+
+- 🌐 [Website](https://www.finergycloud.com)
+- 📱 [Mobile App](https://www.finergycloud.com/mobile-app)
+- 📘 [Wiki](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/wiki)
+- 🐞 [Issues](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/issues)
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support & Contact
-
-- **Documentation**: [Project Wiki](https://github.com/yourusername/finergycloud/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/finergycloud/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/finergycloud/discussions)
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
-
-## 🌟 Show Your Support
-
-If you find FinergyCloud helpful, please consider:
-- ⭐ Starring the repository
-- 🐛 Reporting bugs or suggesting features
-- 💬 Sharing with your network
-- 🤝 Contributing to the project
 
 ---
 
