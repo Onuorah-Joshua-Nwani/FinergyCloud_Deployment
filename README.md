@@ -16,16 +16,16 @@ It integrates machine learning, ESG analytics, and financial modeling to deliver
 Whether you're a climate-focused investor, renewable developer, or ESG advisor, FinergyCloud helps you evaluate project risk, forecast ROI, and make confident investment decisions.
 
 
-## 🌟 Key Features
+## Key Features
 
-- **🤖 AI-Powered Predictions**: XGBoost machine learning models with 94% accuracy for renewable energy project success prediction
-- **📊 ESG Scoring System**: Comprehensive Environmental, Social, and Governance assessment with project-specific templates
-- **💰 Multi-Currency Support**: Real-time currency conversion supporting NGN, GBP, and EUR
-- **📈 Portfolio Management**: Real-time analytics and performance tracking
-- **💼 Professional Dashboard**: Business-grade interface with comprehensive project management
-- **📱 Mobile-First Design**: Responsive interface optimized for mobile and desktop
+- **AI-Powered Predictions**: XGBoost machine learning models with 94% accuracy for renewable energy project success prediction
+- **ESG Scoring System**: Comprehensive Environmental, Social, and Governance assessment with project-specific templates
+- **Multi-Currency Support**: Real-time currency conversion supporting NGN, GBP, and EUR
+- **Portfolio Management**: Real-time analytics and performance tracking
+- **Professional Dashboard**: Business-grade interface with comprehensive project management
+- **Mobile-First Design**: Responsive interface optimized for mobile and desktop
 
-## 🖼️ Platform Screenshots
+## Platform Screenshots
 
 ### Website Interfaces  
 
@@ -106,11 +106,11 @@ Whether you're a climate-focused investor, renewable developer, or ESG advisor, 
   <p><em>IRR Prediction, IRR Project Details, IRR Calculation Results</em></p>
 </div>
 
-## 🧠 AI-Driven ESG Scoring Engine
+## AI-Driven ESG Scoring Engine
 
 FinergyCloud uses advanced XGBoost machine learning models to provide comprehensive ESG scoring and investment recommendations for renewable energy projects.
 
-### 🔁 ESG Scoring Process
+### ESG Scoring Process
 
 **Input Variables:**
 - **Financial Metrics**: CAPEX, OPEX, projected IRR, cash flow patterns
@@ -126,7 +126,7 @@ FinergyCloud uses advanced XGBoost machine learning models to provide comprehens
 4. **Confidence Scoring**: Generate reliability metrics for predictions
 5. **Risk Classification**: Categorize projects into investment bands
 
-### 📊 Sample ESG Output
+### Sample ESG Output
 
 ```json
 {
@@ -180,12 +180,12 @@ FinergyCloud uses advanced XGBoost machine learning models to provide comprehens
 
 | Score Range | Risk Band | Classification | Investment Action |
 |-------------|-----------|---------------|------------------|
-| 85-100 | **Low Risk** | Investor Ready | ✅ Immediate funding approval |
-| 70-84 | **Medium Risk** | Conditional Approval | ⚠️ Address specific concerns |
-| 55-69 | **High Risk** | Development Required | 🔄 Substantial improvements needed |
-| Below 55 | **Very High Risk** | Not Recommended | ❌ Significant restructuring required |
+| 85-100 | **Low Risk** | Investor Ready | Immediate funding approval |
+| 70-84 | **Medium Risk** | Conditional Approval | Address specific concerns |
+| 55-69 | **High Risk** | Development Required | Substantial improvements needed |
+| Below 55 | **Very High Risk** | Not Recommended | Significant restructuring required |
 
-## 🚀 Platform Capabilities
+## Platform Capabilities
 
 ### AI & Analytics
 - **Machine Learning Models**: XGBoost algorithms for project success prediction
@@ -205,7 +205,7 @@ FinergyCloud uses advanced XGBoost machine learning models to provide comprehens
 - **Portfolio Management**: Diversification and performance tracking
 - **Investment Modeling**: Cash flow analysis and ROI projections
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - **React 18** with TypeScript for robust component development
@@ -316,7 +316,7 @@ The application uses Drizzle ORM with PostgreSQL. Key tables include:
 - `esg_metrics` - ESG scoring data
 - `market_insights` - Market analysis data
 
-## 🎯 Target Users
+##  Target Users
 
 - **Project Developers**: Renewable energy project creators seeking funding and risk assessment
 - **NGO Finance Teams**: Organizations managing sustainable development portfolios
@@ -324,7 +324,7 @@ The application uses Drizzle ORM with PostgreSQL. Key tables include:
 - **Impact Investors**: Individuals and institutions focused on sustainable investments
 - **Financial Advisors**: Professionals managing renewable energy investment portfolios
 
-## 🌍 Market Focus
+##  Market Focus
 
 FinergyCloud specifically targets emerging markets with a focus on:
 - **African Markets**: Primary focus on Nigerian renewable energy sector
@@ -332,21 +332,21 @@ FinergyCloud specifically targets emerging markets with a focus on:
 - **Regional Compliance**: Adherence to local regulatory requirements
 - **Community Impact**: Emphasis on local job creation and social benefits
 
-## 🔒 Security & Compliance
+##  Security & Compliance
 
 - **Data Protection**: GDPR-compliant data handling and storage
 - **Secure Authentication**: Session-based authentication with secure cookie management
 - **API Security**: Request validation and rate limiting
 - **Database Security**: Encrypted connections and secure credential management
 
-## 📈 Performance Metrics
+##  Performance Metrics
 
 - **AI Accuracy**: 94% prediction accuracy for project success rates
 - **Response Time**: Sub-second API response times
 - **Mobile Performance**: Optimized for 3G/4G network conditions
 - **Uptime**: 99.9% availability target with automated monitoring
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions from the community! Here's how you can help:
 
@@ -373,20 +373,20 @@ npm run db:push
 # Start development server
 npm run dev
 ```
-## 🔗 Live Demo & Links
+##  Live Demo & Links
 
-- 🌐 [Website](https://www.finergycloud.com)
-- 📱 [Mobile App](https://www.finergycloud.com/mobile-app)
-- 📘 [Wiki](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/wiki)
-- 🐞 [Issues](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/issues)
+- [Website](https://www.finergycloud.com)
+- [Mobile App](https://www.finergycloud.com/mobile-app)
+- [Wiki](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/wiki)
+- [Issues](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/issues)
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
-  <p>Built with ❤️ for sustainable energy and climate action</p>
+  <p>Built with love for sustainable energy and climate action</p>
   <p>© 2024 FinergyCloud. All rights reserved.</p>
 </div>
