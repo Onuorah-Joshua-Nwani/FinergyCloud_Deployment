@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210mm" height="297mm" viewBox="0 0 793 1122" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0F2FE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BFDBFE;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E8FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DDD6FE;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="outputGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECFDF5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D1FAE5;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="mobileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEF3C7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FDE68A;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow Filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    
+    <!-- Arrow Marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="793" height="1122" fill="#F8FAFC"/>
+  
+  <!-- Title -->
+  <text x="396" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    FinergyCloud AI Investment Pipeline
+  </text>
+  <text x="396" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">
+    Data Ingestion → XGBoost Processing → Investment Decisions
+  </text>
+  
+  <!-- Data Ingestion Layer -->
+  <text x="396" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    📊 Data Ingestion Layer
+  </text>
+  
+  <rect x="30" y="85" width="733" height="140" rx="8" fill="url(#dataGradient)" stroke="#3B82F6" stroke-width="1" filter="url(#shadow)"/>
+  
+  <!-- Data Sources Row 1 -->
+  <g id="dataSourcesRow1">
+    <!-- ESG Data -->
+    <rect x="40" y="95" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="110" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#059669">
+      🌱 ESG Data
+    </text>
+    <text x="45" y="125" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Environmental metrics</text>
+    <text x="45" y="135" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Social responsibility</text>
+    <text x="45" y="145" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Governance frameworks</text>
+    
+    <!-- Financial Data -->
+    <rect x="190" y="95" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="260" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3B82F6">
+      💰 Financial Data
+    </text>
+    <text x="195" y="125" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Project IRR calculations</text>
+    <text x="195" y="135" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Market performance</text>
+    <text x="195" y="145" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Currency exchange</text>
+    
+    <!-- Market Intelligence -->
+    <rect x="340" y="95" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="410" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">
+      📈 Market Intel
+    </text>
+    <text x="345" y="125" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Regional energy demand</text>
+    <text x="345" y="135" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Policy &amp; regulatory</text>
+    <text x="345" y="145" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Competition analysis</text>
+  </g>
+  
+  <!-- Data Sources Row 2 -->
+  <g id="dataSourcesRow2">
+    <!-- Project Data -->
+    <rect x="115" y="165" width="140" height="50" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="185" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#EF4444">
+      🏗️ Project Data
+    </text>
+    <text x="120" y="195" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Capacity &amp; specifications</text>
+    <text x="120" y="205" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Location &amp; technology</text>
+    
+    <!-- Risk Factors -->
+    <rect x="265" y="165" width="140" height="50" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="335" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">
+      ⚠️ Risk Factors
+    </text>
+    <text x="270" y="195" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Political stability</text>
+    <text x="270" y="205" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Technical feasibility</text>
+    
+    <!-- Real-Time APIs -->
+    <rect x="415" y="165" width="140" height="50" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="485" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#6366F1">
+      🔄 Real-Time APIs
+    </text>
+    <text x="420" y="195" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Live market feeds</text>
+    <text x="420" y="205" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Weather &amp; climate</text>
+  </g>
+  
+  <!-- Data Flow Arrow -->
+  <line x1="396" y1="235" x2="396" y2="260" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- AI Processing Engine -->
+  <text x="396" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    🤖 AI Processing Engine (XGBoost 94.2% Accuracy)
+  </text>
+  
+  <rect x="30" y="290" width="733" height="200" rx="8" fill="url(#aiGradient)" stroke="#8B5CF6" stroke-width="1" filter="url(#shadow)"/>
+  
+  <!-- AI Components Row 1 -->
+  <g id="aiComponentsRow1">
+    <!-- Data Preprocessing -->
+    <rect x="40" y="300" width="140" height="85" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="110" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">
+      📋 Data Preprocessing
+    </text>
+    <text x="45" y="330" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Data validation &amp; cleaning</text>
+    <text x="45" y="340" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Feature normalization</text>
+    <text x="45" y="350" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Missing value imputation</text>
+    <text x="45" y="360" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Outlier detection</text>
+    <text x="45" y="370" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Currency standardization</text>
+    <text x="45" y="380" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Geographic encoding</text>
+    
+    <!-- Feature Engineering -->
+    <rect x="190" y="300" width="140" height="85" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="260" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#059669">
+      🔧 Feature Engineering
+    </text>
+    <text x="195" y="330" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• ESG composite scoring</text>
+    <text x="195" y="340" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Risk factor weighting</text>
+    <text x="195" y="350" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Technical indicators</text>
+    <text x="195" y="360" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Interaction features</text>
+    <text x="195" y="370" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Polynomial transforms</text>
+    <text x="195" y="380" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Time-series features</text>
+    
+    <!-- XGBoost Model -->
+    <rect x="340" y="300" width="140" height="85" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="410" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#DC2626">
+      🎯 XGBoost Model
+    </text>
+    <text x="345" y="330" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• 500 estimators optimized</text>
+    <text x="345" y="340" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Max depth: 6 levels</text>
+    <text x="345" y="350" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Learning rate: 0.1</text>
+    <text x="345" y="360" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• 5-fold cross-validation</text>
+    <text x="345" y="370" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Feature importance</text>
+    <text x="345" y="380" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Hyperparameter tuning</text>
+  </g>
+  
+  <!-- AI Components Row 2 -->
+  <g id="aiComponentsRow2">
+    <!-- Risk Assessment -->
+    <rect x="115" y="395" width="140" height="85" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="185" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">
+      🛡️ Risk Assessment
+    </text>
+    <text x="120" y="425" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Multi-factor risk scoring</text>
+    <text x="120" y="435" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Confidence intervals</text>
+    <text x="120" y="445" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Scenario modeling</text>
+    <text x="120" y="455" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Stress testing</text>
+    <text x="120" y="465" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Monte Carlo simulation</text>
+    <text x="120" y="475" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Portfolio correlation</text>
+    
+    <!-- Prediction Engine -->
+    <rect x="265" y="395" width="140" height="85" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="335" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3B82F6">
+      🔮 Prediction Engine
+    </text>
+    <text x="270" y="425" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Success probability (84-91%)</text>
+    <text x="270" y="435" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• IRR forecasting</text>
+    <text x="270" y="445" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Payback period calc</text>
+    <text x="270" y="455" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Impact projections</text>
+    <text x="270" y="465" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Performance rankings</text>
+    <text x="270" y="475" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Real-time updates</text>
+  </g>
+  
+  <!-- Processing Flow Arrow -->
+  <line x1="396" y1="500" x2="396" y2="525" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Output &amp; Recommendations Layer -->
+  <text x="396" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    📊 Investment Recommendations &amp; Analytics
+  </text>
+  
+  <rect x="30" y="555" width="733" height="140" rx="8" fill="url(#outputGradient)" stroke="#059669" stroke-width="1" filter="url(#shadow)"/>
+  
+  <!-- Output Components -->
+  <g id="outputLayer">
+    <!-- ESG Scoring -->
+    <rect x="40" y="565" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="110" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#059669">
+      🌱 ESG Scoring
+    </text>
+    <text x="45" y="595" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Overall ESG score (6.8-8.7)</text>
+    <text x="45" y="605" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Component breakdown</text>
+    <text x="45" y="615" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Risk band classification</text>
+    
+    <!-- Portfolio Analytics -->
+    <rect x="190" y="565" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="260" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3B82F6">
+      📈 Portfolio Analytics
+    </text>
+    <text x="195" y="595" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Performance tracking</text>
+    <text x="195" y="605" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Diversification metrics</text>
+    <text x="195" y="615" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Multi-currency support</text>
+    
+    <!-- Investment Recommendations -->
+    <rect x="340" y="565" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="410" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">
+      💡 Recommendations
+    </text>
+    <text x="345" y="595" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Project rankings</text>
+    <text x="345" y="605" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Investment amounts</text>
+    <text x="345" y="615" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Risk-adjusted returns</text>
+  </g>
+  
+  <!-- Output Row 2 -->
+  <g id="outputRow2">
+    <!-- Risk Simulation -->
+    <rect x="115" y="635" width="140" height="50" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="185" y="650" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">
+      🎲 Risk Simulation
+    </text>
+    <text x="120" y="665" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Multi-country analysis</text>
+    <text x="120" y="675" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Scenario comparisons</text>
+    
+    <!-- Real-Time Dashboard -->
+    <rect x="265" y="635" width="140" height="50" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="335" y="650" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#DC2626">
+      📊 Live Dashboard
+    </text>
+    <text x="270" y="665" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• PowerBI-style interface</text>
+    <text x="270" y="675" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Real-time updates</text>
+  </g>
+  
+  <!-- Mobile Access Arrow -->
+  <line x1="396" y1="705" x2="396" y2="730" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Mobile Access Layer -->
+  <text x="396" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    📱 Complete Mobile App Access &amp; PWA Integration
+  </text>
+  
+  <rect x="30" y="760" width="733" height="140" rx="8" fill="url(#mobileGradient)" stroke="#F59E0B" stroke-width="1" filter="url(#shadow)"/>
+  
+  <!-- Mobile Features Row 1 -->
+  <g id="mobileRow1">
+    <!-- Mobile Dashboard -->
+    <rect x="40" y="770" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="110" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">
+      📱 Mobile Dashboard
+    </text>
+    <text x="45" y="800" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Touch-optimized interface</text>
+    <text x="45" y="810" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Offline PWA capabilities</text>
+    <text x="45" y="820" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Real-time synchronization</text>
+    
+    <!-- AI Model Access -->
+    <rect x="190" y="770" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="260" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">
+      🤖 Mobile AI Access
+    </text>
+    <text x="195" y="800" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Full XGBoost model access</text>
+    <text x="195" y="810" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Edge computing capability</text>
+    <text x="195" y="820" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Voice-guided explanations</text>
+    
+    <!-- Risk Assessment Mobile -->
+    <rect x="340" y="770" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="410" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#EF4444">
+      🛡️ Mobile Risk Tools
+    </text>
+    <text x="345" y="800" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Risk simulation engine</text>
+    <text x="345" y="810" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Country comparison tools</text>
+    <text x="345" y="820" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Interactive risk matrices</text>
+  </g>
+  
+  <!-- Mobile Features Row 2 -->
+  <g id="mobileRow2">
+    <!-- Mobile Analytics -->
+    <rect x="115" y="840" width="140" height="50" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="185" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#059669">
+      📊 Mobile Analytics
+    </text>
+    <text x="120" y="870" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Portfolio performance tracking</text>
+    <text x="120" y="880" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• ESG scoring interface</text>
+    
+    <!-- Offline Capabilities -->
+    <rect x="265" y="840" width="140" height="50" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="335" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3B82F6">
+      🔄 Offline Features
+    </text>
+    <text x="270" y="870" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Cached model predictions</text>
+    <text x="270" y="880" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Local data storage</text>
+  </g>
+  
+  <!-- Key Performance Metrics -->
+  <rect x="30" y="920" width="733" height="80" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="396" y="940" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1F2937">
+    🎯 Key Performance Metrics
+  </text>
+  
+  <text x="60" y="960" font-family="Arial, sans-serif" font-size="9" fill="#059669" font-weight="bold">XGBoost Accuracy: 94.2%</text>
+  <text x="200" y="960" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6" font-weight="bold">Success Rate: 84-91%</text>
+  <text x="340" y="960" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" font-weight="bold">ESG Range: 6.8-8.7</text>
+  <text x="480" y="960" font-family="Arial, sans-serif" font-size="9" fill="#EF4444" font-weight="bold">Response Time: &lt;200ms</text>
+  
+  <text x="60" y="980" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">Cross-Validation: 5-Fold</text>
+  <text x="200" y="980" font-family="Arial, sans-serif" font-size="9" fill="#059669" font-weight="bold">Multi-Currency: 4 Types</text>
+  <text x="340" y="980" font-family="Arial, sans-serif" font-size="9" fill="#DC2626" font-weight="bold">Mobile Coverage: 100%</text>
+  <text x="480" y="980" font-family="Arial, sans-serif" font-size="9" fill="#6366F1" font-weight="bold">Offline Support: Full</text>
+  
+  <!-- Footer -->
+  <text x="396" y="1020" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+    FinergyCloud System Architecture - End-to-End AI Pipeline from ESG Data Ingestion to Investment Recommendations
+  </text>
+  <text x="396" y="1035" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+    Complete Mobile Access | PWA Integration | Offline Capabilities | Real-Time Analytics
+  </text>
+</svg>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#F8FAFC"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="lowRiskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:0.05" />
+    </linearGradient>
+    
+    <linearGradient id="mediumRiskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:0.05" />
+    </linearGradient>
+    
+    <linearGradient id="highRiskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF4444;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#EF4444;stop-opacity:0.05" />
+    </linearGradient>
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+  </defs>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="80" fill="url(#headerGradient)"/>
+  <text x="700" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">
+    Multi-Country Risk Comparison Framework
+  </text>
+  <text x="700" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+    Comparative Risk Assessment: How Country-Specific Factors Influence Renewable Energy Project Evaluation
+  </text>
+  
+  <!-- Country Comparison Overview -->
+  <text x="700" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    West African Renewable Energy Investment Risk Matrix
+  </text>
+  
+  <!-- Country Cards Container -->
+  <rect x="50" y="150" width="1300" height="320" rx="15" fill="white" stroke="#E5E7EB" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Nigeria Solar Project -->
+  <g id="nigeria">
+    <rect x="80" y="180" width="250" height="260" rx="12" fill="url(#mediumRiskGradient)" stroke="#F59E0B" stroke-width="2"/>
+    
+    <!-- Country Header -->
+    <rect x="90" y="190" width="230" height="40" rx="8" fill="#F59E0B" opacity="0.1"/>
+    <text x="205" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#92400E">
+      🇳🇬 NIGERIA
+    </text>
+    <text x="205" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#92400E">
+      Lagos Solar Complex - 75 MW
+    </text>
+    
+    <!-- Risk Assessment -->
+    <rect x="100" y="240" width="70" height="20" rx="4" fill="#F59E0B"/>
+    <text x="135" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+      MEDIUM RISK
+    </text>
+    
+    <!-- Key Metrics -->
+    <text x="100" y="280" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Investment: $95M USD</text>
+    <text x="100" y="295" font-family="Arial, sans-serif" font-size="11" fill="#374151">Success Probability: 84.7%</text>
+    <text x="100" y="310" font-family="Arial, sans-serif" font-size="11" fill="#374151">Expected IRR: 17.8% ± 2.1%</text>
+    <text x="100" y="325" font-family="Arial, sans-serif" font-size="11" fill="#374151">Payback Period: 6.8 years</text>
+    <text x="100" y="340" font-family="Arial, sans-serif" font-size="11" fill="#374151">ESG Score: 7.2/10</text>
+    
+    <!-- Risk Factors -->
+    <text x="100" y="365" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400E">Risk Factors:</text>
+    <text x="100" y="380" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Political: Medium (6.5/10)</text>
+    <text x="100" y="393" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Regulatory: Medium (6.8/10)</text>
+    <text x="100" y="406" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Currency: High (4.2/10)</text>
+    <text x="100" y="419" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Infrastructure: Medium (6.9/10)</text>
+  </g>
+  
+  <!-- Ghana Wind Project -->
+  <g id="ghana">
+    <rect x="360" y="180" width="250" height="260" rx="12" fill="url(#lowRiskGradient)" stroke="#10B981" stroke-width="2"/>
+    
+    <!-- Country Header -->
+    <rect x="370" y="190" width="230" height="40" rx="8" fill="#10B981" opacity="0.1"/>
+    <text x="485" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#065F46">
+      🇬🇭 GHANA
+    </text>
+    <text x="485" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#065F46">
+      Accra Wind Farm - 65 MW
+    </text>
+    
+    <!-- Risk Assessment -->
+    <rect x="380" y="240" width="60" height="20" rx="4" fill="#10B981"/>
+    <text x="410" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+      LOW RISK
+    </text>
+    
+    <!-- Key Metrics -->
+    <text x="380" y="280" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Investment: $78M USD</text>
+    <text x="380" y="295" font-family="Arial, sans-serif" font-size="11" fill="#374151">Success Probability: 91.3%</text>
+    <text x="380" y="310" font-family="Arial, sans-serif" font-size="11" fill="#374151">Expected IRR: 19.2% ± 1.4%</text>
+    <text x="380" y="325" font-family="Arial, sans-serif" font-size="11" fill="#374151">Payback Period: 5.8 years</text>
+    <text x="380" y="340" font-family="Arial, sans-serif" font-size="11" fill="#374151">ESG Score: 8.7/10</text>
+    
+    <!-- Risk Factors -->
+    <text x="380" y="365" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#065F46">Risk Factors:</text>
+    <text x="380" y="380" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Political: Low (8.4/10)</text>
+    <text x="380" y="393" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Regulatory: Low (8.7/10)</text>
+    <text x="380" y="406" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Currency: Medium (7.1/10)</text>
+    <text x="380" y="419" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Infrastructure: High (8.9/10)</text>
+  </g>
+  
+  <!-- Kenya Hydro Project -->
+  <g id="kenya">
+    <rect x="640" y="180" width="250" height="260" rx="12" fill="url(#lowRiskGradient)" stroke="#10B981" stroke-width="2"/>
+    
+    <!-- Country Header -->
+    <rect x="650" y="190" width="230" height="40" rx="8" fill="#10B981" opacity="0.1"/>
+    <text x="765" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#065F46">
+      🇰🇪 KENYA
+    </text>
+    <text x="765" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#065F46">
+      Nairobi Hydro Station - 50 MW
+    </text>
+    
+    <!-- Risk Assessment -->
+    <rect x="660" y="240" width="60" height="20" rx="4" fill="#10B981"/>
+    <text x="690" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+      LOW RISK
+    </text>
+    
+    <!-- Key Metrics -->
+    <text x="660" y="280" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Investment: $65M USD</text>
+    <text x="660" y="295" font-family="Arial, sans-serif" font-size="11" fill="#374151">Success Probability: 89.1%</text>
+    <text x="660" y="310" font-family="Arial, sans-serif" font-size="11" fill="#374151">Expected IRR: 18.5% ± 1.6%</text>
+    <text x="660" y="325" font-family="Arial, sans-serif" font-size="11" fill="#374151">Payback Period: 6.1 years</text>
+    <text x="660" y="340" font-family="Arial, sans-serif" font-size="11" fill="#374151">ESG Score: 8.4/10</text>
+    
+    <!-- Risk Factors -->
+    <text x="660" y="365" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#065F46">Risk Factors:</text>
+    <text x="660" y="380" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Political: Low (8.1/10)</text>
+    <text x="660" y="393" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Regulatory: Medium (7.8/10)</text>
+    <text x="660" y="406" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Currency: Medium (7.3/10)</text>
+    <text x="660" y="419" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Infrastructure: High (8.6/10)</text>
+  </g>
+  
+  <!-- Senegal Solar Project -->
+  <g id="senegal">
+    <rect x="920" y="180" width="250" height="260" rx="12" fill="url(#mediumRiskGradient)" stroke="#F59E0B" stroke-width="2"/>
+    
+    <!-- Country Header -->
+    <rect x="930" y="190" width="230" height="40" rx="8" fill="#F59E0B" opacity="0.1"/>
+    <text x="1045" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#92400E">
+      🇸🇳 SENEGAL
+    </text>
+    <text x="1045" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#92400E">
+      Dakar Solar Grid - 60 MW
+    </text>
+    
+    <!-- Risk Assessment -->
+    <rect x="940" y="240" width="70" height="20" rx="4" fill="#F59E0B"/>
+    <text x="975" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+      MEDIUM RISK
+    </text>
+    
+    <!-- Key Metrics -->
+    <text x="940" y="280" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Investment: $72M USD</text>
+    <text x="940" y="295" font-family="Arial, sans-serif" font-size="11" fill="#374151">Success Probability: 86.4%</text>
+    <text x="940" y="310" font-family="Arial, sans-serif" font-size="11" fill="#374151">Expected IRR: 18.1% ± 1.9%</text>
+    <text x="940" y="325" font-family="Arial, sans-serif" font-size="11" fill="#374151">Payback Period: 6.4 years</text>
+    <text x="940" y="340" font-family="Arial, sans-serif" font-size="11" fill="#374151">ESG Score: 7.8/10</text>
+    
+    <!-- Risk Factors -->
+    <text x="940" y="365" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400E">Risk Factors:</text>
+    <text x="940" y="380" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Political: Medium (7.2/10)</text>
+    <text x="940" y="393" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Regulatory: Medium (7.5/10)</text>
+    <text x="940" y="406" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Currency: Medium (6.8/10)</text>
+    <text x="940" y="419" font-family="Arial, sans-serif" font-size="10" fill="#374151">• Infrastructure: Medium (7.1/10)</text>
+  </g>
+  
+  <!-- Risk Factor Analysis Matrix -->
+  <text x="700" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    Detailed Risk Factor Analysis Matrix
+  </text>
+  
+  <!-- Risk Matrix Container -->
+  <rect x="50" y="550" width="1300" height="280" rx="15" fill="white" stroke="#E5E7EB" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Risk Factor Categories -->
+  <g id="riskMatrix">
+    <!-- Headers -->
+    <rect x="80" y="570" width="150" height="30" rx="5" fill="#6366F1" opacity="0.1"/>
+    <text x="155" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#4338CA">Risk Factors</text>
+    
+    <rect x="250" y="570" width="250" height="30" rx="5" fill="#10B981" opacity="0.1"/>
+    <text x="375" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#065F46">Ghana (Best)</text>
+    
+    <rect x="520" y="570" width="250" height="30" rx="5" fill="#10B981" opacity="0.1"/>
+    <text x="645" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#065F46">Kenya (Good)</text>
+    
+    <rect x="790" y="570" width="250" height="30" rx="5" fill="#F59E0B" opacity="0.1"/>
+    <text x="915" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#92400E">Senegal (Moderate)</text>
+    
+    <rect x="1060" y="570" width="250" height="30" rx="5" fill="#F59E0B" opacity="0.1"/>
+    <text x="1185" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#92400E">Nigeria (Caution)</text>
+    
+    <!-- Political Stability -->
+    <text x="90" y="630" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Political Stability</text>
+    
+    <rect x="260" y="615" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="375" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.4/10 - Stable Democracy</text>
+    
+    <rect x="530" y="615" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="645" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.1/10 - Democratic Stability</text>
+    
+    <rect x="800" y="615" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.3"/>
+    <text x="915" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">7.2/10 - Moderate Stability</text>
+    
+    <rect x="1070" y="615" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.3"/>
+    <text x="1185" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">6.5/10 - Political Volatility</text>
+    
+    <!-- Regulatory Framework -->
+    <text x="90" y="665" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Regulatory Framework</text>
+    
+    <rect x="260" y="650" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="375" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.7/10 - Clear Energy Policy</text>
+    
+    <rect x="530" y="650" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.2"/>
+    <text x="645" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">7.8/10 - Developing Framework</text>
+    
+    <rect x="800" y="650" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.3"/>
+    <text x="915" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">7.5/10 - Moderate Clarity</text>
+    
+    <rect x="1070" y="650" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.3"/>
+    <text x="1185" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">6.8/10 - Policy Uncertainty</text>
+    
+    <!-- Currency Risk -->
+    <text x="90" y="700" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Currency Stability</text>
+    
+    <rect x="260" y="685" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.2"/>
+    <text x="375" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">7.1/10 - Moderate Volatility</text>
+    
+    <rect x="530" y="685" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.2"/>
+    <text x="645" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">7.3/10 - Stable Shilling</text>
+    
+    <rect x="800" y="685" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.3"/>
+    <text x="915" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">6.8/10 - CFA Franc Stability</text>
+    
+    <rect x="1070" y="685" width="230" height="20" rx="3" fill="#EF4444" opacity="0.3"/>
+    <text x="1185" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#DC2626">4.2/10 - Naira Volatility</text>
+    
+    <!-- Infrastructure Quality -->
+    <text x="90" y="735" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Infrastructure Quality</text>
+    
+    <rect x="260" y="720" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="375" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.9/10 - Advanced Grid</text>
+    
+    <rect x="530" y="720" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="645" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.6/10 - Good Infrastructure</text>
+    
+    <rect x="800" y="720" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.3"/>
+    <text x="915" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">7.1/10 - Developing Grid</text>
+    
+    <rect x="1070" y="720" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.3"/>
+    <text x="1185" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">6.9/10 - Grid Challenges</text>
+    
+    <!-- Market Demand -->
+    <text x="90" y="770" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Market Demand</text>
+    
+    <rect x="260" y="755" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="375" y="770" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">9.1/10 - High Growth Market</text>
+    
+    <rect x="530" y="755" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="645" y="770" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.8/10 - Strong Demand</text>
+    
+    <rect x="800" y="755" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.2"/>
+    <text x="915" y="770" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">7.6/10 - Growing Market</text>
+    
+    <rect x="1070" y="755" width="230" height="20" rx="3" fill="#10B981" opacity="0.2"/>
+    <text x="1185" y="770" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.2/10 - Large Market</text>
+    
+    <!-- Environmental Impact -->
+    <text x="90" y="805" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Environmental Impact</text>
+    
+    <rect x="260" y="790" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="375" y="805" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">9.2/10 - Minimal Impact</text>
+    
+    <rect x="530" y="790" width="230" height="20" rx="3" fill="#10B981" opacity="0.3"/>
+    <text x="645" y="805" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.9/10 - Sustainable Design</text>
+    
+    <rect x="800" y="790" width="230" height="20" rx="3" fill="#10B981" opacity="0.2"/>
+    <text x="915" y="805" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#065F46">8.4/10 - Good Practices</text>
+    
+    <rect x="1070" y="790" width="230" height="20" rx="3" fill="#F59E0B" opacity="0.2"/>
+    <text x="1185" y="805" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">7.5/10 - Environmental Concerns</text>
+  </g>
+  
+  <!-- Investment Recommendations -->
+  <text x="700" y="880" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    AI-Generated Investment Recommendations
+  </text>
+  
+  <!-- Recommendations Container -->
+  <rect x="50" y="900" width="1300" height="80" rx="10" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="1"/>
+  
+  <!-- Recommendation Text -->
+  <text x="80" y="925" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#065F46">
+    ✅ RECOMMENDED: Ghana Wind Farm (91.3% success probability, 19.2% IRR, excellent regulatory framework)
+  </text>
+  <text x="80" y="945" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#065F46">
+    ✅ ALTERNATIVE: Kenya Hydro Station (89.1% success probability, 18.5% IRR, strong infrastructure)
+  </text>
+  <text x="80" y="965" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#92400E">
+    ⚠️ PROCEED WITH CAUTION: Nigeria Solar Complex (84.7% success probability, currency risk concerns)
+  </text>
+  
+  <!-- Footer -->
+  <text x="700" y="990" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">
+    Multi-Country Risk Comparison - FinergyCloud XGBoost Analysis (Country-Specific Risk Assessment Framework)
+  </text>
+</svg>

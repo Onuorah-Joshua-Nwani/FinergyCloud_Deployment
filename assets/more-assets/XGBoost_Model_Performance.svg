@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210mm" height="297mm" viewBox="0 0 793 1122" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="performanceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F2FE;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accuracyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECFDF5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D1FAE5;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E8FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DDD6FE;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="featureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEF3C7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FDE68A;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow Filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#E5E7EB" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="793" height="1122" fill="#F8FAFC"/>
+  
+  <!-- Title -->
+  <text x="396" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1F2937">
+    XGBoost Model Performance Analysis
+  </text>
+  <text x="396" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">
+    Model Accuracy, Precision-Recall Curves, and Feature Importance Rankings
+  </text>
+  
+  <!-- Performance Overview Section -->
+  <rect x="30" y="60" width="733" height="120" rx="8" fill="url(#performanceGradient)" stroke="#3B82F6" stroke-width="1" filter="url(#shadow)"/>
+  <text x="396" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    🎯 Model Performance Overview
+  </text>
+  
+  <!-- Performance Metrics Cards -->
+  <g id="performanceMetrics">
+    <!-- Accuracy Card -->
+    <rect x="50" y="90" width="160" height="75" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="130" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#059669">
+      📊 Overall Accuracy
+    </text>
+    <text x="130" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#059669">
+      94.2%
+    </text>
+    <text x="130" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+      Cross-Validation: 94.52% ± 0.61%
+    </text>
+    
+    <!-- Precision Card -->
+    <rect x="220" y="90" width="160" height="75" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="300" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#3B82F6">
+      🎯 Precision Score
+    </text>
+    <text x="300" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#3B82F6">
+      92.8%
+    </text>
+    <text x="300" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+      High-Risk Projects: 95.1%
+    </text>
+    
+    <!-- Recall Card -->
+    <rect x="390" y="90" width="160" height="75" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="470" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B5CF6">
+      🔍 Recall Score
+    </text>
+    <text x="470" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8B5CF6">
+      91.4%
+    </text>
+    <text x="470" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+      Success Detection: 93.7%
+    </text>
+    
+    <!-- F1 Score Card -->
+    <rect x="560" y="90" width="160" height="75" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="640" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#EF4444">
+      ⚖️ F1 Score
+    </text>
+    <text x="640" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#EF4444">
+      92.1%
+    </text>
+    <text x="640" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+      Balanced Performance
+    </text>
+  </g>
+  
+  <!-- Model Accuracy Section -->
+  <rect x="30" y="200" width="360" height="280" rx="8" fill="url(#accuracyGradient)" stroke="#059669" stroke-width="1" filter="url(#shadow)"/>
+  <text x="210" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">
+    📈 Cross-Validation Accuracy
+  </text>
+  
+  <!-- Accuracy Chart Background -->
+  <rect x="50" y="235" width="320" height="220" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="50" y="235" width="320" height="220" fill="url(#grid)" opacity="0.3"/>
+  
+  <!-- Y-axis labels for accuracy -->
+  <text x="45" y="245" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">100%</text>
+  <text x="45" y="289" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">95%</text>
+  <text x="45" y="333" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">90%</text>
+  <text x="45" y="377" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">85%</text>
+  <text x="45" y="421" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">80%</text>
+  <text x="45" y="455" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">75%</text>
+  
+  <!-- X-axis labels for folds -->
+  <text x="90" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">Fold 1</text>
+  <text x="146" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">Fold 2</text>
+  <text x="202" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">Fold 3</text>
+  <text x="258" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">Fold 4</text>
+  <text x="314" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">Fold 5</text>
+  
+  <!-- Accuracy bars (94.1%, 94.8%, 93.9%, 95.1%, 94.7%) -->
+  <rect x="70" y="259" width="40" height="186" fill="#059669" opacity="0.8"/>
+  <rect x="126" y="245" width="40" height="200" fill="#059669" opacity="0.8"/>
+  <rect x="182" y="268" width="40" height="177" fill="#059669" opacity="0.8"/>
+  <rect x="238" y="235" width="40" height="210" fill="#059669" opacity="0.8"/>
+  <rect x="294" y="249" width="40" height="196" fill="#059669" opacity="0.8"/>
+  
+  <!-- Accuracy values on bars -->
+  <text x="90" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#FFFFFF" font-weight="bold">94.1%</text>
+  <text x="146" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#FFFFFF" font-weight="bold">94.8%</text>
+  <text x="202" y="261" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#FFFFFF" font-weight="bold">93.9%</text>
+  <text x="258" y="228" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#FFFFFF" font-weight="bold">95.1%</text>
+  <text x="314" y="242" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#FFFFFF" font-weight="bold">94.7%</text>
+  
+  <!-- Mean accuracy line -->
+  <line x1="50" y1="254" x2="370" y2="254" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="375" y="258" font-family="Arial, sans-serif" font-size="7" fill="#DC2626" font-weight="bold">Mean: 94.52%</text>
+  
+  <!-- Precision-Recall Curves Section -->
+  <rect x="403" y="200" width="360" height="280" rx="8" fill="url(#curveGradient)" stroke="#8B5CF6" stroke-width="1" filter="url(#shadow)"/>
+  <text x="583" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">
+    📊 Precision-Recall Curves
+  </text>
+  
+  <!-- PR Curve Chart Background -->
+  <rect x="423" y="235" width="320" height="220" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="423" y="235" width="320" height="220" fill="url(#grid)" opacity="0.3"/>
+  
+  <!-- Y-axis labels for precision -->
+  <text x="418" y="245" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">1.0</text>
+  <text x="418" y="289" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.8</text>
+  <text x="418" y="333" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.6</text>
+  <text x="418" y="377" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.4</text>
+  <text x="418" y="421" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.2</text>
+  <text x="418" y="455" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.0</text>
+  
+  <!-- X-axis labels for recall -->
+  <text x="463" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.2</text>
+  <text x="519" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.4</text>
+  <text x="575" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.6</text>
+  <text x="631" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.8</text>
+  <text x="687" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">1.0</text>
+  
+  <!-- Precision-Recall Curve (High Performance) -->
+  <path d="M 423 245 Q 463 250, 519 255 Q 575 265, 631 285 Q 687 320, 743 455" 
+        fill="none" stroke="#8B5CF6" stroke-width="3"/>
+  
+  <!-- ROC Curve (Excellent Performance) -->
+  <path d="M 423 455 Q 463 420, 519 380 Q 575 340, 631 300 Q 687 260, 743 245" 
+        fill="none" stroke="#3B82F6" stroke-width="3" stroke-dasharray="10,5"/>
+  
+  <!-- Curve Labels -->
+  <text x="650" y="270" font-family="Arial, sans-serif" font-size="8" fill="#8B5CF6" font-weight="bold">PR-AUC: 0.947</text>
+  <text x="650" y="350" font-family="Arial, sans-serif" font-size="8" fill="#3B82F6" font-weight="bold">ROC-AUC: 0.967</text>
+  
+  <!-- Axis Labels -->
+  <text x="583" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#374151">Recall</text>
+  <text x="400" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#374151" transform="rotate(-90 400 350)">Precision</text>
+  
+  <!-- Feature Importance Section -->
+  <rect x="30" y="500" width="733" height="320" rx="8" fill="url(#featureGradient)" stroke="#F59E0B" stroke-width="1" filter="url(#shadow)"/>
+  <text x="396" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    🔧 Feature Importance Rankings
+  </text>
+  
+  <!-- Feature Importance Chart -->
+  <rect x="50" y="535" width="693" height="260" fill="#FFFFFF" stroke="#E5E7EB"/>
+  
+  <!-- Feature bars and labels -->
+  <g id="featureImportance">
+    <!-- ESG Composite Score -->
+    <rect x="60" y="545" width="280" height="25" fill="#059669" opacity="0.8"/>
+    <text x="65" y="560" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="bold">ESG Composite Score</text>
+    <text x="345" y="560" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="bold">0.284</text>
+    
+    <!-- Financial IRR -->
+    <rect x="60" y="575" width="245" height="25" fill="#3B82F6" opacity="0.8"/>
+    <text x="65" y="590" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="bold">Financial IRR</text>
+    <text x="310" y="590" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="bold">0.248</text>
+    
+    <!-- Political Risk Factor -->
+    <rect x="60" y="605" width="210" height="25" fill="#EF4444" opacity="0.8"/>
+    <text x="65" y="620" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="bold">Political Risk Factor</text>
+    <text x="275" y="620" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="bold">0.187</text>
+    
+    <!-- Project Capacity -->
+    <rect x="60" y="635" width="175" height="25" fill="#8B5CF6" opacity="0.8"/>
+    <text x="65" y="650" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="bold">Project Capacity</text>
+    <text x="240" y="650" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="bold">0.156</text>
+    
+    <!-- Market Demand -->
+    <rect x="60" y="665" width="140" height="25" fill="#F59E0B" opacity="0.8"/>
+    <text x="65" y="680" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="bold">Market Demand</text>
+    <text x="205" y="680" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="bold">0.124</text>
+    
+    <!-- Geographic Location -->
+    <rect x="60" y="695" width="105" height="25" fill="#06B6D4" opacity="0.8"/>
+    <text x="65" y="710" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="bold">Geographic Location</text>
+    <text x="170" y="710" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="bold">0.093</text>
+    
+    <!-- Technology Type -->
+    <rect x="60" y="725" width="70" height="25" fill="#84CC16" opacity="0.8"/>
+    <text x="65" y="740" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="bold">Technology Type</text>
+    <text x="135" y="740" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="bold">0.078</text>
+    
+    <!-- Regulatory Environment -->
+    <rect x="60" y="755" width="35" height="25" fill="#EC4899" opacity="0.8"/>
+    <text x="65" y="770" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="bold">Regulatory Env.</text>
+    <text x="100" y="770" font-family="Arial, sans-serif" font-size="9" fill="#374151" font-weight="bold">0.030</text>
+  </g>
+  
+  <!-- Feature Importance Scale -->
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Feature Importance Scale</text>
+  <line x1="400" y1="565" x2="500" y2="565" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="400" y="575" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.0</text>
+  <text x="450" y="575" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.15</text>
+  <text x="500" y="575" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">0.30</text>
+  
+  <!-- Mobile App Accessibility Notice -->
+  <rect x="400" y="590" width="320" height="180" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+  <text x="560" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1F2937">
+    📱 Complete Mobile App Access
+  </text>
+  
+  <text x="410" y="630" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">✅ Real-Time Model Performance Monitoring</text>
+  <text x="415" y="645" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Live accuracy tracking and validation metrics</text>
+  <text x="415" y="655" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Cross-validation results with confidence intervals</text>
+  
+  <text x="410" y="675" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">🎯 Interactive Performance Analytics</text>
+  <text x="415" y="690" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Precision-recall curve visualization</text>
+  <text x="415" y="700" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• ROC analysis with AUC scoring</text>
+  
+  <text x="410" y="720" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">🔧 Feature Analysis Tools</text>
+  <text x="415" y="735" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Feature importance rankings display</text>
+  <text x="415" y="745" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Model explainability and interpretation</text>
+  
+  <text x="410" y="765" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">📊 Offline Performance Dashboard</text>
+  <text x="415" y="780" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Cached performance metrics for offline access</text>
+  
+  <!-- Performance Summary -->
+  <rect x="30" y="840" width="733" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="396" y="860" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1F2937">
+    🏆 Model Performance Summary
+  </text>
+  
+  <text x="60" y="880" font-family="Arial, sans-serif" font-size="9" fill="#059669" font-weight="bold">Accuracy: 94.2% (±0.61%)</text>
+  <text x="200" y="880" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6" font-weight="bold">ROC-AUC: 0.967</text>
+  <text x="340" y="880" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" font-weight="bold">PR-AUC: 0.947</text>
+  <text x="480" y="880" font-family="Arial, sans-serif" font-size="9" fill="#EF4444" font-weight="bold">F1-Score: 92.1%</text>
+  <text x="620" y="880" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">Features: 8 Key</text>
+  
+  <!-- Footer -->
+  <text x="396" y="920" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+    XGBoost Model Performance Analysis - Comprehensive accuracy metrics, precision-recall analysis, and feature importance
+  </text>
+  <text x="396" y="935" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+    Mobile App Accessible | Real-Time Monitoring | Cross-Validation Verified | Production Ready
+  </text>
+</svg>

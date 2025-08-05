@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#F8FAFC"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="healthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#065F46;stop-opacity:0.3"/>
+    </linearGradient>
+    
+    <linearGradient id="performanceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:0.3"/>
+    </linearGradient>
+    
+    <linearGradient id="errorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF4444;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#DC2626;stop-opacity:0.3"/>
+    </linearGradient>
+    
+    <linearGradient id="mobileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:0.3"/>
+    </linearGradient>
+    
+    <!-- Shadow Filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Glow Filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1F2937">
+    FinergyCloud Production Monitoring Dashboard
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="700" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6B7280">
+    System Health, Performance Metrics &amp; Error Tracking with Mobile App Access
+  </text>
+  
+  <!-- Dashboard Header -->
+  <rect x="50" y="80" width="1300" height="50" rx="10" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2" filter="url(#shadow)"/>
+  <text x="70" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10B981">
+    🟢 SYSTEM STATUS: OPERATIONAL
+  </text>
+  <text x="350" y="105" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">
+    Last Updated: 2025-01-28 14:35:42 UTC
+  </text>
+  <text x="600" y="105" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">
+    Uptime: 99.94% (30 days)
+  </text>
+  <text x="850" y="105" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">
+    Active Users: 2,847
+  </text>
+  <text x="1050" y="105" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">
+    Response Time: 45ms avg
+  </text>
+  
+  <!-- System Health Section -->
+  <text x="250" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    System Health Monitoring
+  </text>
+  
+  <!-- System Health Container -->
+  <rect x="50" y="190" width="400" height="300" rx="15" fill="url(#healthGradient)" stroke="#10B981" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Health Metrics -->
+  <g id="systemHealth">
+    <!-- CPU Usage -->
+    <rect x="70" y="210" width="360" height="40" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="85" y="235" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10B981">
+      CPU Usage: 23.4%
+    </text>
+    <rect x="200" y="218" width="220" height="24" rx="12" fill="#F3F4F6"/>
+    <rect x="200" y="218" width="51" height="24" rx="12" fill="#10B981" filter="url(#glow)"/>
+    <text x="340" y="235" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Normal</text>
+    
+    <!-- Memory Usage -->
+    <rect x="70" y="260" width="360" height="40" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="85" y="285" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10B981">
+      Memory: 8.2GB / 16GB
+    </text>
+    <rect x="200" y="268" width="220" height="24" rx="12" fill="#F3F4F6"/>
+    <rect x="200" y="268" width="112" height="24" rx="12" fill="#F59E0B" filter="url(#glow)"/>
+    <text x="340" y="285" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Moderate</text>
+    
+    <!-- Disk I/O -->
+    <rect x="70" y="310" width="360" height="40" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="85" y="335" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10B981">
+      Disk I/O: 145 MB/s
+    </text>
+    <rect x="200" y="318" width="220" height="24" rx="12" fill="#F3F4F6"/>
+    <rect x="200" y="318" width="64" height="24" rx="12" fill="#10B981" filter="url(#glow)"/>
+    <text x="340" y="335" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Optimal</text>
+    
+    <!-- Network Traffic -->
+    <rect x="70" y="360" width="360" height="40" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="85" y="385" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10B981">
+      Network: 2.3 Gbps
+    </text>
+    <rect x="200" y="368" width="220" height="24" rx="12" fill="#F3F4F6"/>
+    <rect x="200" y="368" width="76" height="24" rx="12" fill="#10B981" filter="url(#glow)"/>
+    <text x="340" y="385" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Healthy</text>
+    
+    <!-- Database Status -->
+    <rect x="70" y="410" width="360" height="40" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="85" y="435" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10B981">
+      Database: 34ms avg query
+    </text>
+    <rect x="200" y="418" width="220" height="24" rx="12" fill="#F3F4F6"/>
+    <rect x="200" y="418" width="44" height="24" rx="12" fill="#10B981" filter="url(#glow)"/>
+    <text x="340" y="435" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Excellent</text>
+  </g>
+  
+  <!-- Performance Metrics Section -->
+  <text x="700" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    Performance Metrics
+  </text>
+  
+  <!-- Performance Container -->
+  <rect x="500" y="190" width="400" height="300" rx="15" fill="url(#performanceGradient)" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Performance Charts -->
+  <g id="performanceMetrics">
+    <!-- Response Time Chart -->
+    <rect x="520" y="210" width="180" height="120" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="610" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3B82F6">
+      Response Time (24h)
+    </text>
+    <!-- Chart Lines -->
+    <polyline points="530,250 550,245 570,240 590,235 610,238 630,242 650,240 670,245 690,243" 
+              fill="none" stroke="#3B82F6" stroke-width="2" filter="url(#glow)"/>
+    <text x="610" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">45ms avg</text>
+    
+    <!-- Throughput Chart -->
+    <rect x="720" y="210" width="160" height="120" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="800" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10B981">
+      Throughput
+    </text>
+    <!-- Bar Chart -->
+    <rect x="730" y="280" width="12" height="35" fill="#10B981" filter="url(#glow)"/>
+    <rect x="745" y="270" width="12" height="45" fill="#10B981" filter="url(#glow)"/>
+    <rect x="760" y="275" width="12" height="40" fill="#10B981" filter="url(#glow)"/>
+    <rect x="775" y="265" width="12" height="50" fill="#10B981" filter="url(#glow)"/>
+    <rect x="790" y="285" width="12" height="30" fill="#10B981" filter="url(#glow)"/>
+    <rect x="805" y="270" width="12" height="45" fill="#10B981" filter="url(#glow)"/>
+    <rect x="820" y="280" width="12" height="35" fill="#10B981" filter="url(#glow)"/>
+    <rect x="835" y="275" width="12" height="40" fill="#10B981" filter="url(#glow)"/>
+    <rect x="850" y="268" width="12" height="47" fill="#10B981" filter="url(#glow)"/>
+    <rect x="865" y="272" width="12" height="43" fill="#10B981" filter="url(#glow)"/>
+    <text x="800" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">847 req/min</text>
+    
+    <!-- Key Performance Indicators -->
+    <rect x="520" y="345" width="360" height="130" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="700" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3B82F6">
+      Key Performance Indicators
+    </text>
+    
+    <!-- KPI Grid -->
+    <text x="540" y="395" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">API Latency:</text>
+    <text x="620" y="395" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">42ms</text>
+    <text x="720" y="395" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Cache Hit Rate:</text>
+    <text x="810" y="395" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">94.2%</text>
+    
+    <text x="540" y="415" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Error Rate:</text>
+    <text x="620" y="415" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">0.03%</text>
+    <text x="720" y="415" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Availability:</text>
+    <text x="810" y="415" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">99.94%</text>
+    
+    <text x="540" y="435" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">DB Connections:</text>
+    <text x="620" y="435" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">23/100</text>
+    <text x="720" y="435" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Memory Usage:</text>
+    <text x="810" y="435" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#F59E0B">51.2%</text>
+    
+    <text x="540" y="455" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Active Sessions:</text>
+    <text x="620" y="455" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">2,847</text>
+    <text x="720" y="455" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Queue Depth:</text>
+    <text x="810" y="455" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">4</text>
+  </g>
+  
+  <!-- Error Tracking Section -->
+  <text x="1150" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    Error Tracking &amp; Alerts
+  </text>
+  
+  <!-- Error Tracking Container -->
+  <rect x="950" y="190" width="400" height="300" rx="15" fill="url(#errorGradient)" stroke="#EF4444" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Error Tracking Components -->
+  <g id="errorTracking">
+    <!-- Error Summary -->
+    <rect x="970" y="210" width="360" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="1150" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#EF4444">
+      Error Summary (Last 24h)
+    </text>
+    <text x="990" y="255" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Total Errors: 47 | Critical: 0 | Warnings: 12 | Info: 35</text>
+    
+    <!-- Recent Errors -->
+    <rect x="970" y="280" width="360" height="120" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="1150" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#EF4444">
+      Recent Errors &amp; Incidents
+    </text>
+    
+    <!-- Error List -->
+    <text x="985" y="325" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B">⚠️ 14:32 | API Rate Limit Warning | /api/predictions</text>
+    <text x="985" y="340" font-family="Arial, sans-serif" font-size="9" fill="#10B981">ℹ️ 14:28 | Cache Refresh Complete | Redis Cluster</text>
+    <text x="985" y="355" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B">⚠️ 14:15 | High Memory Usage | Worker Node 3</text>
+    <text x="985" y="370" font-family="Arial, sans-serif" font-size="9" fill="#10B981">ℹ️ 14:10 | Deployment Success | v2.4.1</text>
+    <text x="985" y="385" font-family="Arial, sans-serif" font-size="9" fill="#10B981">ℹ️ 13:45 | Auto-scaling Event | +2 instances</text>
+    
+    <!-- Alert Configuration -->
+    <rect x="970" y="410" width="360" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="1150" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8B5CF6">
+      Alert Configuration
+    </text>
+    <text x="985" y="455" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Active Monitors: 24 | Channels: Email, Slack, SMS | Response Time: &lt;2min</text>
+  </g>
+  
+  <!-- Mobile Dashboard Access -->
+  <text x="700" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    Mobile Production Monitoring Access
+  </text>
+  
+  <!-- Mobile Access Container -->
+  <rect x="200" y="560" width="1000" height="200" rx="15" fill="url(#mobileGradient)" stroke="#8B5CF6" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Mobile Access Features -->
+  <g id="mobileAccess">
+    <!-- Real-Time Monitoring -->
+    <rect x="220" y="580" width="230" height="80" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="335" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6">
+      📱 Real-Time Monitor
+    </text>
+    <text x="230" y="625" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Live system health dashboard</text>
+    <text x="230" y="640" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Performance metrics streaming</text>
+    <text x="230" y="655" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Touch-optimized charts</text>
+    
+    <!-- Alert Management -->
+    <rect x="470" y="580" width="230" height="80" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="585" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#EF4444">
+      🚨 Alert Management
+    </text>
+    <text x="480" y="625" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Push notification alerts</text>
+    <text x="480" y="640" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Incident acknowledgment</text>
+    <text x="480" y="655" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Emergency escalation</text>
+    
+    <!-- System Control -->
+    <rect x="720" y="580" width="230" height="80" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="835" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10B981">
+      🎛️ System Control
+    </text>
+    <text x="730" y="625" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Service restart controls</text>
+    <text x="730" y="640" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Scaling adjustments</text>
+    <text x="730" y="655" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Maintenance mode toggle</text>
+    
+    <!-- Analytics Dashboard -->
+    <rect x="970" y="580" width="210" height="80" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="1075" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6">
+      📊 Analytics
+    </text>
+    <text x="980" y="625" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Performance trends</text>
+    <text x="980" y="640" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Error pattern analysis</text>
+    <text x="980" y="655" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">• Resource optimization</text>
+    
+    <!-- Mobile Features -->
+    <rect x="220" y="680" width="960" height="60" rx="10" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="700" y="705" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#F59E0B">
+      📱 Complete Mobile Production Monitoring
+    </text>
+    <text x="230" y="725" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Full dashboard access • Real-time alerts • System control • Performance analytics • Error tracking • Offline capability • voice alerts • Touch navigation</text>
+  </g>
+  
+  <!-- Technical Specifications -->
+  <text x="700" y="800" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1F2937">
+    Monitoring System Specifications
+  </text>
+  
+  <!-- Specifications Container -->
+  <rect x="100" y="820" width="1200" height="130" rx="15" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Specifications Grid -->
+  <g id="monitoringSpecs">
+    <!-- Health Monitoring -->
+    <text x="200" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#10B981">
+      🏥 Health Monitoring
+    </text>
+    <text x="120" y="865" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• CPU, Memory, Disk I/O tracking</text>
+    <text x="120" y="880" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Network performance monitoring</text>
+    <text x="120" y="895" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Database query optimization</text>
+    <text x="120" y="910" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Service dependency tracking</text>
+    <text x="120" y="925" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Load balancer health checks</text>
+    <text x="120" y="940" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Container orchestration status</text>
+    
+    <!-- Performance Analytics -->
+    <text x="500" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3B82F6">
+      📈 Performance Analytics
+    </text>
+    <text x="420" y="865" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Real-time response time tracking</text>
+    <text x="420" y="880" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Throughput &amp; concurrency metrics</text>
+    <text x="420" y="895" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Cache performance optimization</text>
+    <text x="420" y="910" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• API endpoint performance</text>
+    <text x="420" y="925" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• User session analytics</text>
+    <text x="420" y="940" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Resource utilization trends</text>
+    
+    <!-- Error Tracking -->
+    <text x="800" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#EF4444">
+      🐛 Error Tracking
+    </text>
+    <text x="720" y="865" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Automated error detection</text>
+    <text x="720" y="880" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Stack trace analysis</text>
+    <text x="720" y="895" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Error pattern recognition</text>
+    <text x="720" y="910" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Impact assessment scoring</text>
+    <text x="720" y="925" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Resolution time tracking</text>
+    <text x="720" y="940" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Incident correlation</text>
+    
+    <!-- Mobile Integration -->
+    <text x="1100" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#8B5CF6">
+      📱 Mobile Integration
+    </text>
+    <text x="1020" y="865" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Complete dashboard access</text>
+    <text x="1020" y="880" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Real-time push notifications</text>
+    <text x="1020" y="895" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Touch-optimized controls</text>
+    <text x="1020" y="910" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Offline monitoring support</text>
+    <text x="1020" y="925" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Voice alert system</text>
+    <text x="1020" y="940" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Emergency response tools</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="700" y="985" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">
+    FinergyCloud Production Monitoring Dashboard - System Health, Performance Metrics &amp; Error Tracking with Complete Mobile Access
+  </text>
+</svg>

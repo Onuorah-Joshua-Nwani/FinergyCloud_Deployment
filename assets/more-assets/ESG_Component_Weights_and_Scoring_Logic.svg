@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210mm" height="297mm" viewBox="0 0 793 1122" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="environmentalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECFDF5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D1FAE5;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="socialGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFF6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DBEAFE;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="governanceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E8FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DDD6FE;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="computationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEF3C7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FDE68A;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow Filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    
+    <!-- Arrow Marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="793" height="1122" fill="#F8FAFC"/>
+  
+  <!-- Title -->
+  <text x="396" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1F2937">
+    ESG Component Weights and Scoring Logic
+  </text>
+  <text x="396" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">
+    Internal Model Logic: Component Allocation and Final Score Computation
+  </text>
+  
+  <!-- ESG Component Overview -->
+  <text x="396" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    🌍 ESG Component Weight Distribution
+  </text>
+  
+  <!-- Weight Distribution Visualization -->
+  <g id="weightDistribution">
+    <!-- Environmental Component -->
+    <rect x="60" y="90" width="200" height="120" rx="8" fill="url(#environmentalGradient)" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+    <text x="160" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#065F46">
+      🌱 Environmental (40%)
+    </text>
+    <text x="70" y="130" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Carbon Footprint Reduction: 15%</text>
+    <text x="70" y="145" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Renewable Energy Output: 12%</text>
+    <text x="70" y="160" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Environmental Impact: 8%</text>
+    <text x="70" y="175" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Resource Efficiency: 5%</text>
+    <text x="70" y="190" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#059669">Weight: 0.40 | Range: 0-10</text>
+    
+    <!-- Social Component -->
+    <rect x="280" y="90" width="200" height="120" rx="8" fill="url(#socialGradient)" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="380" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1E40AF">
+      👥 Social (35%)
+    </text>
+    <text x="290" y="130" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Community Engagement: 12%</text>
+    <text x="290" y="145" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Job Creation Impact: 10%</text>
+    <text x="290" y="160" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Local Development: 8%</text>
+    <text x="290" y="175" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Health &amp; Safety: 5%</text>
+    <text x="290" y="190" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#3B82F6">Weight: 0.35 | Range: 0-10</text>
+    
+    <!-- Governance Component -->
+    <rect x="500" y="90" width="200" height="120" rx="8" fill="url(#governanceGradient)" stroke="#8B5CF6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7C3AED">
+      🏛️ Governance (25%)
+    </text>
+    <text x="510" y="130" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Transparency Standards: 10%</text>
+    <text x="510" y="145" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Regulatory Compliance: 8%</text>
+    <text x="510" y="160" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Stakeholder Relations: 4%</text>
+    <text x="510" y="175" font-family="Arial, sans-serif" font-size="8" fill="#374151">• Risk Management: 3%</text>
+    <text x="510" y="190" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#8B5CF6">Weight: 0.25 | Range: 0-10</text>
+  </g>
+  
+  <!-- Scoring Logic Flow -->
+  <text x="396" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    ⚙️ ESG Scoring Computation Logic
+  </text>
+  
+  <!-- Step 1: Component Scoring -->
+  <rect x="30" y="270" width="733" height="140" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="60" y="295" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1F2937">
+    Step 1: Individual Component Scoring
+  </text>
+  
+  <!-- Environmental Scoring -->
+  <g id="environmentalScoring">
+    <rect x="50" y="305" width="210" height="90" rx="4" fill="url(#environmentalGradient)" stroke="#059669"/>
+    <text x="155" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#065F46">
+      Environmental Score Calculation
+    </text>
+    <text x="55" y="335" font-family="Arial, sans-serif" font-size="7" fill="#374151">E_score = (Carbon_Reduction × 0.375) +</text>
+    <text x="55" y="345" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Energy_Output × 0.30) +</text>
+    <text x="55" y="355" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Environmental_Impact × 0.20) +</text>
+    <text x="55" y="365" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Resource_Efficiency × 0.125)</text>
+    <text x="155" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#059669">
+      Normalized Range: 0.0 - 10.0
+    </text>
+  </g>
+  
+  <!-- Social Scoring -->
+  <g id="socialScoring">
+    <rect x="270" y="305" width="210" height="90" rx="4" fill="url(#socialGradient)" stroke="#3B82F6"/>
+    <text x="375" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#1E40AF">
+      Social Score Calculation
+    </text>
+    <text x="275" y="335" font-family="Arial, sans-serif" font-size="7" fill="#374151">S_score = (Community_Engagement × 0.343) +</text>
+    <text x="275" y="345" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Job_Creation × 0.286) +</text>
+    <text x="275" y="355" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Local_Development × 0.228) +</text>
+    <text x="275" y="365" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Health_Safety × 0.143)</text>
+    <text x="375" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#3B82F6">
+      Normalized Range: 0.0 - 10.0
+    </text>
+  </g>
+  
+  <!-- Governance Scoring -->
+  <g id="governanceScoring">
+    <rect x="490" y="305" width="210" height="90" rx="4" fill="url(#governanceGradient)" stroke="#8B5CF6"/>
+    <text x="595" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#7C3AED">
+      Governance Score Calculation
+    </text>
+    <text x="495" y="335" font-family="Arial, sans-serif" font-size="7" fill="#374151">G_score = (Transparency × 0.40) +</text>
+    <text x="495" y="345" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Compliance × 0.32) +</text>
+    <text x="495" y="355" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Stakeholder_Relations × 0.16) +</text>
+    <text x="495" y="365" font-family="Arial, sans-serif" font-size="7" fill="#374151">         (Risk_Management × 0.12)</text>
+    <text x="595" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#8B5CF6">
+      Normalized Range: 0.0 - 10.0
+    </text>
+  </g>
+  
+  <!-- Arrow to Step 2 -->
+  <line x1="396" y1="420" x2="396" y2="450" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 2: Final ESG Score Computation -->
+  <rect x="30" y="460" width="733" height="180" rx="8" fill="url(#computationGradient)" stroke="#F59E0B" stroke-width="2" filter="url(#shadow)"/>
+  <text x="60" y="485" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1F2937">
+    Step 2: Final ESG Score Computation
+  </text>
+  
+  <!-- Final Score Formula -->
+  <rect x="50" y="495" width="650" height="80" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="375" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400E">
+    Final ESG Score Formula
+  </text>
+  <text x="60" y="535" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+    ESG_Final = (E_score × 0.40) + (S_score × 0.35) + (G_score × 0.25)
+  </text>
+  <text x="60" y="555" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">
+    Where: E_score = Environmental Score, S_score = Social Score, G_score = Governance Score
+  </text>
+  <text x="60" y="570" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#92400E">
+    Final Range: 0.0 - 10.0 | Confidence Interval: ±0.3 points
+  </text>
+  
+  <!-- Risk Band Classification -->
+  <text x="60" y="595" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1F2937">
+    Risk Band Classification Logic:
+  </text>
+  <text x="70" y="610" font-family="Arial, sans-serif" font-size="8" fill="#059669" font-weight="bold">• HIGH PERFORMANCE (8.0 - 10.0): Low Risk Investment</text>
+  <text x="70" y="625" font-family="Arial, sans-serif" font-size="8" fill="#F59E0B" font-weight="bold">• MODERATE PERFORMANCE (6.0 - 7.9): Medium Risk Investment</text>
+  <text x="70" y="640" font-family="Arial, sans-serif" font-size="8" fill="#EF4444" font-weight="bold">• LOW PERFORMANCE (0.0 - 5.9): High Risk Investment</text>
+  
+  <!-- Real Project Examples -->
+  <text x="396" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F2937">
+    📊 Real Project Scoring Examples
+  </text>
+  
+  <rect x="30" y="695" width="733" height="160" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+  
+  <!-- Project Examples Grid -->
+  <g id="projectExamples">
+    <!-- Nigeria Solar Project -->
+    <rect x="50" y="710" width="140" height="130" rx="4" fill="#ECFDF5" stroke="#059669"/>
+    <text x="120" y="725" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#065F46">
+      Nigeria Solar-7
+    </text>
+    <text x="55" y="740" font-family="Arial, sans-serif" font-size="7" fill="#374151">E-Score: 8.4 (×0.40 = 3.36)</text>
+    <text x="55" y="752" font-family="Arial, sans-serif" font-size="7" fill="#374151">S-Score: 7.2 (×0.35 = 2.52)</text>
+    <text x="55" y="764" font-family="Arial, sans-serif" font-size="7" fill="#374151">G-Score: 6.8 (×0.25 = 1.70)</text>
+    <text x="55" y="780" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#059669">Final ESG: 7.58</text>
+    <text x="55" y="795" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" font-weight="bold">Risk Band: MEDIUM</text>
+    <text x="55" y="810" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">Confidence: ±0.28</text>
+    <text x="55" y="825" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">Investment: ₦980M</text>
+    
+    <!-- Ghana Wind Project -->
+    <rect x="200" y="710" width="140" height="130" rx="4" fill="#EFF6FF" stroke="#3B82F6"/>
+    <text x="270" y="725" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#1E40AF">
+      Ghana Wind-3
+    </text>
+    <text x="205" y="740" font-family="Arial, sans-serif" font-size="7" fill="#374151">E-Score: 9.1 (×0.40 = 3.64)</text>
+    <text x="205" y="752" font-family="Arial, sans-serif" font-size="7" fill="#374151">S-Score: 8.5 (×0.35 = 2.98)</text>
+    <text x="205" y="764" font-family="Arial, sans-serif" font-size="7" fill="#374151">G-Score: 8.2 (×0.25 = 2.05)</text>
+    <text x="205" y="780" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#059669">Final ESG: 8.67</text>
+    <text x="205" y="795" font-family="Arial, sans-serif" font-size="7" fill="#059669" font-weight="bold">Risk Band: LOW</text>
+    <text x="205" y="810" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">Confidence: ±0.24</text>
+    <text x="205" y="825" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">Investment: ₦2.1B</text>
+    
+    <!-- Kenya Hydro Project -->
+    <rect x="350" y="710" width="140" height="130" rx="4" fill="#F3E8FF" stroke="#8B5CF6"/>
+    <text x="420" y="725" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#7C3AED">
+      Kenya Hydro-2
+    </text>
+    <text x="355" y="740" font-family="Arial, sans-serif" font-size="7" fill="#374151">E-Score: 8.9 (×0.40 = 3.56)</text>
+    <text x="355" y="752" font-family="Arial, sans-serif" font-size="7" fill="#374151">S-Score: 7.8 (×0.35 = 2.73)</text>
+    <text x="355" y="764" font-family="Arial, sans-serif" font-size="7" fill="#374151">G-Score: 7.4 (×0.25 = 1.85)</text>
+    <text x="355" y="780" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#059669">Final ESG: 8.14</text>
+    <text x="355" y="795" font-family="Arial, sans-serif" font-size="7" fill="#059669" font-weight="bold">Risk Band: LOW</text>
+    <text x="355" y="810" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">Confidence: ±0.26</text>
+    <text x="355" y="825" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">Investment: ₦1.4B</text>
+    
+    <!-- Mali Biomass Project -->
+    <rect x="500" y="710" width="140" height="130" rx="4" fill="#FEF3C7" stroke="#F59E0B"/>
+    <text x="570" y="725" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#92400E">
+      Mali Biomass-1
+    </text>
+    <text x="505" y="740" font-family="Arial, sans-serif" font-size="7" fill="#374151">E-Score: 7.6 (×0.40 = 3.04)</text>
+    <text x="505" y="752" font-family="Arial, sans-serif" font-size="7" fill="#374151">S-Score: 6.4 (×0.35 = 2.24)</text>
+    <text x="505" y="764" font-family="Arial, sans-serif" font-size="7" fill="#374151">G-Score: 5.8 (×0.25 = 1.45)</text>
+    <text x="505" y="780" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#F59E0B">Final ESG: 6.73</text>
+    <text x="505" y="795" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" font-weight="bold">Risk Band: MEDIUM</text>
+    <text x="505" y="810" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">Confidence: ±0.31</text>
+    <text x="505" y="825" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">Investment: ₦780M</text>
+    
+    <!-- Senegal Solar Project -->
+    <rect x="650" y="710" width="100" height="130" rx="4" fill="#FECACA" stroke="#EF4444"/>
+    <text x="700" y="725" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#DC2626">
+      Senegal Solar-5
+    </text>
+    <text x="655" y="740" font-family="Arial, sans-serif" font-size="7" fill="#374151">E: 6.2 (×0.40 = 2.48)</text>
+    <text x="655" y="752" font-family="Arial, sans-serif" font-size="7" fill="#374151">S: 5.8 (×0.35 = 2.03)</text>
+    <text x="655" y="764" font-family="Arial, sans-serif" font-size="7" fill="#374151">G: 5.2 (×0.25 = 1.30)</text>
+    <text x="655" y="780" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#EF4444">ESG: 5.81</text>
+    <text x="655" y="795" font-family="Arial, sans-serif" font-size="7" fill="#EF4444" font-weight="bold">Risk: HIGH</text>
+    <text x="655" y="810" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">±0.34</text>
+    <text x="655" y="825" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">₦650M</text>
+  </g>
+  
+  <!-- Mobile App Access -->
+  <rect x="30" y="875" width="733" height="120" rx="8" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="396" y="895" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">
+    📱 Complete Mobile App ESG Scoring Access
+  </text>
+  
+  <text x="60" y="915" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">✅ Interactive ESG Component Calculator</text>
+  <text x="65" y="925" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Real-time component weight adjustment and scoring</text>
+  
+  <text x="280" y="915" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">📊 Live Score Computation Engine</text>
+  <text x="285" y="925" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Step-by-step calculation visualization</text>
+  
+  <text x="500" y="915" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">🎯 Risk Band Classification</text>
+  <text x="505" y="925" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Automatic risk assessment with confidence intervals</text>
+  
+  <text x="60" y="945" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">🔧 Custom Weight Configuration</text>
+  <text x="65" y="955" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Adjustable component weights for scenario analysis</text>
+  
+  <text x="280" y="945" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">📈 Real Project Comparison</text>
+  <text x="285" y="955" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Side-by-side ESG scoring of multiple projects</text>
+  
+  <text x="500" y="945" font-family="Arial, sans-serif" font-size="8" fill="#374151" font-weight="bold">🔄 Offline Scoring Capability</text>
+  <text x="505" y="955" font-family="Arial, sans-serif" font-size="7" fill="#6B7280">• Cached scoring logic for offline ESG assessment</text>
+  
+  <!-- Summary -->
+  <rect x="30" y="1015" width="733" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="396" y="1035" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1F2937">
+    🏆 ESG Scoring System Summary
+  </text>
+  
+  <text x="80" y="1055" font-family="Arial, sans-serif" font-size="9" fill="#059669" font-weight="bold">Weight Distribution: E(40%) + S(35%) + G(25%)</text>
+  <text x="380" y="1055" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6" font-weight="bold">Score Range: 0.0 - 10.0</text>
+  <text x="580" y="1055" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" font-weight="bold">Confidence: ±0.3</text>
+  
+  <!-- Footer -->
+  <text x="396" y="1095" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+    ESG Component Weights and Scoring Logic - Complete internal model showing component allocation and final score computation
+  </text>
+  <text x="396" y="1110" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">
+    Mobile App Accessible | Real-Time Calculation | Interactive Components | Offline Capable
+  </text>
+</svg>

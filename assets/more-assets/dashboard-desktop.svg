@@ -1,0 +1,95 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#334155;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="80" fill="#1e293b"/>
+  <text x="40" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">FinergyCloud</text>
+  <text x="200" y="45" font-family="Arial, sans-serif" font-size="16" fill="#e2e8f0">AI-Powered Renewable Energy Investment Platform</text>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="80" width="250" height="720" fill="#1e293b"/>
+  <text x="20" y="120" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Navigation</text>
+  <rect x="20" y="140" width="210" height="40" rx="8" fill="#10b981"/>
+  <text x="35" y="165" font-family="Arial, sans-serif" font-size="14" fill="white">📊 Dashboard</text>
+  <text x="35" y="200" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">🏗️ Projects</text>
+  <text x="35" y="230" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">🌱 ESG Scoring</text>
+  <text x="35" y="260" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">💰 IRR Calculator</text>
+  <text x="35" y="290" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">📈 Market Insights</text>
+  <text x="35" y="320" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">🎯 KPI Analytics</text>
+  
+  <!-- Main Content -->
+  <rect x="250" y="80" width="950" height="720" fill="#0f172a"/>
+  
+  <!-- KPI Cards -->
+  <rect x="280" y="110" width="200" height="120" rx="12" fill="url(#cardGrad)"/>
+  <text x="300" y="140" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Total Investments</text>
+  <text x="300" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#10b981">$2.4M</text>
+  <text x="300" y="200" font-family="Arial, sans-serif" font-size="12" fill="#64748b">↗ +15.2% this month</text>
+  
+  <rect x="500" y="110" width="200" height="120" rx="12" fill="url(#cardGrad)"/>
+  <text x="520" y="140" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">AI Accuracy</text>
+  <text x="520" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#10b981">94%</text>
+  <text x="520" y="200" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Prediction Success Rate</text>
+  
+  <rect x="720" y="110" width="200" height="120" rx="12" fill="url(#cardGrad)"/>
+  <text x="740" y="140" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Active Projects</text>
+  <text x="740" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#10b981">127</text>
+  <text x="740" y="200" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Across 15 countries</text>
+  
+  <rect x="940" y="110" width="200" height="120" rx="12" fill="url(#cardGrad)"/>
+  <text x="960" y="140" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">ESG Score</text>
+  <text x="960" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#10b981">A+</text>
+  <text x="960" y="200" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Top 5% globally</text>
+  
+  <!-- Chart Section -->
+  <rect x="280" y="260" width="450" height="300" rx="12" fill="url(#cardGrad)"/>
+  <text x="300" y="290" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Investment Performance</text>
+  <text x="300" y="315" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Real-time portfolio analytics</text>
+  
+  <!-- Chart representation -->
+  <path d="M 320 500 Q 350 450 380 480 Q 410 420 440 440 Q 470 380 500 400 Q 530 340 560 360 Q 590 300 620 320 Q 650 280 680 300" stroke="#10b981" stroke-width="3" fill="none"/>
+  <circle cx="320" cy="500" r="4" fill="#10b981"/>
+  <circle cx="380" cy="480" r="4" fill="#10b981"/>
+  <circle cx="440" cy="440" r="4" fill="#10b981"/>
+  <circle cx="500" cy="400" r="4" fill="#10b981"/>
+  <circle cx="560" cy="360" r="4" fill="#10b981"/>
+  <circle cx="620" cy="320" r="4" fill="#10b981"/>
+  <circle cx="680" cy="300" r="4" fill="#10b981"/>
+  
+  <!-- Right Panel -->
+  <rect x="750" y="260" width="390" height="300" rx="12" fill="url(#cardGrad)"/>
+  <text x="770" y="290" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">AI Insights</text>
+  <text x="770" y="315" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Machine learning predictions</text>
+  
+  <rect x="770" y="335" width="350" height="50" rx="8" fill="#1e293b"/>
+  <text x="785" y="355" font-family="Arial, sans-serif" font-size="12" fill="#10b981">🤖 High Growth Potential</text>
+  <text x="785" y="375" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Solar project in Nigeria - 87% success probability</text>
+  
+  <rect x="770" y="395" width="350" height="50" rx="8" fill="#1e293b"/>
+  <text x="785" y="415" font-family="Arial, sans-serif" font-size="12" fill="#fbbf24">⚠️ Market Alert</text>
+  <text x="785" y="435" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Wind energy prices fluctuating - monitor closely</text>
+  
+  <rect x="770" y="455" width="350" height="50" rx="8" fill="#1e293b"/>
+  <text x="785" y="475" font-family="Arial, sans-serif" font-size="12" fill="#10b981">💚 ESG Opportunity</text>
+  <text x="785" y="495" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Hydroelectric project meets all sustainability criteria</text>
+  
+  <!-- Bottom Section -->
+  <rect x="280" y="580" width="860" height="180" rx="12" fill="url(#cardGrad)"/>
+  <text x="300" y="610" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Recent Activity</text>
+  
+  <text x="320" y="640" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">• New investment: $125K in wind farm project (Nigeria)</text>
+  <text x="320" y="660" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">• ESG report generated for solar installation (Ghana)</text>
+  <text x="320" y="680" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">• AI model updated with Q4 performance data</text>
+  <text x="320" y="700" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">• Portfolio rebalancing completed - +12% efficiency</text>
+  <text x="320" y="720" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">• Multi-currency support enabled for GBP and EUR</text>
+</svg>

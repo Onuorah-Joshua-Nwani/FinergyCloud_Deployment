@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lowRiskGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mediumRiskGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#f1f5f9"/>
+  
+  <!-- Header -->
+  <rect width="1400" height="80" fill="url(#headerGradient)"/>
+  <text x="30" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">FinergyCloud ESG Investment Dashboard</text>
+  <text x="30" y="60" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Real-time ESG Risk Assessment & Investment Intelligence</text>
+  <text x="1200" y="35" font-family="Arial, sans-serif" font-size="16" fill="white">Live Data</text>
+  <circle cx="1330" cy="30" r="8" fill="#10b981"/>
+  <text x="1200" y="60" font-family="Arial, sans-serif" font-size="12" fill="#e2e8f0">Last Updated: 2 mins ago</text>
+
+  <!-- Portfolio Overview Cards -->
+  <rect x="30" y="100" width="280" height="120" rx="8" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="50" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">Total Portfolio Value</text>
+  <text x="50" y="160" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#1e40af">₦2.4B</text>
+  <text x="50" y="185" font-family="Arial, sans-serif" font-size="12" fill="#10b981">↗ +15.2% YTD</text>
+  <text x="50" y="205" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">47 Active Projects</text>
+
+  <rect x="330" y="100" width="280" height="120" rx="8" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="350" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">Average ESG Score</text>
+  <text x="350" y="160" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#059669">8.2/10</text>
+  <text x="350" y="185" font-family="Arial, sans-serif" font-size="12" fill="#10b981">↗ +0.3 this month</text>
+  <text x="350" y="205" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Above industry avg (7.8)</text>
+
+  <rect x="630" y="100" width="280" height="120" rx="8" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="650" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">Projects at Risk</text>
+  <text x="650" y="160" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#dc2626">3/47</text>
+  <text x="650" y="185" font-family="Arial, sans-serif" font-size="12" fill="#dc2626">2 High Risk, 1 Med-High</text>
+  <text x="650" y="205" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Mitigation plans active</text>
+
+  <rect x="930" y="100" width="280" height="120" rx="8" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="950" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">XGBoost Accuracy</text>
+  <text x="950" y="160" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#7c3aed">94.2%</text>
+  <text x="950" y="185" font-family="Arial, sans-serif" font-size="12" fill="#10b981">↗ +0.1% validation</text>
+  <text x="950" y="205" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">3,247 projects trained</text>
+
+  <!-- ESG Score Breakdown -->
+  <rect x="30" y="240" width="580" height="320" rx="8" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="50" y="270" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">ESG Component Breakdown</text>
+  
+  <!-- Environmental Score -->
+  <text x="50" y="300" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#059669">Environmental (40%)</text>
+  <rect x="50" y="310" width="500" height="20" rx="10" fill="#e5e7eb"/>
+  <rect x="50" y="310" width="430" height="20" rx="10" fill="url(#lowRiskGradient)"/>
+  <text x="500" y="325" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">86/100</text>
+  <text x="50" y="345" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">• Carbon Impact: 92pts • Grid Stability: 85pts • Resource Efficiency: 81pts</text>
+
+  <!-- Social Score -->
+  <text x="50" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#059669">Social (40%)</text>
+  <rect x="50" y="380" width="500" height="20" rx="10" fill="#e5e7eb"/>
+  <rect x="50" y="380" width="390" height="20" rx="10" fill="url(#lowRiskGradient)"/>
+  <text x="460" y="395" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">78/100</text>
+  <text x="50" y="415" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">• Community Engagement: 85pts • Energy Access: 72pts • Job Creation: 76pts</text>
+
+  <!-- Governance Score -->
+  <text x="50" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#059669">Governance (20%)</text>
+  <rect x="50" y="450" width="500" height="20" rx="10" fill="#e5e7eb"/>
+  <rect x="50" y="450" width="410" height="20" rx="10" fill="url(#lowRiskGradient)"/>
+  <text x="480" y="465" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">82/100</text>
+  <text x="50" y="485" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">• Framework: 85pts • Transparency: 80pts • Anti-Corruption: 81pts</text>
+
+  <!-- Overall ESG Score -->
+  <rect x="50" y="500" width="520" height="40" rx="8" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+  <text x="70" y="520" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#374151">Overall ESG Score:</text>
+  <text x="220" y="525" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#059669">82/100</text>
+  <rect x="350" y="505" width="80" height="30" rx="15" fill="url(#lowRiskGradient)"/>
+  <text x="375" y="525" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">LOW RISK</text>
+  <text x="450" y="520" font-family="Arial, sans-serif" font-size="14" fill="#059669">INVESTOR READY</text>
+
+  <!-- Risk Assessment Matrix -->
+  <rect x="630" y="240" width="580" height="320" rx="8" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="650" y="270" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">Risk Assessment Matrix</text>
+  
+  <!-- Risk Grade Headers -->
+  <rect x="650" y="290" width="120" height="30" fill="#f3f4f6"/>
+  <text x="690" y="310" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Risk Grade</text>
+  <rect x="770" y="290" width="80" height="30" fill="#f3f4f6"/>
+  <text x="795" y="310" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Projects</text>
+  <rect x="850" y="290" width="120" height="30" fill="#f3f4f6"/>
+  <text x="890" y="310" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Success Rate</text>
+  <rect x="970" y="290" width="120" height="30" fill="#f3f4f6"/>
+  <text x="1010" y="310" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Value (₦M)</text>
+  <rect x="1090" y="290" width="100" height="30" fill="#f3f4f6"/>
+  <text x="1125" y="310" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Action</text>
+
+  <!-- Low Risk Row -->
+  <rect x="650" y="320" width="540" height="35" fill="#f0fdf4"/>
+  <rect x="655" y="325" width="60" height="25" rx="12" fill="url(#lowRiskGradient)"/>
+  <text x="675" y="340" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">LOW</text>
+  <text x="790" y="340" font-family="Arial, sans-serif" font-size="12" fill="#374151">32</text>
+  <text x="890" y="340" font-family="Arial, sans-serif" font-size="12" fill="#374151">97.2%</text>
+  <text x="1000" y="340" font-family="Arial, sans-serif" font-size="12" fill="#374151">1,847</text>
+  <text x="1110" y="340" font-family="Arial, sans-serif" font-size="11" fill="#059669">Proceed</text>
+
+  <!-- Medium Risk Row -->
+  <rect x="650" y="355" width="540" height="35" fill="#fefce8"/>
+  <rect x="655" y="360" width="60" height="25" rx="12" fill="url(#mediumRiskGradient)"/>
+  <text x="675" y="375" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">MED</text>
+  <text x="790" y="375" font-family="Arial, sans-serif" font-size="12" fill="#374151">12</text>
+  <text x="890" y="375" font-family="Arial, sans-serif" font-size="12" fill="#374151">76.8%</text>
+  <text x="1010" y="375" font-family="Arial, sans-serif" font-size="12" fill="#374151">487</text>
+  <text x="1110" y="375" font-family="Arial, sans-serif" font-size="11" fill="#f59e0b">Monitor</text>
+
+  <!-- High Risk Row -->
+  <rect x="650" y="390" width="540" height="35" fill="#fef2f2"/>
+  <rect x="655" y="395" width="60" height="25" rx="12" fill="#dc2626"/>
+  <text x="675" y="410" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">HIGH</text>
+  <text x="795" y="410" font-family="Arial, sans-serif" font-size="12" fill="#374151">3</text>
+  <text x="890" y="410" font-family="Arial, sans-serif" font-size="12" fill="#374151">42.1%</text>
+  <text x="1020" y="410" font-family="Arial, sans-serif" font-size="12" fill="#374151">76</text>
+  <text x="1110" y="410" font-family="Arial, sans-serif" font-size="11" fill="#dc2626">Review</text>
+
+  <!-- Confidence Indicators -->
+  <text x="650" y="450" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">Model Confidence Indicators</text>
+  <rect x="650" y="460" width="520" height="40" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="670" y="480" font-family="Arial, sans-serif" font-size="12" fill="#374151">Prediction Confidence: </text>
+  <text x="800" y="480" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#059669">94%</text>
+  <text x="850" y="480" font-family="Arial, sans-serif" font-size="12" fill="#374151">| Data Quality: </text>
+  <text x="950" y="480" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#059669">Excellent</text>
+  <text x="1020" y="480" font-family="Arial, sans-serif" font-size="12" fill="#374151">| Last Retrain: </text>
+  <text x="1120" y="480" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#059669">3 days ago</text>
+
+  <!-- Alerts and Mitigation Tips -->
+  <rect x="30" y="580" width="580" height="280" rx="8" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="50" y="610" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">Active Alerts & Mitigation Tips</text>
+  
+  <!-- Alert 1 -->
+  <rect x="50" y="630" width="540" height="60" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+  <circle cx="70" cy="650" r="6" fill="#dc2626"/>
+  <text x="90" y="645" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">HIGH PRIORITY</text>
+  <text x="200" y="645" font-family="Arial, sans-serif" font-size="12" fill="#374151">Kaduna Wind Project - Community Engagement Score: 4.2/10</text>
+  <text x="90" y="660" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Recommendation: Immediate stakeholder consultation required</text>
+  <text x="90" y="675" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Next Action: Schedule community meeting within 7 days</text>
+
+  <!-- Alert 2 -->
+  <rect x="50" y="700" width="540" height="60" rx="6" fill="#fefce8" stroke="#fcd34d" stroke-width="1"/>
+  <circle cx="70" cy="720" r="6" fill="#f59e0b"/>
+  <text x="90" y="715" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b">MEDIUM PRIORITY</text>
+  <text x="220" y="715" font-family="Arial, sans-serif" font-size="12" fill="#374151">Lagos Solar Farm - Grid Stability Score: 6.1/10</text>
+  <text x="90" y="730" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Recommendation: Enhanced grid integration planning needed</text>
+  <text x="90" y="745" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Next Action: Technical assessment by grid operator</text>
+
+  <!-- Alert 3 -->
+  <rect x="50" y="770" width="540" height="60" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+  <circle cx="70" cy="790" r="6" fill="#10b981"/>
+  <text x="90" y="785" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">OPPORTUNITY</text>
+  <text x="190" y="785" font-family="Arial, sans-serif" font-size="12" fill="#374151">Ghana Hydro Project - ESG Score improved to 8.8/10</text>
+  <text x="90" y="800" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Achievement: +12% ESG score improvement this quarter</text>
+  <text x="90" y="815" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Next Action: Consider scaling investment allocation</text>
+
+  <!-- Performance Analytics -->
+  <rect x="630" y="580" width="580" height="280" rx="8" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="650" y="610" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">Performance Analytics Dashboard</text>
+  
+  <!-- Monthly Performance Chart -->
+  <text x="650" y="640" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">ESG Score Trends (Last 6 Months)</text>
+  
+  <!-- Chart Background -->
+  <rect x="650" y="650" width="540" height="120" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <!-- Chart Lines -->
+  <polyline points="670,750 720,720 770,710 820,700 870,690 920,680" 
+            fill="none" stroke="#10b981" stroke-width="3"/>
+  <polyline points="670,740 720,730 770,735 820,725 870,720 920,715" 
+            fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5"/>
+            
+  <!-- Chart Labels -->
+  <text x="670" y="790" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Jan</text>
+  <text x="720" y="790" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Feb</text>
+  <text x="770" y="790" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Mar</text>
+  <text x="820" y="790" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Apr</text>
+  <text x="870" y="790" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">May</text>
+  <text x="920" y="790" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Jun</text>
+  
+  <!-- Legend -->
+  <line x1="950" y1="660" x2="970" y2="660" stroke="#10b981" stroke-width="3"/>
+  <text x="975" y="665" font-family="Arial, sans-serif" font-size="11" fill="#374151">Portfolio ESG Score</text>
+  <line x1="950" y1="675" x2="970" y2="675" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="975" y="680" font-family="Arial, sans-serif" font-size="11" fill="#374151">Industry Benchmark</text>
+
+  <!-- Key Metrics Summary -->
+  <rect x="650" y="800" width="540" height="50" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="670" y="820" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Q2 2025 Summary:</text>
+  <text x="670" y="835" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">• 94.2% XGBoost accuracy maintained • 15.2% portfolio growth • 47 active projects • 8.2/10 avg ESG score</text>
+
+  <!-- Footer -->
+  <text x="30" y="885" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">© 2025 FinergyCloud | AI-Powered ESG Investment Platform | Built by O.J. Nwani</text>
+  <text x="1200" y="885" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">Powered by XGBoost ML</text>
+</svg>

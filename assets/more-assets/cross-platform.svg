@@ -1,0 +1,89 @@
+<svg width="900" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="platformGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="400" fill="url(#platformGrad)"/>
+  
+  <!-- Header -->
+  <text x="40" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">Cross-Platform Experience</text>
+  <text x="40" y="65" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Seamless switching between web platform and mobile app</text>
+  
+  <!-- Web Platform -->
+  <rect x="40" y="90" width="400" height="260" rx="12" fill="#334155"/>
+  <text x="60" y="120" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e2e8f0">🖥️ Web Platform</text>
+  
+  <!-- Web Browser -->
+  <rect x="60" y="135" width="360" height="200" rx="8" fill="#1e293b"/>
+  <rect x="60" y="135" width="360" height="25" rx="8" fill="#334155"/>
+  <circle cx="80" cy="147" r="4" fill="#ef4444"/>
+  <circle cx="95" cy="147" r="4" fill="#fbbf24"/>
+  <circle cx="110" cy="147" r="4" fill="#10b981"/>
+  
+  <text x="70" y="180" font-family="Arial, sans-serif" font-size="12" fill="#10b981">FinergyCloud Dashboard</text>
+  <rect x="70" y="190" width="120" height="20" rx="4" fill="#10b981"/>
+  <text x="75" y="203" font-family="Arial, sans-serif" font-size="10" fill="white">Portfolio: ₦2.4M</text>
+  
+  <rect x="200" y="190" width="100" height="20" rx="4" fill="#334155"/>
+  <text x="205" y="203" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">ESG Score: A+</text>
+  
+  <rect x="310" y="190" width="100" height="20" rx="4" fill="#334155"/>
+  <text x="315" y="203" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">AI: 94% Acc</text>
+  
+  <!-- Chart representation -->
+  <path d="M 80 300 Q 120 280 160 260 Q 200 240 240 220 Q 280 200 320 180 Q 360 170 400 165" 
+        stroke="#10b981" stroke-width="2" fill="none"/>
+  
+  <text x="70" y="325" font-family="Arial, sans-serif" font-size="10" fill="#64748b">✓ Full keyboard navigation</text>
+  <text x="250" y="325" font-family="Arial, sans-serif" font-size="10" fill="#64748b">✓ Multi-window support</text>
+  
+  <!-- Mobile App -->
+  <rect x="460" y="90" width="400" height="260" rx="12" fill="#334155"/>
+  <text x="480" y="120" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e2e8f0">📱 Mobile App</text>
+  
+  <!-- Mobile Device -->
+  <rect x="580" y="135" width="160" height="280" rx="20" fill="#1e293b"/>
+  <rect x="590" y="155" width="140" height="240" rx="8" fill="#0f172a"/>
+  
+  <!-- Mobile Header -->
+  <rect x="590" y="155" width="140" height="30" fill="#10b981"/>
+  <text x="605" y="175" font-family="Arial, sans-serif" font-size="10" fill="white">FinergyCloud</text>
+  
+  <!-- Mobile Cards -->
+  <rect x="600" y="195" width="120" height="30" rx="4" fill="#334155"/>
+  <text x="605" y="213" font-family="Arial, sans-serif" font-size="8" fill="#10b981">₦2.4M Portfolio</text>
+  
+  <rect x="600" y="235" width="55" height="25" rx="4" fill="#334155"/>
+  <text x="605" y="250" font-family="Arial, sans-serif" font-size="8" fill="#e2e8f0">94% AI</text>
+  
+  <rect x="665" y="235" width="55" height="25" rx="4" fill="#334155"/>
+  <text x="670" y="250" font-family="Arial, sans-serif" font-size="8" fill="#e2e8f0">A+ ESG</text>
+  
+  <!-- Mobile Chart -->
+  <path d="M 605 330 Q 625 320 645 310 Q 665 300 685 290 Q 705 285 715 283" 
+        stroke="#10b981" stroke-width="1" fill="none"/>
+  
+  <!-- Mobile Navigation -->
+  <rect x="590" y="365" width="140" height="25" fill="#1e293b"/>
+  <text x="605" y="380" font-family="Arial, sans-serif" font-size="8" fill="#10b981">🏠 📊 🌱 💰 👤</text>
+  
+  <text x="480" y="280" font-family="Arial, sans-serif" font-size="10" fill="#64748b">✓ Touch-optimized interface</text>
+  <text x="480" y="300" font-family="Arial, sans-serif" font-size="10" fill="#64748b">✓ Offline data caching</text>
+  <text x="480" y="320" font-family="Arial, sans-serif" font-size="10" fill="#64748b">✓ Push notifications</text>
+  
+  <!-- Sync Arrow -->
+  <path d="M 430 210 Q 445 200 460 210" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 470 230 Q 455 240 440 230" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+    </marker>
+  </defs>
+  
+  <text x="425" y="255" font-family="Arial, sans-serif" font-size="10" fill="#10b981">Real-time</text>
+  <text x="430" y="268" font-family="Arial, sans-serif" font-size="10" fill="#10b981">Sync</text>
+</svg>

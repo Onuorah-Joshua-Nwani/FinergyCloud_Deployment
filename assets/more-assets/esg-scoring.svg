@@ -1,0 +1,84 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="esgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#esgGrad)"/>
+  
+  <!-- Header -->
+  <text x="40" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">ESG Scoring Dashboard</text>
+  <text x="40" y="65" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Comprehensive Environmental, Social & Governance Assessment</text>
+  
+  <!-- ESG Score Display -->
+  <rect x="40" y="90" width="720" height="120" rx="12" fill="#334155"/>
+  <text x="60" y="125" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Overall ESG Score</text>
+  
+  <!-- Large Score Circle -->
+  <circle cx="150" cy="160" r="40" stroke="#10b981" stroke-width="6" fill="none"/>
+  <text x="135" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#10b981">A+</text>
+  
+  <!-- Individual Scores -->
+  <rect x="250" y="120" width="150" height="70" rx="8" fill="#1e293b"/>
+  <text x="270" y="140" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Environmental</text>
+  <text x="270" y="165" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#10b981">92</text>
+  <text x="270" y="180" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Carbon neutral +</text>
+  
+  <rect x="420" y="120" width="150" height="70" rx="8" fill="#1e293b"/>
+  <text x="440" y="140" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Social</text>
+  <text x="440" y="165" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#10b981">88</text>
+  <text x="440" y="180" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Community impact</text>
+  
+  <rect x="590" y="120" width="150" height="70" rx="8" fill="#1e293b"/>
+  <text x="610" y="140" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Governance</text>
+  <text x="610" y="165" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#10b981">94</text>
+  <text x="610" y="180" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Transparency</text>
+  
+  <!-- Impact Metrics -->
+  <rect x="40" y="230" width="350" height="320" rx="12" fill="#334155"/>
+  <text x="60" y="260" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Environmental Impact</text>
+  
+  <text x="70" y="290" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">CO₂ Reduction</text>
+  <text x="70" y="315" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">2,450 tons/year</text>
+  <rect x="70" y="325" width="280" height="8" rx="4" fill="#1e293b"/>
+  <rect x="70" y="325" width="224" height="8" rx="4" fill="#10b981"/>
+  
+  <text x="70" y="360" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Energy Generated</text>
+  <text x="70" y="385" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">15.7 GWh/year</text>
+  <rect x="70" y="395" width="280" height="8" rx="4" fill="#1e293b"/>
+  <rect x="70" y="395" width="252" height="8" rx="4" fill="#10b981"/>
+  
+  <text x="70" y="430" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Water Saved</text>
+  <text x="70" y="455" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">1.2M liters/year</text>
+  <rect x="70" y="465" width="280" height="8" rx="4" fill="#1e293b"/>
+  <rect x="70" y="465" width="196" height="8" rx="4" fill="#10b981"/>
+  
+  <text x="70" y="500" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Trees Equivalent</text>
+  <text x="70" y="525" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">12,250 trees</text>
+  <rect x="70" y="535" width="280" height="8" rx="4" fill="#1e293b"/>
+  <rect x="70" y="535" width="210" height="8" rx="4" fill="#10b981"/>
+  
+  <!-- Social Impact -->
+  <rect x="410" y="230" width="350" height="320" rx="12" fill="#334155"/>
+  <text x="430" y="260" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">Social Impact</text>
+  
+  <rect x="440" y="280" width="310" height="50" rx="8" fill="#1e293b"/>
+  <text x="460" y="300" font-family="Arial, sans-serif" font-size="12" fill="#10b981">👥 Jobs Created</text>
+  <text x="460" y="320" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">347 direct + 1,240 indirect</text>
+  
+  <rect x="440" y="340" width="310" height="50" rx="8" fill="#1e293b"/>
+  <text x="460" y="360" font-family="Arial, sans-serif" font-size="12" fill="#10b981">🏘️ Communities Impacted</text>
+  <text x="460" y="380" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">23 villages, 145K people</text>
+  
+  <rect x="440" y="400" width="310" height="50" rx="8" fill="#1e293b"/>
+  <text x="460" y="420" font-family="Arial, sans-serif" font-size="12" fill="#10b981">📚 Educational Programs</text>
+  <text x="460" y="440" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">12 schools, 3,400 students</text>
+  
+  <rect x="440" y="460" width="310" height="50" rx="8" fill="#1e293b"/>
+  <text x="460" y="480" font-family="Arial, sans-serif" font-size="12" fill="#10b981">⚡ Energy Access</text>
+  <text x="460" y="500" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">98% grid reliability achieved</text>
+  
+  <rect x="440" y="520" width="310" height="20" rx="8" fill="#1e293b"/>
+  <text x="460" y="535" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Exceeds UN SDG targets for sustainable energy access</text>
+</svg>

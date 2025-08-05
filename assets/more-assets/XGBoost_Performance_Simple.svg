@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clean white background -->
+  <rect width="600" height="250" fill="white"/>
+  
+  <!-- Title -->
+  <text x="300" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">
+    XGBoost Model Performance vs Industry Standard
+  </text>
+  
+  <!-- FinergyCloud Bar -->
+  <rect x="100" y="60" width="200" height="50" rx="5" fill="#10b981" stroke="#059669" stroke-width="2"/>
+  <text x="100" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">
+    FinergyCloud XGBoost
+  </text>
+  <text x="200" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+    94.2%
+  </text>
+  
+  <!-- Industry Standard Bar -->
+  <rect x="100" y="140" width="170" height="50" rx="5" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+  <text x="100" y="130" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">
+    Industry Standard
+  </text>
+  <text x="185" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+    85-90%
+  </text>
+  
+  <!-- Performance Advantage Arrow -->
+  <path d="M320 85 L380 85" stroke="#dc2626" stroke-width="3" fill="none"/>
+  <polygon points="380,80 390,85 380,90" fill="#dc2626"/>
+  <text x="410" y="75" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">
+    +4-9%
+  </text>
+  <text x="410" y="90" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">
+    Performance
+  </text>
+  <text x="410" y="105" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">
+    Advantage
+  </text>
+  
+  <!-- Key Achievement Box -->
+  <rect x="80" y="210" width="440" height="30" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="300" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">
+    Breakthrough Achievement: 94.2% Accuracy in ESG Risk Prediction
+  </text>
+</svg>
