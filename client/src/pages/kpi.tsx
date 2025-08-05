@@ -7,10 +7,13 @@ import PortfolioPerformanceChart from "@/components/charts/portfolio-performance
 import ProjectDistributionChart from "@/components/charts/project-distribution-chart";
 import InvestmentPerformanceChart from "@/components/charts/investment-performance-chart";
 import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
+import MobileRiskDashboard from "@/components/mobile-risk-dashboard";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 import { useCurrencyFormat } from "@/hooks/use-currency-format";
 import { useCurrency } from "@/lib/currency-context";
 import { formatCurrency } from "@shared/currency";
-import { Link } from "wouter";
+import CurrencySelector from "@/components/currency-selector";
 import { 
   TrendingUp, 
   Leaf, 
@@ -27,7 +30,10 @@ import {
   Mountain,
   Filter,
   Home,
-  ChevronRight
+  ChevronRight,
+  ChevronLeft,
+  Grid3X3,
+  PieChart
 } from "lucide-react";
 
 // Project type configuration with unique stories and characteristics
@@ -85,6 +91,7 @@ const PROJECT_TYPE_CONFIG = {
 export default function KPIDashboard() {
   
   const [selectedProjectType, setSelectedProjectType] = useState<string>("all");
+  const [dashboardView, setDashboardView] = useState<string>("standard"); // standard or risk
   const { convertAndFormat } = useCurrencyFormat();
   const { selectedCurrency } = useCurrency();
   
@@ -105,8 +112,8 @@ export default function KPIDashboard() {
     if (!projects || !esgMetrics) return null;
 
     const filteredProjects = projectType === "all" 
-      ? projects 
-      : projects.filter((p: any) => p.type === projectType);
+      ? (projects as any[] || [])
+      : (projects as any[] || []).filter((p: any) => p.type === projectType);
 
     if (filteredProjects.length === 0) return null;
 
@@ -114,7 +121,7 @@ export default function KPIDashboard() {
     const avgIRR = (filteredProjects.reduce((sum: number, p: any) => sum + p.irr, 0) / totalProjects).toFixed(1);
     const avgESG = (filteredProjects.reduce((sum: number, p: any) => sum + p.esgScore, 0) / totalProjects).toFixed(1);
     
-    const relatedEsgMetrics = esgMetrics.filter((esg: any) => 
+    const relatedEsgMetrics = (esgMetrics as any[] || []).filter((esg: any) => 
       filteredProjects.some((p: any) => p.id === esg.projectId)
     );
 
@@ -141,7 +148,9 @@ export default function KPIDashboard() {
       totalCommunities,
       riskDistribution,
       totalCapacity,
-      dominantRisk: Object.entries(riskDistribution).reduce((a, b) => riskDistribution[a[0]] > riskDistribution[b[0]] ? a : b)[0]
+      dominantRisk: Object.entries(riskDistribution).reduce((a, b) => 
+        riskDistribution[a[0] as keyof typeof riskDistribution] > riskDistribution[b[0] as keyof typeof riskDistribution] ? a : b
+      )[0] as string
     };
   };
 
@@ -166,51 +175,112 @@ export default function KPIDashboard() {
     );
   }
 
+  // Check if user came from demo (website users) vs actual mobile app users
+  const urlParams = new URLSearchParams(window.location.search);
+  const isMobileApp = urlParams.get('platform') === 'mobile';
+  const fromDemo = urlParams.get('from') === 'demo';
+  const isWebsiteDemo = fromDemo && !isMobileApp; // Demo context for website users only
+
   return (
     <div className="min-h-screen bg-gray-50">
       <section className="py-4 md:py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          {/* Back to Demo Button - Only show for website users accessing through demo */}
+          {isWebsiteDemo && (
+            <div className="mb-6">
+              <button 
+                className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 hover:text-gray-900 transition-colors"
+                onClick={() => {
+                  sessionStorage.removeItem('fromDemo');
+                  // Remove platform parameter to switch from mobile app to website platform
+                  window.location.href = '/demo-access';
+                }}
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Back to Demo
+              </button>
+            </div>
+          )}
+
           {/* Mobile Breadcrumb Navigation */}
           <MobileBreadcrumb items={commonBreadcrumbs.kpiDashboard} />
           
           {/* Header with Project Type Selector */}
         <div className="mb-6 md:mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-            <div>
-              <div className="flex items-center gap-4 mb-2">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-900">KPI Dashboard</h1>
-                <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 truncate">KPI Dashboard</h1>
+                <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full self-start">
                   <DollarSign className="w-4 h-4 text-green-600" />
                   <span className="text-sm font-medium text-green-700">{selectedCurrency}</span>
                 </div>
               </div>
-              <p className="text-sm md:text-base text-gray-600">Comprehensive performance metrics and analytics</p>
+              <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-tight">Comprehensive performance metrics and analytics</p>
             </div>
-            <div className="flex items-center gap-2">
-              <Filter className="w-4 h-4 text-gray-500" />
-              <Select value={selectedProjectType} onValueChange={setSelectedProjectType}>
-                <SelectTrigger className="w-48">
-                  <SelectValue placeholder="Select project type" />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.entries(PROJECT_TYPE_CONFIG).map(([key, config]) => {
-                    const IconComponent = config.icon;
-                    return (
-                      <SelectItem key={key} value={key}>
-                        <div className="flex items-center gap-2">
-                          <IconComponent className="w-4 h-4" />
-                          {config.name}
-                        </div>
-                      </SelectItem>
-                    );
-                  })}
-                </SelectContent>
-              </Select>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-2">
+              {/* Dashboard View Toggle */}
+              <div className="flex items-center bg-gray-100 rounded-lg p-1 w-full sm:w-auto">
+                <button
+                  onClick={() => setDashboardView("standard")}
+                  className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors flex-1 sm:flex-none justify-center sm:justify-start ${
+                    dashboardView === "standard" 
+                      ? "bg-white text-gray-900 shadow-sm" 
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  <Grid3X3 className="w-3 sm:w-4 h-3 sm:h-4" />
+                  <span className="hidden xs:inline">Standard</span>
+                </button>
+                <button
+                  onClick={() => setDashboardView("risk")}
+                  className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors flex-1 sm:flex-none justify-center sm:justify-start ${
+                    dashboardView === "risk" 
+                      ? "bg-white text-gray-900 shadow-sm" 
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  <PieChart className="w-3 sm:w-4 h-3 sm:h-4" />
+                  <span className="hidden xs:inline">Risk</span>
+                </button>
+              </div>
+              
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <Filter className="w-4 h-4 text-gray-500 hidden sm:block" />
+                <Select value={selectedProjectType} onValueChange={setSelectedProjectType}>
+                  <SelectTrigger className="w-full sm:w-40 md:w-48 text-xs sm:text-sm">
+                    <SelectValue placeholder="Select project type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.entries(PROJECT_TYPE_CONFIG).map(([key, config]) => {
+                      const IconComponent = config.icon;
+                      return (
+                        <SelectItem key={key} value={key}>
+                          <div className="flex items-center gap-2">
+                            <IconComponent className="w-4 h-4" />
+                            {config.name}
+                          </div>
+                        </SelectItem>
+                      );
+                    })}
+                  </SelectContent>
+                </Select>
+                
+                <CurrencySelector />
+                
+                {/* PowerBI Dashboard Button */}
+                <Link href={`/powerbi-dashboard?from=kpi${isMobileApp ? '&platform=mobile' : ''}`}>
+                  <Button variant="outline" className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 text-xs sm:text-sm">
+                    <BarChart3 className="w-3 sm:w-4 h-3 sm:h-4" />
+                    <span className="hidden sm:inline">PowerBI</span>
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Project Type Story Banner */}
-          {selectedConfig && (
+          {selectedConfig && dashboardView === "standard" && (
             <div className={`${selectedConfig.color} text-white rounded-lg p-4 mb-6`}>
               <div className="flex items-center gap-3 mb-2">
                 <selectedConfig.icon className="w-6 h-6" />
@@ -226,6 +296,55 @@ export default function KPIDashboard() {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Conditional Dashboard Views */}
+        {dashboardView === "risk" ? (
+          <MobileRiskDashboard isMobile={true} />
+        ) : (
+          <>
+
+        {/* Executive Summary - Quick Insights */}
+        <div className="mb-6 md:mb-8">
+          <Card className="bg-gradient-to-r from-blue-50 to-green-50 border-blue-200">
+            <CardContent className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">Executive Summary</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div className="bg-white p-3 rounded-lg">
+                  <div className="text-xs text-gray-500 mb-1">Portfolio Health</div>
+                  <div className="font-semibold text-green-600">
+                    {projectTypeMetrics ? (
+                      Number(projectTypeMetrics.avgESG) >= 8 ? "Excellent" : 
+                      Number(projectTypeMetrics.avgESG) >= 7 ? "Good" : "Moderate"
+                    ) : "N/A"}
+                  </div>
+                  <div className="text-xs text-gray-600">ESG Score: {projectTypeMetrics?.avgESG || "0"}/10</div>
+                </div>
+                <div className="bg-white p-3 rounded-lg">
+                  <div className="text-xs text-gray-500 mb-1">Investment Performance</div>
+                  <div className="font-semibold text-blue-600">
+                    {projectTypeMetrics ? (
+                      Number(projectTypeMetrics.avgIRR) >= 15 ? "Strong" : 
+                      Number(projectTypeMetrics.avgIRR) >= 12 ? "Solid" : "Conservative"
+                    ) : "N/A"}
+                  </div>
+                  <div className="text-xs text-gray-600">IRR: {projectTypeMetrics?.avgIRR || "0"}%</div>
+                </div>
+                <div className="bg-white p-3 rounded-lg">
+                  <div className="text-xs text-gray-500 mb-1">Risk Profile</div>
+                  <div className={`font-semibold ${
+                    projectTypeMetrics?.dominantRisk === "low" ? "text-green-600" :
+                    projectTypeMetrics?.dominantRisk === "medium" ? "text-yellow-600" : "text-red-600"
+                  }`}>
+                    {projectTypeMetrics?.dominantRisk ? 
+                      projectTypeMetrics.dominantRisk.charAt(0).toUpperCase() + projectTypeMetrics.dominantRisk.slice(1) + " Risk" 
+                      : "Unknown Risk"}
+                  </div>
+                  <div className="text-xs text-gray-600">{projectTypeMetrics?.totalProjects || "0"} Projects</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Primary KPI Cards - Project Type Specific */}
@@ -310,6 +429,47 @@ export default function KPIDashboard() {
           </div>
         </div>
 
+        {/* Regulatory & Compliance Metrics */}
+        <div className="mb-6 md:mb-8">
+          <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+            Regulatory & Compliance
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            <KPICard
+              title="TCFD Compliance"
+              value="95%"
+              description="Climate disclosure alignment"
+              icon={Shield}
+              badge="TCFD"
+              badgeColor="success"
+            />
+            <KPICard
+              title="EU Taxonomy"
+              value="87%"
+              description="Sustainable activity alignment"
+              icon={Leaf}
+              badge="EU Tax"
+              badgeColor="success"
+            />
+            <KPICard
+              title="SDG Alignment"
+              value="12/17"
+              description="UN Sustainable Dev Goals"
+              icon={Target}
+              badge="SDG"
+              badgeColor="primary"
+            />
+            <KPICard
+              title="IFC Standards"
+              value="Compliant"
+              description="Environmental & social standards"
+              icon={Shield}
+              badge="IFC"
+              badgeColor="success"
+            />
+          </div>
+        </div>
+
         {/* Financial Impact Metrics */}
         <div className="mb-6 md:mb-8">
           <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
@@ -346,6 +506,47 @@ export default function KPIDashboard() {
               description="Combined ESG market value"
               icon={TrendingUp}
               badge="Total"
+              badgeColor="primary"
+            />
+          </div>
+        </div>
+
+        {/* Benchmark Performance */}
+        <div className="mb-6 md:mb-8">
+          <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+            Industry Benchmark Performance
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            <KPICard
+              title="vs IFC Benchmark"
+              value="+3.2%"
+              description="Above industry average IRR"
+              icon={TrendingUp}
+              badge="Outperform"
+              badgeColor="success"
+            />
+            <KPICard
+              title="vs MSCI ESG"
+              value="AA"
+              description="Top 25% ESG performance"
+              icon={Leaf}
+              badge="AA Rating"
+              badgeColor="success"
+            />
+            <KPICard
+              title="Carbon Intensity"
+              value="0.02"
+              description="tCO2e/MWh (95% below fossil)"
+              icon={Leaf}
+              badge="Low Carbon"
+              badgeColor="success"
+            />
+            <KPICard
+              title="Sharpe Ratio"
+              value="1.8"
+              description="Risk-adjusted returns"
+              icon={Shield}
+              badge="Strong"
               badgeColor="primary"
             />
           </div>
@@ -493,7 +694,52 @@ export default function KPIDashboard() {
               </CardContent>
             </Card>
           </div>
-        </div>
+
+          {/* Technical Analytics Access Card */}
+          <div className="mt-8">
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3 text-blue-900">
+                  <BarChart3 className="w-6 h-6" />
+                  <div>
+                    <div className="text-lg font-semibold">XGBoost Model & ESG Analytics</div>
+                    <div className="text-sm font-normal text-blue-700">94% Accuracy • Real-time Validation</div>
+                  </div>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-blue-900">94.2%</div>
+                    <div className="text-xs text-blue-700">Model Accuracy</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-700">2,847</div>
+                    <div className="text-xs text-blue-700">Projects Analyzed</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-purple-700">±0.42%</div>
+                    <div className="text-xs text-blue-700">Prediction Error</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-orange-700">99.7%</div>
+                    <div className="text-xs text-blue-700">API Uptime</div>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-blue-200">
+                  <Link href="/technical-charts" className="block">
+                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                      <BarChart3 className="w-5 h-5" />
+                      View Complete Technical Analytics
+                    </button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          </div>
+        </>
+        )}
         </div>
       </section>
     </div>

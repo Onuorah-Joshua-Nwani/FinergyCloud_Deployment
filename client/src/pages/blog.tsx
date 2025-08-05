@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from "wouter";
+import { useState, useEffect } from 'react';
+import { Link, useParams, useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -34,6 +34,19 @@ export default function Blog() {
   const [selectedArticle, setSelectedArticle] = useState<BlogArticle | null>(null);
   const [isReading, setIsReading] = useState(false);
   const { toast } = useToast();
+  const params = useParams();
+  const [location] = useLocation();
+  
+  // Handle direct links to specific blog posts
+  useEffect(() => {
+    if (params.slug) {
+      const article = blogArticles.find(a => a.id === params.slug);
+      if (article) {
+        setSelectedArticle(article);
+        setIsReading(true);
+      }
+    }
+  }, [params.slug]);
   
   const breadcrumbs = [
     { label: "Home", path: "/" },
@@ -53,7 +66,7 @@ export default function Blog() {
     setSelectedArticle(null);
   };
 
-  const handleShare = (article: BlogArticle, platform: 'linkedin' | 'medium' | 'twitter' | 'facebook' | 'whatsapp' | 'telegram' | 'reddit') => {
+  const handleShare = async (article: BlogArticle, platform: 'linkedin' | 'medium' | 'twitter' | 'facebook' | 'whatsapp' | 'telegram' | 'reddit') => {
     let url = '';
     let platformName = '';
     
@@ -63,6 +76,30 @@ export default function Blog() {
         platformName = 'LinkedIn';
         break;
       case 'medium':
+        // Special handling for Medium - copy content and open Medium
+        const mediumContent = `${article.title}
+
+${article.excerpt}
+
+Read the full article at: https://finergycloud.com/blog/${article.id}
+
+#RenewableEnergy #AI #Investment #ESG #FinergyCloud`;
+        
+        try {
+          await navigator.clipboard.writeText(mediumContent);
+          toast({
+            title: "Content copied to clipboard!",
+            description: "Article content copied. Opening Medium to write your story.",
+            duration: 4000,
+          });
+        } catch (err) {
+          toast({
+            title: "Content ready for Medium",
+            description: "Opening Medium to write your story about this article.",
+            duration: 3000,
+          });
+        }
+        
         url = article.mediumUrl || '';
         platformName = 'Medium';
         break;
@@ -90,11 +127,13 @@ export default function Blog() {
     
     if (url) {
       window.open(url, '_blank', 'noopener,noreferrer');
-      toast({
-        title: `Shared to ${platformName}`,
-        description: `Opening ${platformName} to share "${article.title}"`,
-        duration: 3000,
-      });
+      if (platform !== 'medium') {
+        toast({
+          title: `Shared to ${platformName}`,
+          description: `Opening ${platformName} to share "${article.title}"`,
+          duration: 3000,
+        });
+      }
     } else {
       toast({
         title: "Share link not available",

@@ -23,7 +23,8 @@ import {
   CheckCircle,
   Sun,
   Wind,
-  Droplets
+  Droplets,
+  Monitor
 } from "lucide-react";
 import { useCurrency } from "@/lib/currency-context";
 import { formatCurrency } from "@shared/currency";
@@ -127,37 +128,37 @@ export default function MobileBusinessDashboard() {
   const platformFeatures = [
     {
       title: "AI Predictions",
-      description: "94% accuracy XGBoost models",
+      description: "94% accuracy",
       icon: Brain,
       link: "/ai-model?platform=mobile"
     },
     {
       title: "ESG Scoring",
-      description: "Real-time ESG risk assessment",
+      description: "Real-time ESG",
       icon: Leaf,
       link: "/esg-scoring?platform=mobile"
     },
     {
       title: "IRR Calculator",
-      description: `Multi-currency financial modeling (${selectedCurrency})`,
+      description: "Multi-currency",
       icon: Calculator,
       link: "/irr-calculator?platform=mobile"
     },
     {
       title: "Market Insights",
-      description: "West Africa renewable energy trends",
+      description: "West Africa",
       icon: Globe,
       link: "/market-insights?platform=mobile"
     },
     {
       title: "Project Management",
-      description: "Portfolio tracking and analytics",
+      description: "Portfolio",
       icon: Folder,
       link: "/project-management?platform=mobile"
     },
     {
       title: "KPI Dashboard",
-      description: "Real-time performance metrics",
+      description: "Real-time",
       icon: BarChart3,
       link: "/kpi?platform=mobile"
     }
@@ -171,9 +172,15 @@ export default function MobileBusinessDashboard() {
           <h1 className="text-2xl font-bold text-slate-900">
             FinergyCloud Business Dashboard
           </h1>
-          <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full">
-            <DollarSign className="w-4 h-4 text-green-600" />
-            <span className="text-sm font-medium text-green-700">{selectedCurrency}</span>
+          <div className="flex items-center space-x-2">
+            <a href="/" className="flex items-center space-x-1 bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded-full transition-colors cursor-pointer">
+              <Monitor className="w-4 h-4 text-blue-600" />
+              <span className="text-sm font-medium text-blue-700">Website</span>
+            </a>
+            <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full">
+              <DollarSign className="w-4 h-4 text-green-600" />
+              <span className="text-sm font-medium text-green-700">{selectedCurrency}</span>
+            </div>
           </div>
         </div>
         <p className="text-slate-600 text-sm">
@@ -182,16 +189,16 @@ export default function MobileBusinessDashboard() {
       </div>
 
       {/* Key Metrics Grid */}
-      <div className="mobile-grid-2 mobile-gap-2 mb-6">
+      <div className="grid grid-cols-3 gap-2 mb-6">
         {businessMetrics.map((metric, index) => (
-          <div key={index} className="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
-            <div className="flex items-center justify-between mb-2">
+          <div key={index} className="bg-white rounded-xl p-3 shadow-sm border border-slate-200">
+            <div className="flex items-center justify-center mb-2">
               <div className={`p-2 rounded-lg ${metric.bgColor}`}>
                 <metric.icon className={`w-4 h-4 ${metric.color}`} />
               </div>
             </div>
-            <h3 className="text-lg font-semibold text-slate-900">{metric.value}</h3>
-            <p className="text-xs text-slate-500">{metric.title}</p>
+            <h3 className="text-sm font-semibold text-slate-900 text-center">{metric.value}</h3>
+            <p className="text-xs text-slate-500 text-center">{metric.title}</p>
           </div>
         ))}
       </div>
@@ -199,15 +206,19 @@ export default function MobileBusinessDashboard() {
       {/* Platform Features */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-slate-900 mb-3">Platform Features</h2>
-        <div className="mobile-grid-2 mobile-gap-2">
+        <div className="grid grid-cols-3 gap-3">
           {platformFeatures.map((feature, index) => (
             <Link key={index} href={feature.link}>
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:border-blue-300 transition-colors">
-                <div className="flex items-center mb-2">
-                  <feature.icon className="w-5 h-5 text-blue-600 mr-2" />
-                  <h3 className="text-sm font-medium text-slate-900">{feature.title}</h3>
+              <div className="bg-white rounded-xl p-2 shadow-md border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all duration-200 h-[100px] flex flex-col group">
+                <div className="flex items-center justify-center mb-1">
+                  <div className="p-1 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors">
+                    <feature.icon className="w-4 h-4 text-blue-600" />
+                  </div>
                 </div>
-                <p className="text-xs text-slate-500">{feature.description}</p>
+                <div className="flex-1 flex flex-col justify-center">
+                  <h3 className="text-xs font-semibold text-slate-900 text-center mb-1 leading-tight px-1">{feature.title}</h3>
+                  <p className="text-xs text-slate-600 text-center leading-tight overflow-hidden px-1">{feature.description}</p>
+                </div>
               </div>
             </Link>
           ))}

@@ -5,6 +5,7 @@ import AdvancedPredictionEngine from "@/components/advanced-prediction-engine";
 import ModelPerformanceChart from "@/components/charts/model-performance-chart";
 import RiskAssessmentChart from "@/components/charts/risk-assessment-chart";
 import MobileBreadcrumb, { commonBreadcrumbs } from "@/components/mobile-breadcrumb";
+import { Link } from "wouter";
 import { Brain, Zap } from "lucide-react";
 
 export default function AIModel() {
@@ -64,6 +65,42 @@ export default function AIModel() {
             <p className="text-sm md:text-base text-gray-700 font-medium">West Africa Focus</p>
           </div>
         </div>
+
+        {/* AI Risk Simulation Access */}
+        <Card className="mb-6 md:mb-8 border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-green-50">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Brain className="w-5 h-5 text-blue-600" />
+              AI Risk Simulation Results
+            </CardTitle>
+            <p className="text-sm text-gray-600">
+              Compare solar projects across Ghana, Nigeria, and Kenya with our advanced AI risk analysis
+            </p>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center justify-between">
+              <div className="grid grid-cols-3 gap-4 text-sm">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-blue-600">3</div>
+                  <div className="text-xs text-gray-600">Countries</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-green-600">210 MW</div>
+                  <div className="text-xs text-gray-600">Total Capacity</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-purple-600">92%</div>
+                  <div className="text-xs text-gray-600">AI Confidence</div>
+                </div>
+              </div>
+              <Link href={`/ai-risk-simulation${isMobileApp ? '?platform=mobile' : ''}`}>
+                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                  View Results →
+                </button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Feature Importance Chart */}

@@ -192,11 +192,11 @@ export default function ESGScoringSimple() {
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex space-x-4">
+        {/* Action Buttons - Mobile Responsive */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <Button 
             onClick={() => setShowReportDialog(true)}
-            className="bg-green-600 hover:bg-green-700"
+            className="bg-green-600 hover:bg-green-700 flex-1 sm:flex-none"
           >
             <FileText className="w-4 h-4 mr-2" />
             Generate ESG Report
@@ -204,73 +204,74 @@ export default function ESGScoringSimple() {
           <Button 
             onClick={() => setShowCompareDialog(true)}
             variant="outline"
+            className="flex-1 sm:flex-none"
           >
             <GitCompare className="w-4 h-4 mr-2" />
             Compare Projects
           </Button>
         </div>
 
-        {/* ESG Report Dialog */}
+        {/* ESG Report Dialog - Mobile Responsive */}
         <Dialog open={showReportDialog} onOpenChange={setShowReportDialog}>
-          <DialogContent className="max-w-2xl">
+          <DialogContent className="w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="flex items-center gap-2">
-                <FileText className="w-5 h-5 text-green-600" />
+              <DialogTitle className="flex items-center gap-2 text-base sm:text-lg">
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
                 ESG Performance Report
               </DialogTitle>
             </DialogHeader>
-            <div className="space-y-6">
-              <div className="text-center p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-lg">
-                <div className="text-3xl font-bold text-green-600 mb-2">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">
                   {esgData.overall}/10
                 </div>
-                <p className="text-gray-600">Overall ESG Score</p>
+                <p className="text-sm sm:text-base text-gray-600">Overall ESG Score</p>
               </div>
               
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-green-50 rounded-lg">
-                  <div className="text-xl font-bold text-green-600">{esgData.environmental}</div>
-                  <p className="text-sm text-gray-600">Environmental</p>
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                <div className="text-center p-2 sm:p-4 bg-green-50 rounded-lg">
+                  <div className="text-base sm:text-xl font-bold text-green-600">{esgData.environmental}</div>
+                  <p className="text-xs sm:text-sm text-gray-600">Environmental</p>
                 </div>
-                <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <div className="text-xl font-bold text-blue-600">{esgData.social}</div>
-                  <p className="text-sm text-gray-600">Social</p>
+                <div className="text-center p-2 sm:p-4 bg-blue-50 rounded-lg">
+                  <div className="text-base sm:text-xl font-bold text-blue-600">{esgData.social}</div>
+                  <p className="text-xs sm:text-sm text-gray-600">Social</p>
                 </div>
-                <div className="text-center p-4 bg-purple-50 rounded-lg">
-                  <div className="text-xl font-bold text-purple-600">{esgData.governance}</div>
-                  <p className="text-sm text-gray-600">Governance</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-semibold text-gray-900">Key Achievements</h3>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span>95% Renewable Energy Usage</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span>12,500 Jobs Created</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span>4.2M Tons CO2 Avoided</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span>85% Board Independence</span>
-                  </div>
+                <div className="text-center p-2 sm:p-4 bg-purple-50 rounded-lg">
+                  <div className="text-base sm:text-xl font-bold text-purple-600">{esgData.governance}</div>
+                  <p className="text-xs sm:text-sm text-gray-600">Governance</p>
                 </div>
               </div>
 
-              <div className="flex gap-2">
-                <Button className="flex-1" onClick={() => alert('Download functionality would be implemented here')}>
-                  <Download className="w-4 h-4 mr-2" />
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-sm sm:text-base font-semibold text-gray-900">Key Achievements</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 text-xs sm:text-sm">
+                  <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-600 flex-shrink-0" />
+                    <span className="truncate">95% Renewable Energy Usage</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-600 flex-shrink-0" />
+                    <span className="truncate">12,500 Jobs Created</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-600 flex-shrink-0" />
+                    <span className="truncate">4.2M Tons CO2 Avoided</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-600 flex-shrink-0" />
+                    <span className="truncate">85% Board Independence</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button className="flex-1 text-sm" onClick={() => alert('Download functionality would be implemented here')}>
+                  <Download className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                   Download PDF
                 </Button>
-                <Button variant="outline" className="flex-1" onClick={() => alert('View detailed report functionality would be implemented here')}>
-                  <Eye className="w-4 h-4 mr-2" />
+                <Button variant="outline" className="flex-1 text-sm" onClick={() => alert('View detailed report functionality would be implemented here')}>
+                  <Eye className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                   View Details
                 </Button>
               </div>
@@ -278,47 +279,47 @@ export default function ESGScoringSimple() {
           </DialogContent>
         </Dialog>
 
-        {/* Compare Projects Dialog */}
+        {/* Compare Projects Dialog - Mobile Responsive */}
         <Dialog open={showCompareDialog} onOpenChange={setShowCompareDialog}>
-          <DialogContent className="max-w-4xl">
+          <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="flex items-center gap-2">
-                <GitCompare className="w-5 h-5 text-blue-600" />
+              <DialogTitle className="flex items-center gap-2 text-base sm:text-lg">
+                <GitCompare className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                 Project Comparison
               </DialogTitle>
             </DialogHeader>
-            <div className="space-y-6">
-              <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {projects.slice(0, 2).map((project) => (
                   <Card key={project.id}>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                        {project.name}
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+                        <span className="truncate">{project.name}</span>
                       </CardTitle>
-                      <p className="text-sm text-gray-600">{project.location}</p>
+                      <p className="text-xs sm:text-sm text-gray-600 truncate">{project.location}</p>
                     </CardHeader>
                     <CardContent>
-                      <div className="space-y-4">
-                        <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg">
-                          <div className="text-2xl font-bold text-blue-600 mb-1">
+                      <div className="space-y-3 sm:space-y-4">
+                        <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg">
+                          <div className="text-lg sm:text-2xl font-bold text-blue-600 mb-1">
                             {project.esg.overall}/10
                           </div>
-                          <p className="text-sm text-gray-600">Overall ESG Score</p>
+                          <p className="text-xs sm:text-sm text-gray-600">Overall ESG Score</p>
                         </div>
                         
                         <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <span className="text-sm text-gray-600">Environmental</span>
-                            <span className="font-medium">{project.esg.environmental}/10</span>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs sm:text-sm text-gray-600">Environmental</span>
+                            <span className="text-xs sm:text-sm font-medium">{project.esg.environmental}/10</span>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-sm text-gray-600">Social</span>
-                            <span className="font-medium">{project.esg.social}/10</span>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs sm:text-sm text-gray-600">Social</span>
+                            <span className="text-xs sm:text-sm font-medium">{project.esg.social}/10</span>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-sm text-gray-600">Governance</span>
-                            <span className="font-medium">{project.esg.governance}/10</span>
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs sm:text-sm text-gray-600">Governance</span>
+                            <span className="text-xs sm:text-sm font-medium">{project.esg.governance}/10</span>
                           </div>
                         </div>
                       </div>
@@ -327,20 +328,20 @@ export default function ESGScoringSimple() {
                 ))}
               </div>
 
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <h3 className="font-semibold text-gray-900 mb-3">Comparison Summary</h3>
-                <div className="text-sm space-y-2">
-                  <div className="flex justify-between">
-                    <span>Best Environmental Performance:</span>
-                    <span className="font-medium">{projects[0].name}</span>
+              <div className="p-3 sm:p-4 bg-gray-50 rounded-lg">
+                <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-2 sm:mb-3">Comparison Summary</h3>
+                <div className="text-xs sm:text-sm space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Best Environmental Performance:</span>
+                    <span className="font-medium text-right ml-2 truncate">{projects[0].name}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Best Social Impact:</span>
-                    <span className="font-medium">{projects[1].name}</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Best Social Impact:</span>
+                    <span className="font-medium text-right ml-2 truncate">{projects[1].name}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Best Governance:</span>
-                    <span className="font-medium">{projects[0].name}</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Best Governance:</span>
+                    <span className="font-medium text-right ml-2 truncate">{projects[0].name}</span>
                   </div>
                 </div>
               </div>

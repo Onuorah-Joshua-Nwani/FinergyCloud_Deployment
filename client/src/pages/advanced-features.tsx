@@ -4,11 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import MobileBreadcrumb, { commonBreadcrumbs } from '@/components/mobile-breadcrumb';
-import MobileGestureControls from '@/components/mobile-gesture-controls';
 import ProjectRecommendationEngine from '@/components/project-recommendation-engine';
 import RiskHeatMap from '@/components/risk-heat-map';
 import EcoImpactCalculator from '@/components/eco-impact-calculator';
-import VoiceInsightsNarrator from '@/components/voice-insights-narrator';
+
 import { 
   Sparkles, 
   Smartphone, 
@@ -25,18 +24,9 @@ export default function AdvancedFeatures() {
   const urlParams = new URLSearchParams(window.location.search);
   const isMobileApp = urlParams.get('platform') === 'mobile';
   
-  const [activeFeature, setActiveFeature] = useState<string>('gestures');
+  const [activeFeature, setActiveFeature] = useState<string>('recommendations');
 
   const features = [
-    {
-      id: 'gestures',
-      title: 'Mobile Gesture Controls',
-      description: 'Navigate the dashboard with intuitive swipe gestures and touch controls',
-      icon: <Smartphone className="w-6 h-6" />,
-      component: <MobileGestureControls />,
-      color: 'bg-blue-100 text-blue-800',
-      status: 'Active'
-    },
     {
       id: 'recommendations',
       title: 'Data Analytics Beta',
@@ -63,16 +53,8 @@ export default function AdvancedFeatures() {
       component: <EcoImpactCalculator />,
       color: 'bg-green-100 text-green-800',
       status: 'Interactive'
-    },
-    {
-      id: 'voice-narrator',
-      title: 'Voice Insights Narrator',
-      description: 'AI-powered voice assistant for investment insights and analysis',
-      icon: <Mic className="w-6 h-6" />,
-      component: <VoiceInsightsNarrator />,
-      color: 'bg-indigo-100 text-indigo-800',
-      status: 'Speaking'
     }
+
   ];
 
   const currentFeature = features.find(f => f.id === activeFeature);
@@ -100,7 +82,7 @@ export default function AdvancedFeatures() {
         </div>
 
         {/* Feature Overview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
           {features.map(feature => (
             <Card 
               key={feature.id}
@@ -116,8 +98,8 @@ export default function AdvancedFeatures() {
                       {feature.icon}
                     </div>
                     <div>
-                      <CardTitle className="text-lg">{feature.title}</CardTitle>
-                      <Badge className={feature.color}>{feature.status}</Badge>
+                      <CardTitle className="text-base sm:text-lg">{feature.title}</CardTitle>
+                      <Badge className={feature.color} variant="secondary">{feature.status}</Badge>
                     </div>
                   </div>
                 </div>
@@ -153,10 +135,10 @@ export default function AdvancedFeatures() {
         </div>
 
         {/* Feature Statistics */}
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mt-6 sm:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <Card>
             <CardContent className="pt-6 text-center">
-              <div className="text-2xl font-bold text-primary mb-1">5</div>
+              <div className="text-2xl font-bold text-primary mb-1">4</div>
               <div className="text-sm text-gray-600">Advanced Features</div>
             </CardContent>
           </Card>
@@ -189,7 +171,7 @@ export default function AdvancedFeatures() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               <div className="text-center p-4 bg-gray-50 rounded-lg">
                 <Brain className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                 <div className="font-medium text-sm">Machine Learning</div>

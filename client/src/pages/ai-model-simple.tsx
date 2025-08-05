@@ -4,6 +4,7 @@ import {
   Brain, 
   Home, 
   ChevronRight, 
+  ChevronLeft,
   TrendingUp,
   Target,
   AlertTriangle,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 import { useCurrency } from "@/lib/currency-context";
 import { formatCurrency } from "@shared/currency";
+import MobileESGCharts from "@/components/mobile-esg-charts";
 
 export default function AIModelSimple() {
   const { selectedCurrency } = useCurrency();
@@ -28,11 +30,11 @@ export default function AIModelSimple() {
   };
 
   const riskFactors = [
-    { factor: "Grid Stability", score: 8.2, status: "good" },
-    { factor: "Community Engagement", score: 7.5, status: "good" },
-    { factor: "Regulatory Environment", score: 6.8, status: "medium" },
-    { factor: "Technical Feasibility", score: 9.1, status: "excellent" },
-    { factor: "Financial Viability", score: 8.7, status: "good" }
+    { factor: "Grid Stability", score: 8, status: "good" },
+    { factor: "Community Engagement", score: 8, status: "good" },
+    { factor: "Regulatory Environment", score: 7, status: "medium" },
+    { factor: "Technical Feasibility", score: 9, status: "excellent" },
+    { factor: "Financial Viability", score: 9, status: "excellent" }
   ];
 
   const predictions = [
@@ -152,6 +154,16 @@ export default function AIModelSimple() {
   return (
     <div className="min-h-screen bg-gray-50 pt-16 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Back to Demo Button */}
+        <div className="mb-6">
+          <Link href="/demo-access">
+            <button className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+              <ChevronLeft className="w-4 h-4" />
+              Back to Demo
+            </button>
+          </Link>
+        </div>
+
         {/* Breadcrumb Navigation */}
         <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
           <Link href="/?platform=mobile">
@@ -227,6 +239,14 @@ export default function AIModelSimple() {
               <PredictionCard key={prediction.id} prediction={prediction} />
             ))}
           </div>
+        </div>
+
+        {/* Technical Performance Charts */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">XGBoost Model Analytics</h2>
+          <MobileESGCharts chartType="model-performance" isMobile={true} />
+          <MobileESGCharts chartType="feature-importance" isMobile={true} />
+          <MobileESGCharts chartType="real-time" isMobile={true} />
         </div>
 
         {/* Action Buttons */}

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Footer from "@/components/footer";
+import ESGScoringExplanation from "@/components/esg-scoring-explanation";
 import { 
   Zap, 
   Shield, 
@@ -250,6 +251,9 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      {/* ESG Scoring Explanation */}
+      <ESGScoringExplanation />
 
       {/* Testimonials Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
