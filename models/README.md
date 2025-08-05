@@ -320,7 +320,7 @@ const predictions = await batchPredict(projects);
 ## Contact & Support
 
 **Model Team Lead**: O.J. Nwani  
-**Documentation**: Updated January 2025  
-**Next Review**: April 2025  
+**Documentation**: Updated July 2025  
+**Next Review**: April 2026  
 
 For technical questions or model improvement suggestions, please refer to the main FinergyCloud repository documentation.
