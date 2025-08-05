@@ -1,0 +1,316 @@
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Link } from 'wouter';
+import { 
+  BarChart3, 
+  FolderOpen, 
+  Brain, 
+  TreePine, 
+  TrendingUp,
+  Calculator,
+  Lock,
+  Users,
+  ExternalLink,
+  CheckCircle,
+  Clock
+} from 'lucide-react';
+
+interface PlatformAccessModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  platformFeature: 'dashboard' | 'projects' | 'ai-model' | 'esg-scoring' | 'portfolio' | 'market-insights' | 'beta-signup';
+}
+
+export default function PlatformAccessModal({ isOpen, onClose, platformFeature }: PlatformAccessModalProps) {
+  const getPlatformFeatureInfo = (feature: string) => {
+    switch (feature) {
+      case 'dashboard':
+        return {
+          title: 'Investment Dashboard',
+          icon: BarChart3,
+          status: 'Live',
+          access: 'Beta Users',
+          description: 'Real-time overview of your renewable energy investment portfolio',
+          features: [
+            'Portfolio performance analytics',
+            'Risk assessment summaries', 
+            'ESG impact tracking',
+            'Multi-currency financial metrics',
+            'AI-powered insights'
+          ],
+          action: 'Access Dashboard',
+          link: '/web-esg-dashboard',
+          requiresAuth: true
+        };
+        
+      case 'projects':
+        return {
+          title: 'Project Analytics',
+          icon: FolderOpen,
+          status: 'Live',
+          access: 'Beta Users',
+          description: 'Detailed analysis and management of individual renewable energy projects',
+          features: [
+            'Project-specific ESG scoring',
+            'Financial performance tracking',
+            'Risk assessment reports',
+            'Community impact metrics',
+            'Investment timeline management'
+          ],
+          action: 'View Projects',
+          link: '/technical-charts',
+          requiresAuth: true
+        };
+
+      case 'ai-model':
+        return {
+          title: 'AI Predictions',
+          icon: Brain,
+          status: 'Live Beta',
+          access: 'Pilot Program',
+          description: 'XGBoost machine learning predictions for renewable energy project success',
+          features: [
+            '94% accuracy prediction model',
+            'Multi-factor risk analysis',
+            'Success probability scoring',
+            'IRR and financial projections',
+            'Market condition assessment'
+          ],
+          action: 'Try AI Model',
+          link: '/ai-model-simple',
+          requiresAuth: true
+        };
+
+      case 'esg-scoring':
+        return {
+          title: 'ESG Scoring',
+          icon: TreePine,
+          status: 'Live',
+          access: 'All Users',
+          description: 'Comprehensive Environmental, Social & Governance impact assessment',
+          features: [
+            'Project-specific ESG profiles',
+            'Environmental impact calculations',
+            'Social benefit assessments',
+            'Governance risk evaluation',
+            'Comparative benchmarking'
+          ],
+          action: 'Access ESG Scoring',
+          link: '/mobile-scoring',
+          requiresAuth: true
+        };
+
+      case 'portfolio':
+        return {
+          title: 'Portfolio Management',
+          icon: TrendingUp,
+          status: 'Coming Soon',
+          access: 'Q2 2025',
+          description: 'Advanced portfolio optimization and management tools',
+          features: [
+            'Portfolio diversification analysis',
+            'Risk-return optimization',
+            'Geographic distribution insights',
+            'Technology mix recommendations',
+            'Performance benchmarking'
+          ],
+          action: 'Get Notified',
+          link: 'mailto:portfolio@finergycloud.com',
+          requiresAuth: false
+        };
+
+      case 'market-insights':
+        return {
+          title: 'Market Insights',
+          icon: Calculator,
+          status: 'Basic Version',
+          access: 'Beta Users',
+          description: 'Market intelligence and investment opportunity analysis',
+          features: [
+            'West Africa market trends',
+            'Investment opportunity alerts',
+            'Regulatory environment updates',
+            'Currency and policy impacts',
+            'Competitive landscape analysis'
+          ],
+          action: 'View Insights',
+          link: '/kpi',
+          requiresAuth: true
+        };
+
+      case 'beta-signup':
+        return {
+          title: 'Explore Platform',
+          icon: Users,
+          status: 'Open',
+          access: 'Free Access',
+          description: 'Access FinergyCloud\'s AI-powered renewable energy investment platform demo',
+          features: [
+            'Full platform demo access',
+            'AI prediction models with 94% accuracy',
+            'Complete ESG scoring framework',
+            'Multi-currency IRR calculator',
+            'Interactive charts and analytics',
+            'Mobile and web interfaces'
+          ],
+          action: 'Start Demo',
+          link: '/login',
+          requiresAuth: false
+        };
+
+      default:
+        return {
+          title: 'Platform Feature',
+          icon: BarChart3,
+          status: 'Unknown',
+          access: 'TBD',
+          description: 'Platform feature information',
+          features: [],
+          action: 'Learn More',
+          link: '/',
+          requiresAuth: false
+        };
+    }
+  };
+
+  const feature = getPlatformFeatureInfo(platformFeature);
+  const IconComponent = feature.icon;
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'Live': return 'bg-green-100 text-green-800';
+      case 'Live Beta': return 'bg-blue-100 text-blue-800';
+      case 'Basic Version': return 'bg-yellow-100 text-yellow-800';
+      case 'Coming Soon': return 'bg-gray-100 text-gray-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
+  const handleAccess = () => {
+    if (feature.requiresAuth) {
+      // Check if user has completed dummy login (simple localStorage check)
+      const isAuthenticated = localStorage.getItem('demoLoggedIn') === 'true';
+      
+      if (!isAuthenticated) {
+        window.location.href = '/login';
+      } else {
+        window.location.href = feature.link;
+      }
+    } else {
+      if (feature.link.startsWith('mailto:')) {
+        window.location.href = feature.link;
+      } else {
+        window.location.href = feature.link;
+      }
+    }
+    onClose();
+  };
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg">
+            <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
+            <span className="truncate">{feature.title}</span>
+          </DialogTitle>
+          <DialogDescription className="text-sm sm:text-base text-gray-600 leading-relaxed">
+            {feature.description}
+          </DialogDescription>
+          <div className="flex gap-2 flex-wrap mt-2">
+            <Badge className={`${getStatusColor(feature.status)} text-xs whitespace-nowrap`}>
+              {feature.status}
+            </Badge>
+            <Badge variant="outline" className="text-xs whitespace-nowrap">
+              {feature.access}
+            </Badge>
+          </div>
+        </DialogHeader>
+
+        <div className="space-y-4 sm:space-y-6">
+          {/* Features List */}
+          <Card>
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="text-base sm:text-lg">Key Features</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <ul className="space-y-2 sm:space-y-3">
+                {feature.features.map((featureItem, index) => (
+                  <li key={index} className="flex items-start gap-2 sm:gap-3">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{featureItem}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Access Information */}
+          {feature.requiresAuth && (
+            <Card className="bg-blue-50 border-blue-200">
+              <CardContent className="p-3 sm:p-4">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-blue-900 text-sm sm:text-base">Authentication Required</h4>
+                    <p className="text-blue-800 text-xs sm:text-sm mt-1 leading-relaxed">
+                      This feature requires a FinergyCloud account. Join our pilot program for access.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {feature.status === 'Coming Soon' && (
+            <Card className="bg-amber-50 border-amber-200">
+              <CardContent className="p-3 sm:p-4">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-amber-900 text-sm sm:text-base">In Development</h4>
+                    <p className="text-amber-800 text-xs sm:text-sm mt-1 leading-relaxed">
+                      We're actively building this feature. Expected availability: {feature.access}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between sm:items-center pt-4 border-t">
+            <Button variant="outline" onClick={onClose} className="w-full sm:w-auto min-h-[44px] sm:min-h-[40px] touch-manipulation">
+              Close
+            </Button>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+              {feature.requiresAuth && (
+                <Link href="/beta">
+                  <Button variant="outline" className="w-full sm:w-auto min-h-[44px] sm:min-h-[40px] touch-manipulation">
+                    <Users className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">Join Pilot Program</span>
+                  </Button>
+                </Link>
+              )}
+              <Button onClick={handleAccess} className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto min-h-[44px] sm:min-h-[40px] touch-manipulation">
+                {feature.link.startsWith('mailto:') ? (
+                  <>
+                    <ExternalLink className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">{feature.action}</span>
+                  </>
+                ) : (
+                  <>
+                    <IconComponent className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">{feature.action}</span>
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
