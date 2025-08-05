@@ -1,6 +1,6 @@
 # ESG Weighted Risk Scoring Matrix - FinergyCloud
 
-## **📊 ESG Component Weighting Structure**
+## **ESG Component Weighting Structure**
 
 ### **Primary ESG Weights**
 ```
@@ -16,7 +16,7 @@ markets where community impact and environmental sustainability are
 equally critical for project success.
 ```
 
-## **🌍 Environmental Scoring Matrix (40% Weight)**
+## **Environmental Scoring Matrix (40% Weight)**
 
 ### **Environmental Component Breakdown**
 ```
@@ -60,7 +60,7 @@ Score Range    Risk Level    Investment Implication              Typical Project
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## **👥 Social Scoring Matrix (40% Weight)**
+## **Social Scoring Matrix (40% Weight)**
 
 ### **Social Component Breakdown**
 ```
@@ -148,7 +148,7 @@ Score Range    Risk Level    Investment Implication              Oversight Statu
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## **⚖️ Overall ESG Risk Scoring Matrix**
+## **Overall ESG Risk Scoring Matrix**
 
 ### **Composite ESG Score Calculation**
 ```
@@ -198,7 +198,7 @@ ESG Score   Capacity Range    Recommended Investment    Risk Premium    Monitori
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## **📊 Sector-Specific Risk Adjustments**
+## **Sector-Specific Risk Adjustments**
 
 ### **Technology Type Risk Modifiers**
 ```
@@ -224,7 +224,7 @@ Tanzania          -1 point         -2 points        -2 points         -5 points
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## **⚡ Real-Time Risk Assessment Algorithm**
+## **Real-Time Risk Assessment Algorithm**
 
 ### **Dynamic Risk Scoring Process**
 ```
@@ -259,7 +259,7 @@ STEP 5: Final Risk Classification
 └─ Provide monitoring frequency
 ```
 
-## **🔄 Model Validation & Calibration**
+## **Model Validation & Calibration**
 
 ### **Scoring Accuracy Validation**
 ```
@@ -279,7 +279,7 @@ Brier Score: 0.043 (Excellent - closer to 0 is better)
 
 ---
 
-## **📋 Implementation Notes**
+## **Implementation Notes**
 
 ### **Data Sources for Scoring**
 ```
