@@ -11,53 +11,36 @@
 
 ## Overview
 
-**FinergyCloud** is an intelligent platform for renewable energy investing.  
-It integrates machine learning, ESG analytics, and financial modeling to deliver actionable insights into clean energy projects.
-Whether you're a climate-focused investor, renewable developer, or ESG advisor, FinergyCloud helps you evaluate project risk, forecast ROI, and make confident investment decisions.
+FinergyCloud is a comprehensive full-stack renewable energy investment platform that leverages artificial intelligence, advanced analytics, and sustainable finance to democratize access to clean energy investments. The platform combines cutting-edge technology with financial modeling to provide AI-powered investment predictions, ESG scoring, and portfolio management for renewable energy projects.
 
+## 🌟 Key Features
 
-## Key Features
+- **🤖 AI-Powered Predictions**: XGBoost machine learning models with 94% accuracy for renewable energy project success prediction
+- **📊 ESG Scoring System**: Comprehensive Environmental, Social, and Governance assessment with project-specific templates
+- **💰 Multi-Currency Support**: Real-time currency conversion supporting NGN, GBP, and EUR
+- **📈 Portfolio Management**: Real-time analytics and performance tracking
+- **💼 Professional Dashboard**: Business-grade interface with comprehensive project management
+- **📱 Mobile-First Design**: Responsive interface optimized for mobile and desktop
 
-- **AI-Powered Predictions**: XGBoost machine learning models with 94% accuracy for renewable energy project success prediction
-- **ESG Scoring System**: Comprehensive Environmental, Social, and Governance assessment with project-specific templates
-- **Multi-Currency Support**: Real-time currency conversion supporting NGN, GBP, and EUR
-- **Portfolio Management**: Real-time analytics and performance tracking
-- **Professional Dashboard**: Business-grade interface with comprehensive project management
-- **Mobile-First Design**: Responsive interface optimized for mobile and desktop
+## 🖼️ Platform Screenshots
 
-## Platform Screenshots
-
-### Website Interfaces  
+### Website Interface  
+*Professional dashboard and analytics views*
 
 <div align="center">
   <img src="screenshots/website/home.png" alt="Home" width="800"/>
-  <p><em>Comprehensive Renewable Energy Solutions</em></p>
+  <p><em>Comprehensive Renewable Energy Solutions - Featuring; XGBoost Risk Engine, ESG Risk Scoring, Financial Models, and Power BI Dashboards</em></p>
 </div>
-
-
-<div align="center">
-  <img src="screenshots/website/howesgscoringworks.png" alt="How ESG Scoring Works" width="800"/>
-  <p><em>Input Variables We Analyze & XGBoost Model Processing Pipeline</em></p>
-</div>
-
-
-<div align="center">
-  <img src="screenshots/website/esgscorebands.png" alt="ESG Score Bands" width="800"/>
-  <p><em>ESG Score Bands/Investment Recommendations & Sample ESG Assessment Result</em></p>
-</div>
-
 
 <div align="center">
   <img src="screenshots/website/about.png" alt="About" width="800"/>
   <p><em>What Drives Us - Innovation, Sustainability, Integrity, and Partnership </em></p>
 </div>
 
-
 <div align="center">
   <img src="screenshots/website/platform.png" alt="Platform" width="800"/>
   <p><em>Comprehensive Investment Intelligence, Industries We Serve </em></p>
 </div>
-
 
 <div align="center">
   <img src="screenshots/website/blog.png" alt="Blog" width="800"/>
@@ -69,48 +52,28 @@ Whether you're a climate-focused investor, renewable developer, or ESG advisor, 
   <p><em>FinergyCloud Insights & Research</em></p>
 </div>
 
-<div align="center">
-  <img src="screenshots/website/footer.png" alt="Footer" width="800"/>
-  <p><em>Comprehensive Footer Features</em></p>
-</div>
-
-
 ### Mobile App Interface  
 *Optimized mobile experience for on-the-go investment management*
 
 <div align="center">
-  <img src="screenshots/mobile/mobile-profile.png" alt="Mobile Profile" width="270"/>
-  <img src="screenshots/mobile/mobile-dashboard.png" alt="Mobile Dashboard" width="270"/>
-  <img src="screenshots/mobile/mobile-projects.png" alt="Mobile Projects" width="270"/>
+  <img src="screenshots/mobile/mobile-dashboard.png" alt="Mobile Dashboard" width="300"/>
+  <img src="screenshots/mobile/mobile-projects.png" alt="Mobile Projects" width="300"/>
+  <img src="screenshots/mobile/mobile-analytics.png" alt="Mobile Analytics" width="300"/>
   <p><em>Mobile Dashboard, Project Management, and Analytics Views</em></p>
 </div>
 
 <div align="center">
-  <img src="screenshots/mobile/mobile-esg.png" alt="Mobile ESG" width="270"/>
-  <img src="screenshots/mobile/mobile-predictions.png" alt="Mobile Predictions" width="270"/>
-  <img src="screenshots/mobile/mobile-analytics.png" alt="Mobile Analytics" width="270"/>
+  <img src="screenshots/mobile/mobile-esg.png" alt="Mobile ESG" width="300"/>
+  <img src="screenshots/mobile/mobile-predictions.png" alt="Mobile Predictions" width="300"/>
+  <img src="screenshots/mobile/mobile-profile.png" alt="Mobile Profile" width="300"/>
   <p><em>Mobile ESG Scoring, AI Predictions, and User Profile</em></p>
 </div>
 
-<div align="center">
-  <img src="screenshots/mobile/kpidashboard.png" alt="KPI Dashboard" width="270"/>
-  <img src="screenshots/mobile/sustainabilityrewards.png" alt="Sustainability Rewards" width="270"/>
-  <img src="screenshots/mobile/marketinsights.png" alt="Market Insights" width="270"/>
-  <p><em>KPI Dashboard, Sustainability Rewards and Market Insights</em></p>
-</div>
-
-<div align="center">
-   <img src="screenshots/mobile/irrprediction.png" alt="IRR Prediction" width="270"/>
-  <img src="screenshots/mobile/irrprojectinvestdetails.png" alt="IRR Project Details" width="270"/>
-  <img src="screenshots/mobile/irrcalculationresults.png" alt="IRR Calculation Results" width="270"/>
-  <p><em>IRR Prediction, IRR Project Details, IRR Calculation Results</em></p>
-</div>
-
-## AI-Driven ESG Scoring Engine
+## 🧠 How ESG Scoring Works
 
 FinergyCloud uses advanced XGBoost machine learning models to provide comprehensive ESG scoring and investment recommendations for renewable energy projects.
 
-### ESG Scoring Process
+### Our AI-Powered Assessment Process
 
 **Input Variables:**
 - **Financial Metrics**: CAPEX, OPEX, projected IRR, cash flow patterns
@@ -126,7 +89,7 @@ FinergyCloud uses advanced XGBoost machine learning models to provide comprehens
 4. **Confidence Scoring**: Generate reliability metrics for predictions
 5. **Risk Classification**: Categorize projects into investment bands
 
-### Sample ESG Output
+### Sample ESG Assessment Results
 
 ```json
 {
@@ -180,12 +143,12 @@ FinergyCloud uses advanced XGBoost machine learning models to provide comprehens
 
 | Score Range | Risk Band | Classification | Investment Action |
 |-------------|-----------|---------------|------------------|
-| 85-100 | **Low Risk** | Investor Ready | Immediate funding approval |
-| 70-84 | **Medium Risk** | Conditional Approval | Address specific concerns |
-| 55-69 | **High Risk** | Development Required | Substantial improvements needed |
-| Below 55 | **Very High Risk** | Not Recommended | Significant restructuring required |
+| 85-100 | **Low Risk** | Investor Ready | ✅ Immediate funding approval |
+| 70-84 | **Medium Risk** | Conditional Approval | ⚠️ Address specific concerns |
+| 55-69 | **High Risk** | Development Required | 🔄 Substantial improvements needed |
+| Below 55 | **Very High Risk** | Not Recommended | ❌ Significant restructuring required |
 
-## Platform Capabilities
+## 🚀 Platform Capabilities
 
 ### AI & Analytics
 - **Machine Learning Models**: XGBoost algorithms for project success prediction
@@ -205,7 +168,7 @@ FinergyCloud uses advanced XGBoost machine learning models to provide comprehens
 - **Portfolio Management**: Diversification and performance tracking
 - **Investment Modeling**: Cash flow analysis and ROI projections
 
-##  Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 - **React 18** with TypeScript for robust component development
@@ -233,8 +196,8 @@ FinergyCloud uses advanced XGBoost machine learning models to provide comprehens
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/finergycloud.git
-cd finergycloud
+git clone https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment.git
+cd FinergyCloud_Deployment
 ```
 
 2. Install dependencies:
@@ -316,7 +279,29 @@ The application uses Drizzle ORM with PostgreSQL. Key tables include:
 - `esg_metrics` - ESG scoring data
 - `market_insights` - Market analysis data
 
-##  Target Users
+## 🗂️ Screenshots Directory Structure
+
+To add your screenshots to the README, create a `screenshots/` directory in your repository and organize your images as follows:
+
+```
+screenshots/
+├── website/
+│   ├── dashboard-overview.png
+│   ├── esg-scoring.png
+│   ├── ai-predictions.png
+│   └── portfolio-management.png
+└── mobile/
+    ├── mobile-dashboard.png
+    ├── mobile-projects.png
+    ├── mobile-analytics.png
+    ├── mobile-esg.png
+    ├── mobile-predictions.png
+    └── mobile-profile.png
+```
+
+Then update the image paths in the README to match your actual screenshot locations.
+
+## 🎯 Target Users
 
 - **Project Developers**: Renewable energy project creators seeking funding and risk assessment
 - **NGO Finance Teams**: Organizations managing sustainable development portfolios
@@ -324,7 +309,7 @@ The application uses Drizzle ORM with PostgreSQL. Key tables include:
 - **Impact Investors**: Individuals and institutions focused on sustainable investments
 - **Financial Advisors**: Professionals managing renewable energy investment portfolios
 
-##  Market Focus
+## 🌍 Market Focus
 
 FinergyCloud specifically targets emerging markets with a focus on:
 - **African Markets**: Primary focus on Nigerian renewable energy sector
@@ -332,21 +317,21 @@ FinergyCloud specifically targets emerging markets with a focus on:
 - **Regional Compliance**: Adherence to local regulatory requirements
 - **Community Impact**: Emphasis on local job creation and social benefits
 
-##  Security & Compliance
+## 🔒 Security & Compliance
 
 - **Data Protection**: GDPR-compliant data handling and storage
 - **Secure Authentication**: Session-based authentication with secure cookie management
 - **API Security**: Request validation and rate limiting
 - **Database Security**: Encrypted connections and secure credential management
 
-##  Performance Metrics
+## 📈 Performance Metrics
 
 - **AI Accuracy**: 94% prediction accuracy for project success rates
 - **Response Time**: Sub-second API response times
 - **Mobile Performance**: Optimized for 3G/4G network conditions
 - **Uptime**: 99.9% availability target with automated monitoring
 
-##  Contributing
+## 🤝 Contributing
 
 We welcome contributions from the community! Here's how you can help:
 
@@ -359,7 +344,7 @@ We welcome contributions from the community! Here's how you can help:
 ### Development Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/finergycloud.git
+git clone https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment.git
 
 # Install dependencies
 npm install
@@ -373,20 +358,29 @@ npm run db:push
 # Start development server
 npm run dev
 ```
-##  Live Demo & Links
 
-- [Website](https://www.finergycloud.com)
-- [Mobile App](https://www.finergycloud.com/mobile-app)
-- [Wiki](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/wiki)
-- [Issues](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/issues)
-
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support & Contact
+
+- **Documentation**: [Project Wiki](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/wiki)
+- **Issues**: [GitHub Issues](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Onuorah-Joshua-Nwani/FinergyCloud_Deployment/discussions)
+- **Email**: [your-email@example.com](mailto:your-email@example.com)
+
+## 🌟 Show Your Support
+
+If you find FinergyCloud helpful, please consider:
+- ⭐ Starring the repository
+- 🐛 Reporting bugs or suggesting features
+- 💬 Sharing with your network
+- 🤝 Contributing to the project
 
 ---
 
 <div align="center">
-  <p>Built with love for sustainable energy and climate action</p>
+  <p>Built with ❤️ for sustainable energy and climate action</p>
   <p>© 2024 FinergyCloud. All rights reserved.</p>
 </div>

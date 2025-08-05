@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-***REMOVED***act from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
@@ -34,7 +34,8 @@ export default defineConfig({
     deny: ["**/.*"],
   },
   hmr: {
-    overlay: false
-  },
+  overlay: false,  // Enable error overlays
+ 
+}
 },
 });

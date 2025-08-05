@@ -1,0 +1,16 @@
+Storage type: MemStorage
+Environment: NODE_ENV=development, DATABASE_URL=set
+Starting FinergyCloud server...
+Environment: development
+SESSION_SECRET available: true
+DATABASE_URL available: true
+Using PostgreSQL session store
+3:53:44 PM [express] FinergyCloud serving on 0.0.0.0:5000
+Server started successfully
+Access the application at: http://localhost:5000
+Mobile app: http://localhost:5000/?platform=mobile
+Health check: http://localhost:5000/api/health
+
+🟢 REPLIT SERVER READY ON PORT 5000 🟢
+Preview URL: https://7dd13212-e6ad-4c47-be70-2f844171b442-00-15tmn1l2tiykx.spock.replit.dev
+3:53:49 PM [express] GET /api/health 200 in 4ms :: {"status":"ok","timestamp":"2025-07-22T15:53:49.8…
