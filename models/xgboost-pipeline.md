@@ -346,5 +346,5 @@ v2.1.0 (October 2024)
 **Memory Usage**: 45MB at runtime  
 **Prediction Latency**: 150-200ms average  
 
-**Last Updated**: January 24, 2025  
-**Next Review**: April 2025
+**Last Updated**: July 24, 2025  
+**Next Review**: April 2026
