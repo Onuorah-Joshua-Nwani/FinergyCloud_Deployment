@@ -361,4 +361,3 @@ print("=" * 70)
 if __name__ == "__main__":
     print("XGBoost Model Training Complete!")
     print(f"Final Accuracy: {accuracy:.1%}")
-    print("Ready for TechNation application submission.")
