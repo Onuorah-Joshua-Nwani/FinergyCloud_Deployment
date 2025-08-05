@@ -300,7 +300,7 @@ export class ModelMonitoring {
 
 ### Version Release Log
 ```
-v2.1.3 (January 2025) - Current Production
+v2.1.3 (July 2025) - Current Production
 - Improved community engagement feature weights
 - Added currency stability indicators
 - Enhanced geographic risk scoring
