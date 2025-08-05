@@ -25,6 +25,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// Domain redirect middleware - ensure all traffic goes to correct domain
+app.use((req, res, next) => {
+  const host = req.get('host');
+  if (host && host.startsWith('www.')) {
+    const redirectUrl = `https://${host.substring(4)}${req.originalUrl}`;
+    console.log(`Redirecting from ${host} to ${host.substring(4)}`);
+    return res.redirect(301, redirectUrl);
+  }
+  next();
+});
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: false, limit: '10mb' }));
 
@@ -155,14 +166,27 @@ app.use((req, res, next) => {
           console.log("No static files found, trying vite serve");
           setupVite(app, server);
         }
-      } catch (error) {
+      } catch (error: any) {
         console.log("Production build error:", error.message);
         console.log("Falling back to development mode");
         setupVite(app, server);
       }
     } else {
       // Development mode - use Vite for frontend serving
-      setupVite(app, server);
+      // Override process.exit to prevent Vite from killing the server
+      const originalExit = process.exit;
+      process.exit = ((code?: number) => {
+        console.log(`Prevented process.exit(${code}) - keeping server alive`);
+        return {} as never;
+      }) as any;
+      
+      try {
+        setupVite(app, server);
+      } catch (error: any) {
+        console.error('Vite setup error:', error.message);
+        // Restore original process.exit after Vite setup
+        process.exit = originalExit;
+      }
     }
 
     // Use Railway's PORT or fallback to 5000 for local development
@@ -206,15 +230,15 @@ app.use((req, res, next) => {
       process.exit(1);
     });
     
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to start server:', error);
     console.error('Error stack:', error.stack);
     
     // Don't exit immediately, try to provide some debugging info
-    if (error.message.includes('Cannot resolve module')) {
+    if (error.message && error.message.includes('Cannot resolve module')) {
       console.error('Module resolution error - check imports and dependencies');
     }
-    if (error.message.includes('TypeScript')) {
+    if (error.message && error.message.includes('TypeScript')) {
       console.error('TypeScript compilation error - check syntax');
     }
     

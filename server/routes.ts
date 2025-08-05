@@ -3,12 +3,37 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./auth";
 import { insertPredictionSchema } from "@shared/schema";
+import { performanceMonitor } from "./performance-monitor";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Enable performance monitoring for all routes
+  app.use(performanceMonitor.trackRequest());
+
   // Health check endpoint for Railway
   app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+  });
+
+  // Performance monitoring endpoints for academic review
+  app.get('/api/performance/stats', async (req, res) => {
+    try {
+      const stats = await performanceMonitor.getPerformanceStats();
+      res.json(stats);
+    } catch (error) {
+      console.error('Error getting performance stats:', error);
+      res.status(500).json({ error: 'Failed to get performance statistics' });
+    }
+  });
+
+  app.get('/api/performance/export', async (req, res) => {
+    try {
+      const reportFile = await performanceMonitor.exportPerformanceReport();
+      res.download(reportFile, 'finergycloud-performance-report.json');
+    } catch (error) {
+      console.error('Error exporting performance report:', error);
+      res.status(500).json({ error: 'Failed to export performance report' });
+    }
   });
 
   // Setup authentication middleware
